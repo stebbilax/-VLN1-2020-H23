@@ -1,1 +1,16 @@
-23.10.2020
+23.11.2020
+
+Objectives:
+    Basic structure of the report
+    Requirements engineering of the essential requirements
+    Stakeholder analysis
+
+Assignment:
+    Elias Guðjohnsen & Jason Guðnason   : Requirements engineering priority A
+    Bjarki Laxdal & Gunnlaug            : Requirements engineering priority B
+    Arnar Már & Stefán Laxdal           : Stakeholder Analysis
+
+End report:
+
+
+Notes:
