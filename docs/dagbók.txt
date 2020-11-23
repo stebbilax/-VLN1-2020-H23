@@ -1,9 +1,9 @@
 23.11.2020
 
 Objectives:
-    Basic structure of the report
-    Requirements engineering of the essential requirements
-    Stakeholder analysis
+    Basic structure of the report.
+    Requirements engineering of the essential requirements.
+    Stakeholder analysis.
 
 Assignment:
     Elias Guðjohnsen & Jason Guðnason   : Requirements engineering priority A
@@ -11,6 +11,8 @@ Assignment:
     Arnar Már & Stefán Laxdal           : Stakeholder Analysis
 
 End report:
-
+    Completed requirements engineering A & B.
+    Completed stakeholder analysis.
 
 Notes:
+    Requirements engineering includes both non and functional requirements.
