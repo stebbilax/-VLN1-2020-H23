@@ -30,6 +30,8 @@ Assignment:
     Arnar, Bjarki, Gunnlaug, Stefán     : Use case engineering
 
 End report:
+    Completed use case engineering.
+    Completed including stakeholder groups into requirements.
 
 Notes:
 
