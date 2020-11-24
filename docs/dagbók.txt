@@ -16,3 +16,21 @@ End report:
 
 Notes:
     Requirements engineering includes both non and functional requirements.
+
+#----------------------------------------------------------------------------------#
+
+24.11.2020
+
+Objectives:
+    Include stakeholder groups in requirements.
+    Use cases as represented by the requirements.
+
+Assignment:
+    Elias Guðjohnsen & Jason Guðnason   : Including stakeholder groups into requirements & use cases
+    Arnar, Bjarki, Gunnlaug, Stefán     : Use case engineering
+
+End report:
+
+Notes:
+
+#----------------------------------------------------------------------------------#
