@@ -51,8 +51,10 @@ Assignment:
     After completion of state diagrams, everyone designs the system class diagram together.
 
 End report:
-
+    Completed essential state diagrams.
+    Partial completion of class diagram.
 
 Notes:
+    Class diagram requires a little more refinment.
 
 #----------------------------------------------------------------------------------#
