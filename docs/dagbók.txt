@@ -36,3 +36,23 @@ End report:
 Notes:
 
 #----------------------------------------------------------------------------------#
+
+25.11.2020
+
+Objectives:
+    Complete essential state diagrams.
+    Complete system class diagram.
+
+Assignment:
+    Elias Guðjohnsen, Jason Guðnason   : State diagram engineering
+    Arnar Már, Stefán Laxdal           : State diagram engineering
+    Bjarki Laxdal, Gunnlaug            : State diagram engineering
+    
+    After completion of state diagrams, everyone designs the system class diagram together.
+
+End report:
+
+
+Notes:
+
+#----------------------------------------------------------------------------------#
