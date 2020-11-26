@@ -71,6 +71,8 @@ Assignment:
     Bjarki Laxdal, Gunnlaug            : Class diagram & system architecture
     
 End report:
+    Completed wireframe and happy paths for use cases.
+    Continued work on class diagram.
 
 Notes:
     The idea is to come together with a solid understanding of how to implement the system.
