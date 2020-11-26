@@ -58,3 +58,21 @@ Notes:
     Class diagram requires a little more refinment.
 
 #----------------------------------------------------------------------------------#
+
+26.11.2020
+
+Objectives:
+    Finalize system class diagram.
+    Converse about system architecture.
+
+Assignment:
+    Elias Guðjohnsen, Jason Guðnason   : Class diagram & system architecture
+    Arnar Már, Stefán Laxdal           : Class diagram & system architecture
+    Bjarki Laxdal, Gunnlaug            : Class diagram & system architecture
+    
+End report:
+
+Notes:
+    The idea is to come together with a solid understanding of how to implement the system.
+
+#----------------------------------------------------------------------------------#
