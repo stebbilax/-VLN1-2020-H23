@@ -78,3 +78,22 @@ Notes:
     The idea is to come together with a solid understanding of how to implement the system.
 
 #----------------------------------------------------------------------------------#
+
+27.11.2020
+
+Objectives:
+    Including wireframes and happy paths into the report.
+    Final touches and refinment.
+
+Assignment:
+    Elias Guðjohnsen, Jason Guðnason   : Final touches & report formatting
+    Arnar Már, Stefán Laxdal           : Final touches & report formatting
+    Bjarki Laxdal, Gunnlaug            : Final touches & report formatting
+    
+End report:
+    Completed first draft for report.
+
+Notes:
+
+
+#----------------------------------------------------------------------------------#
