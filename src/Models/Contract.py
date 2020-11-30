@@ -1,5 +1,5 @@
 class Contract:
-    def __init__(self, name, phone, address, email, date_from, date_to, vehicle_id, location, vehicle_status, employee_id, loan_date, return_date, total, loan_status):
+    def __init__(self, name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status):
         self.name = name
         self.phone = phone
         self.address = address
@@ -7,7 +7,7 @@ class Contract:
         self.date_from = date_from
         self.date_to = date_to
         self.vehicle_id = vehicle_id
-        self.location = location
+        self.country = country
         self.vehicle_status = vehicle_status
         self.employee_id = employee_id
         self.loan_date = loan_date
@@ -17,7 +17,7 @@ class Contract:
 
     
     def __str__(self):
-        return f'{self.name}, {self.phone}, {self.address}, {self.email}, {self.date_from}, {self.date_to}, {self.vehicle_id}, {self.location}, {self.vehicle_status}, {self.employee_id}, {self.loan_date}, {self.return_date}, {self.total}, {self.loan_status}'
+        return f'{self.name}, {self.phone}, {self.address}, {self.email}, {self.date_from}, {self.date_to}, {self.vehicle_id}, {self.country}, {self.vehicle_status}, {self.employee_id}, {self.loan_date}, {self.return_date}, {self.total}, {self.loan_status}'
     
 
     def __dict__(self):
@@ -60,8 +60,8 @@ class Contract:
     def set_vehicle_id(self, vehicle_id):
         self.vehicle_id = vehicle_id
     
-    def set_location(self, location):
-        self.location = location
+    def set_country(self, country):
+        self.country = country
     
     def set_vehicle_status(self, vehicle_status):
         self.vehicle_status = vehicle_status
@@ -79,8 +79,12 @@ class Contract:
         self.total = total
     
     def set_loan_status(self, loan_status):
+<<<<<<< HEAD
         self.loan_status = loan_status
 
 
 
     
+=======
+        self.loan_status = loan_status
+>>>>>>> f1b8ef4bc860ef97876b65e3e45db920d087420e
