@@ -15,6 +15,9 @@ class Contract:
         self.total = total
         self.loan_status = loan_status
     
+    def __str__(self):
+        return f'{self.name}, {self.phone}, {self.address}, {self.email}, {self.date_from}, {self.date_to}, {self.vehicle_id}, {self.location}, {self.vehicle_status}, {self.employee_id}, {self.loan_date}, {self.return_date}, {self.total}, {self.loan_status}'
+    
     def set_name(self, name):
         self.name = name
     
