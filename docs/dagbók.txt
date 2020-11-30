@@ -112,7 +112,8 @@ Assignment:
     Bjarki Laxdal, Gunnlaug            : Customer and Vehicle models.
     
 End report:
-    
+    Completed initial main TUI logic.
+    Completed model classes.
 
 Notes:
 
