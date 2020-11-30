@@ -1,4 +1,4 @@
-class Contracts:
+class Contract:
     def __init__(self, name, phone, address, email, date_from, date_to, vehicle_id, location, vehicle_status, employee_id, loan_date, return_date, total, loan_status):
         self.name = name
         self.phone = phone
@@ -14,3 +14,6 @@ class Contracts:
         self.return_date = return_date
         self.total = total
         self.loan_status = loan_status
+
+
+    
