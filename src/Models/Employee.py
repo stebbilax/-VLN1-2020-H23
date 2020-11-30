@@ -21,7 +21,6 @@ class Country(Enum):
     svalbard = 4
     faroe_islands = 5
 
-
 class Employee:
     def __init__(self, name, address, postal_code, ssn, phone, mobile_phone, email, title, location, country):
         self.name = name
