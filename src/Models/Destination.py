@@ -38,9 +38,3 @@ class Destinations:
         
     def set_opening_hours(self, opening_hours):
         self.opening_hours = opening_hours
-    
-    
-    
-    
-d = Destinations(1, 1, '+354 5555555', '09:00 - 17:00')
-print(d)
