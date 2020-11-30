@@ -68,7 +68,7 @@ class Employee:
         *   Svalbard        - 4
         *   Faroe Islands   - 5
     '''
-    
+
     def __init__(self, name, address, postal_code, ssn, phone, mobile_phone, email, title, location, country):
         self.name = name
         self.address = address
@@ -86,31 +86,23 @@ class Employee:
     def __str__(self):
         return f'{self.ssn}, {self.name}, {self.country}, {self.location}, {self.title}'
            
-
-    
     def set_name(self, name):
         self.name = name
-
 
     def set_address(self, address):
         self.address = address
 
-
     def set_postal_code(self, postal_code):
         self.postal_code = postal_code
 
-    
     def set_phone(self, phone):
         self.phone = phone
 
-    
     def set_mobile_phone(self, mobile_phone):
         self.mobile_phone = mobile_phone
 
-    
     def set_email(self, email):
         self.email = email
-
 
     def set_location(self, location):
         self.location = Location(location).name
@@ -123,10 +115,6 @@ class Employee:
 
 
     
-
-
-
-
 # e = Employee('Chuck Norris', 'Svarthöfða 1', '110', '250645-9999', '+354 5555555', '+354 6890001', 'bigc@nan.is', 1, 2, 5)
 
 
