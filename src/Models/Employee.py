@@ -22,6 +22,53 @@ class Country(Enum):
     faroe_islands = 5
 
 class Employee:
+    '''
+    Class Employee
+
+    Attributes:
+    -   name            (string)
+    -   address         (string)
+    -   postal_code     (int)
+    -   ssn             (string)
+    -   phone           (string)
+    -   mobile_phone    (string)
+    -   email           (string)
+    -   title           (enum)
+    -   location        (enum)
+    -   country         (enum)
+
+    Methods:
+    -   set_name(name)
+    -   set_address(address)
+    -   set_postal_code(postal_code)
+    -   set_phone(phone)
+    -   set_mobile_phone(mobile_phone)
+    -   set_email(email)
+    -   set_location(location)
+    -   set_title(title)
+    -   set_country(country)
+
+    Enums:
+    -   Location
+        *   Reykjavik       - 1
+        *   Nuuk            - 2
+        *   Kulusk          - 3
+        *   Tingwall        - 4
+        *   Longyearbyen    - 5
+        *   Torshavn        - 6
+
+    -   Title
+        *   Office          - 1
+        *   Airport         - 2
+
+    -   Country
+        *   Iceland         - 1
+        *   Greenland       - 2
+        *   Shetland        - 3
+        *   Svalbard        - 4
+        *   Faroe Islands   - 5
+    '''
+    
     def __init__(self, name, address, postal_code, ssn, phone, mobile_phone, email, title, location, country):
         self.name = name
         self.address = address
@@ -71,7 +118,7 @@ class Employee:
     def set_title(self, title):
         self.title = Title(title).name
 
-    def set_countr(self, country):
+    def set_country(self, country):
         self.country = Country(country).name
 
 
