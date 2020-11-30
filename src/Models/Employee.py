@@ -21,7 +21,6 @@ class Country(Enum):
     svalbard = 4
     faroe_islands = 5
 
-
 class Employee:
     '''
     Class Employee
