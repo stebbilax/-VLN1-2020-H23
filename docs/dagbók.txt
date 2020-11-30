@@ -97,3 +97,24 @@ Notes:
 
 
 #----------------------------------------------------------------------------------#
+
+30.11.2020
+
+Objectives:
+    Set up repository on all developer machines.
+    Complete model classes.
+    Complete main TUI logic.
+
+Assignment:
+    Elias Guðjohnsen                   : Complete main TUI logic.
+    Jason Guðnason                     : Destination model.
+    Arnar Már, Stefán Laxdal           : Contract and Employee models.
+    Bjarki Laxdal, Gunnlaug            : Customer and Vehicle models.
+    
+End report:
+    
+
+Notes:
+
+
+#----------------------------------------------------------------------------------#
