@@ -18,8 +18,10 @@ class Country(Enum):
 
 class Destination:
     def __init__(self, country, airport, phone, opening_hours):
-        self.country = Country(int(country)).name
-        self.airport = Airport(int(airport)).name
+        # self.country = Country(int(country)).name
+        # self.airport = Airport(int(airport)).name
+        self.country = country
+        self.airport = airport
         self.phone = phone
         self.opening_hours = opening_hours
     
@@ -37,10 +39,12 @@ class Destination:
 
 
     def set_country(self, country):
-        self.country = Country(int(country)).name
+        # self.country = Country(int(country)).name
+        self.country = country
     
     def set_airport(self, airport):
-        self.airport = Airport(int(airport)).name
+        # self.airport = Airport(int(airport)).name
+        self.airport = airport
         
     def set_phone(self, phone):
         self.phone = phone

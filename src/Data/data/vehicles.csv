@@ -1,4 +1,11 @@
 type,manufacturer,yom,color,req_rights,airport,condition,model
-Medium water,Yedoo,2002,red,Im amazing licence,torshavn,OK,Fat Max
-Medium water,Yedoo,2002,red,Im amazing licence,torshavn,OK,Fat Max
-Medium water,Yedoo,2002,red,Im amazing licence,torshavn,OK,Fat Max
+Light off-road,Yedoo,2012,blue,Im amazing licence,torshavn,OK,Crazy
+Light water,Yedoo,2020,grey,Im amazing licence,longyearbyen,OK,Fat Max
+Light water,WildChild,2000,blue,None,longyearbyen,OK,Fat Max
+Medium off-road,Cani-Fit,1998,grey,Drivers licence,kulusk,OK,Crazy
+Medium off-road,Yedoo,1995,green,Im amazing licence,reykjavik,DEFECTIVE,Free Fly II
+Light water,Yedoo,2005,red,Drivers licence,nuuk,OK,Free Fly II
+Medium off-road,Cani-Fit,2009,grey,Im amazing licence,longyearbyen,OK,Fat Max
+Light water,Kayman Kayaks,2011,green,None,tingwall,DEFECTIVE,Crazy
+Light road,TAILG,2015,green,None,reykjavik,DEFECTIVE,Fat Max
+Light water,WildChild,2006,black,None,torshavn,OK,Fat Max

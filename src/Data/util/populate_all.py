@@ -52,8 +52,8 @@ def customer():
     }
 def destination():
     return {
-        'country' : randint(1, 6),
-        'airport' : randint(1, 5),
+        'country' : D.make_country(),
+        'airport' : D.make_airpor(),
         'phone' : D.make_phone(),
         'opening_hours' : D.make_opening_hours(),
     }
@@ -67,9 +67,9 @@ def employee():
         'phone' : D.make_phone(),
         'mobile_phone' : D.make_phone(),
         'email' : D.make_email(),
-        'title' : randint(1, 2),
-        'airport' : randint(1, 6),
-        'country' : randint(1, 5),
+        'title' : make_title(),
+        'airport' : make_airport(),
+        'country' : make_country(),
     }
 def vehicle():
     return {

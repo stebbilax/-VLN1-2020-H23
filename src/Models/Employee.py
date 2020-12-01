@@ -77,9 +77,12 @@ class Employee:
         self.phone = phone
         self.mobile_phone = mobile_phone
         self.email = email
-        self.title = Title(int(title)).name
-        self.airport = Airport(int(airport)).name
-        self.country = Country(int(country)).name
+        # self.title = Title(int(title)).name
+        # self.airport = Airport(int(airport)).name
+        # self.country = Country(int(country)).name
+        self.title = title
+        self.airport = airport
+        self.country = country
 
     def __str__(self):
         return f'{self.name}, {self.address}, {self.postal_code}, {self.ssn}, {self.phone}, {self.mobile_phone}, {self.email}, {self.title}, {self.airport}, {self.country}'
@@ -117,13 +120,16 @@ class Employee:
         self.email = email
 
     def set_airport(self, airport):
-        self.airport = Airport(int(airport)).name
+        # self.airport = Airport(int(airport)).name
+        self.airport = airport
         
     def set_title(self, title):
-        self.title = Title(int(title)).name
+        # self.title = Title(int(title)).name
+        self.title = title
 
     def set_country(self, country):
-        self.country = Country(int(country)).name
+        # self.country = Country(int(country)).name
+        self.country = country
 
 
     
