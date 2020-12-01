@@ -42,7 +42,7 @@ class Vehicle:
         self.licence = licence
 
     def set_airport(self, Airport):
-        self.airport = airport
+        self.airport = Airport
 
     def set_condition(self, Condition):
         self.condition = Condition
