@@ -58,6 +58,9 @@ class Dummy:
     def make_title(self):
         return choice(['airport', 'office'])
 
+    def make_id(self):
+        return randint(1, 999)
+
 
 
 
@@ -74,7 +77,7 @@ class Dummy:
     def make_color(self):
         return choice(['red', 'blue', 'green', 'grey', 'black'])
 
-    def make_req_rights(self):
+    def make_licence(self):
         return choice(['None', 'Drivers licence', 'Im amazing licence'])
 
     def make_model(self):

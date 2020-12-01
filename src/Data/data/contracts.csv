@@ -1,11 +1,11 @@
-name,phone,address,email,date_from,date_to,vehicle_id,country,vehicle_status,employee_id,loan_date,return_date,total,loan_status
-Lucas,967-6809,EthanStreet 30,William@nan.is,2020-02-05,2020-12-20,OQ517,Farao Islands,OK,7831,2020-01-14,2020-07-08,413,LATE
-Lucas,892-7961,LucasStreet 18,Charlotte@nan.is,2020-01-06,2020-09-19,AA005,Svalbard,DEFECTIVE,2463,2020-03-18,2020-09-17,1687,RETURNED
-James,791-7494,HarperSquare 20,Mason@nan.is,2020-04-02,2020-05-06,DI308,Svalbard,OK,0934,2020-04-04,2020-12-07,2862,LATE
-Mason,673-8618,WilliamStreet 18,William@nan.is,2020-01-01,2020-05-04,UL980,Farao Islands,OK,2321,2020-01-10,2020-06-08,3937,OK
-Noah,865-1545,HarperStreet 15,Ava@nan.is,2020-03-19,2020-06-09,WD940,Greenland,OK,2558,2020-01-05,2020-11-20,2697,LATE
-Harper,760-4473,OliverSquare 22,Mason@nan.is,2020-02-03,2020-09-15,TQ409,Shetland,OK,0467,2020-05-12,2020-10-18,1227,LATE
-Evelyn,874-4940,SophiaTown 15,Ava@nan.is,2020-01-01,2020-11-15,OD367,Farao Islands,DEFECTIVE,2917,2020-04-03,2020-12-20,3382,LATE
-Harper,777-8713,ElijahRoad 3,Charlotte@nan.is,2020-02-08,2020-06-02,TM805,Farao Islands,OK,0489,2020-05-08,2020-06-20,3578,RETURNED
-Mason,678-0406,OliviaRoad 27,William@nan.is,2020-03-20,2020-09-04,MF077,Farao Islands,DEFECTIVE,2162,2020-01-02,2020-10-12,2080,RETURNED
-Liam,861-0347,MiaSquare 25,Mia@nan.is,2020-04-12,2020-08-15,GP756,Greenland,OK,9806,2020-04-09,2020-10-04,1658,OK
+id,name,phone,address,email,date_from,date_to,vehicle_id,country,vehicle_status,employee_id,loan_date,return_date,total,loan_status
+857,Ava,875-7788,OliviaRoad 14,Sophia@nan.is,2020-02-10,2020-09-01,JN179,Greenland,OK,4738,2020-04-11,2020-08-04,3346,LATE
+815,Liam,796-2245,EmmaStreet 21,Harper@nan.is,2020-04-02,2020-12-17,MT504,Iceland,OK,9773,2020-02-20,2020-08-12,277,OK
+875,Amelia,880-5281,EthanTown 23,Harper@nan.is,2020-03-05,2020-11-01,BO295,Iceland,DEFECTIVE,9768,2020-02-09,2020-10-18,2063,LATE
+189,Oliver,885-8229,AvaTown 14,Mia@nan.is,2020-03-10,2020-05-09,ID336,Greenland,DEFECTIVE,0488,2020-01-01,2020-09-19,3468,LATE
+515,Harper,987-8958,EmmaTown 5,Mia@nan.is,2020-04-11,2020-09-14,OK253,Svalbard,DEFECTIVE,7189,2020-04-18,2020-06-17,1712,LATE
+808,Evelyn,881-4120,AvaRoad 20,Amelia@nan.is,2020-02-06,2020-07-20,FX727,Greenland,OK,9706,2020-01-08,2020-05-06,3862,OK
+975,Harper,971-7152,IsabellaTown 27,Benjamin@nan.is,2020-02-02,2020-09-05,PO996,Greenland,DEFECTIVE,2773,2020-02-09,2020-05-17,1225,OK
+67,Ethan,663-8648,MasonRoad 30,Isabella@nan.is,2020-05-17,2020-10-01,FP819,Farao Islands,DEFECTIVE,2981,2020-04-03,2020-10-01,3204,RETURNED
+391,Sophia,676-0493,OliviaStreet 23,Sophia@nan.is,2020-03-03,2020-11-02,KV149,Iceland,OK,9909,2020-02-04,2020-11-16,1750,LATE
+827,Ethan,782-7578,OliviaSquare 28,Oliver@nan.is,2020-05-09,2020-11-08,AM472,Farao Islands,DEFECTIVE,4273,2020-03-09,2020-11-16,234,RETURNED

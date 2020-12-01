@@ -25,6 +25,7 @@ vehicle_type_fields = config['fields']['vehicle_type_fields'].split(',')
 
 def contract():
     return {
+        'id' : D.make_id(),
         'name' : D.make_name(),
         'phone' : D.make_phone(),
         'address' : D.make_address(),
@@ -42,16 +43,19 @@ def contract():
     }
 def customer():
     return {
+        'id' : D.make_id(),
         'name' : D.make_name(),
         'ssn' : D.make_ssn(),
         'address' : D.make_address(),
         'postal_code' : D.make_postal_code(),
         'phone' : D.make_phone(),
         'email' : D.make_email(),
-        'country' : D.make_country()
+        'country' : D.make_country(),
+        'licence' : D.make_licence()
     }
 def destination():
     return {
+        'id' : D.make_id(),
         'country' : D.make_country(),
         'airport' : D.make_airport(),
         'phone' : D.make_phone(),
@@ -60,6 +64,7 @@ def destination():
 
 def employee():
     return {
+        'id' : D.make_id(),
         'name' : D.make_name(),
         'address' : D.make_address(),
         'postal_code' : D.make_postal_code(),
@@ -73,11 +78,12 @@ def employee():
     }
 def vehicle():
     return {
+        'id' : D.make_id(),
         'type' : D.make_type(),
         'manufacturer' : D.make_manufacturer(),
         'yom' : D.make_yom(),
         'color' : D.make_color(),
-        'req_rights' : D.make_req_rights(),
+        'licence' : D.make_licence(),
         'airport' : D.make_airport(),
         'condition' : D.make_vehicle_status(),
         'model' : D.make_model(),
@@ -85,6 +91,7 @@ def vehicle():
 
 def vehicle_type():
     return {
+        'id' : D.make_id(),
         'name': D.make_type(),
         'regions': D.make_country(),
         'rate' : 1337

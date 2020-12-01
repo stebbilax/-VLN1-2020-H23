@@ -1,16 +1,17 @@
 class Vehicle:
-    def __init__(self,Type, Manufacturer, YOM, Color, Req_Rights, Airport, Condition, Model):
+    def __init__(self,Type, Manufacturer, YOM, Color, licence, Airport, Condition, Model):
+        self.id = None
         self.type = Type
         self.manufacturer = Manufacturer
         self.yom = YOM
         self.color = Color
-        self.req_rights = Req_Rights
+        self.licence = licence
         self.airport = Airport
         self.condition = Condition
         self.model = Model
 
     def __str__(self):
-        return f'{self.type}, {self.manufacturer}, {self.yom}, {self.color}, {self.req_rights}, {self.airport}, {self.condition}, {self.model}'
+        return f'{self.type}, {self.manufacturer}, {self.yom}, {self.color}, {self.licence}, {self.airport}, {self.condition}, {self.model}'
 
     def __dict__(self):
         return {
@@ -18,7 +19,7 @@ class Vehicle:
             'manufacturer' : self.manufacturer, 
             'yom' : self.yom, 
             'color' : self.color, 
-            'req_rights' : self.req_rights, 
+            'licence' : self.licence, 
             'airport' : self.airport, 
             'condition' : self.condition,
             'model' : self.model 
@@ -37,8 +38,8 @@ class Vehicle:
     def set_color(self, Color):
         self.color = Color
 
-    def set_req_rights(self, Req_Rights):
-        self.req_rights = Req_Rights
+    def set_licence(self, licence):
+        self.licence = licence
 
     def set_airport(self, Airport):
         self.airport = airport

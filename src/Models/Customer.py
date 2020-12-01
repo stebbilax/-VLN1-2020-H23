@@ -3,6 +3,7 @@ class Customer:
     Model class for customer
     """
     def __init__(self,name,ssn,address,postal_code,phone,email,country,licence):
+        self.id = None
         self.name = name 
         self.ssn = ssn
         self.address = address

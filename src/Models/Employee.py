@@ -70,6 +70,7 @@ class Employee:
     '''
 
     def __init__(self, name, address, postal_code, ssn, phone, mobile_phone, email, title, airport, country):
+        self.id = None
         self.name = name
         self.address = address
         self.postal_code = postal_code
