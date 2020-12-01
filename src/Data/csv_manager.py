@@ -66,8 +66,6 @@ class Csv_Manager:
                 writer.writerow(line_obj)
 
 
-
-
     def read_all(self, name):
         model = self.get_model(name)
         name, fields = self.get_name_and_fields(name)

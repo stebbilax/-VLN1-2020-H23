@@ -1,9 +1,3 @@
-from enum import Enum
-
-
-
-
-
 class Vehicle_Type:
     def __init__(self, name, regions, rate):
         self.name = name

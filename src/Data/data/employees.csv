@@ -1,11 +1,4 @@
 name,address,postal_code,ssn,phone,mobile_phone,email,title,airport,country
-Charlotte,MiaStreet 18,177,111254-2134,783-9177,792-8718,Harper@nan.is,2,4,1
-Mia,OliverTown 5,879,101070-8363,889-6897,862-3929,Amelia@nan.is,2,1,2
-Isabella,BenjaminSquare 0,272,121172-5243,887-6463,769-6713,Elijah@nan.is,1,3,4
-Evelyn,MiaTown 8,324,111181-7577,784-6465,962-8255,Ava@nan.is,2,2,3
-Emma,CharlotteSquare 16,245,121069-5121,677-2390,663-9256,Elijah@nan.is,2,5,4
-James,ElijahTown 3,184,121261-7016,776-5574,661-5694,Liam@nan.is,2,6,4
-Evelyn,OliverTown 26,414,121160-9076,679-7384,796-4067,Benjamin@nan.is,1,5,1
-Benjamin,MasonTown 5,974,121061-5585,688-8936,795-0459,James@nan.is,1,5,3
-Ava,MasonRoad 27,333,101283-7976,873-7932,685-7991,Isabella@nan.is,1,2,4
-Amelia,OliverTown 19,823,111252-7127,898-8796,684-3558,Olivia@nan.is,1,6,4
+Charlotte,MiaStreet 18,177,111254-2134,783-9177,792-8718,Harper@nan.is,airport,tingwall,iceland
+Charlotte,MiaStreet 18,177,111254-2134,783-9177,792-8718,Harper@nan.is,airport,tingwall,iceland
+Charlotte,MiaStreet 18,177,111254-2134,783-9177,792-8718,Harper@nan.is,airport,tingwall,iceland

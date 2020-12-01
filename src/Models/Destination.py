@@ -27,7 +27,7 @@ class Destination:
         return "{:10} {:12} {:15} {:10}".format(self.country, self.airport, self.phone, self.opening_hours)
     
     
-    def __dir__(self):
+    def __dict__(self):
         return {
             'country' : self.country,
             'airport' : self.airport,

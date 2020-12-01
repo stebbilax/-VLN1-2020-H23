@@ -15,7 +15,7 @@ class Customer:
     def __str__(self):
         return f'{self.name}, {self.ssn}, {self.address}, {self.postal_code}, {self.phone}, {self.email}, {self.country}'  
 
-    def __dir__(self):
+    def __dict__(self):
         return {
             'name' : self.name, 
             'ssn' : self.ssn,

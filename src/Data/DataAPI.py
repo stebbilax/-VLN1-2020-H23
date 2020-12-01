@@ -2,6 +2,13 @@ import os
 from Data.csv_manager import Csv_Manager
 
 class DataAPI:
+    """
+    Methods:
+    -   write_all_[contracts, customers, destinations, employees, vehicles, vehicle_types]
+    -   read_all_[contracts, customers, destinations, employees, vehicles, vehicle_types]
+
+    All data should be a list of objects
+    """
     def __init__(self):
         self.data_dir = os.getcwd() + '\data/'
         self.manager = Csv_Manager(self.data_dir)

@@ -1,11 +1,4 @@
 name,phone,address,email,date_from,date_to,vehicle_id,country,vehicle_status,employee_id,loan_date,return_date,total,loan_status
 William,661-5593,HarperTown 1,Evelyn@nan.is,2020-03-16,2020-11-20,ZJ952,Svalbard,OK,6362,2020-03-01,2020-12-16,2331,RETURNED
-Elijah,663-8462,MasonRoad 12,Harper@nan.is,2020-04-12,2020-06-19,YE127,Shetland,OK,2388,2020-03-02,2020-10-04,894,OK
-Olivia,666-2203,HarperTown 6,Benjamin@nan.is,2020-05-11,2020-11-03,DS184,Shetland,OK,9703,2020-05-02,2020-05-14,2761,RETURNED
-Liam,674-3638,OliviaRoad 12,Sophia@nan.is,2020-03-05,2020-10-08,FQ536,Farao Islands,OK,3539,2020-01-15,2020-08-04,2079,LATE
-Charlotte,862-5577,LiamSquare 12,Mia@nan.is,2020-04-09,2020-05-18,BS480,Iceland,DEFECTIVE,9209,2020-05-18,2020-12-19,3759,LATE
-Liam,760-8944,BenjaminTown 12,Ava@nan.is,2020-05-01,2020-11-20,GV525,Shetland,OK,4319,2020-01-01,2020-10-18,319,RETURNED
-Lucas,692-0683,BenjaminRoad 16,Benjamin@nan.is,2020-03-10,2020-06-03,KQ379,Farao Islands,DEFECTIVE,7572,2020-03-03,2020-06-07,781,LATE
-Ethan,996-8398,HarperTown 5,James@nan.is,2020-05-09,2020-07-01,AE551,Svalbard,OK,2170,2020-02-07,2020-07-06,2622,RETURNED
-Noah,989-4108,CharlotteTown 7,Ethan@nan.is,2020-03-06,2020-08-07,ZF613,Farao Islands,OK,8972,2020-01-06,2020-05-20,2122,LATE
-Amelia,677-7442,ElijahRoad 2,Olivia@nan.is,2020-01-09,2020-12-06,JP242,Svalbard,DEFECTIVE,4994,2020-02-03,2020-08-16,1691,OK
+William,661-5593,HarperTown 1,Evelyn@nan.is,2020-03-16,2020-11-20,ZJ952,Svalbard,OK,6362,2020-03-01,2020-12-16,2331,RETURNED
+William,661-5593,HarperTown 1,Evelyn@nan.is,2020-03-16,2020-11-20,ZJ952,Svalbard,OK,6362,2020-03-01,2020-12-16,2331,RETURNED
