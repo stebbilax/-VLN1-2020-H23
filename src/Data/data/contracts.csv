@@ -1,3 +1,11 @@
-name,phone,address,email,date_from,date_to,vehicle_id,location,vehicle_status,employee_id,loan_date,return_date,total,loan_status
-test,test,test,test,test,test,test,test,test,test,test,test,test,test
-test2,test2,test2,test2,test2,test2,test2,test2,test2,test2,test2,test2,test2,test2
+name,phone,address,email,date_from,date_to,vehicle_id,country,vehicle_status,employee_id,loan_date,return_date,total,loan_status
+Ethan,974-0489,AvaTown 2,Sophia@nan.is,2020-04-08,2020-05-13,SP863,Farao Islands,OK,8987,2020-03-17,2020-08-14,1598,LATE
+Olivia,896-5695,EvelynRoad 23,Liam@nan.is,2020-05-06,2020-11-20,XK539,Farao Islands,OK,5819,2020-04-13,2020-12-01,3795,RETURNED
+Oliver,899-5892,HarperTown 11,James@nan.is,2020-05-03,2020-11-08,JO182,Shetland,OK,1194,2020-05-10,2020-05-19,1368,RETURNED
+Olivia,761-0610,OliverSquare 27,James@nan.is,2020-04-01,2020-12-15,OD144,Farao Islands,OK,4825,2020-03-11,2020-11-05,1963,OK
+Liam,689-8997,OliverSquare 24,Olivia@nan.is,2020-03-06,2020-10-11,JG021,Greenland,OK,1605,2020-02-03,2020-06-20,464,RETURNED
+Liam,780-6824,LucasRoad 14,Olivia@nan.is,2020-03-19,2020-07-01,AQ072,Greenland,DEFECTIVE,7855,2020-04-16,2020-09-04,1533,LATE
+Olivia,973-9640,AvaStreet 18,James@nan.is,2020-02-03,2020-07-02,MY776,Svalbard,DEFECTIVE,1772,2020-05-04,2020-07-08,3762,RETURNED
+Evelyn,765-8708,AmeliaStreet 7,Charlotte@nan.is,2020-03-16,2020-06-08,EU436,Shetland,OK,7867,2020-05-02,2020-05-05,1033,OK
+Evelyn,764-5065,OliviaRoad 19,Liam@nan.is,2020-04-14,2020-06-20,AG092,Svalbard,OK,6739,2020-04-11,2020-11-02,2346,RETURNED
+Emma,679-3227,HarperRoad 16,Lucas@nan.is,2020-05-15,2020-09-17,LV190,Iceland,OK,8728,2020-03-14,2020-08-11,985,OK

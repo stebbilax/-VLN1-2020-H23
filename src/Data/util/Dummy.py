@@ -41,7 +41,7 @@ class Dummy:
         return randint(200, 4000)
 
     def make_loan_status(self):
-        return choice(['LOANED', 'AVAILABLE'])
+        return choice(['LATE', 'OK', 'RETURNED'])
 
     def make_ssn(self):
         return f'{randint(10, 12)}{randint(10, 12)}{randint(50, 90)}-{randint(10, 90)}{randint(10, 90)}'

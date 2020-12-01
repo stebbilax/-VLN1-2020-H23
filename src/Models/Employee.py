@@ -1,6 +1,6 @@
 from enum import Enum
 
-class Location(Enum):
+class Airport(Enum):
     reykjavik = 1
     nuuk = 2
     kulusk = 3
@@ -69,22 +69,35 @@ class Employee:
         *   Faroe Islands   - 5
     '''
 
-    def __init__(self, name, address, postal_code, ssn, phone, mobile_phone, email, title, location, country):
+    def __init__(self, name, address, postal_code, ssn, phone, mobile_phone, email, title, airport, country):
         self.name = name
         self.address = address
         self.postal_code = postal_code
-        self.country = country
         self.ssn = ssn
         self.phone = phone
         self.mobile_phone = mobile_phone
         self.email = email
 
         self.title = Title(title).name
-        self.location = Location(location).name
+        self.airport = Airport(airport).name
         self.country = Country(country).name
 
     def __str__(self):
-        return f'{self.ssn}, {self.name}, {self.country}, {self.location}, {self.title}'
+        return f'{self.ssn}, {self.name}, {self.country}, {self.airport}, {self.title}'
+
+    def __dir__(self):
+        return {
+            'name' : self.name,
+            'address' : self.address,
+            'postal_code' : self.postal_code,
+            'ssn' : self.ssn,
+            'phone' : self.phone,
+            'mobile_phone' : self.mobile_phone,
+            'email' : self.email,
+            'title' : self.title,
+            'airport' : self.airport,
+            'country' : self.country
+        }
            
     def set_name(self, name):
         self.name = name
@@ -104,8 +117,8 @@ class Employee:
     def set_email(self, email):
         self.email = email
 
-    def set_location(self, location):
-        self.location = Location(location).name
+    def set_airport(self, airport):
+        self.airport = Airport(airport).name
         
     def set_title(self, title):
         self.title = Title(title).name

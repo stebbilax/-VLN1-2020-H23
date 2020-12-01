@@ -1,0 +1,11 @@
+type,manufacturer,yom,color,req_rights,airport,condition,model
+Medium water,TAILG,2020,blue,Im amazing licence,torshavn,DEFECTIVE,Free Fly II
+Medium off-road,WildChild,1994,grey,None,longyearbyen,OK,Fat Max
+Medium off-road,TAILG,2019,blue,Im amazing licence,kulusk,OK,Free Fly II
+Medium off-road,Kayman Kayaks,2000,blue,Drivers licence,kulusk,OK,Free Fly II
+Light road,Cani-Fit,2017,blue,None,longyearbyen,OK,Crazy
+Medium water,WildChild,2012,green,None,reykjavik,DEFECTIVE,Free Fly II
+Light road,Kayman Kayaks,2010,grey,Drivers licence,nuuk,DEFECTIVE,Crazy
+Light off-road,Kayman Kayaks,1997,red,Im amazing licence,reykjavik,DEFECTIVE,Fat Max
+Light water,Yedoo,2019,black,None,kulusk,DEFECTIVE,Crazy
+Light off-road,Yedoo,2000,grey,Im amazing licence,kulusk,DEFECTIVE,Free Fly II

@@ -1,0 +1,11 @@
+name,address,postal_code,ssn,phone,mobile_phone,email,title,airport,country
+Harper,EvelynSquare 2,461,111156-4212,783-7809,871-6198,James@nan.is,office,longyearbyen,Svalbard
+Amelia,EmmaRoad 28,249,111174-3916,961-6901,793-3779,Mason@nan.is,office,nuuk,Greenland
+Olivia,OliverRoad 16,599,101184-1672,791-9196,789-4642,Oliver@nan.is,office,torshavn,Shetland
+Elijah,EmmaRoad 5,913,111064-6818,981-0941,660-8249,Charlotte@nan.is,office,torshavn,Svalbard
+Mia,OliviaStreet 15,682,111285-2233,797-1257,993-3287,Oliver@nan.is,airport,kulusk,Greenland
+Oliver,CharlotteSquare 30,485,121179-8485,678-2250,898-2748,Lucas@nan.is,airport,nuuk,Svalbard
+Harper,NoahStreet 11,686,111265-2160,894-7413,662-6903,Oliver@nan.is,office,longyearbyen,Greenland
+Oliver,MiaRoad 27,369,111085-6746,861-3663,994-2817,James@nan.is,office,tingwall,Iceland
+Sophia,MasonRoad 24,365,111065-3036,978-6037,798-9313,Noah@nan.is,airport,nuuk,Svalbard
+Mia,AvaSquare 8,796,111081-7638,799-9054,796-5566,Mia@nan.is,airport,tingwall,Shetland

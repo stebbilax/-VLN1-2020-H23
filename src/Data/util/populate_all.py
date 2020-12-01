@@ -3,11 +3,13 @@ import csv
 from configparser import ConfigParser
 from Dummy import Dummy
 
+# Must be in src folder to use
+
 D = Dummy()
 directory = os.getcwd()
 
 
-file = '../config.ini'
+file = 'Data/config.ini'
 config = ConfigParser()
 config.read(file)
 
@@ -62,7 +64,7 @@ def employee():
         'mobile_phone' : D.make_phone(),
         'email' : D.make_email(),
         'title' : D.make_title(),
-        'location' : D.make_airport(),
+        'airport' : D.make_airport(),
         'country' : D.make_country(),
     }
 def vehicle():
@@ -72,7 +74,7 @@ def vehicle():
         'yom' : D.make_yom(),
         'color' : D.make_color(),
         'req_rights' : D.make_req_rights(),
-        'location' : D.make_airport(),
+        'airport' : D.make_airport(),
         'condition' : D.make_vehicle_status(),
         'model' : D.make_model(),
     }
@@ -80,7 +82,7 @@ def vehicle():
 
 
 def pop_contract(num_of_lines):
-    with open(f'../data/contracts.csv', 'w', newline='', encoding='utf-8') as f:
+    with open(f'Data/data/contracts.csv', 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=contract_fields)
             writer.writeheader()
             for _ in range(num_of_lines):
@@ -89,7 +91,7 @@ def pop_contract(num_of_lines):
 
 
 def pop_customer(num_of_lines):
-    with open(f'../data/customers.csv', 'w', newline='', encoding='utf-8') as f:
+    with open(f'Data/data/customers.csv', 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=customer_fields)
             writer.writeheader()
             for _ in range(num_of_lines):
@@ -98,7 +100,7 @@ def pop_customer(num_of_lines):
 
 
 def pop_country(num_of_lines):
-    with open(f'../data/destinations.csv', 'w', newline='', encoding='utf-8') as f:
+    with open(f'Data/data/destinations.csv', 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=destination_fields)
             writer.writeheader()
             for _ in range(num_of_lines):
@@ -107,7 +109,7 @@ def pop_country(num_of_lines):
 
 
 def pop_employee(num_of_lines):
-    with open(f'../data/employees.csv', 'w', newline='', encoding='utf-8') as f:
+    with open(f'Data/data/employees.csv', 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=employee_fields)
             writer.writeheader()
             for _ in range(num_of_lines):
@@ -115,7 +117,7 @@ def pop_employee(num_of_lines):
                 writer.writerow(line_obj)
 
 def pop_vehicle(num_of_lines):
-    with open(f'../data/vehicles.csv', 'w', newline='', encoding='utf-8') as f:
+    with open(f'Data/data/vehicles.csv', 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=vehicle_fields)
             writer.writeheader()
             for _ in range(num_of_lines):

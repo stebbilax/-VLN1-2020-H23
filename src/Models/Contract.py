@@ -29,7 +29,7 @@ class Contract:
             'date_from': self.date_from, 
             'date_to': self.date_to,
             'vehicle_id': self.vehicle_id,
-            'location': self.location,
+            'country': self.country,
             'vehicle_status': self.vehicle_status,
             'employee_id': self.employee_id,
             'loan_date': self.loan_date,
@@ -79,12 +79,4 @@ class Contract:
         self.total = total
     
     def set_loan_status(self, loan_status):
-<<<<<<< HEAD
         self.loan_status = loan_status
-
-
-
-    
-=======
-        self.loan_status = loan_status
->>>>>>> f1b8ef4bc860ef97876b65e3e45db920d087420e
