@@ -18,6 +18,9 @@ customer_fields = config['fields']['customer_fields'].split(',')
 destination_fields = config['fields']['destination_fields'].split(',')
 employee_fields = config['fields']['employee_fields'].split(',')
 vehicle_fields = config['fields']['vehicle_fields'].split(',')
+vehicle_type_fields = config['fields']['vehicle_type_fields'].split(',')
+
+
 
 def contract():
     return {
@@ -79,6 +82,13 @@ def vehicle():
         'model' : D.make_model(),
     }
 
+def vehicle_type():
+    return {
+        'name': D.make_type(),
+        'regions': D.make_country(),
+        'rate' : 1337
+    }
+
 
 
 def pop_contract(num_of_lines):
@@ -124,6 +134,14 @@ def pop_vehicle(num_of_lines):
                 line_obj = vehicle()
                 writer.writerow(line_obj)
 
+def pop_vehicle_type(num_of_lines):
+    with open(f'Data/data/vehicle_types.csv', 'w', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=vehicle_type_fields)
+            writer.writeheader()
+            for _ in range(num_of_lines):
+                line_obj = vehicle_type()
+                writer.writerow(line_obj)
+
 
 
 
@@ -133,6 +151,7 @@ def pop_all(n):
     pop_country(n)
     pop_employee(n)
     pop_vehicle(n)
+    pop_vehicle_type(n)
 
 
 if __name__ == '__main__':
