@@ -41,7 +41,7 @@ class Vehicle:
         self.req_rights = Req_Rights
 
     def set_airport(self, Airport):
-        self.airport = airport
+        self.airport = Airport
 
     def set_condition(self, Condition):
         self.condition = Condition
