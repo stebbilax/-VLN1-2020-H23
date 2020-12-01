@@ -2,7 +2,7 @@ class Customer:
     """
     Model class for customer
     """
-    def __init__(self,name,ssn,address,postal_code,phone,email,country):
+    def __init__(self,name,ssn,address,postal_code,phone,email,country,licence):
         self.name = name 
         self.ssn = ssn
         self.address = address
@@ -10,6 +10,7 @@ class Customer:
         self.phone = phone
         self.email = email
         self.country  = country
+        self.licence = licence #this is drivers licence 
         #self.people = [].append([self.name,self.ssn,self.address,self.postal_code,self.phone,self.email,self.country])
 
     def __str__(self):
