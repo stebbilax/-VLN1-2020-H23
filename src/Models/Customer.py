@@ -13,7 +13,7 @@ class Customer:
         #self.people = [].append([self.name,self.ssn,self.address,self.postal_code,self.phone,self.email,self.country])
 
     def __str__(self):
-        return f'{self.name},{self.ssn},{self.address},{self.postal_code},{self.phone},{self.email},{self.country}'  
+        return f'{self.name}, {self.ssn}, {self.address}, {self.postal_code}, {self.phone}, {self.email}, {self.country}'  
 
     def __dir__(self):
         return {

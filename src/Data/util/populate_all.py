@@ -1,5 +1,6 @@
 import os
 import csv
+from random import randint
 from configparser import ConfigParser
 from Dummy import Dummy
 
@@ -51,8 +52,8 @@ def customer():
     }
 def destination():
     return {
-        'country' : D.make_country(),
-        'airport' : D.make_airport(),
+        'country' : randint(1, 6),
+        'airport' : randint(1, 5),
         'phone' : D.make_phone(),
         'opening_hours' : D.make_opening_hours(),
     }
@@ -66,9 +67,9 @@ def employee():
         'phone' : D.make_phone(),
         'mobile_phone' : D.make_phone(),
         'email' : D.make_email(),
-        'title' : D.make_title(),
-        'airport' : D.make_airport(),
-        'country' : D.make_country(),
+        'title' : randint(1, 2),
+        'airport' : randint(1, 6),
+        'country' : randint(1, 5),
     }
 def vehicle():
     return {

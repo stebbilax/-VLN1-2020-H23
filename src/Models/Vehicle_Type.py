@@ -10,6 +10,9 @@ class Vehicle_Type:
         self.regions = regions
         self.rate = rate
 
+    def __str__(self):
+        return f'{self.name}, {self.regions}, {self.rate}'
+
 
     def __dict__(self):
         return {

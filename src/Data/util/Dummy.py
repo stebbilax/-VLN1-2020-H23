@@ -60,6 +60,7 @@ class Dummy:
 
 
 
+
     # VEHICLES
     def make_type(self):
         return choice(['Light road', 'Light off-road', 'Light water', 'Medium off-road', 'Medium water'])

@@ -16,10 +16,10 @@ class Country(Enum):
     faroe_islands = 5
 
 
-class Destinations:
+class Destination:
     def __init__(self, country, airport, phone, opening_hours):
-        self.country = Country(country).name
-        self.airport = Airport(airport).name
+        self.country = Country(int(country)).name
+        self.airport = Airport(int(airport)).name
         self.phone = phone
         self.opening_hours = opening_hours
     
@@ -37,10 +37,10 @@ class Destinations:
 
 
     def set_country(self, country):
-        self.country = country
+        self.country = Country(int(country)).name
     
     def set_airport(self, airport):
-        self.airport = airport
+        self.airport = Airport(int(airport)).name
         
     def set_phone(self, phone):
         self.phone = phone

@@ -9,6 +9,9 @@ class Vehicle:
         self.condition = Condition
         self.model = Model
 
+    def __str__(self):
+        return f'{self.type}, {self.manufacturer}, {self.yom}, {self.color}, {self.req_rights}, {self.airport}, {self.condition}, {self.model}'
+
     def __dict__(self):
         return {
             'type' : self.type,  

@@ -1,17 +1,11 @@
 import csv
 from configparser import ConfigParser
-
-file = 'Data/config.ini'
-config = ConfigParser()
-config.read(file)
-
-contract_fields = config['fields']['contract_fields'].split(',')
-customer_fields = config['fields']['customer_fields'].split(',')
-destination_fields = config['fields']['destination_fields'].split(',')
-employee_fields = config['fields']['employee_fields'].split(',')
-vehicle_fields = config['fields']['vehicle_fields'].split(',')
-vehicle_type_fields = config['fields']['vehicle_type_fields'].split(',')
-
+from Models.Contract import Contract
+from Models.Customer import Customer
+from Models.Destination import Destination
+from Models.Employee import Employee
+from Models.Vehicle import Vehicle
+from Models.Vehicle_Type import Vehicle_Type
 
 
 class Csv_Manager:
@@ -41,6 +35,15 @@ class Csv_Manager:
         self.vehicle_type_fields = config['fields']['vehicle_type_fields'].split(',')
 
 
+    def get_model(self, name):
+        if name == 'contract': return Contract
+        if name == 'customer': return Customer
+        if name == 'destination': return Destination
+        if name == 'employee': return Employee
+        if name == 'vehicle': return Vehicle
+        if name == 'vehicle_type': return Vehicle_Type
+
+
     # Return filename and appropriate fields based on a name
     def get_name_and_fields(self, name):
         if name == 'contract': return ('contracts.csv', self.contract_fields)
@@ -51,9 +54,10 @@ class Csv_Manager:
         if name == 'vehicle_type': return ('vehicle_types.csv', self.vehicle_type_fields)
 
 
-    # Possible names are in function above
+    # Possible names are in get_name_and_fields function
     def write_all(self, data, name):
         name, fields = self.get_name_and_fields(name)
+
         with open(f'{self.directory}/data/{name}', 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=fields)
             writer.writeheader()
@@ -63,6 +67,15 @@ class Csv_Manager:
 
 
 
-    # def read_all(self):
-    #     print('read all')
 
+    def read_all(self, name):
+        model = self.get_model(name)
+        name, fields = self.get_name_and_fields(name)
+        retList = []
+
+        with open(f'{self.directory}/data/{name}', newline='', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                line = [row[field] for field in fields]
+                obj = model(*line)
+                print(obj)

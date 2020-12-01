@@ -77,13 +77,12 @@ class Employee:
         self.phone = phone
         self.mobile_phone = mobile_phone
         self.email = email
-
-        self.title = Title(title).name
-        self.airport = Airport(airport).name
-        self.country = Country(country).name
+        self.title = Title(int(title)).name
+        self.airport = Airport(int(airport)).name
+        self.country = Country(int(country)).name
 
     def __str__(self):
-        return f'{self.ssn}, {self.name}, {self.country}, {self.airport}, {self.title}'
+        return f'{self.name}, {self.address}, {self.postal_code}, {self.ssn}, {self.phone}, {self.mobile_phone}, {self.email}, {self.title}, {self.airport}, {self.country}'
 
     def __dir__(self):
         return {
@@ -118,13 +117,13 @@ class Employee:
         self.email = email
 
     def set_airport(self, airport):
-        self.airport = Airport(airport).name
+        self.airport = Airport(int(airport)).name
         
     def set_title(self, title):
-        self.title = Title(title).name
+        self.title = Title(int(title)).name
 
     def set_country(self, country):
-        self.country = Country(country).name
+        self.country = Country(int(country)).name
 
 
     
