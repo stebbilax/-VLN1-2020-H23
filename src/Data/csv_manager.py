@@ -78,4 +78,5 @@ class Csv_Manager:
             for row in reader:
                 line = [row[field] for field in fields]
                 obj = model(*line)
-                print(obj)
+                retList.append(obj)
+        return retList 

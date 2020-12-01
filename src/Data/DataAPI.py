@@ -7,12 +7,44 @@ class DataAPI:
         self.manager = Csv_Manager(self.data_dir)
 
 
-    def get_writer(self):
-        return self.manager.write_all
+    def write_all_contracts(self, data):
+        self.manager.write_all(data, 'contract')
+    def read_all_contracts(self):
+        return self.manager.read_all('contract')
+    
 
-    def get_reader(self):
-        return self.manager.read_all
+    def write_all_customers(self, data):
+        self.manager.write_all(data, 'customer')
+    def read_all_customers(self):
+        return self.manager.read_all('customer')
 
+
+    def write_all_destinations(self, data):
+        self.manager.write_all(data, 'destination')
+    def read_all_destinations(self):
+        return self.manager.read_all('destination')
+
+
+    def write_all_employees(self, data):
+        self.manager.write_all(data, 'employee')
+    def read_all_employees(self):
+        return self.manager.read_all('employee')
+
+
+    def write_all_vehicles(self, data):
+        self.manager.write_all(data, 'vehicle')
+    def read_all_vehicles(self):
+        return self.manager.read_all('vehicle')
+
+
+    def write_all_vehicle_types(self, data):
+        self.manager.write_all(data, 'vehicle_type')
+    def read_all_vehicle_types(self):
+        return self.manager.read_all('vehicle_type')
+    
+    
+
+    
 
 
 
