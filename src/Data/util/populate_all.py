@@ -53,7 +53,7 @@ def customer():
 def destination():
     return {
         'country' : D.make_country(),
-        'airport' : D.make_airpor(),
+        'airport' : D.make_airport(),
         'phone' : D.make_phone(),
         'opening_hours' : D.make_opening_hours(),
     }
