@@ -119,3 +119,47 @@ Notes:
 
 
 #----------------------------------------------------------------------------------#
+
+1.12.2020
+
+Objectives:
+    Refine design report.
+    Read and write functionality for data layer.
+
+Assignment:
+    Elias Guðjohnsen, Jason Guðnason   : Refine design report.
+    Arnar Már                          : Refine design report.
+    Bjarki Laxdal, Gunnlaug            : Refine design report.
+    Stefán Laxdal                      : Read and write functionality for data layer.
+    
+End report:
+    Completed design report refinment.
+    Read and write functionality for data layer.
+
+Notes:
+    Added ID to use cases and think about class diagram.
+
+
+#----------------------------------------------------------------------------------#
+
+2.12.2020
+
+Objectives:
+    Complete logic layer main functionality (CRUD, where applicable).
+    Join logic layer functionality with presentation layer.
+    Search functionality.
+    ID Manager for data layer.
+    Introduction and documentation.
+
+Assignment:
+    Elias Guðjohnsen, Jason Guðnason   : Complete logic layer main functionality (CRUD, where applicable).
+    Arnar Már, Stefán Laxdal           : Search functionality.
+    Bjarki Laxdal, Gunnlaug            : Introduction and documentation.
+    Stefán Laxdal                      : ID Manager.
+    
+End report:
+    
+Notes:
+
+
+#----------------------------------------------------------------------------------#
