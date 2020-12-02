@@ -12,6 +12,7 @@ from Data.id_manager import id_manager
 class Csv_Manager:
     def __init__(self, directory):
         self.directory = directory
+        self.id_manager = id_manager()
         self.contract_fields = None
         self.customer_fields = None
         self.destination_fields = None
@@ -55,24 +56,26 @@ class Csv_Manager:
         if name == 'vehicle_type': return ('vehicle_types.csv', self.vehicle_type_fields)
 
     def get_new_id(self, type):
-        idMan = id_manager()
-        return idMan.make_new_id(type)
+        return self.id_manager.make_new_id(type)
 
+
+    def clear_id_line(self, type):
+        self.id_manager.clear_line(type)
 
     # Possible names are in get_name_and_fields function
     def write_all(self, data, name):
         catagory_name = name
-        
         name, fields = self.get_name_and_fields(name)
-
+        
+        self.clear_id_line(catagory_name)
         with open(f'{self.directory}/data/{name}', 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=fields)
             writer.writeheader()
             for obj in data:
-                id = self.get_new_id(catagory_name)
-                print(id)
                 line_obj = obj.__dict__()
-                line_obj['id'] = id
+                if obj.id == None:
+                    id = self.get_new_id(catagory_name)
+                    line_obj['id'] = id
                 writer.writerow(line_obj)
 
 

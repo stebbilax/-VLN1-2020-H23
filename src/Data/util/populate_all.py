@@ -52,7 +52,6 @@ def contract():
         D.make_later_date(),
         D.make_total(),
         D.make_loan_status(),
-        D.make_id()
     )
 def customer():
     return Customer(
@@ -64,7 +63,6 @@ def customer():
         D.make_email(),
         D.make_country(),
         D.make_licence(),
-        D.make_id()
     )
 def destination():
     return Destination(
@@ -72,7 +70,6 @@ def destination():
         D.make_airport(),
         D.make_phone(),
         D.make_opening_hours(),
-        D.make_id()
     )
 
 def employee():
@@ -87,7 +84,6 @@ def employee():
         D.make_title(),
         D.make_airport(),
         D.make_country(),
-        D.make_id()
     )
 def vehicle():
     return Vehicle(
@@ -99,14 +95,14 @@ def vehicle():
         D.make_airport(),
         D.make_vehicle_status(),
         D.make_model(),
-        D.make_id()
+
     )
 def vehicle_type():
     return Vehicle_Type(
         D.make_type(),
         D.make_country(),
         1337,
-        D.make_id()
+
     )
 
 
@@ -169,7 +165,7 @@ def pop_all(n):
 
 
 if __name__ == '__main__':
-    pop_all(10)
+    pop_all(20)
 
 
 

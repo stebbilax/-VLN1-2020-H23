@@ -23,21 +23,11 @@ class id_manager:
 
 
     # Need to change os to be modular
-    # def write(self):
-    #     import os
-    #     curDir = os.getcwd()
-    #     #################
-    #     with open(f'{curDir}/Data/data/ids.txt', 'w', newline='', encoding='utf-8') as f:
-    #         for field in self.fields:
-    #             for id in field[0]:
-    #                 f.write(str(id))
-    #                 f.write(',')
-    #             f.write('\n')
-
     def write(self):
         import os
         curDir = os.getcwd()
         #################
+        
         with open(f'{curDir}/Data/data/ids.txt', 'w', newline='', encoding='utf-8') as f:
             for i in self.contract_ids:
                 f.write(str(i))
@@ -65,15 +55,6 @@ class id_manager:
             f.write('\n')
 
 
-
-            # print(self.contract_ids)  
-            # print(self.customer_ids)
-            # print(self.destination_ids) 
-            # print(self.employee_ids) 
-            # print(self.vehicle_ids) 
-            # print(self.vehicle_type_ids)
-
-
     def read(self):
         import os
         curDir = os.getcwd()
@@ -82,18 +63,42 @@ class id_manager:
         f = open(f'{curDir}/Data/data/ids.txt', 'r', newline='', encoding='utf-8')
         file = f.readlines()
         file = [x.strip() for x in file]
-        self.contract_ids = [int(x) for x in file[0].replace(',', '')]
-        self.customer_ids = [int(x) for x in file[1].replace(',', '')]
-        self.destination_ids = [int(x) for x in file[2].replace(',', '')]
-        self.employee_ids = [int(x) for x in file[3].replace(',', '')]
-        self.vehicle_ids = [int(x) for x in file[4].replace(',', '')]
-        self.vehicle_type_ids = [int(x) for x in file[5].replace(',', '')]
+        self.contract_ids = [int(x) for x in file[0].split(',') if x]
+        self.customer_ids = [int(x) for x in file[1].split(',') if x]
+        self.destination_ids = [int(x) for x in file[2].split(',') if x]
+        self.employee_ids = [int(x) for x in file[3].split(',') if x]
+        self.vehicle_ids = [int(x) for x in file[4].split(',') if x]
+        self.vehicle_type_ids = [int(x) for x in file[5].split(',') if x]
         
         f.close()
-                
+
+
+    def clear_all_ids(self):
+        import os
+        curDir = os.getcwd()
+        #################
+        with open(f'{curDir}/Data/data/ids.txt', 'w', newline='', encoding='utf-8') as f:
+                for i in range(6):
+                    f.write('0')
+                    f.write('\n')
+
+    def clear_line(self, type):
+        import os
+        curDir = os.getcwd()
+        #################
+        if type == 'contract': self.contract_ids = [0]
+        if type == 'customer': self.customer_ids = [0]
+        if type == 'destination': self.destination_ids = [0]
+        if type == 'employee': self.employee_ids = [0]
+        if type == 'vehicle': self.vehicle_ids = [0]
+        if type == 'vehicle_type': self.vehicle_type_ids = [0]
+
+        self.write()
+
 
     def make_new_id(self, type):
         self.read()
+        
         id_catagory = self.get_type(type)
         new_id = id_catagory[-1]+1
         id_catagory.append(new_id)
