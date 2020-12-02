@@ -6,6 +6,7 @@ from Models.Destination import Destination
 from Models.Employee import Employee
 from Models.Vehicle import Vehicle
 from Models.Vehicle_Type import Vehicle_Type
+from Data.id_manager import id_manager
 
 
 class Csv_Manager:
@@ -53,16 +54,25 @@ class Csv_Manager:
         if name == 'vehicle': return ('vehicles.csv', self.vehicle_fields)
         if name == 'vehicle_type': return ('vehicle_types.csv', self.vehicle_type_fields)
 
+    def get_new_id(self, type):
+        idMan = id_manager()
+        return idMan.make_new_id(type)
+
 
     # Possible names are in get_name_and_fields function
     def write_all(self, data, name):
+        catagory_name = name
+        
         name, fields = self.get_name_and_fields(name)
 
         with open(f'{self.directory}/data/{name}', 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=fields)
             writer.writeheader()
             for obj in data:
+                id = self.get_new_id(catagory_name)
+                print(id)
                 line_obj = obj.__dict__()
+                line_obj['id'] = id
                 writer.writerow(line_obj)
 
 

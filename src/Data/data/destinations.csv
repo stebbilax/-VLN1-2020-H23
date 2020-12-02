@@ -1,11 +1,2 @@
 country,airport,phone,opening_hours,id
-Iceland,longyearbyen,777-1669,10:00-15:30,220
-Shetland,longyearbyen,968-6963,10:00-15:30,145
-Farao Islands,kulusk,998-5165,10:00-15:30,391
-Svalbard,reykjavik,868-7977,10:00-15:30,39
-Greenland,reykjavik,662-5766,10:00-15:30,107
-Farao Islands,torshavn,979-8541,10:00-15:30,901
-Iceland,kulusk,971-1141,10:00-15:30,153
-Greenland,tingwall,983-8187,10:00-15:30,802
-Farao Islands,nuuk,997-9270,10:00-15:30,721
-Iceland,nuuk,692-6306,10:00-15:30,718
+5,3,980-5440,10:00-15:30,3

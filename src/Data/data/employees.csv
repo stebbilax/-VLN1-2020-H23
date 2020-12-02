@@ -1,11 +1,4 @@
 name,address,postal_code,ssn,phone,mobile_phone,email,title,airport,country,id
-Mason,HarperTown 0,449,121175-1121,875-9766,785-3052,Elijah@nan.is,office,tingwall,Greenland,712
-Ava,EthanStreet 7,869,121158-3969,685-2135,997-9333,William@nan.is,office,longyearbyen,Iceland,378
-Oliver,HarperRoad 6,599,121262-4159,878-1674,873-8398,Amelia@nan.is,office,tingwall,Iceland,850
-James,HarperRoad 6,669,121073-3147,864-2148,865-7498,Evelyn@nan.is,office,reykjavik,Iceland,751
-James,AvaRoad 3,322,101268-2580,971-6834,992-3619,Benjamin@nan.is,office,tingwall,Svalbard,65
-Sophia,WilliamRoad 16,711,111176-5313,798-2272,799-8004,Olivia@nan.is,office,nuuk,Iceland,428
-Liam,JamesStreet 8,976,101156-6638,883-1784,783-2330,Charlotte@nan.is,office,nuuk,Svalbard,635
-Mia,MasonStreet 27,446,111286-5020,796-0990,675-7843,Oliver@nan.is,airport,kulusk,Farao Islands,82
-Charlotte,WilliamStreet 12,482,101270-7146,781-5771,664-4563,Noah@nan.is,office,kulusk,Farao Islands,939
-William,BenjaminRoad 17,227,101155-8424,977-7111,799-6522,Lucas@nan.is,airport,nuuk,Greenland,383
+Charlotte,MiaStreet 18,177,111254-2134,783-9177,792-8718,Harper@nan.is,2,4,1,7
+Charlotte,MiaStreet 18,177,111254-2134,783-9177,792-8718,Harper@nan.is,2,4,1,8
+Charlotte,MiaStreet 18,177,111254-2134,783-9177,792-8718,Harper@nan.is,2,4,1,9

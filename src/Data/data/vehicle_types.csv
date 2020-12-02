@@ -1,11 +1,4 @@
 name,regions,rate,id
-Light road,Svalbard,1337,31
-Light off-road,Shetland,1337,62
-Light road,Greenland,1337,337
-Medium off-road,Shetland,1337,33
-Medium off-road,Greenland,1337,615
-Light off-road,Iceland,1337,791
-Light road,Svalbard,1337,41
-Light off-road,Farao Islands,1337,458
-Medium off-road,Iceland,1337,198
-Medium water,Farao Islands,1337,716
+Light road,Greenland,1337,1
+Light road,Greenland,1337,2
+Light road,Greenland,1337,3
