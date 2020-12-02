@@ -1,11 +1,11 @@
-id,type,manufacturer,yom,color,licence,airport,condition,model
-792,Medium off-road,Yedoo,2000,grey,Im amazing licence,torshavn,DEFECTIVE,Fat Max
-223,Light water,Yedoo,2007,green,Im amazing licence,tingwall,OK,Free Fly II
-227,Light water,Kayman Kayaks,1991,blue,None,kulusk,DEFECTIVE,Free Fly II
-439,Medium off-road,Cani-Fit,2014,black,Im amazing licence,tingwall,OK,Free Fly II
-287,Light road,TAILG,2016,grey,Im amazing licence,nuuk,DEFECTIVE,Free Fly II
-719,Light road,TAILG,1995,green,Drivers licence,nuuk,DEFECTIVE,Free Fly II
-160,Light off-road,TAILG,1996,black,Drivers licence,longyearbyen,DEFECTIVE,Fat Max
-655,Medium water,Kayman Kayaks,2019,grey,Im amazing licence,reykjavik,OK,Fat Max
-616,Light road,Yedoo,2016,blue,None,reykjavik,OK,Fat Max
-289,Light road,TAILG,2008,grey,Drivers licence,reykjavik,DEFECTIVE,Fat Max
+type,manufacturer,yom,color,licence,airport,condition,model,id
+Medium water,Kayman Kayaks,2012,red,Im amazing licence,reykjavik,DEFECTIVE,Crazy,186
+Light road,Cani-Fit,1997,green,None,reykjavik,OK,Free Fly II,910
+Light road,Yedoo,2001,green,Drivers licence,tingwall,OK,Crazy,597
+Medium off-road,WildChild,2001,green,Im amazing licence,kulusk,DEFECTIVE,Fat Max,583
+Medium water,Yedoo,2000,red,None,longyearbyen,DEFECTIVE,Fat Max,179
+Light off-road,Yedoo,2020,red,Im amazing licence,kulusk,OK,Fat Max,593
+Light water,Yedoo,1997,black,None,longyearbyen,DEFECTIVE,Fat Max,94
+Light off-road,Yedoo,2010,blue,Im amazing licence,nuuk,OK,Crazy,771
+Medium off-road,Cani-Fit,1994,grey,Drivers licence,tingwall,DEFECTIVE,Crazy,227
+Light road,WildChild,1991,green,Im amazing licence,kulusk,OK,Fat Max,944

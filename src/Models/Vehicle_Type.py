@@ -1,9 +1,9 @@
 class Vehicle_Type:
-    def __init__(self, name, regions, rate):
-        self.id = None
+    def __init__(self, name, regions, rate, id=None):
         self.name = name
         self.regions = regions
         self.rate = rate
+        self.id = id
 
     def __str__(self):
         return f'{self.name}, {self.regions}, {self.rate}'
@@ -13,7 +13,8 @@ class Vehicle_Type:
         return {
             'name' : self.name,
             'regions' : self.regions,
-            'rate' : self.rate
+            'rate' : self.rate,
+            'id': self.id
         }
 
     def set_name(self, name):

@@ -1,6 +1,5 @@
 class Vehicle:
-    def __init__(self,Type, Manufacturer, YOM, Color, licence, Airport, Condition, Model):
-        self.id = None
+    def __init__(self,Type, Manufacturer, YOM, Color, licence, Airport, Condition, Model, id=None):
         self.type = Type
         self.manufacturer = Manufacturer
         self.yom = YOM
@@ -9,6 +8,7 @@ class Vehicle:
         self.airport = Airport
         self.condition = Condition
         self.model = Model
+        self.id = id
 
     def __str__(self):
         return f'{self.type}, {self.manufacturer}, {self.yom}, {self.color}, {self.licence}, {self.airport}, {self.condition}, {self.model}'
@@ -22,7 +22,8 @@ class Vehicle:
             'licence' : self.licence, 
             'airport' : self.airport, 
             'condition' : self.condition,
-            'model' : self.model 
+            'model' : self.model,
+            'id': self.id
         }
     
 

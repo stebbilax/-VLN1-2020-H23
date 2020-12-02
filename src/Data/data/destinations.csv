@@ -1,11 +1,11 @@
-id,country,airport,phone,opening_hours
-927,Shetland,tingwall,769-5185,10:00-15:30
-657,Greenland,torshavn,663-0701,10:00-15:30
-824,Iceland,nuuk,770-7698,10:00-15:30
-425,Greenland,kulusk,991-9139,10:00-15:30
-152,Shetland,tingwall,786-5068,10:00-15:30
-763,Svalbard,longyearbyen,899-3763,10:00-15:30
-968,Iceland,tingwall,962-4039,10:00-15:30
-38,Shetland,nuuk,981-7944,10:00-15:30
-630,Svalbard,tingwall,883-1634,10:00-15:30
-859,Greenland,nuuk,987-2081,10:00-15:30
+country,airport,phone,opening_hours,id
+Iceland,longyearbyen,777-1669,10:00-15:30,220
+Shetland,longyearbyen,968-6963,10:00-15:30,145
+Farao Islands,kulusk,998-5165,10:00-15:30,391
+Svalbard,reykjavik,868-7977,10:00-15:30,39
+Greenland,reykjavik,662-5766,10:00-15:30,107
+Farao Islands,torshavn,979-8541,10:00-15:30,901
+Iceland,kulusk,971-1141,10:00-15:30,153
+Greenland,tingwall,983-8187,10:00-15:30,802
+Farao Islands,nuuk,997-9270,10:00-15:30,721
+Iceland,nuuk,692-6306,10:00-15:30,718

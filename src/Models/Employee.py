@@ -69,8 +69,7 @@ class Employee:
         *   Faroe Islands   - 5
     '''
 
-    def __init__(self, name, address, postal_code, ssn, phone, mobile_phone, email, title, airport, country):
-        self.id = None
+    def __init__(self, name, address, postal_code, ssn, phone, mobile_phone, email, title, airport, country, id=None):
         self.name = name
         self.address = address
         self.postal_code = postal_code
@@ -84,6 +83,7 @@ class Employee:
         self.title = title
         self.airport = airport
         self.country = country
+        self.id = id
 
     def __str__(self):
         return f'{self.name}, {self.address}, {self.postal_code}, {self.ssn}, {self.phone}, {self.mobile_phone}, {self.email}, {self.title}, {self.airport}, {self.country}'
@@ -99,7 +99,8 @@ class Employee:
             'email' : self.email,
             'title' : self.title,
             'airport' : self.airport,
-            'country' : self.country
+            'country' : self.country,
+            'id': self.id
         }
            
     def set_name(self, name):

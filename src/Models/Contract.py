@@ -1,6 +1,5 @@
 class Contract:
-    def __init__(self, name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status):
-        self.id = None
+    def __init__(self, name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status, id=None):
         self.name = name
         self.phone = phone
         self.address = address
@@ -15,6 +14,7 @@ class Contract:
         self.return_date = return_date
         self.total = total
         self.loan_status = loan_status
+        self.id = id
 
     
     def __str__(self):
@@ -36,7 +36,8 @@ class Contract:
             'loan_date': self.loan_date,
             'return_date': self.return_date,
             'total': self.total,
-            'loan_status': self.loan_status
+            'loan_status': self.loan_status,
+            'id': self.id
         }
 
 

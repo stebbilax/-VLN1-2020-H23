@@ -17,14 +17,14 @@ class Country(Enum):
 
 
 class Destination:
-    def __init__(self, country, airport, phone, opening_hours):
+    def __init__(self, country, airport, phone, opening_hours, id=None):
         # self.country = Country(int(country)).name
         # self.airport = Airport(int(airport)).name
-        self.id = None
         self.country = country
         self.airport = airport
         self.phone = phone
         self.opening_hours = opening_hours
+        self.id = id
     
     def __str__(self):
         return "{:10} {:12} {:15} {:10}".format(self.country, self.airport, self.phone, self.opening_hours)
@@ -35,7 +35,8 @@ class Destination:
             'country' : self.country,
             'airport' : self.airport,
             'phone' : self.phone,
-            'opening_hours' : self.opening_hours
+            'opening_hours' : self.opening_hours,
+            'id': self.id
         }
 
 
