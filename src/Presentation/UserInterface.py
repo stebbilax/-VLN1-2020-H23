@@ -1,10 +1,12 @@
-from Logic.LogicAPI import LLAPI
+from Logic.LogicAPI import LogicAPI
 from Presentation.Menu import Menu
 import os
 
 class UserInterface:
     def __init__(self):
-        self.logic = LLAPI()
+        self.logic = LogicAPI()
+
+        self.logic.vehicles.get_all_vehicles()
 
         main_menu = Menu("Main Menu", None, None)
         office_menu = Menu("Office Menu", None, main_menu)
@@ -31,7 +33,7 @@ class UserInterface:
     def interface_loop(self):
         while True:
             # Clear the screen
-            os.system('cls')
+            #os.system('cls')
 
             self.current_menu.display()
 
@@ -42,16 +44,25 @@ class UserInterface:
                 if choice == 'q':
                     exit()
                 elif choice == 'b':
-                    self.current_menu = self.current_menu.parent
+                    # If the parent menu is None, the current menu is the main menu
+                    if self.current_menu.parent is None:
+                        if input("Are you sure you want to exit? (y\\n): ") == 'y':
+                            exit()
+                        else:
+                            pass
+                    else:
+                        self.current_menu = self.current_menu.parent
                 else:
                     print("Invalid command: %s" % (choice))
 
             else:
 
-                choice = int(choice)
+                choice = int(choice) - 1
 
-                # Check if the input is invalid, below 0 or above the range of options
-                if choice < 0 or choice > len(self.current_menu.selectable_options):
-                    print("Invalid input, please input a range between %d and %d." % (0, len(self.current_menu.selectable_options)))
+                # Check if the input is invalid, below 1 or above the range of options
+                if choice < 0 or choice > len(self.current_menu.selectable_options) - 1:
+                    print("Invalid input, please input a range between %d and %d." % (1, len(self.current_menu.selectable_options)))
                 else:
                     self.current_menu = self.current_menu.select_option(choice)
+
+            print('\n\n')

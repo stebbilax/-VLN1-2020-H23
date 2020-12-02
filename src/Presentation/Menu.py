@@ -9,7 +9,7 @@ class Menu:
         
         # Iterate the length so we can enumerate the options with an integer
         for option in range(len(self.selectable_options)):
-            print("%d. %s" % (option, self.selectable_options[option].header))
+            print("%d. %s" % (option + 1, self.selectable_options[option].header))
 
     def select_option(self, id):
         return self.selectable_options[id]
