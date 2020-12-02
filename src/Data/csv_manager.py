@@ -7,6 +7,7 @@ from Models.Employee import Employee
 from Models.Vehicle import Vehicle
 from Models.Vehicle_Type import Vehicle_Type
 from Data.id_manager import id_manager
+from Data.util.object_sorter import object_sorter
 
 
 class Csv_Manager:
@@ -61,6 +62,7 @@ class Csv_Manager:
 
     def clear_id_line(self, type):
         self.id_manager.clear_line(type)
+
 
     # Possible names are in get_name_and_fields function
     def write_all(self, data, name):

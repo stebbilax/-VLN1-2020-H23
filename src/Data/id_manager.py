@@ -58,8 +58,8 @@ class id_manager:
     def read(self):
         import os
         curDir = os.getcwd()
-        file = None
         #################
+        file = None
         f = open(f'{curDir}/Data/data/ids.txt', 'r', newline='', encoding='utf-8')
         file = f.readlines()
         file = [x.strip() for x in file]
@@ -82,10 +82,8 @@ class id_manager:
                     f.write('0')
                     f.write('\n')
 
+
     def clear_line(self, type):
-        import os
-        curDir = os.getcwd()
-        #################
         if type == 'contract': self.contract_ids = [0]
         if type == 'customer': self.customer_ids = [0]
         if type == 'destination': self.destination_ids = [0]
@@ -98,7 +96,7 @@ class id_manager:
 
     def make_new_id(self, type):
         self.read()
-        
+
         id_catagory = self.get_type(type)
         new_id = id_catagory[-1]+1
         id_catagory.append(new_id)
@@ -119,7 +117,6 @@ class id_manager:
     
     
     def set_type(self, type, arr):
-        
         if type == 'contract': self.contract_ids = arr
         if type == 'customer': self.customer_ids = arr
         if type == 'destination': self.destination_ids = arr
@@ -132,4 +129,3 @@ class id_manager:
 
 
 
-# contract,customer,destination,employee,vehicle,vehicle_type
