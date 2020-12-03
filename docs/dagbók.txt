@@ -158,6 +158,11 @@ Assignment:
     Stefán Laxdal                      : ID Manager.
     
 End report:
+    Completed basic logic layer structure.
+    Completed search functionality.
+    Completed ID manager.
+    Comploeted introduction.
+    Working on joining logic layer functionality with presentation layer.
     
 Notes:
 
