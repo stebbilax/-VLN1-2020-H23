@@ -36,6 +36,8 @@ class DataAPI:
         self.manager.write_all(data, 'employee')
     def read_all_employees(self):
         return self.manager.read_all('employee')
+    def append_employee(self, data):
+        self.manager.append(data, 'employee')
 
 
     def write_all_vehicles(self, data):
@@ -48,7 +50,8 @@ class DataAPI:
         self.manager.write_all(data, 'vehicle_type')
     def read_all_vehicle_types(self):
         return self.manager.read_all('vehicle_type')
-    
+
+        
     
 
     

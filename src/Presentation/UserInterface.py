@@ -53,26 +53,25 @@ class UserInterface:
     def get_user_input(self, message):
         return input(message)
 
-    def get_user_form(self, parameters, regex, instructions):
-        response = []
+    def get_user_form(self, fields):
+        form = []
 
-        for parameter in range(len(parameters)):
-            if (regex[parameter] == None):
-                answer = input(parameters[parameter] + ': ')
+        for field in fields:
+            if fields[field] is None:
+                answer = input(field + ': ')
             else:
-
                 match = False
 
                 while not match:
-                    answer = input(parameters[parameter] + ': ')
-                    match = re.search(regex[parameter], answer)
+                    answer = input(field + ': ')
+                    match = re.search(fields[field][0], answer)
 
                     if not match:
-                        print(instructions[parameter])
+                        print(fields[field][1])
+            
+            form.append(answer)
 
-            response.append(answer)
-
-        return response
+        return form
 
     def change_menu(self):
         pass

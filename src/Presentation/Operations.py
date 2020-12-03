@@ -12,12 +12,22 @@ def display_all_employees(logicAPI, ui):
         print(employee)
 
 def register_employee(logicAPI, ui):
-    ui.get_user_form(
-        ['Name', 'SSID', 'Job Title', 'Address', 'Phone number', 'Email', 'Landline', 'Country'],
-        [None, '(\\d{6})-(\\d{4})', enum_to_regex(Enum_Title), None, None, None, None, enum_to_regex(Enum_Country)],
-        ['','','','','','','','']
+    form = ui.get_user_form(
+        {
+            'Name': None,
+            'Address': None,
+            'Postal code': ['(\d)', 'Must be digits only'],
+            'SSID': ['(\d{6})-(\d{4})', 'SSID must be in format (6 digits - 4 digits)'],
+            'Landline': ['(\d{7,15})', 'Landline must be between 7 and 15 digits'],
+            'Phone number': ['(\d{7,15})', 'Phone number must be between 7 and 15 digits'],
+            'Email': ['(.+@.+\..+)', 'Must be a valid email format.'],
+            'Job Title': [enum_to_regex(Enum_Title), enum_to_instructions(Enum_Title)],
+            'Airport': [enum_to_regex(Enum_Airport), enum_to_instructions(Enum_Airport)],
+            'Country': [enum_to_regex(Enum_Country), enum_to_instructions(Enum_Country)]
+        }
     )
 
+    logicAPI.employee.register_employee(form)
 
 def display_all_contracts(logicAPI, ui):
     for contract in logicAPI.contract.get_all_contracts():
@@ -25,13 +35,8 @@ def display_all_contracts(logicAPI, ui):
 
 def get_contract(logicAPI, ui):
     # "Search by: name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status, id"
-    print("\nSearch by: ")
-    print("1. Name")
-    print("2. Email")
-    print("3. Vehicle ID")
-    print("4. Vehicle Status")
-    print("5. Loan Status")
-    print("6. Contract ID")
+    printlist = ["\nSearch by:","\n1. Name","\n2. Email", "\n3. Vehicle ID", "\n4. Vehicle Status", "\n5. Loan Status", "\n6. Contract ID"]
+    print(*printlist)
     choice = input("Enter a choice: ")
     if choice == "1":
         print(logicAPI.contract.get_contract().by_name(input("Name: ")))
@@ -42,7 +47,10 @@ def get_contract(logicAPI, ui):
     elif choice == "4":
         print(logicAPI.contract.get_contract().by_vehicle_status(input("Vehicle Status: ")))
     elif choice == "5":
+        print(logicAPI.contract.get_contract().by_loan_status(input("Loan Status: ")))
+    elif choice == "6":
         print(logicAPI.contract.get_contract().by_id(input("Contract ID: ")))
+#vehicles
 
 
 def display_all_vehicles(logicAPI, ui):
