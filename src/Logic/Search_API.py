@@ -1,25 +1,242 @@
 from Logic.Search_Manager import Search_Manager
 
 
+# class Search_API:
+#     def __init__(self):
+#         self.Search_Manager = Search_Manager()
+
+#     def search_contract(self,search_string = "895-2459", search_field = "phone", search_catagory = "contract"):
+#         return self.Search_Manager.search
+
+#     def search_customer(self,search_string = "121073-1785", search_field = "ssn", search_catagory = "customer"):
+#         return self.Search_Manager.search
+
+#     def search_destination(self,search_string = "Svalbard", search_field = "country", search_catagory = "destination"):
+#         return self.Search_Manager.search
+
+#     def search_employee(self,search_string = "Oliver", search_field = "name", search_catagory = "employee"):
+#         return self.Search_Manager.search
+    
+#     def search_vehicle(self,search_string = "10", search_field = "id", search_catagory = "vehicle"):
+#         return self.Search_Manager.search
+
+#     def search_vehicle_type(self,search_string = "Light water", search_field = "name", search_catagory = "vehicle_type"):
+#         return self.Search_Manager.search
+        
+
 class Search_API:
+    def __init__(self):
+        self.Search_Contract = Search_Contract()
+        self.Search_Customer = Search_Customer()
+        self.Search_Destination = Search_Destination()
+        self.Search_Employee = Search_Employee()
+        self.Search_Vehicle_Type = Search_Vehicle_Type()
+        self.Search_Vehicle = Search_Vehicle()
+        
+    def search_contract(self):
+        return self.Search_Contract
+
+    def search_customer(self):
+        return self.Search_Customer
+
+    def search_destination(self):
+        return self.Search_Destination
+
+    def search_employee(self):
+        return self.Search_Employee
+
+    def search_vehicle_type(self):
+        return self.Search_Vehicle_Type
+
+    def search_vehicle(self):
+        return self.Search_Vehicle
+
+
+
+class Search_Contract:
     def __init__(self):
         self.Search_Manager = Search_Manager()
 
-    def search_contract(self,search_string = "895-2459", search_field = "phone", search_catagory = "contract"):
-        return self.Search_Manager.search
+    def by_name(self, string):
+        return self.Search_Manager.search(string, 'name', 'contract')
 
-    def search_customer(self,search_string = "121073-1785", search_field = "ssn", search_catagory = "customer"):
-        return self.Search_Manager.search
+    def by_phone(self, string):
+        return self.Search_Manager.search(string, 'phone', 'contract')
 
-    def search_destination(self,search_string = "Svalbard", search_field = "country", search_catagory = "destination"):
-        return self.Search_Manager.search
+    def by_address(self, string):
+        return self.Search_Manager.search(string, 'address', 'contract')
 
-    def search_employee(self,search_string = "Oliver", search_field = "name", search_catagory = "employee"):
-        return self.Search_Manager.search
-    
-    def search_vehicle(self,search_string = "10", search_field = "id", search_catagory = "vehicle"):
-        return self.Search_Manager.search
+    def by_email(self, string):
+        return self.Search_Manager.search(string, 'email', 'contract')
 
-    def search_vehicle_type(self,search_string = "Light water", search_field = "name", search_catagory = "vehicle_type"):
-        return self.Search_Manager.search
-        
+    def by_date_from(self, string):
+        return self.Search_Manager.search(string, 'date_from', 'contract')
+
+    def by_date_to(self, string):
+        return self.Search_Manager.search(string, 'date_to', 'contract')
+
+    def by_vehicle_id(self, string):
+        return self.Search_Manager.search(string, 'vehicle_id', 'contract')
+
+    def by_country(self, string):
+        return self.Search_Manager.search(string, 'country', 'contract')
+
+    def by_vehicle_status(self, string):
+        return self.Search_Manager.search(string, 'vehicle_status', 'contract')
+
+    def by_employee_id(self, string):
+        return self.Search_Manager.search(string, 'employee_id', 'contract')
+
+    def by_loan_date(self, string):
+        return self.Search_Manager.search(string, 'loan_date', 'contract')
+
+    def by_return_date(self, string):
+        return self.Search_Manager.search(string, 'return_date', 'contract')
+
+    def by_total(self, string):
+        return self.Search_Manager.search(string, 'total', 'contract')
+
+    def by_loan_status(self, string):
+        return self.Search_Manager.search(string, 'loan_status', 'contract')
+
+    def by_id(self, string):
+        return self.Search_Manager.search(string, 'id', 'contract')
+
+
+class Search_Customer:
+    def __init__(self):
+        self.Search_Manager = Search_Manager()
+
+    def by_name(self, string):
+        return self.Search_Manager.search(string, 'name', 'customer')
+
+    def by_ssn(self, string):
+        return self.Search_Manager.search(string, 'ssn', 'customer')
+
+    def by_address(self, string):
+        return self.Search_Manager.search(string, 'address', 'customer')
+
+    def by_postal_code(self, string):
+        return self.Search_Manager.search(string, 'postal_code', 'customer')
+
+    def by_phone(self, string):
+        return self.Search_Manager.search(string, 'phone', 'customer')
+
+    def by_email(self, string):
+        return self.Search_Manager.search(string, 'email', 'customer')
+
+    def by_country(self, string):
+        return self.Search_Manager.search(string, 'country', 'customer')
+
+    def by_licence(self, string):
+        return self.Search_Manager.search(string, 'licence', 'customer')
+
+    def by_id(self, string):
+        return self.Search_Manager.search(string, 'id', 'customer')
+
+
+class Search_Destination:
+    def __init__(self):
+        self.Search_Manager = Search_Manager()
+
+    def by_country(self, string):
+        return self.Search_Manager.search(string, 'country', 'destination')
+
+    def by_airport(self, string):
+        return self.Search_Manager.search(string, 'airport', 'destination')
+
+    def by_phone(self, string):
+        return self.Search_Manager.search(string, 'phone', 'destination')
+
+    def by_opening_hours(self, string):
+        return self.Search_Manager.search(string, 'opening_hours', 'destination')
+
+    def by_id(self, string):
+        return self.Search_Manager.search(string, 'id', 'destination')
+
+
+class Search_Employee:
+    def __init__(self):
+        self.Search_Manager = Search_Manager()
+
+    def by_name(self, string):
+        return self.Search_Manager.search(string, 'name', 'employee')
+
+    def by_address(self, string):
+        return self.Search_Manager.search(string, 'address', 'employee')
+
+    def by_postal_code(self, string):
+        return self.Search_Manager.search(string, 'postal_code', 'employee')
+
+    def by_ssn(self, string):
+        return self.Search_Manager.search(string, 'ssn', 'employee')
+
+    def by_phone(self, string):
+        return self.Search_Manager.search(string, 'phone', 'employee')
+
+    def by_mobile_phone(self, string):
+        return self.Search_Manager.search(string, 'mobile_phone', 'employee')
+
+    def by_email(self, string):
+        return self.Search_Manager.search(string, 'email', 'employee')
+
+    def by_title(self, string):
+        return self.Search_Manager.search(string, 'title', 'employee')
+
+    def by_airport(self, string):
+        return self.Search_Manager.search(string, 'airport', 'employee')
+
+    def by_country(self, string):
+        return self.Search_Manager.search(string, 'country', 'employee')
+
+    def by_id(self, string):
+        return self.Search_Manager.search(string, 'id', 'employee')
+
+
+class Search_Vehicle_Type:
+    def __init__(self):
+        self.Search_Manager = Search_Manager()
+
+    def by_name(self, string):
+        return self.Search_Manager.search(string, 'name', 'vehicle_type')
+
+    def by_regions(self, string):
+        return self.Search_Manager.search(string, 'regions', 'vehicle_type')
+
+    def by_rate(self, string):
+        return self.Search_Manager.search(string, 'rate', 'vehicle_type')
+
+    def by_id(self, string):
+        return self.Search_Manager.search(string, 'id', 'vehicle_type')
+
+
+class Search_Vehicle:
+    def __init__(self):
+        self.Search_Manager = Search_Manager()
+
+    def by_type(self, string):
+        return self.Search_Manager.search(string, 'type', 'vehicle')
+
+    def by_manufacturer(self, string):
+        return self.Search_Manager.search(string, 'manufacturer', 'vehicle')
+
+    def by_yom(self, string):
+        return self.Search_Manager.search(string, 'yom', 'vehicle')
+
+    def by_color(self, string):
+        return self.Search_Manager.search(string, 'color', 'vehicle')
+
+    def by_licence(self, string):
+        return self.Search_Manager.search(string, 'licence', 'vehicle')
+
+    def by_airport(self, string):
+        return self.Search_Manager.search(string, 'airport', 'vehicle')
+
+    def by_condition(self, string):
+        return self.Search_Manager.search(string, 'condition', 'vehicle')
+
+    def by_model(self, string):
+        return self.Search_Manager.search(string, 'model', 'vehicle')
+
+    def by_id(self, string):
+        return self.Search_Manager.search(string, 'id', 'vehicle')

@@ -1,6 +1,6 @@
 from Data.DataAPI import DataAPI as DB
 
-# Example: Search_Manager.search('Oliver', 'name', 'employee)
+# Example: Search_Manager.search('Oliver', 'name', 'employee')
 class Search_Manager:
     def __init__(self):
         self.DB = DB()
@@ -15,6 +15,8 @@ class Search_Manager:
         self.current_data = self.fetch(search_catagory)
         self.search_string = str(search_string.lower())
         self._search()
+
+        
         return self.result
 
 

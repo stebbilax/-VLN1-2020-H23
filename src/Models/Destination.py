@@ -1,25 +1,5 @@
-from enum import Enum
-
-class Airport(Enum):
-    reykjavik = 1
-    nuuk = 2
-    kulusk = 3
-    tingwall = 4
-    longyearbyen = 5
-    torshavn = 6
-
-class Country(Enum):
-    iceland = 1
-    greenland = 2
-    shetland = 3
-    svalbard = 4
-    faroe_islands = 5
-
-
 class Destination:
     def __init__(self, country, airport, phone, opening_hours, id=None):
-        # self.country = Country(int(country)).name
-        # self.airport = Airport(int(airport)).name
         self.country = country
         self.airport = airport
         self.phone = phone
