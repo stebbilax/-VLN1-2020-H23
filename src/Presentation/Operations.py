@@ -24,16 +24,10 @@ def display_all_contracts(logicAPI, ui):
     for contract in logicAPI.contract.get_all_contracts():
         print(contract)
 
-<<<<<<< HEAD
 def get_contract(logicAPI, ui):
     # "Search by: name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status, id"
-    print("\nSearch by: ")
-    print("1. Name")
-    print("2. Email")
-    print("3. Vehicle ID")
-    print("4. Vehicle Status")
-    print("5. Loan Status")
-    print("6. Contract ID")
+    printlist = ["\nSearch by:","\n1. Name","\n2. Email", "\n3. Vehicle ID", "\n4. Vehicle Status", "\n5. Loan Status", "\n6. Contract ID"]
+    print(*printlist)
     choice = input("Enter a choice: ")
     if choice == "1":
         print(logicAPI.contract.get_contract().by_name(input("Name: ")))
@@ -44,8 +38,9 @@ def get_contract(logicAPI, ui):
     elif choice == "4":
         print(logicAPI.contract.get_contract().by_vehicle_status(input("Vehicle Status: ")))
     elif choice == "5":
+        print(logicAPI.contract.get_contract().by_loan_status(input("Loan Status: ")))
+    elif choice == "6":
         print(logicAPI.contract.get_contract().by_id(input("Contract ID: ")))
-=======
 #vehicles
 
 def display_all_vehicles(logicAPI, ui):
@@ -72,4 +67,3 @@ def edit_vehicle(logicAPI,ui):
 def display_vehicle_rates(logicAPI,ui):
     pass
 
->>>>>>> 21c5f8edeceb3c4da2396f9c5d074b3b7c7dd6b8
