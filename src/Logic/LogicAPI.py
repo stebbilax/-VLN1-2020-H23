@@ -23,8 +23,9 @@ class ManageVehicles:
     def edit_vehicle(self):
         pass
 
-    def get_vehicle(self, field, value):
-        pass # Search
+    #def get_vehicle(self, field, value):
+    def get_vehicle(self):
+        return self.searchAPI.search_vehicle() # Search
 
     def get_all_vehicles(self):
         return self.dataAPI.read_all_vehicles()

@@ -150,20 +150,26 @@ def get_vehicle(logicAPI,ui):
     print(*printlist)
     choice = input("Enter a choice:")
     if choice =="1":
-        for vehicle in logicAPI.vehicles.get_vehicle().by_name(input("Enter name: ")):
-            print(vehicle)
+       for vehicle in logicAPI.vehicles.get_vehicle().by_manufacturer(input("Enter manufacturer: ")):
+           print(vehicle)
+    #if choice == "1":
+    #    print(logicAPI.vehicles.get_vehicle().by_manufacturer(input("Enter manufacturer: ")))
     elif choice == "2":
         print(logicAPI.vehicles.get_vehicle().by_model(input("Enter model: ")))
     elif choice == "3":
-        print(logicAPI.vehicle.get_vehicle().by_type(input("Enter type: ")))
+        print(logicAPI.vehicles.get_vehicle().by_type(input("Enter type: ")))
     elif choice == "4":
-        print(logicAPI.vehicle.get_vehicle().by_YOM(input("Enter year of manufacturer: ")))
+        print(logicAPI.vehicles.get_vehicle().by_YOM(input("Enter year of manufacturer: ")))
     elif choice == "5":
-        print(logicAPI.vehicle.get_vehicle().by_VIN(input("Enter vehicle identification number: ")))
+        print(logicAPI.vehicles.get_vehicle().by_VIN(input("Enter vehicle identification number: ")))
     elif choice == "6":
-        print(logicAPI.vehicle.get_vehicle().by_color(input("Enter color: ")))   
-
-    """FINISH THIS!!!!! NEED 7,8,9 """
+        print(logicAPI.vehicles.get_vehicle().by_color(input("Enter color: ")))
+    elif choice == "7":
+        print(logicAPI.vehicles.get_vehicle().by_condition(input("Enter vehicle condition: ")))
+    elif choice == "8":
+        print(logicAPI.vehicles.get_vehicle().by_licence(input("Enter licence: ")))
+    elif choice == "9":
+        print(logicAPI.vehicles.get_vehicle().by_airport(input("Enter location: ")))
 
 def edit_vehicle(logicAPI,ui):
     #might call get vehicle function to search for vehicle and then edit information of that vehicle over here
