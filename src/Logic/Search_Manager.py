@@ -16,8 +16,10 @@ class Search_Manager:
         self.search_string = str(search_string.lower())
         self._search()
 
-        
-        return self.result
+        results = self.result
+        self.clear()
+
+        return results
 
 
     def fetch(self, cat):
@@ -35,6 +37,9 @@ class Search_Manager:
             if obj[self.search_field].lower() == self.search_string:
                 self.result.append(el)
             
+
+    def clear(self):
+        self.result = []
 
 
 
