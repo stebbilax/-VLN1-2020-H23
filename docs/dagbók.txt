@@ -184,13 +184,19 @@ Objectives:
     Implement display vehicles operation.
     Implement display rental contract operation.
     Implement display destination operation.
+    Menu system overhaul
 
 Assignment:
+    Elias Guðjohnsen                   : Menu system overhaul
     Elias Guðjohnsen, Jason Guðnason   : Employee operation suite.
     Arnar Már, Stefán Laxdal           : Contract operation suite.
     Bjarki Laxdal, Gunnlaug            : Vehicle operation suite.
     
 End report:
-    
+    Completed employee operation suite.
+    Partially completed vehicle operation suite.
+    Partially completed destination operation suite.
+    Partially completed contract operation suite.
     
 Notes:
+    Suite refers to the family of operations listed.
