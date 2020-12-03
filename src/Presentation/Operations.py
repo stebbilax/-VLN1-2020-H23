@@ -127,7 +127,6 @@ def display_all_vehicles_in_a_location(logicAPI,ui):
 def display_vehicle_condition(logicAPI,ui):
     pass
 
-def get_vehicle(logicAPI,ui):
 
 def register_new_vehicle(logicAPI,ui):
     #must include vehicle authentication
@@ -149,16 +148,16 @@ def register_new_vehicle(logicAPI,ui):
 def get_vehicle(logicAPI,ui):
     printlist = ["\nSearch by:","\n1. Manufacturer","\n2. Model","\n3. Type","\n4. Year of manufacturer","\n5. Vehicle identification number","\n6. Color","\n7. Condition","\n8. Drivers licence","\n9. Location"]
     print(*printlist)
-    choice = input("Enter a choice:")]
+    choice = input("Enter a choice:")
     if choice =="1":
-        for vehicle in logicAPI.vehicles.get_vehicle().by_name(input("Enter name: "))
-        print(vehicle)
+        for vehicle in logicAPI.vehicles.get_vehicle().by_name(input("Enter name: ")):
+            print(vehicle)
     elif choice == "2":
         print(logicAPI.vehicles.get_vehicle().by_model(input("Enter model: ")))
     elif choice == "3":
         print(logicAPI.vehicle.get_vehicle().by_type(input("Enter type: ")))
     elif choice == "4":
-        print(logicAPI.vehicle.get_vehicle().by_YOM(input("Enter year of manufacturer: "))
+        print(logicAPI.vehicle.get_vehicle().by_YOM(input("Enter year of manufacturer: ")))
     elif choice == "5":
         print(logicAPI.vehicle.get_vehicle().by_VIN(input("Enter vehicle identification number: ")))
     elif choice == "6":
