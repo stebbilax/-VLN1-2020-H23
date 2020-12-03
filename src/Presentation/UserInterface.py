@@ -66,6 +66,7 @@ class UserInterface:
         # Vehicle display functions
         display_vehicle_menu_office.selectable_options += [
             display_all_vehicles,
+            get_vehicle,
             display_all_vehicles_in_a_location,
         ]
 
@@ -136,7 +137,8 @@ class UserInterface:
         # Vehicle display functions
         display_vehicle_menu_airport.selectable_options += [
             display_all_vehicles,
-            display_all_vehicles_in_a_location
+            get_vehicle,
+            display_all_vehicles_in_a_location,
         ]
 
         #endregion                      -----
