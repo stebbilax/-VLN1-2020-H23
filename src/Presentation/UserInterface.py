@@ -23,12 +23,12 @@ class UserInterface:
                 FuncMenu("Display Employee", [display_all_employees, test], office_menu, self.logic, self),
             ], office_menu),
             Menu("Vehicle Managment", [
-                FuncMenu("Register vehicle", [display_all_vehicles, display_all_vehicles], office_menu, self.logic, self),
+                FuncMenu("Register vehicle", [register_new_vehicle, display_all_vehicles], office_menu, self.logic, self),
                 FuncMenu("Edit vehicle", [test, test], office_menu, self.logic, self),
-                FuncMenu("Display vehicle", [display_all_vehicles, test,display_all_vehicles_in_a_location], office_menu, self.logic, self),
+                FuncMenu("Display vehicle", [display_all_vehicles, test,display_all_vehicles_in_a_location,display_vehicle_rates], office_menu, self.logic, self),
             ], office_menu),
             Menu("Contract Managment", [
-                FuncMenu('Display Contract', [display_all_contracts], office_menu, self.logic, self)
+                FuncMenu('Display Contract', [display_all_contracts, get_contract], office_menu, self.logic, self)
             ], office_menu),
             Menu("Reports", [
                
@@ -37,9 +37,9 @@ class UserInterface:
 
         airport_menu.selectable_options += [
             Menu("Vehicle Management", [
-                FuncMenu("Register vehicle", [display_all_vehicles, display_all_vehicles], airport_menu, self.logic, self),
-                FuncMenu("Edit vehicle", [test, test], airport_menu, self.logic, self),
-                FuncMenu("Display vehicle", [display_all_vehicles, test], airport_menu, self.logic, self),
+                FuncMenu("Register vehicle", [register_new_vehicle, display_all_vehicles], airport_menu, self.logic, self),
+                FuncMenu("Edit vehicle", [edit_vehicle, test], airport_menu, self.logic, self),
+                FuncMenu("Display vehicle", [display_all_vehicles, test,display_all_vehicles_in_a_location,display_vehicle_rates], airport_menu, self.logic, self),
             ], airport_menu),
 
             
