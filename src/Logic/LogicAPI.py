@@ -56,7 +56,7 @@ class ManageContracts:
         pass
     
     def get_contract(self):
-        pass # Search
+        return self.searchAPI.search_contract() # Search
     
     def get_all_contracts(self):
         return self.dataAPI.read_all_contracts()
