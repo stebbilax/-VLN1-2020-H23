@@ -23,7 +23,7 @@ class FuncMenu:
 
     def display(self):
         print(self.header)
-        
+
         # Iterate the length so we can enumerate the options with an integer
         for option in range(len(self.selectable_options)):
             print("%d. %s" % (option + 1, format_function_name(self.selectable_options[option].__name__)))
