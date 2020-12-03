@@ -15,7 +15,6 @@ class Enum_Title(Enum):
     office = 1
     airport = 2
 
-
 class Enum_Country(Enum):
     # Countries
     iceland = 1
@@ -23,3 +22,17 @@ class Enum_Country(Enum):
     shetland = 3
     svalbard = 4
     faroe_islands = 5
+
+def enum_to_regex(enum):
+    ''' Converts an enum to a OR regex string '''
+
+    s = '('
+    for var in enum:
+        s += var.name + '|'
+
+    # Remove trailing OR
+    s = s[:-1]
+
+    s += ')'
+
+    return s
