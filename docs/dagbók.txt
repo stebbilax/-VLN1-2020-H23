@@ -166,5 +166,31 @@ End report:
     
 Notes:
 
-
 #----------------------------------------------------------------------------------#
+
+3.12.2020
+
+Objectives:
+    Move enums to a single python file.
+    Implement register employee operation.
+    Implement register vehicle operation.
+    Implement register rental contract operation.
+    Implement register destination operation.
+    Implement edit employee operation.
+    Implement edit vehicle operation.
+    Implement edit rental contract operation.
+    Implement edit destination operation.
+    Implement display employee operation.
+    Implement display vehicles operation.
+    Implement display rental contract operation.
+    Implement display destination operation.
+
+Assignment:
+    Elias Guðjohnsen, Jason Guðnason   : Employee operation suite.
+    Arnar Már, Stefán Laxdal           : Contract operation suite.
+    Bjarki Laxdal, Gunnlaug            : Vehicle operation suite.
+    
+End report:
+    
+    
+Notes:
