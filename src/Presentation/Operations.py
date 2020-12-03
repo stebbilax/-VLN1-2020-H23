@@ -1,18 +1,15 @@
 from datetime import date
 from Models.Enums import *
 
-def test(logicAPI, ui):
-    print(ui.get_user_form(
-            ['SSID', 'Favorite Animal'],
-            ['(\\d{7})-(\\d{4})', None],
-            ['Please use a valid SSID format (6 letters - 4 letters)'])
-    )
-
 def display_all_employees(logicAPI, ui):
+    ''' Display all employees '''
+
     for employee in logicAPI.employee.get_all_employees():
         print(employee)
 
 def register_employee(logicAPI, ui):
+    ''' Register a new employee '''
+
     form = ui.get_user_form(
         {
             'Name': None,
@@ -27,6 +24,10 @@ def register_employee(logicAPI, ui):
             'Country': [enum_to_regex(Enum_Country), enum_to_instructions(Enum_Country)]
         }
     )
+
+    # User canceled operation
+    if not form:
+        return
 
     logicAPI.employee.register_employee(form)
     
@@ -95,6 +96,10 @@ def register_contract(logicAPI, ui):
             'Loan Status': ['(OK|RETURNED|LATE)', 'Please enter a valid loan status (OK or RETURNED or LATE)']
         }
     )
+
+    # User canceled operation
+    if not form:
+        return
     
     logicAPI.contract.register_contract(form)
 
@@ -154,6 +159,12 @@ def register_vehicle(logicAPI,ui):
             'vehicle id': None, # this is licence plate on a car
         } 
     )
+
+    # User canceled operation
+    if not form:
+        return
+
+    #TODO: Implement register vehicle in LogicAPI
     
 def get_vehicle(logicAPI,ui):
     printlist = ["\nSearch by:","\n1. Type","\n2. Manufacturer","\n3. Year Of Manufacturer","\n4. Color","\n5. drivers licence","\n6. Airport location","\n7. Condition","\n8. Model","\n9. Vehicle ID"]
