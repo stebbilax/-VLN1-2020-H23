@@ -60,9 +60,9 @@ class UserInterface:
 
             # Check if the option is a command
             if not str.isnumeric(choice):
-                if choice == 'q':
+                if choice == 'q' or choice == 'Q':
                     exit()
-                elif choice == 'b':
+                elif choice == 'b' or choice == 'B':
                     # If the parent menu is None, the current menu is the main menu
                     if self.current_menu.parent is None:
                         if input("Are you sure you want to exit? (y\\n): ") == 'y':
