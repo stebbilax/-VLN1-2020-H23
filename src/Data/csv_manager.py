@@ -93,3 +93,19 @@ class Csv_Manager:
                 obj = model(*line)
                 retList.append(obj)
         return retList 
+
+
+    def append(self, data, name):
+        ''' Appends a new model to its respective csv document '''
+        catagory_name = name
+        name, fields = self.get_name_and_fields(name)
+
+        with open(f'{self.directory}/data/{name}', 'a', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=fields)
+
+            obj = data.__dict__()
+
+            id = self.get_new_id(catagory_name)
+            obj['id'] = id
+
+            writer.writerow(obj)

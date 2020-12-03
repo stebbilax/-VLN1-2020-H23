@@ -220,5 +220,8 @@ class Search_Vehicle:
     def by_model(self, string):
         return self.Search_Manager.search(string, 'model', 'vehicle')
 
+    def by_vehicle_id(self, string):
+        return self.Search_Manager.search(string, 'vehicle_id', 'vehicle')
+
     def by_id(self, string):
         return self.Search_Manager.search(string, 'id', 'vehicle')
