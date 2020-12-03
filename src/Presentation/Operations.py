@@ -1,5 +1,9 @@
 def test(logicAPI, ui):
-    print(ui.get_user_form(['SSID', 'TYPE', 'COLOR']))
+    print(ui.get_user_form(
+            ['SSID', 'Favorite Animal'],
+            ['(\\d{6})-(\\d{4})', None],
+            ['Please use a valid SSID format (6 letters - 4 letters)'])
+    )
 
 def display_all_employees(logicAPI, ui):
     for employee in logicAPI.employee.get_all_employees():
@@ -28,4 +32,16 @@ def register_new_contract(logicAPI, ui):
         'RETURN DATE',
         'TOTAL',
         'LOAN STATUS',
-    ]))
+    ],[
+        None,
+        '(\d)',
+        None,
+        '([\w-\.]+@+[\w-]+\.+[\w]{2,4})',
+        '([\d{1,9}]{4}-[\d{1,9}]{2}-[\d{1,9}]{2})',
+        '([\d{1,9}]{4}-[\d{1,9}]{2}-[\d{1,9}]{2})',
+        None,
+        
+    ],
+    
+    ))
+2022-14-05
