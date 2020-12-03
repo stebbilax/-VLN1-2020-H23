@@ -101,17 +101,9 @@ class UserInterface:
 
         # Add submenus to airport menu node
         airport_menu.selectable_options += [
-<<<<<<< HEAD
-            Menu("Vehicle Management", [
-                FuncMenu("Register vehicle", [register_new_vehicle, display_all_vehicles], airport_menu, self.logic, self),
-                FuncMenu("Edit vehicle", [edit_vehicle, test], airport_menu, self.logic, self),
-                FuncMenu("Display vehicle", [display_all_vehicles, test,display_all_vehicles_in_a_location,display_vehicle_rates,get_vehicle], airport_menu, self.logic, self),
-            ], airport_menu),
-=======
             employee_menu_airport, vehicle_menu_airport,
             contract_menu_airport
         ]
->>>>>>> 450792b7fc3f9928485ae696755e12cfb5e12644
 
         #region Airport employee menu   -----
 
