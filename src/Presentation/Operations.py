@@ -31,7 +31,9 @@ def register_employee(logicAPI, ui):
 
     logicAPI.employee.register_employee(form)
     
-        
+def edit_employee(logicAPI, ui):
+    pass
+
 def get_employee(logicAPI, ui):
     # "Search by: name, address, postal code, SSID, landline, phone number, email, airport, country"
     printlist = ["\nSearch by:","\n1. Name","\n2. Address", "\n3. Postal Code", "\n4. SSID", "\n5. Landline", "\n6. Phone Number", "\n7. Email", "\n8. Job Title", "\n9. Airport", "\n10. Country"]
@@ -97,6 +99,8 @@ def register_contract(logicAPI, ui):
     
     logicAPI.contract.register_contract(form)
 
+def edit_contract(logicAPI, ui):
+    pass
 
 def get_contract(logicAPI, ui):
     # "Search by: name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status, id"
@@ -104,17 +108,23 @@ def get_contract(logicAPI, ui):
     print(*printlist)
     choice = input("Enter a choice: ")
     if choice == "1":
-        print(logicAPI.contract.get_contract().by_name(input("Name: ")))
+        for contract in logicAPI.contract.get_contract().by_name(input("Name: ")):
+            print(contract)
     elif choice == "2":
-        print(logicAPI.contract.get_contract().by_email(input("Email: ")))
+        for contract in logicAPI.contract.get_contract().by_email(input("Email: ")):
+            print(contract)
     elif choice == "3":
-        print(logicAPI.contract.get_contract().by_vehicle_id(input("Vehicle ID: ")))
+        for contract in logicAPI.contract.get_contract().by_vehicle_id(input("Vehicle ID: ")):
+            print(contract)
     elif choice == "4":
-        print(logicAPI.contract.get_contract().by_vehicle_status(input("Vehicle Status: ")))
+        for contract in logicAPI.contract.get_contract().by_vehicle_status(input("Vehicle Status: ")):
+            print(contract)
     elif choice == "5":
-        print(logicAPI.contract.get_contract().by_loan_status(input("Loan Status: ")))
+        for contract in logicAPI.contract.get_contract().by_loan_status(input("Loan Status: ")):
+            print(contract)
     elif choice == "6":
-        print(logicAPI.contract.get_contract().by_id(input("Contract ID: ")))
+        for contract in logicAPI.contract.get_contract().by_id(input("Contract ID: ")):
+            print(contract)
 #vehicles
 
 
@@ -129,7 +139,7 @@ def display_vehicle_condition(logicAPI,ui):
     pass
 
 
-def register_new_vehicle(logicAPI,ui):
+def register_vehicle(logicAPI,ui):
     #must include vehicle authentication
     #must include vehicle condition
     form = ui.get_user_form(
@@ -154,22 +164,22 @@ def get_vehicle(logicAPI,ui):
         }
     )
     if choice == "1":
-        for vehicle in logicAPI.vehicle.get_vehicle().by_type(input("Enter type: ")):
+        for vehicle in logicAPI.vehicles.get_vehicle().by_type(input("Enter type: ")):
             print(vehicle)
     elif choice =="2":
         for vehicle in logicAPI.vehicles.get_vehicle().by_manufacturer(input("Enter manufacturer: ")):
             print(vehicle)
     elif choice == "3":
-        for vehicle in logicAPI.vehicle.get_vehicle().by_yom(input("Enter year of manufacturer: ")): #yom: year of manufacturer
+        for vehicle in logicAPI.vehicles.get_vehicle().by_yom(input("Enter year of manufacturer: ")): #yom: year of manufacturer
             print(vehicle)
     elif choice == "4":
-        for vehicle in logicAPI.vehicle.get_vehicle().by_color(input("Enter color: ")):
+        for vehicle in logicAPI.vehicles.get_vehicle().by_color(input("Enter color: ")):
             print(vehicle)   
     elif choice == "5":
-        for vehicle in logicAPI.vehicle.get_vehicle().by_licence(input("Enter licence: ")):
+        for vehicle in logicAPI.vehicles.get_vehicle().by_licence(input("Enter licence: ")):
             print(vehicle)
     elif choice == "6":
-        for vehicle in logicAPI.vehicles.get_vehicles().by_airport(input("Enter airport: ")):
+        for vehicle in logicAPI.vehicles.get_vehicle().by_airport(input("Enter airport: ")):
             print(vehicle)
     elif choice == "7":
         for vehicle in logicAPI.vehicles.get_vehicle().by_condition(input("Enter condition: ")):
@@ -178,7 +188,7 @@ def get_vehicle(logicAPI,ui):
         for vehicle in logicAPI.vehicles.get_vehicle().by_model(input("Enter model: ")):
             print(vehicle)
     elif choice == "9":
-        for vehicle in logicAPI.vehicle.get_vehi<cle().by_vehicle_id(input("Enter vehicle identification number: ")): 
+        for vehicle in logicAPI.vehicles.get_vehicle().by_vehicle_id(input("Enter vehicle identification number: ")): 
             print(vehicle)
 
 
