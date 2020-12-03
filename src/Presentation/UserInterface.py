@@ -40,7 +40,7 @@ class UserInterface:
             Menu("Vehicle Management", [
                 FuncMenu("Register vehicle", [register_new_vehicle, display_all_vehicles], airport_menu, self.logic, self),
                 FuncMenu("Edit vehicle", [edit_vehicle, test], airport_menu, self.logic, self),
-                FuncMenu("Display vehicle", [display_all_vehicles, test,display_all_vehicles_in_a_location,display_vehicle_rates], airport_menu, self.logic, self),
+                FuncMenu("Display vehicle", [display_all_vehicles, test,display_all_vehicles_in_a_location,display_vehicle_rates,get_vehicle], airport_menu, self.logic, self),
             ], airport_menu),
 
             

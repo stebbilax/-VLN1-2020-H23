@@ -1,5 +1,6 @@
 from datetime import date
 from Models.Enums import *
+import re
 
 def test(logicAPI, ui):
     print(ui.get_user_form(
@@ -139,7 +140,7 @@ def register_new_vehicle(logicAPI,ui):
             'color': ['[a-z]+$', 'Alphabetical letters only'],
             'licence': None,
             'airport': [enum_to_regex(Enum_Airport),enum_to_instructions(Enum_Airport)],
-            'condition (good or bad)': ['[a-z]+$', 'Alphabetical letters only'],
+            'condition': ['(OK|DEFECTIVE)', 'Please enter valid vehicle status (OK or DEFECTIVE)'],
             'model': ['[a-z]+$', 'Alphabetical letters only'],
             'vehicle id': None, # this is licence plate on a car
         } 
@@ -148,8 +149,10 @@ def register_new_vehicle(logicAPI,ui):
 def get_vehicle(logicAPI,ui):
     printlist = ["\nSearch by:","\n1. Type","\n2. Manufacturer","\n3. Year Of Manufacturer","\n4. Color","\n5. drivers licence","\n6. Airport location","\n7. Condition","\n8. Model","\n9. Vehicle ID"]
     print(*printlist)
-    choice = input("Enter a choice:")
-
+    choice = ui.get_user_form(
+        {'Enter Number': ['^[1-9]{1}$',"Enter valid number between 1-9"]
+        }
+    )
     if choice == "1":
         for vehicle in logicAPI.vehicle.get_vehicle().by_type(input("Enter type: ")):
             print(vehicle)
@@ -165,7 +168,7 @@ def get_vehicle(logicAPI,ui):
     elif choice == "5":
         for vehicle in logicAPI.vehicle.get_vehicle().by_licence(input("Enter licence: ")):
             print(vehicle)
-    elif choice == "6"
+    elif choice == "6":
         for vehicle in logicAPI.vehicles.get_vehicles().by_airport(input("Enter airport: ")):
             print(vehicle)
     elif choice == "7":
