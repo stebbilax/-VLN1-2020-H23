@@ -1,7 +1,7 @@
 from Logic.LogicAPI import LogicAPI
 from Presentation.Menu import Menu, FuncMenu
 from Presentation.Operations import *
-import os
+import os, re
 
 class UserInterface:
     def __init__(self):
@@ -18,12 +18,14 @@ class UserInterface:
 
         office_menu.selectable_options += [
             Menu("Employee Managment", [
-                FuncMenu("Register Employee", [display_all_employees, display_all_employees], office_menu, self.logic, self),
+                FuncMenu("Register Employee", [register_employee], office_menu, self.logic, self),
                 FuncMenu("Edit Employee", [test, test], office_menu, self.logic, self),
                 FuncMenu("Display Employee", [display_all_employees, test], office_menu, self.logic, self),
             ], office_menu),
             Menu("Vehicle Managment", [
-                
+                FuncMenu("Register vehicle", [register_new_vehicle, display_all_vehicles], office_menu, self.logic, self),
+                FuncMenu("Edit vehicle", [test, test], office_menu, self.logic, self),
+                FuncMenu("Display vehicle", [display_all_vehicles, test,display_all_vehicles_in_a_location,display_vehicle_rates], office_menu, self.logic, self),
             ], office_menu),
             Menu("Contract Managment", [
                 FuncMenu('Display Contract', [display_all_contracts, get_contract], office_menu, self.logic, self)
@@ -33,16 +35,42 @@ class UserInterface:
             ], office_menu)
         ]
 
+        airport_menu.selectable_options += [
+            Menu("Vehicle Management", [
+                FuncMenu("Register vehicle", [register_new_vehicle, display_all_vehicles], airport_menu, self.logic, self),
+                FuncMenu("Edit vehicle", [edit_vehicle, test], airport_menu, self.logic, self),
+                FuncMenu("Display vehicle", [display_all_vehicles, test,display_all_vehicles_in_a_location,display_vehicle_rates], airport_menu, self.logic, self),
+            ], airport_menu),
+
+            
+        ]
+
         self.current_menu = main_menu
+
+
+
 
     def get_user_input(self, message):
         return input(message)
 
-    def get_user_form(self, parameters):
+    def get_user_form(self, parameters, regex, instructions):
         response = []
 
-        for parameter in parameters:
-            response.append(input(parameter + ': '))
+        for parameter in range(len(parameters)):
+            if (regex[parameter] == None):
+                answer = input(parameters[parameter] + ': ')
+            else:
+
+                match = False
+
+                while not match:
+                    answer = input(parameters[parameter] + ': ')
+                    match = re.search(regex[parameter], answer)
+
+                    if not match:
+                        print(instructions[parameter])
+
+            response.append(answer)
 
         return response
 
