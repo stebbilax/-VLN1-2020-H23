@@ -43,11 +43,11 @@ def enum_to_instructions(enum):
     s = "Must be one of the following: "
 
     for var in enum:
-        s += var.name + ' '
+        s += var.name + ', '
 
-    # Remove trailing whitespace
-    s = s[:-1]
-    
+    # Remove trailing whitespace and comma
+    s = s[:-2]
+
     s += '.'
 
     return s

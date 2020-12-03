@@ -12,13 +12,22 @@ def display_all_employees(logicAPI, ui):
         print(employee)
 
 def register_employee(logicAPI, ui):
-    ui.get_user_form(
-        ['Name', 'SSID', 'Job Title', 'Address', 'Phone number', 'Email', 'Landline', 'Country'],
-        [None, '(\\d{6})-(\\d{4})', enum_to_regex(Enum_Title), None, '(\d{7,15})', '(.+@.+\.is)', '(\d{7,15})', enum_to_regex(Enum_Country)],
-        [None, 'SSID must be in format (6 digits - 4 digits)', enum_to_instructions(Enum_Title),
-            None, 'Phone number must be between 7 and 15 digits', 'Must be a valid email format.', 'Landline must be between 7 and 15 digits', enum_to_instructions(Enum_Country)]
+    form = ui.get_user_form(
+        {
+            'Name': None,
+            'Address': None,
+            'Postal code': ['(\d)', 'Must be digits only'],
+            'SSID': ['(\d{6})-(\d{4})', 'SSID must be in format (6 digits - 4 digits)'],
+            'Landline': ['(\d{7,15})', 'Landline must be between 7 and 15 digits'],
+            'Phone number': ['(\d{7,15})', 'Phone number must be between 7 and 15 digits'],
+            'Email': ['(.+@.+\..+)', 'Must be a valid email format.'],
+            'Job Title': [enum_to_regex(Enum_Title), enum_to_instructions(Enum_Title)],
+            'Airport': [enum_to_regex(Enum_Airport), enum_to_instructions(Enum_Airport)],
+            'Country': [enum_to_regex(Enum_Country), enum_to_instructions(Enum_Country)]
+        }
     )
 
+    logicAPI.employee.register_employee(form)
 
 
 def display_all_contracts(logicAPI, ui):

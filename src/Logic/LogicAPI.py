@@ -1,5 +1,7 @@
 from Data.DataAPI import DataAPI
 from Logic.Search_API import Search_API
+from Models.Employee import Employee
+
 
 class LogicAPI:
     def __init__(self):
@@ -31,8 +33,9 @@ class ManageEmployees:
         self.dataAPI = dapi
         self.searchAPI = sapi
     
-    def register_employee(self):
-        pass
+    def register_employee(self, form):
+        new_employee = Employee(*form)
+        self.dataAPI.append_employee(new_employee)
     
     def edit_employee(self):
         pass
