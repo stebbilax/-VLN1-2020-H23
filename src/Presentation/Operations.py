@@ -36,25 +36,35 @@ def get_employee(logicAPI, ui):
     print(*printlist)
     choice = input("Enter a choice: ")
     if choice == '1':
-        print(logicAPI.employee.get_employee().by_name(input("Name: ")))
+        for employee in logicAPI.employee.get_employee().by_name(input("Name: ")):
+            print(employee)
     elif choice == '2':
-        print(logicAPI.employee.get_employee().by_address(input("Address: ")))
+        for employee in logicAPI.employee.get_employee().by_address(input("Address: ")):
+            print(employee)
     elif choice == '3':
-        print(logicAPI.employee.get_employee().by_postal_code(input("Postal Code: ")))
+        for employee in logicAPI.employee.get_employee().by_postal_code(input("Postal Code: ")):
+            print(employee)
     elif choice == '4':
-        print(logicAPI.employee.get_employee().by_ssid(input("SSID: ")))
+        for employee in logicAPI.employee.get_employee().by_ssid(input("SSID: ")):
+            print(employee)
     elif choice == '5':
-        print(logicAPI.employee.get_employee().by_landline(input("Landline: ")))
+        for employee in logicAPI.employee.get_employee().by_landline(input("Landline: ")):
+            print(employee)
     elif choice == '6':
-        print(logicAPI.employee.get_employee().by_phone(input("Phone Number: ")))
+        for employee in logicAPI.employee.get_employee().by_phone(input("Phone Number: ")):
+            print(employee)
     elif choice == '7':
-        print(logicAPI.employee.get_employee().by_email(input("Email: ")))
+        for employee in logicAPI.employee.get_employee().by_email(input("Email: ")):
+            print(employee)
     elif choice == '8':
-        print(logicAPI.employee.get_employee().by_job_title(input("Job Title: ")))
+        for employee in logicAPI.employee.get_employee().by_job_title(input("Job Title: ")):
+            print(employee)
     elif choice == '9':
-        print(logicAPI.employee.get_employee().by_airport(input("Airport: ")))
+        for employee in logicAPI.employee.get_employee().by_airport(input("Airport: ")):
+            print(employee)
     elif choice == '10':
-        print(logicAPI.employee.get_employee().by_country(input("Country: ")))
+        for employee in logicAPI.employee.get_employee().by_country(input("Country: ")):
+            print(employee)
     
         
 
