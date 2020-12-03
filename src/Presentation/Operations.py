@@ -99,7 +99,9 @@ def get_vehicle(logicAPI,ui):
     elif choice == "5":
         print(logicAPI.vehicle.get_vehicle().by_VIN(input("Enter vehicle identification number: ")))
     elif choice == "6":
-        print(logicAPI.vehicle.get_vehicle().by_)    
+        print(logicAPI.vehicle.get_vehicle().by_color(input("Enter color: ")))   
+
+    """FINISH THIS!!!!! NEED 7,8,9 """
 
 def edit_vehicle(logicAPI,ui):
     #might call get vehicle function to search for vehicle and then edit information of that vehicle over here
