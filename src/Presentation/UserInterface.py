@@ -18,9 +18,9 @@ class UserInterface:
 
         office_menu.selectable_options += [
             Menu("Employee Managment", [
-                FuncMenu("Register Employee", [display_all_employees, display_all_employees], office_menu, self.logic),
-                FuncMenu("Edit Employee", [test, test], office_menu, self.logic),
-                FuncMenu("Display Employee", [display_all_employees, test], office_menu, self.logic),
+                FuncMenu("Register Employee", [display_all_employees, display_all_employees], office_menu, self.logic, self),
+                FuncMenu("Edit Employee", [test, test], office_menu, self.logic, self),
+                FuncMenu("Display Employee", [display_all_employees, test], office_menu, self.logic, self),
             ], office_menu),
             Menu("Vehicle Managment", [
                 
@@ -37,6 +37,14 @@ class UserInterface:
 
     def get_user_input(self, message):
         return input(message)
+
+    def get_user_form(self, parameters):
+        response = []
+
+        for parameter in parameters:
+            response.append(input(parameter + ': '))
+
+        return response
 
     def change_menu(self):
         pass

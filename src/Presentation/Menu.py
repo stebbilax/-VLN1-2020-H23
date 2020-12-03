@@ -15,11 +15,12 @@ class Menu:
         return self.selectable_options[id]    
 
 class FuncMenu:
-    def __init__(self, header, options, parent, api):
+    def __init__(self, header, options, parent, logicAPI, ui):
         self.header = header
         self.selectable_options = options or []
         self.parent = parent
-        self.logicAPI = api
+        self.logicAPI = logicAPI
+        self.ui = ui
 
     def display(self):
         print(self.header)
@@ -29,7 +30,7 @@ class FuncMenu:
             print("%d. %s" % (option + 1, format_function_name(self.selectable_options[option].__name__)))
 
     def select_option(self, func):
-        self.selectable_options[func](self.logicAPI)
+        self.selectable_options[func](self.logicAPI, self.ui)
         return self.parent
 
 def format_function_name(name):
