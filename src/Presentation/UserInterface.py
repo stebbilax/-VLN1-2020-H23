@@ -55,7 +55,7 @@ class UserInterface:
         #region Office Vehicle menu     -----
 
         # Submenu for specific vehicle display options
-        display_vehicle_menu_office = Menu("Display Vehicle", None, employee_menu_office, self.logic, self)
+        display_vehicle_menu_office = Menu("Display Vehicle", None, vehicle_menu_office, self.logic, self)
 
         # Vehicle functions with vehicle display menu
         vehicle_menu_office.selectable_options += [
@@ -75,7 +75,7 @@ class UserInterface:
         #region Office Contract menu    -----
 
         # Submenu for specific contract display options
-        display_contract_menu_office = Menu ("Display Contract", None, employee_menu_office, self.logic, self)
+        display_contract_menu_office = Menu ("Display Contract", None, contract_menu_office, self.logic, self)
 
         # Contract functions with contract display menu
         contract_menu_office.selectable_options += [
@@ -108,7 +108,7 @@ class UserInterface:
         #region Airport employee menu   -----
 
         # Submenu for specific employee display options
-        display_employee_menu    = Menu("Display Employee", None, airport_menu, self.logic, self)
+        display_employee_menu    = Menu("Display Employee", None, employee_menu_airport, self.logic, self)
 
         # Employee functions with employee display menu
         employee_menu_airport.selectable_options += [
@@ -126,7 +126,7 @@ class UserInterface:
         #region Airport vehicle menu    -----
 
         # Submenu for specific vehicle display options
-        display_vehicle_menu_airport = Menu("Display Vehicle", None, employee_menu_airport, self.logic, self)
+        display_vehicle_menu_airport = Menu("Display Vehicle", None, vehicle_menu_airport, self.logic, self)
 
         # Vehicle functions with vehicle display menu
         vehicle_menu_airport.selectable_options += [
@@ -146,7 +146,7 @@ class UserInterface:
         #region Airport contract menu   -----
 
         # Submenu for specific contract display options
-        display_contract_menu_airport = Menu ("Display Contract", None, employee_menu_airport, self.logic, self)
+        display_contract_menu_airport = Menu ("Display Contract", None, contract_menu_airport, self.logic, self)
 
         # Contract functions with contract display menu
         contract_menu_airport.selectable_options += [
