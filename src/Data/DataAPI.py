@@ -21,7 +21,7 @@ class DataAPI:
         self.manager.write_all(data, 'contract')
     def read_all_contracts(self):
         return self.manager.read_all('contract')
-    def append_customer(self, data):
+    def append_contract(self, data):
         self.manager.append(data, 'contract')
     
 

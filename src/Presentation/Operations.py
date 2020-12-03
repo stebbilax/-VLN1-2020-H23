@@ -1,3 +1,4 @@
+from datetime import date
 from Models.Enums import *
 
 def test(logicAPI, ui):
@@ -73,7 +74,7 @@ def display_all_contracts(logicAPI, ui):
         print(contract)
 
 
-def register_employee(logicAPI, ui):
+def register_contract(logicAPI, ui):
     form = ui.get_user_form(
         {
             'Name': None,
@@ -84,66 +85,18 @@ def register_employee(logicAPI, ui):
             'Date Too': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
             'Vehicle Id': ['(\d)', 'Must be digits only'],
             'Country': [enum_to_regex(Enum_Country), enum_to_instructions(Enum_Country)],
-            'Vehicle Status': [],
+            'Vehicle Status': ['(OK|DEFECTIVE)', 'Please enter valid vehicle status (OK or DEFECTIVE)'],
             'Employee Id': None,
-            'Loan Date': None,
-            'Return Date': None,
-            'Total': None,
-            'Loan Status': None,
+            'Loan Date': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
+            'Return Date': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
+            'Total': ['(\d)', 'Must be digits only'],
+            'Loan Status': ['(OK|RETURNED|LATE)', 'Please enter a valid loan status (OK or RETURNED or LATE)']
         }
     )
-    logicAPI.employee.register_employee(form)
+    
+    logicAPI.contract.register_contract(form)
 
 
-
-def register_new_contract(logicAPI, ui):
-    print(ui.get_user_form([
-        'NAME',
-        'PHONE',
-        'ADDRESS',
-        'EMAIL',
-        'DATE FROM',
-        'DATE TOO',
-        'VEHICLE ID',
-        'COUNTRY',
-        'VEHILE STATUS',
-        'EMPLOYEE ID',
-        'LOAN DATE',
-        'RETURN DATE',
-        'TOTAL',
-        'LOAN STATUS',
-    ],[
-        None,
-        '(\d)',
-        None,
-        '(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)', # EMAIL
-        '\d{4}-([01][012])-(([012]\d)|([3][01]))', #DATE
-        '\d{4}-([01][012])-(([012]\d)|([3][01]))', #DATE
-        None,
-        enum_to_regex(Enum_Country),
-        '(OK|DEFECTIVE)',
-        None,
-        '\d{4}-([01][012])-(([012]\d)|([3][01]))', #DATE
-        '\d{4}-([01][012])-(([012]\d)|([3][01]))', #DATE
-        '(\d)',
-        '(OK|RETURNED|LATE)'
-    ],[
-        None,
-        'Please enter a valid phone number (Only digits)',
-        None,
-        'Please enter a valid email address (example@nan.is)',
-        'Please enter a valid date (2020-05-05)',
-        'Please enter a valid date (2020-05-05)',
-        None,
-        'Please select a valid country (iceland, greenland, shetland, svalbard, faroe_islands',
-        'Please enter valid vehicle status (OK or DEFECTIVE)',
-        None,
-        'Please enter a valid date (2020-05-05)',
-        'Please enter a valid date (2020-05-05)',
-        'Please enter a valid total amount (Only digits)',
-        'Please enter a valid loan status (OK or RETURNED or LATE)' 
-    ]
-    ))
 def get_contract(logicAPI, ui):
     # "Search by: name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status, id"
     printlist = ["\nSearch by:","\n1. Name","\n2. Email", "\n3. Vehicle ID", "\n4. Vehicle Status", "\n5. Loan Status", "\n6. Contract ID"]

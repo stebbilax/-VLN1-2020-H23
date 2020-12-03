@@ -1,6 +1,7 @@
 from Data.DataAPI import DataAPI
 from Logic.Search_API import Search_API
 from Models.Employee import Employee
+from Models.Contract import Contract
 
 
 class LogicAPI:
@@ -52,8 +53,9 @@ class ManageContracts:
         self.dataAPI = dapi
         self.searchAPI = sapi
     
-    def register_contract(self):
-        pass
+    def register_contract(self, form):
+        new_contract = Contract(*form)
+        self.dataAPI.append_contract(new_contract)
     
     def edit_contract(self):
         pass
