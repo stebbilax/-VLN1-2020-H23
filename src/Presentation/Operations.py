@@ -36,25 +36,35 @@ def get_employee(logicAPI, ui):
     print(*printlist)
     choice = input("Enter a choice: ")
     if choice == '1':
-        print(logicAPI.employee.get_employee().by_name(input("Name: ")))
+        for employee in logicAPI.employee.get_employee().by_name(input("Name: ")):
+            print(employee)
     elif choice == '2':
-        print(logicAPI.employee.get_employee().by_address(input("Address: ")))
+        for employee in logicAPI.employee.get_employee().by_address(input("Address: ")):
+            print(employee)
     elif choice == '3':
-        print(logicAPI.employee.get_employee().by_postal_code(input("Postal Code: ")))
+        for employee in logicAPI.employee.get_employee().by_postal_code(input("Postal Code: ")):
+            print(employee)
     elif choice == '4':
-        print(logicAPI.employee.get_employee().by_ssid(input("SSID: ")))
+        for employee in logicAPI.employee.get_employee().by_ssid(input("SSID: ")):
+            print(employee)
     elif choice == '5':
-        print(logicAPI.employee.get_employee().by_landline(input("Landline: ")))
+        for employee in logicAPI.employee.get_employee().by_landline(input("Landline: ")):
+            print(employee)
     elif choice == '6':
-        print(logicAPI.employee.get_employee().by_phone(input("Phone Number: ")))
+        for employee in logicAPI.employee.get_employee().by_phone(input("Phone Number: ")):
+            print(employee)
     elif choice == '7':
-        print(logicAPI.employee.get_employee().by_email(input("Email: ")))
+        for employee in logicAPI.employee.get_employee().by_email(input("Email: ")):
+            print(employee)
     elif choice == '8':
-        print(logicAPI.employee.get_employee().by_job_title(input("Job Title: ")))
+        for employee in logicAPI.employee.get_employee().by_job_title(input("Job Title: ")):
+            print(employee)
     elif choice == '9':
-        print(logicAPI.employee.get_employee().by_airport(input("Airport: ")))
+        for employee in logicAPI.employee.get_employee().by_airport(input("Airport: ")):
+            print(employee)
     elif choice == '10':
-        print(logicAPI.employee.get_employee().by_country(input("Country: ")))
+        for employee in logicAPI.employee.get_employee().by_country(input("Country: ")):
+            print(employee)
     
         
 
@@ -62,6 +72,78 @@ def display_all_contracts(logicAPI, ui):
     for contract in logicAPI.contract.get_all_contracts():
         print(contract)
 
+
+def register_employee(logicAPI, ui):
+    form = ui.get_user_form(
+        {
+            'Name': None,
+            'Phone': ['(\d{7,15})', 'Phone number must be between 7 and 15 digits'],
+            'Address': None,
+            'Email': ['(.+@.+\..+)', 'Must be a valid email format.'],
+            'Date From': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
+            'Date Too': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
+            'Vehicle Id': ['(\d)', 'Must be digits only'],
+            'Country': [enum_to_regex(Enum_Country), enum_to_instructions(Enum_Country)],
+            'Vehicle Status': [],
+            'Employee Id': None,
+            'Loan Date': None,
+            'Return Date': None,
+            'Total': None,
+            'Loan Status': None,
+        }
+    )
+    logicAPI.employee.register_employee(form)
+
+
+
+def register_new_contract(logicAPI, ui):
+    print(ui.get_user_form([
+        'NAME',
+        'PHONE',
+        'ADDRESS',
+        'EMAIL',
+        'DATE FROM',
+        'DATE TOO',
+        'VEHICLE ID',
+        'COUNTRY',
+        'VEHILE STATUS',
+        'EMPLOYEE ID',
+        'LOAN DATE',
+        'RETURN DATE',
+        'TOTAL',
+        'LOAN STATUS',
+    ],[
+        None,
+        '(\d)',
+        None,
+        '(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)', # EMAIL
+        '\d{4}-([01][012])-(([012]\d)|([3][01]))', #DATE
+        '\d{4}-([01][012])-(([012]\d)|([3][01]))', #DATE
+        None,
+        enum_to_regex(Enum_Country),
+        '(OK|DEFECTIVE)',
+        None,
+        '\d{4}-([01][012])-(([012]\d)|([3][01]))', #DATE
+        '\d{4}-([01][012])-(([012]\d)|([3][01]))', #DATE
+        '(\d)',
+        '(OK|RETURNED|LATE)'
+    ],[
+        None,
+        'Please enter a valid phone number (Only digits)',
+        None,
+        'Please enter a valid email address (example@nan.is)',
+        'Please enter a valid date (2020-05-05)',
+        'Please enter a valid date (2020-05-05)',
+        None,
+        'Please select a valid country (iceland, greenland, shetland, svalbard, faroe_islands',
+        'Please enter valid vehicle status (OK or DEFECTIVE)',
+        None,
+        'Please enter a valid date (2020-05-05)',
+        'Please enter a valid date (2020-05-05)',
+        'Please enter a valid total amount (Only digits)',
+        'Please enter a valid loan status (OK or RETURNED or LATE)' 
+    ]
+    ))
 def get_contract(logicAPI, ui):
     # "Search by: name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status, id"
     printlist = ["\nSearch by:","\n1. Name","\n2. Email", "\n3. Vehicle ID", "\n4. Vehicle Status", "\n5. Loan Status", "\n6. Contract ID"]

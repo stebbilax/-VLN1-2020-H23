@@ -95,7 +95,7 @@ def vehicle():
         D.make_airport(),
         D.make_vehicle_status(),
         D.make_model(),
-
+        D.make_vehicle_id(),
     )
 def vehicle_type():
     return Vehicle_Type(
