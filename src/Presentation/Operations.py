@@ -18,11 +18,11 @@ def register_employee(logicAPI, ui):
         ['','','','','','','','']
     )
 
+
 def display_all_contracts(logicAPI, ui):
     for contract in logicAPI.contract.get_all_contracts():
         print(contract)
 
-<<<<<<< HEAD
 def get_contract(logicAPI, ui):
     # "Search by: name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status, id"
     print("\nSearch by: ")
@@ -43,8 +43,7 @@ def get_contract(logicAPI, ui):
         print(logicAPI.contract.get_contract().by_vehicle_status(input("Vehicle Status: ")))
     elif choice == "5":
         print(logicAPI.contract.get_contract().by_id(input("Contract ID: ")))
-=======
-#vehicles
+
 
 def display_all_vehicles(logicAPI, ui):
     for vehicles in logicAPI.vehicles.get_all_vehicles():
@@ -61,8 +60,6 @@ def register_new_vehicle(logicAPI,ui):
     #must include vehicle authentication
     #must include vehicle condition
     ui.get_user_form(
-        #yom = year of manufacturer
-        #vin = vehicle identification number
         ['manufacturer','model','type','year of manufacturer','vehicle identification number','color','condition','licence','location'], #ath data vehicle.csv i odruvisi rod, tharf ad laga
         ['[a-z]+$',None,None,'\\d{4}$',None,'[a-z]+$','[a-z]+$',None,enum_to_regex(Enum_Airport)],
         ['','','','','','','','','']
@@ -76,4 +73,3 @@ def edit_vehicle(logicAPI,ui):
 def display_vehicle_rates(logicAPI,ui):
     pass
 
->>>>>>> 21c5f8edeceb3c4da2396f9c5d074b3b7c7dd6b8
