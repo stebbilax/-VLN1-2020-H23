@@ -28,6 +28,35 @@ def register_employee(logicAPI, ui):
     )
 
     logicAPI.employee.register_employee(form)
+    
+        
+def get_employee(logicAPI, ui):
+    # "Search by: name, address, postal code, SSID, landline, phone number, email, airport, country"
+    printlist = ["\nSearch by:","\n1. Name","\n2. Address", "\n3. Postal Code", "\n4. SSID", "\n5. Landline", "\n6. Phone Number", "\n7. Email", "\n8. Job Title", "\n9. Airport", "\n10. Country"]
+    print(*printlist)
+    choice = input("Enter a choice: ")
+    if choice == '1':
+        print(logicAPI.employee.get_employee().by_name(input("Name: ")))
+    elif choice == '2':
+        print(logicAPI.employee.get_employee().by_address(input("Address: ")))
+    elif choice == '3':
+        print(logicAPI.employee.get_employee().by_postal_code(input("Postal Code: ")))
+    elif choice == '4':
+        print(logicAPI.employee.get_employee().by_ssid(input("SSID: ")))
+    elif choice == '5':
+        print(logicAPI.employee.get_employee().by_landline(input("Landline: ")))
+    elif choice == '6':
+        print(logicAPI.employee.get_employee().by_phone(input("Phone Number: ")))
+    elif choice == '7':
+        print(logicAPI.employee.get_employee().by_email(input("Email: ")))
+    elif choice == '8':
+        print(logicAPI.employee.get_employee().by_job_title(input("Job Title: ")))
+    elif choice == '9':
+        print(logicAPI.employee.get_employee().by_airport(input("Airport: ")))
+    elif choice == '10':
+        print(logicAPI.employee.get_employee().by_country(input("Country: ")))
+    
+        
 
 def display_all_contracts(logicAPI, ui):
     for contract in logicAPI.contract.get_all_contracts():
