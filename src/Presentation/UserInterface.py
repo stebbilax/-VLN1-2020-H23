@@ -25,7 +25,7 @@ class UserInterface:
             Menu("Vehicle Managment", [
                 FuncMenu("Register vehicle", [register_new_vehicle, display_all_vehicles], office_menu, self.logic, self),
                 FuncMenu("Edit vehicle", [test, test], office_menu, self.logic, self),
-                FuncMenu("Display vehicle", [display_all_vehicles, test,display_all_vehicles_in_a_location,display_vehicle_rates], office_menu, self.logic, self),
+                FuncMenu("Display vehicle", [display_all_vehicles, test,display_all_vehicles_in_a_location,display_vehicle_rates,get_vehicle], office_menu, self.logic, self),
             ], office_menu),
             Menu("Contract Managment", [
                 FuncMenu('Display Contract', [display_all_contracts, get_contract], office_menu, self.logic, self)

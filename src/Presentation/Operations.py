@@ -55,21 +55,49 @@ def display_all_vehicles_in_a_location(logicAPI,ui):
 def display_vehicle_condition(logicAPI,ui):
     pass
 
+def get_vehicle(logicAPI,ui):
 
 def register_new_vehicle(logicAPI,ui):
     #must include vehicle authentication
     #must include vehicle condition
     ui.get_user_form(
-        ['manufacturer','model','type','year of manufacturer','vehicle identification number','color','condition','licence','location'], #ath data vehicle.csv i odruvisi rod, tharf ad laga
+        ['manufacturer','model','type','year of manufacturer','vehicle identification number','color','condition (good or bad)','licence','location'], #ath data vehicle.csv i odruvisi rod, tharf ad laga
         ['[a-z]+$',None,None,'\\d{4}$',None,'[a-z]+$','[a-z]+$',None,enum_to_regex(Enum_Airport)],
         ['','','','','','','','','']
+        # 
     )
     
 
+def get_vehicle(logicAPI,ui):
+    print("\nSearch by:")
+    print("1. Manufacturer")
+    print("2. Model")
+    print("3. Type")
+    print("4. Year of manufacturer")
+    print("5. Vehicle identification number")
+    print("6. Color")
+    print("7. Condition")
+    print("8. Drivers licence")
+    print("9. Location")
+    choice = input("Enter a choice:")
+    if choice =="1":
+        print(logicAPI.vehicles.get_vehicle().by_name(input("Enter name: ")))
+    elif choice == "2":
+        print(logicAPI.vehicles.get_vehicle().by_model(input("Enter model: ")))
+    elif choice == "3":
+        print(logicAPI.vehicle.get_vehicle().by_type(input("Enter type: ")))
+    elif choice == "4":
+        print(logicAPI.vehicle.get_vehicle().by_YOM(input("Enter year of manufacturer: "))
+    elif choice == "5":
+        print(logicAPI.vehicle.get_vehicle().by_VIN(input("Enter vehicle identification number: ")))
+    elif choice == "6":
+        print(logicAPI.vehicle.get_vehicle().by_)    
+
 def edit_vehicle(logicAPI,ui):
-    #serch for vehicle to be able to edit
+    #might call get vehicle function to search for vehicle and then edit information of that vehicle over here
     pass
 
 def display_vehicle_rates(logicAPI,ui):
     pass
+
 
