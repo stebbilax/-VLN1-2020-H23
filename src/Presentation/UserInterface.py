@@ -18,7 +18,7 @@ class UserInterface:
 
         office_menu.selectable_options += [
             Menu("Employee Managment", [
-                FuncMenu("Register Employee", [display_all_employees, display_all_employees], office_menu, self.logic, self),
+                FuncMenu("Register Employee", [register_employee], office_menu, self.logic, self),
                 FuncMenu("Edit Employee", [test, test], office_menu, self.logic, self),
                 FuncMenu("Display Employee", [display_all_employees, test], office_menu, self.logic, self),
             ], office_menu),
