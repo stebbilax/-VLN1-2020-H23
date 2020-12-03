@@ -161,19 +161,19 @@ def get_vehicle(logicAPI,ui):
     choice = input("Enter a choice:")
 
     if choice == "1":
-        for vehicle in logicAPI.vehicle.get_vehicle().by_type(input("Enter type: ")):
+        for vehicle in logicAPI.vehicles.get_vehicle().by_type(input("Enter type: ")):
             print(vehicle)
     elif choice =="2":
         for vehicle in logicAPI.vehicles.get_vehicle().by_manufacturer(input("Enter manufacturer: ")):
             print(vehicle)
     elif choice == "3":
-        for vehicle in logicAPI.vehicle.get_vehicle().by_yom(input("Enter year of manufacturer: ")): #yom: year of manufacturer
+        for vehicle in logicAPI.vehicles.get_vehicle().by_yom(input("Enter year of manufacturer: ")): #yom: year of manufacturer
             print(vehicle)
     elif choice == "4":
-        for vehicle in logicAPI.vehicle.get_vehicle().by_color(input("Enter color: ")):
+        for vehicle in logicAPI.vehicles.get_vehicle().by_color(input("Enter color: ")):
             print(vehicle)   
     elif choice == "5":
-        for vehicle in logicAPI.vehicle.get_vehicle().by_licence(input("Enter licence: ")):
+        for vehicle in logicAPI.vehicles.get_vehicle().by_licence(input("Enter licence: ")):
             print(vehicle)
     elif choice == "6":
         for vehicle in logicAPI.vehicles.get_vehicles().by_airport(input("Enter airport: ")):
@@ -185,7 +185,7 @@ def get_vehicle(logicAPI,ui):
         for vehicle in logicAPI.vehicles.get_vehicle().by_model(input("Enter model: ")):
             print(vehicle)
     elif choice == "9":
-        for vehicle in logicAPI.vehicle.get_vehicle().by_vehicle_id(input("Enter vehicle identification number: ")): 
+        for vehicle in logicAPI.vehicles.get_vehicle().by_vehicle_id(input("Enter vehicle identification number: ")): 
             print(vehicle)
 
 
