@@ -36,3 +36,18 @@ def enum_to_regex(enum):
     s += ')'
 
     return s
+
+def enum_to_instructions(enum):
+    ''' Converts an enum to instructions for forms '''
+
+    s = "Must be one of the following: "
+
+    for var in enum:
+        s += var.name + ' '
+
+    # Remove trailing whitespace
+    s = s[:-1]
+    
+    s += '.'
+
+    return s

@@ -14,8 +14,9 @@ def display_all_employees(logicAPI, ui):
 def register_employee(logicAPI, ui):
     ui.get_user_form(
         ['Name', 'SSID', 'Job Title', 'Address', 'Phone number', 'Email', 'Landline', 'Country'],
-        [None, '(\\d{6})-(\\d{4})', enum_to_regex(Enum_Title), None, None, None, None, enum_to_regex(Enum_Country)],
-        ['','','','','','','','']
+        [None, '(\\d{6})-(\\d{4})', enum_to_regex(Enum_Title), None, '(\d{7,15})', '(.+@.+\.is)', '(\d{7,15})', enum_to_regex(Enum_Country)],
+        [None, 'SSID must be in format (6 digits - 4 digits)', enum_to_instructions(Enum_Title),
+            None, 'Phone number must be between 7 and 15 digits', 'Must be a valid email format.', 'Landline must be between 7 and 15 digits', enum_to_instructions(Enum_Country)]
     )
 
 
