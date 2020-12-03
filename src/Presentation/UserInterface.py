@@ -1,5 +1,6 @@
 from Logic.LogicAPI import LogicAPI
-from Presentation.Menu import Menu
+from Presentation.Menu import Menu, FuncMenu
+from Presentation.Operations import *
 import os
 
 class UserInterface:
@@ -16,10 +17,21 @@ class UserInterface:
         main_menu.selectable_options.append(airport_menu)
 
         office_menu.selectable_options += [
-            Menu("Employee Managment", None, office_menu),
-            Menu("Vehicle Managment", None, office_menu),
-            Menu("Contract Managment", None, office_menu),
-            Menu("Reports", None, office_menu)
+            Menu("Employee Managment", [
+                FuncMenu("Register Employee", [display_all_employees, display_all_employees], office_menu, self.logic),
+                FuncMenu("Edit Employee", [test, test], office_menu, self.logic),
+                FuncMenu("Display Employee", [test, test], office_menu, self.logic),
+                FuncMenu("Display All Employees", [test, test], office_menu, self.logic)
+            ], office_menu),
+            Menu("Vehicle Managment", [
+                
+            ], office_menu),
+            Menu("Contract Managment", [
+                
+            ], office_menu),
+            Menu("Reports", [
+                
+            ], office_menu)
         ]
 
         self.current_menu = main_menu
