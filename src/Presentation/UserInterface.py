@@ -26,10 +26,10 @@ class UserInterface:
                 
             ], office_menu),
             Menu("Contract Managment", [
-                
+                FuncMenu('Display Contract', [display_all_contracts], office_menu, self.logic, self)
             ], office_menu),
             Menu("Reports", [
-                
+               
             ], office_menu)
         ]
 
