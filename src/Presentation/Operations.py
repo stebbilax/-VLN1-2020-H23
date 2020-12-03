@@ -29,7 +29,9 @@ def register_employee(logicAPI, ui):
 
     logicAPI.employee.register_employee(form)
     
-        
+def edit_employee(logicAPI, ui):
+    pass
+
 def get_employee(logicAPI, ui):
     # "Search by: name, address, postal code, SSID, landline, phone number, email, airport, country"
     printlist = ["\nSearch by:","\n1. Name","\n2. Address", "\n3. Postal Code", "\n4. SSID", "\n5. Landline", "\n6. Phone Number", "\n7. Email", "\n8. Job Title", "\n9. Airport", "\n10. Country"]
@@ -103,7 +105,7 @@ def display_vehicle_condition(logicAPI,ui):
     pass
 
 
-def register_new_vehicle(logicAPI,ui):
+def register_vehicle(logicAPI,ui):
     #must include vehicle authentication
     #must include vehicle condition
     ui.get_user_form(
