@@ -20,7 +20,7 @@ class UserInterface:
             Menu("Employee Managment", [
                 FuncMenu("Register Employee", [register_employee], office_menu, self.logic, self),
                 FuncMenu("Edit Employee", [test, test], office_menu, self.logic, self),
-                FuncMenu("Display Employee", [display_all_employees, test], office_menu, self.logic, self),
+                FuncMenu("Display Employee", [display_all_employees, get_employee], office_menu, self.logic, self),
             ], office_menu),
             Menu("Vehicle Managment", [
                 FuncMenu("Register vehicle", [register_new_vehicle, display_all_vehicles], office_menu, self.logic, self),

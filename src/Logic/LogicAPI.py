@@ -41,7 +41,7 @@ class ManageEmployees:
         pass
     
     def get_employee(self):
-        pass # Search
+        return self.searchAPI.search_employee() # Search
     
     def get_all_employees(self):
         return self.dataAPI.read_all_employees()
