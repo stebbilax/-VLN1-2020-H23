@@ -28,11 +28,16 @@ def display_vehicle_condition(logicAPI,ui):
     pass
 
 
-def register_vehicle(logicAPI,ui):
+def register_new_vehicle(logicAPI,ui):
     #must include vehicle authentication
     #must include vehicle condition
     pass
+    
 
-def  edit_veichle(logicAPI,ui):
+def edit_vehicle(logicAPI,ui):
     #serch for vehicle to be able to edit
     pass
+
+def display_vehicle_rates(logicAPI,ui):
+    pass
+
