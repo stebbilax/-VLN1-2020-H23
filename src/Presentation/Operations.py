@@ -97,14 +97,21 @@ def get_vehicle(logicAPI,ui):
 def register_new_vehicle(logicAPI,ui):
     #must include vehicle authentication
     #must include vehicle condition
-    ui.get_user_form(
-        ['manufacturer','model','type','year of manufacturer','vehicle identification number','color','condition (good or bad)','licence','location'], #ath data vehicle.csv i odruvisi rod, tharf ad laga
-        ['[a-z]+$',None,None,'\\d{4}$',None,'[a-z]+$','[a-z]+$',None,enum_to_regex(Enum_Airport)],
-        ['','','','','','','','','']
-        # 
+    form = ui.get_user_form(
+        {
+            'type': None,
+            'manufacturer': ['[a-z]+$', 'Alphabetical letters only'] ,
+            'year of manufacturer': ['\\d{4}$','Digits only'],
+            'vehicle identification number': None,
+            'color': ['[a-z]+$', 'Alphabetical letters only'],
+            'condition (good or bad)': ['[a-z]+$', 'Alphabetical letters only'],
+            'licence': None,
+            'vehicle id': None,
+            'Airport': [enum_to_regex(Enum_Airport),enum_to_instructions(Enum_Airport)],
+            'Country': [enum_to_regex()],
+        } 
     )
     
-
 def get_vehicle(logicAPI,ui):
     print("\nSearch by:")
     print("1. Manufacturer")
