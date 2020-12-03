@@ -79,7 +79,7 @@ class UserInterface:
         # Contract functions with contract display menu
         contract_menu_office.selectable_options += [
             register_contract, edit_contract,
-            display_contract_menu
+            display_contract_menu_office
         ]
 
         # Contract display functions
@@ -130,7 +130,7 @@ class UserInterface:
         # Vehicle functions with vehicle display menu
         vehicle_menu_airport.selectable_options += [
             register_vehicle, edit_vehicle,
-            display_vehicle_menu
+            display_vehicle_menu_airport
         ]
 
         # Vehicle display functions
@@ -147,9 +147,9 @@ class UserInterface:
         display_contract_menu_airport = Menu ("Display Contract", None, employee_menu_airport, self.logic, self)
 
         # Contract functions with contract display menu
-        display_contract_menu_airport.selectable_options += [
+        contract_menu_airport.selectable_options += [
             register_contract, edit_contract,
-            display_contract_menu
+            display_contract_menu_airport
         ]
 
         # Contract display functions

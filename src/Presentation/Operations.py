@@ -98,6 +98,8 @@ def register_contract(logicAPI, ui):
     
     logicAPI.contract.register_contract(form)
 
+def edit_contract(logicAPI, ui):
+    pass
 
 def get_contract(logicAPI, ui):
     # "Search by: name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status, id"
