@@ -1,3 +1,4 @@
+from datetime import date
 from Models.Enums import *
 
 def test(logicAPI, ui):
@@ -74,6 +75,30 @@ def display_all_contracts(logicAPI, ui):
     for contract in logicAPI.contract.get_all_contracts():
         print(contract)
 
+
+def register_contract(logicAPI, ui):
+    form = ui.get_user_form(
+        {
+            'Name': None,
+            'Phone': ['(\d{7,15})', 'Phone number must be between 7 and 15 digits'],
+            'Address': None,
+            'Email': ['(.+@.+\..+)', 'Must be a valid email format.'],
+            'Date From': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
+            'Date Too': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
+            'Vehicle Id': ['(\d)', 'Must be digits only'],
+            'Country': [enum_to_regex(Enum_Country), enum_to_instructions(Enum_Country)],
+            'Vehicle Status': ['(OK|DEFECTIVE)', 'Please enter valid vehicle status (OK or DEFECTIVE)'],
+            'Employee Id': None,
+            'Loan Date': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
+            'Return Date': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
+            'Total': ['(\d)', 'Must be digits only'],
+            'Loan Status': ['(OK|RETURNED|LATE)', 'Please enter a valid loan status (OK or RETURNED or LATE)']
+        }
+    )
+    
+    logicAPI.contract.register_contract(form)
+
+
 def get_contract(logicAPI, ui):
     # "Search by: name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status, id"
     printlist = ["\nSearch by:","\n1. Name","\n2. Email", "\n3. Vehicle ID", "\n4. Vehicle Status", "\n5. Loan Status", "\n6. Contract ID"]
@@ -108,17 +133,59 @@ def display_vehicle_condition(logicAPI,ui):
 def register_vehicle(logicAPI,ui):
     #must include vehicle authentication
     #must include vehicle condition
-    ui.get_user_form(
-        ['manufacturer','model','type','year of manufacturer','vehicle identification number','color','condition','licence','location'], #ath data vehicle.csv i odruvisi rod, tharf ad laga
-        ['[a-z]+$',None,None,'\\d{4}$',None,'[a-z]+$','[a-z]+$',None,enum_to_regex(Enum_Airport)],
-        ['','','','','','','','','']
+    form = ui.get_user_form(
+        {
+            'type': None,
+            'manufacturer': ['[a-z]+$', 'Alphabetical letters only'] ,
+            'year of manufacturer': ['\\d{4}$', 'Digits only'], #named YOM in model vehicle class
+            'color': ['[a-z]+$', 'Alphabetical letters only'],
+            'licence': None,
+            'airport': [enum_to_regex(Enum_Airport),enum_to_instructions(Enum_Airport)],
+            'condition (good or bad)': ['[a-z]+$', 'Alphabetical letters only'],
+            'model': ['[a-z]+$', 'Alphabetical letters only'],
+            'vehicle id': None, # this is licence plate on a car
+        } 
     )
     
+def get_vehicle(logicAPI,ui):
+    printlist = ["\nSearch by:","\n1. Type","\n2. Manufacturer","\n3. Year Of Manufacturer","\n4. Color","\n5. drivers licence","\n6. Airport location","\n7. Condition","\n8. Model","\n9. Vehicle ID"]
+    print(*printlist)
+    choice = input("Enter a choice:")
+
+    if choice == "1":
+        for vehicle in logicAPI.vehicle.get_vehicle().by_type(input("Enter type: ")):
+            print(vehicle)
+    elif choice =="2":
+        for vehicle in logicAPI.vehicles.get_vehicle().by_manufacturer(input("Enter manufacturer: ")):
+            print(vehicle)
+    elif choice == "3":
+        for vehicle in logicAPI.vehicle.get_vehicle().by_yom(input("Enter year of manufacturer: ")): #yom: year of manufacturer
+            print(vehicle)
+    elif choice == "4":
+        for vehicle in logicAPI.vehicle.get_vehicle().by_color(input("Enter color: ")):
+            print(vehicle)   
+    elif choice == "5":
+        for vehicle in logicAPI.vehicle.get_vehicle().by_licence(input("Enter licence: ")):
+            print(vehicle)
+    elif choice == "6":
+        for vehicle in logicAPI.vehicles.get_vehicles().by_airport(input("Enter airport: ")):
+            print(vehicle)
+    elif choice == "7":
+        for vehicle in logicAPI.vehicles.get_vehicle().by_condition(input("Enter condition: ")):
+            print(vehicle)
+    elif choice == "8":
+        for vehicle in logicAPI.vehicles.get_vehicle().by_model(input("Enter model: ")):
+            print(vehicle)
+    elif choice == "9":
+        for vehicle in logicAPI.vehicle.get_vehi<cle().by_vehicle_id(input("Enter vehicle identification number: ")): 
+            print(vehicle)
+
 
 def edit_vehicle(logicAPI,ui):
-    #serch for vehicle to be able to edit
+    #might call get vehicle function to search for vehicle and then edit information of that vehicle over here
     pass
 
 def display_vehicle_rates(logicAPI,ui):
     pass
+
 

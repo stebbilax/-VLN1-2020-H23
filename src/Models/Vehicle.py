@@ -1,5 +1,5 @@
 class Vehicle:
-    def __init__(self,Type, Manufacturer, YOM, Color, licence, Airport, Condition, Model, id=None):
+    def __init__(self,Type, Manufacturer, YOM, Color, licence, Airport, Condition, Model, vehicle_id, id=None):
         self.type = Type
         self.manufacturer = Manufacturer
         self.yom = YOM
@@ -8,6 +8,7 @@ class Vehicle:
         self.airport = Airport
         self.condition = Condition
         self.model = Model
+        self.vehicle_id = vehicle_id
         self.id = id
 
     def __str__(self):
@@ -23,6 +24,7 @@ class Vehicle:
             'airport' : self.airport, 
             'condition' : self.condition,
             'model' : self.model,
+            'vehicle_id' : self.vehicle_id,
             'id': self.id
         }
     
@@ -50,3 +52,6 @@ class Vehicle:
 
     def set_model(self, Model):
         self.model = Model
+
+    def set_vehicle_id(self, vehicle_id):
+        self.vehicle_id = vehicle_id
