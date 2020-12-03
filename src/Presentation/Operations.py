@@ -176,7 +176,7 @@ def get_vehicle(logicAPI,ui):
         for vehicle in logicAPI.vehicles.get_vehicle().by_licence(input("Enter licence: ")):
             print(vehicle)
     elif choice == "6":
-        for vehicle in logicAPI.vehicles.get_vehicles().by_airport(input("Enter airport: ")):
+        for vehicle in logicAPI.vehicles.get_vehicle().by_airport(input("Enter airport: ")):
             print(vehicle)
     elif choice == "7":
         for vehicle in logicAPI.vehicles.get_vehicle().by_condition(input("Enter condition: ")):
