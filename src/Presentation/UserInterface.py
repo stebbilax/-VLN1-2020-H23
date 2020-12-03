@@ -1,7 +1,7 @@
 from Logic.LogicAPI import LogicAPI
 from Presentation.Menu import Menu, FuncMenu
 from Presentation.Operations import *
-import os
+import os, re
 
 class UserInterface:
     def __init__(self):
@@ -38,11 +38,24 @@ class UserInterface:
     def get_user_input(self, message):
         return input(message)
 
-    def get_user_form(self, parameters):
+    def get_user_form(self, parameters, regex, instructions):
         response = []
 
-        for parameter in parameters:
-            response.append(input(parameter + ': '))
+        for parameter in range(len(parameters)):
+            if (regex[parameter] == None):
+                answer = input(parameters[parameter] + ': ')
+            else:
+
+                match = False
+
+                while not match:
+                    answer = input(parameters[parameter] + ': ')
+                    match = re.search(regex[parameter], answer)
+
+                    if not match:
+                        print(instructions[parameter])
+
+            response.append(answer)
 
         return response
 
