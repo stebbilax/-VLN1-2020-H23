@@ -183,31 +183,23 @@ def register_new_vehicle(logicAPI,ui):
         {
             'type': None,
             'manufacturer': ['[a-z]+$', 'Alphabetical letters only'] ,
-            'year of manufacturer': ['\\d{4}$','Digits only'],
-            'vehicle identification number': None,
+            'year of manufacturer': ['\\d{4}$', 'Digits only'], #named YOM in model vehicle class
             'color': ['[a-z]+$', 'Alphabetical letters only'],
-            'condition (good or bad)': ['[a-z]+$', 'Alphabetical letters only'],
             'licence': None,
-            'vehicle id': None,
-            'Airport': [enum_to_regex(Enum_Airport),enum_to_instructions(Enum_Airport)],
-            'Country': [enum_to_regex()],
+            'airport': [enum_to_regex(Enum_Airport),enum_to_instructions(Enum_Airport)],
+            'condition (good or bad)': ['[a-z]+$', 'Alphabetical letters only'],
+            'model': ['[a-z]+$', 'Alphabetical letters only'],
+            'vehicle id': None, # this is licence plate on a car
         } 
     )
     
 def get_vehicle(logicAPI,ui):
-    print("\nSearch by:")
-    print("1. Manufacturer")
-    print("2. Model")
-    print("3. Type")
-    print("4. Year of manufacturer")
-    print("5. Vehicle identification number")
-    print("6. Color")
-    print("7. Condition")
-    print("8. Drivers licence")
-    print("9. Location")
-    choice = input("Enter a choice:")
+    printlist = ["\nSearch by:","\n1. Manufacturer","\n2. Model","\n3. Type","\n4. Year of manufacturer","\n5. Vehicle identification number","\n6. Color","\n7. Condition","\n8. Drivers licence","\n9. Location"]
+    print(*printlist)
+    choice = input("Enter a choice:")]
     if choice =="1":
-        print(logicAPI.vehicles.get_vehicle().by_name(input("Enter name: ")))
+        for vehicle in logicAPI.vehicles.get_vehicle().by_name(input("Enter name: "))
+        print(vehicle)
     elif choice == "2":
         print(logicAPI.vehicles.get_vehicle().by_model(input("Enter model: ")))
     elif choice == "3":
