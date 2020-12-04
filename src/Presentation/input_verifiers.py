@@ -20,7 +20,13 @@ class Input_Verifiers:
             'loan_date': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
             'return_date': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)', compare_and_verify_times],
             'total': ['(\d)', 'Must be digits only'],
-            'loan_status': ['(OK|RETURNED|LATE)', 'Please enter a valid loan status (OK or RETURNED or LATE)']
+            'loan_status': ['(OK|RETURNED|LATE)', 'Please enter a valid loan status (OK or RETURNED or LATE)'],
+            'postal_code': ['(\d)', 'Must be digits only'],
+            'ssn': ['(\d{6})-(\d{4})', 'SSN must be in format (6 digits - 4 digits)'],
+            'mobile_phone': ['(\d{7,15})', 'Mobile phone number must be between 7 and 15 digits'],
+            'email': ['(.+@.+\..+)', 'Must be a valid email format.'],
+            'title': [enum_to_regex(Enum_Title), enum_to_instructions(Enum_Title)],
+            'airport': [enum_to_regex(Enum_Airport), enum_to_instructions(Enum_Airport)],
         }
 
 
