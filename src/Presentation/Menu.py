@@ -12,15 +12,16 @@ class Menu:
     def display(self):
         ''' Display menu options and graphics, with context to types '''
 
-        print(self.header)
+        # Center header
+        print('{:-^45}\n'.format(self.header))
         
         # Iterate the length so we can enumerate the options with an integer
 
         for option in range(len(self.selectable_options)):
             if callable(self.selectable_options[option]):
-                print("%d. %s" % (option + 1, format_function_name(self.selectable_options[option].__name__)))
+                print("{:>3}. {:<25} {:>8}\n".format(option + 1, format_function_name(self.selectable_options[option].__name__), '(OPERATION)'))
             else:
-                print("%d. %s" % (option + 1, self.selectable_options[option].header))
+                print("{:>3}. {:<25} {:>8}\n".format(option + 1, self.selectable_options[option].header, '(MENU)'))
 
 
     def select_option(self, id):

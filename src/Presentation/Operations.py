@@ -2,18 +2,15 @@ from datetime import date
 from Models.Enums import *
 import re
 
-def test(logicAPI, ui):
-    print(ui.get_user_form(
-            ['SSID', 'Favorite Animal'],
-            ['(\\d{7})-(\\d{4})', None],
-            ['Please use a valid SSID format (6 letters - 4 letters)'])
-    )
-
 def display_all_employees(logicAPI, ui):
+    ''' Display all employees '''
+
     for employee in logicAPI.employee.get_all_employees():
         print(employee)
 
 def register_employee(logicAPI, ui):
+    ''' Register a new employee '''
+
     form = ui.get_user_form(
         {
             'Name': None,
@@ -29,6 +26,10 @@ def register_employee(logicAPI, ui):
         }
     )
 
+    # User canceled operation
+    if not form:
+        return
+
     logicAPI.employee.register_employee(form)
     
 def edit_employee(logicAPI, ui):
@@ -38,10 +39,13 @@ def get_employee(logicAPI, ui):
     # "Search by: name, address, postal code, SSID, landline, phone number, email, airport, country"
     printlist = ["\nSearch by:","\n1. Name","\n2. Address", "\n3. Postal Code", "\n4. SSID", "\n5. Landline", "\n6. Phone Number", "\n7. Email", "\n8. Job Title", "\n9. Airport", "\n10. Country"]
     print(*printlist)
+
+    # Get the user input with regex validation 
     choice = ui.get_user_form(
         {'Enter Number': ['^([1-9]|1[0])$',"Enter valid number between 1-10"]
         }
-    )
+    )[0] # Index the first and only answer
+
     if choice == '1':
         for employee in logicAPI.employee.get_employee().by_name(input("Name: ")):
             print(employee)
@@ -99,6 +103,10 @@ def register_contract(logicAPI, ui):
             'Loan Status': ['(OK|RETURNED|LATE)', 'Please enter a valid loan status (OK or RETURNED or LATE)']
         }
     )
+
+    # User canceled operation
+    if not form:
+        return
     
     logicAPI.contract.register_contract(form)
 
@@ -109,10 +117,13 @@ def get_contract(logicAPI, ui):
     # "Search by: name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status, id"
     printlist = ["\nSearch by:","\n1. Name","\n2. Phone","\n3. Address","\n4. Email","\n5. Date From","\n6. Date To","\n7. Vehicle ID","\n8. Country","\n9. Vehicle Status","\n10. Employee ID","\n11. Loan Date","\n12. Return Date","\n13. Total","\n14. Loan Status","\n15. ID"]
     print(*printlist)
+
+    # Get the user input with regex validation
     choice = ui.get_user_form(
         {'Enter Number': ['^([1-9]|1[012345])$',"Enter valid number between 1-15"]
         }
-    )
+    )[0] # Index the first and only answer
+
     if choice == "1":
         for contract in logicAPI.contract.get_contract().by_name(input("Name: ")):
             print(contract)
@@ -189,14 +200,23 @@ def register_vehicle(logicAPI,ui):
             'vehicle id': None, # this is licence plate on a car
         } 
     )
+
+    # User canceled operation
+    if not form:
+        return
+
+    #TODO: Implement register vehicle in LogicAPI
     
 def get_vehicle(logicAPI,ui):
     printlist = ["\nSearch by:","\n1. Type","\n2. Manufacturer","\n3. Year Of Manufacturer","\n4. Color","\n5. drivers licence","\n6. Airport location","\n7. Condition","\n8. Model","\n9. Vehicle ID"]
     print(*printlist)
+
+    # Get the user input with regex validation
     choice = ui.get_user_form(
         {'Enter Number': ['^[1-9]{1}$',"Enter valid number between 1-9"]
         }
-    )
+    )[0] # Index the first and only answer
+
     if choice == "1":
         for vehicle in logicAPI.vehicles.get_vehicle().by_type(input("Enter type: ")):
             print(vehicle)

@@ -10,6 +10,9 @@ class UserInterface:
 
         self.access = 0
 
+        # Clear window
+        os.system('cls')
+
         # Create main categories
         main_menu       = Menu("Main Menu", None, None, self.logic, self)
         office_menu     = Menu("Office Menu", None, main_menu, self.logic, self)
@@ -19,7 +22,7 @@ class UserInterface:
         main_menu.selectable_options.append(office_menu)
         main_menu.selectable_options.append(airport_menu)
 
-        #region Office menus            =====
+        #region OFFICE MENU SYSTEM      =====
 
         # Office submenus
         employee_menu_office    = Menu("Employee Menu", None, office_menu, self.logic, self)
@@ -92,7 +95,7 @@ class UserInterface:
         #endregion                      -----
         #endregion                      =====
 
-        #region Airport menus           =====
+        #region AIRPORT MENU SYSTEM     =====
 
         # Airport submenus
         employee_menu_airport   = Menu("Employee Menu", None, airport_menu, self.logic, self)
@@ -165,21 +168,34 @@ class UserInterface:
 
         self.current_menu = main_menu
 
-
     def get_user_input(self, message):
-        return input(message)
+        ''' Get a single user input '''
+        return input('{:>20}'.format(message))
 
     def get_user_form(self, fields):
+        ''' Collect user inputs in a form to process with regex validation 
+            Returns false if the user cancels the operation
+            Fields = {Field name : [Regex, Validation instructions]}   '''
+
         form = []
 
         for field in fields:
+            # If there is no specific regex validation to the input
             if fields[field] is None:
                 answer = input(field + ': ')
+
+                if answer.lower() == 'b':
+                    return False
+
             else:
                 match = False
 
                 while not match:
                     answer = input(field + ': ')
+
+                    if answer.lower() == 'b':
+                        return False
+
                     match = re.search(fields[field][0], answer)
 
                     if not match:
@@ -189,14 +205,15 @@ class UserInterface:
 
         return form
 
-    def change_menu(self):
-        pass
+    def exit_prompt(self):
+        ''' Prompt the user to exit the program '''
+
+        prompt_answer = input("\n\nAre you sure you want to exit? (Y/N) ")
+        if prompt_answer.lower() == 'y':
+            exit()
 
     def interface_loop(self):
         while True:
-            # Clear the screen
-            #os.system('cls')
-
             self.current_menu.display()
 
             choice = self.get_user_input("Enter a choice: ")
@@ -208,10 +225,7 @@ class UserInterface:
                 elif choice == 'b' or choice == 'B':
                     # If the parent menu is None, the current menu is the main menu
                     if self.current_menu.parent is None:
-                        if input("Are you sure you want to exit? (y\\n): ") == 'y':
-                            exit()
-                        else:
-                            pass
+                        self.exit_prompt()
                     else:
                         self.current_menu = self.current_menu.parent
                 else:
