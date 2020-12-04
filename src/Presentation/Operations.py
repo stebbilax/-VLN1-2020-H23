@@ -244,9 +244,11 @@ def display_all_vehicles(logicAPI, ui):
 
 def display_all_vehicles_in_a_location(logicAPI,ui):
     pass
+    
 
 def display_vehicle_condition(logicAPI,ui):
-    pass
+        for vehicles in logicAPI.vehicles.get_all_vehicles():
+            print("Type: {}, Location: {}, Condition: {}, ID: {}".format(vehicles.__dict__()['type'], vehicles.__dict__()['airport'], vehicles.__dict__()['condition'], vehicles.__dict__()['id']))
 
 
 def register_vehicle(logicAPI,ui):
