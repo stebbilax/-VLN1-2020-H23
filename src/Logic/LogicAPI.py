@@ -32,6 +32,9 @@ class ManageVehicles:
     def get_all_vehicles(self):
         return self.dataAPI.read_all_vehicles()
 
+    def get_all_vehicle_types(self):
+        return self.dataAPI.read_all_vehicle_types()
+
 class ManageEmployees:
     def __init__(self, dapi, sapi):
         self.dataAPI = dapi
@@ -41,8 +44,9 @@ class ManageEmployees:
         new_employee = Employee(*form)
         self.dataAPI.append_employee(new_employee)
     
-    def edit_employee(self, model, id):
-        self.dataAPI.edit_employee(model, id)
+    def edit_employee(self, form, id):
+        new_employee = Employee(**form)
+        self.dataAPI.edit_employee(new_employee, id)
     
     def get_employee(self):
         return self.searchAPI.search_employee() # Search

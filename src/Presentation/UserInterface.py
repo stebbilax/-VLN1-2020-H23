@@ -71,6 +71,7 @@ class UserInterface:
             display_all_vehicles,
             get_vehicle,
             display_all_vehicles_in_a_location,
+            display_vehicle_rates,
         ]
 
         #endregion                      -----
@@ -185,9 +186,9 @@ class UserInterface:
             Fields = {Field name : [Regex, Validation instructions]}   '''
         
         form = []
-
-        for field in fields:
         
+        for field in fields:
+            
             # If there is no specific regex validation to the input
             if fields[field] is None:
                 answer = input(field + ': ')
@@ -208,6 +209,14 @@ class UserInterface:
 
                     if not match:
                         print(fields[field][1])
+
+                    ###  Calls date checking function
+                    if len(fields[field]) == 3 and match:
+                        if callable(fields[field][2]):
+                            match = fields[field][2](form, answer)
+                            if match == False:
+                                print('Invalid date interval')
+                    ###
             
             form.append(answer)
 

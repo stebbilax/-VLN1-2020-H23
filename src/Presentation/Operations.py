@@ -35,10 +35,41 @@ def register_employee(logicAPI, ui):
     logicAPI.employee.register_employee(form)
     
 def edit_employee(logicAPI, ui):
-    employee = logicAPI.employee.get_employee().by_name('Lucas')[0]
-    employee.set_name('Jack')
-    
-    logicAPI.employee.edit_employee(employee, employee.id)
+    id = ui.get_user_input('Please enter contract ID: ')
+    result = logicAPI.employee.get_employee().by_id(id)
+    if result == []: ui.display_error(f'No employee found with the ID {id}\n')
+    else:
+        employee = result[0].__dict__()
+        submit = False
+        options = {}
+
+        while submit == False:
+            print('Select field to edit:')                      
+
+            for index, (key, val) in enumerate(employee.items()):
+                index += 1
+                options[str(index)] = key
+                print('{}.{:<15} {:<20}'.format(index, format_function_name(key), val))
+            print('b. BACK')                                    
+            print('s. SUBMIT')                                  
+            
+            field_num = input('Enter field number: ')         # Select which field to edit
+            if field_num.lower() == 'b':
+                submit = True
+                continue
+            if field_num.lower() == 's':
+                submit = True
+                logicAPI.employee.edit_employee(employee, employee['id'])
+                continue
+            
+            
+            verifiers = Input_Verifiers().fields[options[field_num]]                              # Get regex and error msg
+            new_entry = ui.get_user_form({format_function_name(options[field_num]) : verifiers})  # Get input with validation
+            
+            if new_entry == False: return
+            
+            employee[options[field_num]] = new_entry[0]
+
 
 def get_employee(logicAPI, ui):
     # "Search by: name, address, postal code, SSID, landline, phone number, email, airport, country"
@@ -105,10 +136,7 @@ def register_contract(logicAPI, ui):
     logicAPI.contract.register_contract(form)
 
 
-def edit_contract(logicAPI, ui):
-    # Need to impliment date checking
-    # Need to add the ability to break while input is prompted
-    
+def edit_contract(logicAPI, ui):    
     id = ui.get_user_input('Please enter contract ID: ')
     result = logicAPI.contract.get_contract().by_id(id)
     if result == []: ui.display_error(f'No contract found with the ID {id}\n')
@@ -124,11 +152,11 @@ def edit_contract(logicAPI, ui):
                 index += 1
                 options[str(index)] = key
                 print('{}.{:<15} {:<20}'.format(index, format_function_name(key), val))
-            print('q. QUIT')                                    
+            print('b. BACK')                                    
             print('s. SUBMIT')                                  
             
-            field_num = input()         # Select which field to edit
-            if field_num.lower() == 'q':
+            field_num = input('Enter field number: ')         # Select which field to edit
+            if field_num.lower() == 'b':
                 submit = True
                 continue
             if field_num.lower() == 's':
@@ -139,7 +167,9 @@ def edit_contract(logicAPI, ui):
             
             verifiers = Input_Verifiers().fields[options[field_num]]                              # Get regex and error msg
             new_entry = ui.get_user_form({format_function_name(options[field_num]) : verifiers})  # Get input with validation
-
+            
+            if new_entry == False: return
+            
             contract[options[field_num]] = new_entry[0]
 
         
@@ -292,6 +322,7 @@ def get_vehicle(logicAPI,ui):
 
 
 
+
 def edit_vehicle(logicAPI,ui):
     #might call get vehicle function to search for vehicle and then edit information of that vehicle over here
     id = ui.get_user_input("Please enter vehicle identification number: ")
@@ -329,6 +360,8 @@ def edit_vehicle(logicAPI,ui):
 
 
 def display_vehicle_rates(logicAPI,ui):
-    pass
+    for vehicles in logicAPI.vehicles.get_all_vehicle_types():
+        print("Type: {}, Location: {}, Rate: {}, ID: {}".format(vehicles.__dict__()['name'], vehicles.__dict__()['regions'], vehicles.__dict__()['rate'], vehicles.__dict__()['id']))
+    #print(logicAPI.vehicles.get_all_vehicle_types())
 
 
