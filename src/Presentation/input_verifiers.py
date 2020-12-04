@@ -21,6 +21,16 @@ class Input_Verifiers:
             'return_date': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)', compare_and_verify_times],
             'total': ['(\d)', 'Must be digits only'],
             'loan_status': ['(OK|RETURNED|LATE)', 'Please enter a valid loan status (OK or RETURNED or LATE)'],
+            #this must be so that edit vehicle works
+            'type': None,
+            'manufacturer': ['[a-z]+$', 'Alphabetical letters only'] ,
+            'year of manufacturer': ['\\d{4}$', 'Digits only'], #named YOM in model vehicle class
+            'color': ['[a-z]+$', 'Alphabetical letters only'],
+            'licence': None,
+            'airport': [enum_to_regex(Enum_Airport),enum_to_instructions(Enum_Airport)],
+            'condition': ['(OK|DEFECTIVE)', 'Please enter valid vehicle status (OK or DEFECTIVE)'],
+            'model': ['[a-z]+$', 'Alphabetical letters only'],
+            'vehicle id': None, # this is licence plate on a car
             'postal_code': ['(\d)', 'Must be digits only'],
             'ssn': ['(\d{6})-(\d{4})', 'SSN must be in format (6 digits - 4 digits)'],
             'mobile_phone': ['(\d{7,15})', 'Mobile phone number must be between 7 and 15 digits'],

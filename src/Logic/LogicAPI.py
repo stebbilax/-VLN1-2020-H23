@@ -22,9 +22,9 @@ class ManageVehicles:
         new_vehicle = Vehicle(*form)
         self.dataAPI.append_vehicle(new_vehicle)
 
-    def edit_vehicle(self,form,id): #maybe a better way to do this?
-        new_vehicle = Vehicle(*form)
-        self.dataAPI.edit_vehicle(new_vehicle,id) 
+    def edit_vehicle(self,form,id):
+        new_vehicle = Vehicle(**form)
+        self.dataAPI.edit_vehicle(new_vehicle, id)
 
     #def get_vehicle(self, field, value):
     def get_vehicle(self):
@@ -32,6 +32,9 @@ class ManageVehicles:
 
     def get_all_vehicles(self):
         return self.dataAPI.read_all_vehicles()
+
+    def get_all_vehicle_types(self):
+        return self.dataAPI.read_all_vehicle_types()
 
 class ManageEmployees:
     def __init__(self, dapi, sapi):

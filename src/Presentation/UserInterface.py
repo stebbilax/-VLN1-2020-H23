@@ -71,6 +71,7 @@ class UserInterface:
             display_all_vehicles,
             get_vehicle,
             display_all_vehicles_in_a_location,
+            display_vehicle_rates,
         ]
 
         #endregion                      -----
