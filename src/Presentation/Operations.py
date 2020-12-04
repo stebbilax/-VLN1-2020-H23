@@ -1,5 +1,6 @@
 from datetime import date
 from Presentation.input_verifiers import Input_Verifiers
+from Presentation.Menu import format_function_name
 from Models.Enums import *
 import re
 
@@ -90,25 +91,13 @@ def display_all_contracts(logicAPI, ui):
 
 def register_contract(logicAPI, ui):
     # Need to impliment date checking
-    form = ui.get_user_form(
-        {
-            'Name': None,
-            'Phone': ['(\d{7,15})', 'Phone number must be between 7 and 15 digits'],
-            'Address': None,
-            'Email': ['(.+@.+\..+)', 'Must be a valid email format.'],
-            'Date From': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
-            'Date Too': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
-            'Vehicle Id': ['(\d)', 'Must be digits only'],
-            'Country': [enum_to_regex(Enum_Country), enum_to_instructions(Enum_Country)],
-            'Vehicle Status': ['(OK|DEFECTIVE)', 'Please enter valid vehicle status (OK or DEFECTIVE)'],
-            'Employee Id': None,
-            'Loan Date': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
-            'Return Date': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
-            'Total': ['(\d)', 'Must be digits only'],
-            'Loan Status': ['(OK|RETURNED|LATE)', 'Please enter a valid loan status (OK or RETURNED or LATE)']
-        }
-    )
+    field_names = ['name', 'phone', 'address', 'email', 'date_from', 'date_too', 'vehicle_id', 'country', 'country', 
+     'vehicle_status', 'employee_id', 'loan_date', 'return_date', 'total', 'loan_status']
 
+
+    empty_form = {format_function_name(field) : Input_Verifiers().fields[field] for field in field_names} # Create field object from the input_verifiers
+    form = ui.get_user_form(empty_form)  # Fill form with data
+    
     # User canceled operation
     if not form:
         return
@@ -117,6 +106,7 @@ def register_contract(logicAPI, ui):
 
 def edit_contract(logicAPI, ui):
     # Need to impliment date checking
+    # Need to add the ability to break while input is prompted
     
     id = ui.get_user_input('Please enter contract ID: ')
     result = logicAPI.contract.get_contract().by_id(id)
@@ -132,7 +122,7 @@ def edit_contract(logicAPI, ui):
             for index, (key, val) in enumerate(contract.items()):
                 index += 1
                 options[str(index)] = key
-                print('{}.{:<15} {:<20}'.format(index, key, val))
+                print('{}.{:<15} {:<20}'.format(index, format_function_name(key), val))
             print('q. QUIT')                                    
             print('s. SUBMIT')                                  
             
@@ -146,8 +136,8 @@ def edit_contract(logicAPI, ui):
                 continue
             
             
-            verifiers = Input_Verifiers().fields[options[field_num]]        # Get regex and error msg
-            new_entry = ui.get_user_form({options[field_num] : verifiers})  # Get input with validation
+            verifiers = Input_Verifiers().fields[options[field_num]]                              # Get regex and error msg
+            new_entry = ui.get_user_form({format_function_name(options[field_num]) : verifiers})  # Get input with validation
 
             contract[options[field_num]] = new_entry[0]
 
