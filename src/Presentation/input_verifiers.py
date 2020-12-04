@@ -24,7 +24,7 @@ class Input_Verifiers:
             #this must be so that edit vehicle works
             'type': None,
             'manufacturer': ['[a-z]+$', 'Alphabetical letters only'] ,
-            'year of manufacturer': ['\\d{4}$', 'Digits only'], #named YOM in model vehicle class
+            'yom': ['\\d{4}$', 'Digits only'], #named YOM in model vehicle class
             'color': ['[a-z]+$', 'Alphabetical letters only'],
             'licence': None,
             'airport': [enum_to_regex(Enum_Airport),enum_to_instructions(Enum_Airport)],

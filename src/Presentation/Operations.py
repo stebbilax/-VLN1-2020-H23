@@ -340,7 +340,7 @@ def edit_vehicle(logicAPI,ui):
                 index += 1
                 options[str(index)] = key
                 print('{}.{:<15} {:<20}'.format(index, format_function_name(key), val))
-            print('q. QUIT')                                    
+            print('b. BACK')                                            
             print('s. SUBMIT')                                  
             
             field_num = input()         # Select which field to edit
@@ -352,7 +352,7 @@ def edit_vehicle(logicAPI,ui):
                 logicAPI.vehicles.edit_vehicle(vehicle, vehicle['id'])
                 continue
             
-            
+
             verifiers = Input_Verifiers().fields[options[field_num]]                              # Get regex and error msg
             new_entry = ui.get_user_form({format_function_name(options[field_num]) : verifiers})  # Get input with validation
 
@@ -362,6 +362,5 @@ def edit_vehicle(logicAPI,ui):
 def display_vehicle_rates(logicAPI,ui):
     for vehicles in logicAPI.vehicles.get_all_vehicle_types():
         print("Type: {}, Location: {}, Rate: {}, ID: {}".format(vehicles.__dict__()['name'], vehicles.__dict__()['regions'], vehicles.__dict__()['rate'], vehicles.__dict__()['id']))
-    #print(logicAPI.vehicles.get_all_vehicle_types())
 
 
