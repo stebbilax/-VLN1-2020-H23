@@ -39,16 +39,16 @@ class UserInterface:
         #region Office Employee menu    -----
 
         # Submenu for specfic employee display options
-        display_employee_menu_airport = Menu("Display Employee", None, employee_menu_office, self.logic, self)
+        display_employee_menu_office = Menu("Display Employee", None, employee_menu_office, self.logic, self)
 
         # Employee functions with employee display menu
         employee_menu_office.selectable_options += [
             register_employee, edit_employee,
-            display_employee_menu_airport
+            display_employee_menu_office
         ]
 
         # Employee display functions
-        display_employee_menu_airport.selectable_options += [
+        display_employee_menu_office.selectable_options += [
             display_all_employees,
             get_employee
         ]

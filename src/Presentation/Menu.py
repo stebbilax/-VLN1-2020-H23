@@ -28,7 +28,7 @@ class Menu:
         ''' Select option, check if its a function or menu '''
         if callable(self.selectable_options[id]):
             self.selectable_options[id](self.logicAPI, self.ui)
-            return self.parent
+            return self
         else:
             return self.selectable_options[id]    
 

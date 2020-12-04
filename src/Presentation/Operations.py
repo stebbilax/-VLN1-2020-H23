@@ -146,7 +146,7 @@ def edit_contract(logicAPI, ui):
         options = {}
 
         while submit == False:
-            print('Select field to edit:')                      
+            print('Select field to edit: ')                      
 
             for index, (key, val) in enumerate(contract.items()):
                 index += 1
@@ -233,14 +233,16 @@ def get_contract(logicAPI, ui):
     elif choice == "15":
         for contract in logicAPI.contract.get_contract().by_id(input("Contract ID: ")):
             print(contract)
+    elif choice == "b" or "q":
+        UserInterface.get_user_form(choice)
     
 #vehicles
 
 
 def display_all_vehicles(logicAPI, ui):
     '''Display all vehicles'''
-    for vehicles in logicAPI.vehicles.get_all_vehicles():
-        print(vehicles)
+    for vehicle in logicAPI.vehicles.get_all_vehicles():
+        print(vehicle)
 
 def display_all_vehicles_in_a_location(logicAPI,ui):
     pass
@@ -255,23 +257,29 @@ def register_vehicle(logicAPI,ui):
     '''Register new vehicle'''
     #must include vehicle authentication
     #must include vehicle condition
-    form = ui.get_user_form(
-        {
-            'type': None,
-            'manufacturer': ['[a-z]+$', 'Alphabetical letters only'] ,
-            'year of manufacturer': ['\\d{4}$', 'Digits only'], #named YOM in model vehicle class
-            'color': ['[a-z]+$', 'Alphabetical letters only'],
-            'licence': None,
-            'airport': [enum_to_regex(Enum_Airport),enum_to_instructions(Enum_Airport)],
-            'condition': ['(OK|DEFECTIVE)', 'Please enter valid vehicle status (OK or DEFECTIVE)'],
-            'model': ['[a-z]+$', 'Alphabetical letters only'],
-            'vehicle id': None, # this is licence plate on a car
-        } 
-    )
-
+    # form = ui.get_user_form(
+    #     {
+    #         'type': None,
+    #         'manufacturer': ['[a-z]+$', 'Alphabetical letters only'] ,
+    #         'year of manufacturer': ['\\d{4}$', 'Digits only'], #named YOM in model vehicle class
+    #         'color': ['[a-z]+$', 'Alphabetical letters only'],
+    #         'licence': None,
+    #         'airport': [enum_to_regex(Enum_Airport),enum_to_instructions(Enum_Airport)],
+    #         'condition': ['(OK|DEFECTIVE)', 'Please enter valid vehicle status (OK or DEFECTIVE)'],
+    #         'model': ['[a-z]+$', 'Alphabetical letters only'],
+    #         'vehicle id': None, # this is licence plate on a car
+    #     } 
+    # )
+    field_names = ['type','manufacturer','year of manufacturer','color','licence','airport','condition','model','vehicle id']
     # User canceled operation
+    
+    empty_form = {format_function_name(field) : Input_Verifiers().fields[field] for field in field_names} # Create field object from the input_verifiers
+    form = ui.get_user_form(empty_form)  # Fill form with data
+
     if not form:
         return
+
+    logicAPI.vehicles.register_vehicle(form)
     
 def get_vehicle(logicAPI,ui):
     printlist = ["\nSearch by:","\n1. Type","\n2. Manufacturer","\n3. Year Of Manufacturer","\n4. Color","\n5. drivers licence","\n6. Airport location","\n7. Condition","\n8. Model","\n9. Vehicle ID"]
@@ -311,7 +319,7 @@ def get_vehicle(logicAPI,ui):
     elif choice == "9":
         for vehicle in logicAPI.vehicles.get_vehicle().by_vehicle_id(input("Enter vehicle identification number: ")): 
             print(vehicle)
-
+    
     
 
 
@@ -319,11 +327,42 @@ def get_vehicle(logicAPI,ui):
 
 def edit_vehicle(logicAPI,ui):
     #might call get vehicle function to search for vehicle and then edit information of that vehicle over here
-    pass
+    id = ui.get_user_input("Please enter vehicle identification number: ")
+    result = logicAPI.vehicles.get_vehicle().by_id(id)
+    if result == []: ui.display_error(f'No vehicle found with this identification number')
+    else:
+        vehicle = result[0].__dict__()
+        submit = False
+        options = {}
+
+        while submit == False:
+            print("Select field to edit: ")
+
+            for index, (key, val) in enumerate(vehicle.items()):         
+                index += 1
+                options[str(index)] = key
+                print('{}.{:<15} {:<20}'.format(index, format_function_name(key), val))
+            print('b. BACK')                                            
+            print('s. SUBMIT')                                  
+            
+            field_num = input()         # Select which field to edit
+            if field_num.lower() == 'q':
+                submit = True
+                continue
+            if field_num.lower() == 's':
+                submit = True
+                logicAPI.vehicles.edit_vehicle(vehicle, vehicle['id'])
+                continue
+            
+
+            verifiers = Input_Verifiers().fields[options[field_num]]                              # Get regex and error msg
+            new_entry = ui.get_user_form({format_function_name(options[field_num]) : verifiers})  # Get input with validation
+
+            vehicle[options[field_num]] = new_entry[0]
+
 
 def display_vehicle_rates(logicAPI,ui):
     for vehicles in logicAPI.vehicles.get_all_vehicle_types():
         print("Type: {}, Location: {}, Rate: {}, ID: {}".format(vehicles.__dict__()['name'], vehicles.__dict__()['regions'], vehicles.__dict__()['rate'], vehicles.__dict__()['id']))
-    #print(logicAPI.vehicles.get_all_vehicle_types())
 
 
