@@ -183,10 +183,13 @@ class UserInterface:
         ''' Collect user inputs in a form to process with regex validation 
             Returns false if the user cancels the operation
             Fields = {Field name : [Regex, Validation instructions]}   '''
-
+        
         form = []
+        print(fields['Name'])
 
         for field in fields:
+            ###
+            ###
             # If there is no specific regex validation to the input
             if fields[field] is None:
                 answer = input(field + ': ')
