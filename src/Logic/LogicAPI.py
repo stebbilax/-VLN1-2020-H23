@@ -32,6 +32,9 @@ class ManageVehicles:
     def get_all_vehicles(self):
         return self.dataAPI.read_all_vehicles()
 
+    def get_all_vehicle_types(self):
+        return self.dataAPI.read_all_vehicle_types()
+
 class ManageEmployees:
     def __init__(self, dapi, sapi):
         self.dataAPI = dapi

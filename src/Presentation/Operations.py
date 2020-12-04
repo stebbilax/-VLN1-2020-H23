@@ -289,6 +289,8 @@ def edit_vehicle(logicAPI,ui):
     pass
 
 def display_vehicle_rates(logicAPI,ui):
-    pass
+    for vehicles in logicAPI.vehicles.get_all_vehicle_types():
+        print("Type: {}, Location: {}, Rate: {}, ID: {}".format(vehicles.__dict__()['name'], vehicles.__dict__()['regions'], vehicles.__dict__()['rate'], vehicles.__dict__()['id']))
+    #print(logicAPI.vehicles.get_all_vehicle_types())
 
 
