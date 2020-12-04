@@ -39,8 +39,8 @@ class ManageEmployees:
         new_employee = Employee(*form)
         self.dataAPI.append_employee(new_employee)
     
-    def edit_employee(self):
-        pass
+    def edit_employee(self, model, id):
+        self.dataAPI.edit_employee(model, id)
     
     def get_employee(self):
         return self.searchAPI.search_employee() # Search

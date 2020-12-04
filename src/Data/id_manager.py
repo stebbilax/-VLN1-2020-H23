@@ -97,14 +97,13 @@ class id_manager:
     def make_new_id(self, type):
         self.read()
 
-        id_catagory = self.get_type(type)
-        new_id = id_catagory[-1]+1
-        id_catagory.append(new_id)
-        self.set_type(type, id_catagory)
+        id_category = self.get_type(type)
+        new_id = id_category[-1]+1
+        id_category.append(new_id)
+        self.set_type(type, id_category)
 
         self.write()
         return new_id
-
 
     def get_type(self, type):
         if type == 'contract': return self.contract_ids

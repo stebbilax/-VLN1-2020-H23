@@ -33,7 +33,10 @@ def register_employee(logicAPI, ui):
     logicAPI.employee.register_employee(form)
     
 def edit_employee(logicAPI, ui):
-    pass
+    employee = logicAPI.employee.get_employee().by_name('Lucas')[0]
+    employee.set_name('Jack')
+    
+    logicAPI.employee.edit_employee(employee, employee.id)
 
 def get_employee(logicAPI, ui):
     # "Search by: name, address, postal code, SSID, landline, phone number, email, airport, country"

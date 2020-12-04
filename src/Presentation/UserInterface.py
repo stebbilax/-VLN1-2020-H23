@@ -166,6 +166,13 @@ class UserInterface:
         #endregion                      -----
         #endregion                      =====
 
+        # DEVELOPER MENU
+        
+        developer_menu  = Menu("Developer Menu", [edit_employee], main_menu, self.logic, self)
+        main_menu.selectable_options.append(developer_menu)
+        
+        # END DEVELOPER MENU
+
         self.current_menu = main_menu
 
     def get_user_input(self, message):

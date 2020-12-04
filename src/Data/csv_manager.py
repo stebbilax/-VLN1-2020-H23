@@ -66,17 +66,17 @@ class Csv_Manager:
 
     # Possible names are in get_name_and_fields function
     def write_all(self, data, name):
-        catagory_name = name
+        category_name = name
         name, fields = self.get_name_and_fields(name)
         
-        self.clear_id_line(catagory_name)
+        self.clear_id_line(category_name)
         with open(f'{self.directory}/data/{name}', 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=fields)
             writer.writeheader()
             for obj in data:
                 line_obj = obj.__dict__()
                 if obj.id == None:
-                    id = self.get_new_id(catagory_name)
+                    id = self.get_new_id(category_name)
                     line_obj['id'] = id
                 writer.writerow(line_obj)
 
@@ -97,7 +97,7 @@ class Csv_Manager:
 
     def append(self, data, name):
         ''' Appends a new model to its respective csv document '''
-        catagory_name = name
+        category_name = name
         name, fields = self.get_name_and_fields(name)
 
         with open(f'{self.directory}/data/{name}', 'a', newline='', encoding='utf-8') as f:
@@ -105,7 +105,31 @@ class Csv_Manager:
 
             obj = data.__dict__()
 
-            id = self.get_new_id(catagory_name)
+            id = self.get_new_id(category_name)
             obj['id'] = id
 
             writer.writerow(obj)
+
+    def edit_single(self, data, name, id):
+        ''' Edits a single model by rewriting the file with the modified value
+            Expects a ID to find the modified model and replace it           '''
+
+        category_name = name
+        name, fields = self.get_name_and_fields(name)
+
+        lines = self.read_all(category_name)
+        new_lines = []
+
+        for line in range(len(lines)):
+            if lines[line].id == id:
+                print(lines[line])
+                print(data)
+                new_lines.append(data)
+            else:
+                new_lines.append(lines[line])
+
+        for line in new_lines:
+            print(line)
+
+        self.write_all(new_lines, category_name)
+
