@@ -200,3 +200,26 @@ End report:
     
 Notes:
     Suite refers to the family of operations listed.
+
+#----------------------------------------------------------------------------------#
+
+4.12.2020
+
+Objectives:
+    Edit functionality
+    Complete partially finished operations
+    Implement destination and enum compatibility
+    Date verification
+
+Assignment:
+    Elias Guðjohnsen, Jason Guðnason   : Edit functionality, complete partially finished operations
+    Arnar Már, Stefán Laxdal           : Complete partially finished operations
+    Bjarki Laxdal, Gunnlaug            : Complete partially finished operations
+    Stefán Laxdal                      : Date verification
+    
+End report:
+    
+    
+Notes:
+
+#----------------------------------------------------------------------------------#
