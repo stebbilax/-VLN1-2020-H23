@@ -47,7 +47,7 @@ def get_employee(logicAPI, ui):
 
     # Get the user input with regex validation 
     choice = ui.get_user_form(
-        {'Enter Number': ['^([1-9]|1[0])$',"Enter valid number between 1-10"]
+        {'Enter Number': ['^([1-9]|1[0]|q)$',"Enter valid number between 1-10, enter q to quit"]
         }
     )[0] # Index the first and only answer
 
@@ -154,7 +154,7 @@ def get_contract(logicAPI, ui):
 
     # Get the user input with regex validation
     choice = ui.get_user_form(
-        {'Enter Number': ['^([1-9]|1[012345])$',"Enter valid number between 1-15"]
+        {'Enter Number': ['^([1-9]|1[012345]|q)$',"Enter valid number between 1-15, enter q to quit"]
         }
     )[0] # Index the first and only answer
 
@@ -208,6 +208,7 @@ def get_contract(logicAPI, ui):
 
 
 def display_all_vehicles(logicAPI, ui):
+    '''Display all vehicles'''
     for vehicles in logicAPI.vehicles.get_all_vehicles():
         print(vehicles)
 
@@ -219,6 +220,7 @@ def display_vehicle_condition(logicAPI,ui):
 
 
 def register_vehicle(logicAPI,ui):
+    '''Register new vehicle'''
     #must include vehicle authentication
     #must include vehicle condition
     form = ui.get_user_form(
@@ -238,8 +240,6 @@ def register_vehicle(logicAPI,ui):
     # User canceled operation
     if not form:
         return
-
-    #TODO: Implement register vehicle in LogicAPI
     
 def get_vehicle(logicAPI,ui):
     printlist = ["\nSearch by:","\n1. Type","\n2. Manufacturer","\n3. Year Of Manufacturer","\n4. Color","\n5. drivers licence","\n6. Airport location","\n7. Condition","\n8. Model","\n9. Vehicle ID"]
@@ -247,7 +247,8 @@ def get_vehicle(logicAPI,ui):
 
     # Get the user input with regex validation
     choice = ui.get_user_form(
-        {'Enter Number': ['^[1-9]{1}$',"Enter valid number between 1-9"]
+        {
+            'Enter Number': ['^([1-9]{1}|b|q)$',"Enter valid number between 1-9, enter q to quit"]
         }
     )[0] # Index the first and only answer
 
@@ -278,6 +279,9 @@ def get_vehicle(logicAPI,ui):
     elif choice == "9":
         for vehicle in logicAPI.vehicles.get_vehicle().by_vehicle_id(input("Enter vehicle identification number: ")): 
             print(vehicle)
+
+    
+
 
 
 
