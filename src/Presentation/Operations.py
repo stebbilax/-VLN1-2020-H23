@@ -91,7 +91,7 @@ def display_all_contracts(logicAPI, ui):
 
 def register_contract(logicAPI, ui):
     # Need to impliment date checking
-    field_names = ['name', 'phone', 'address', 'email', 'date_from', 'date_too', 'vehicle_id', 'country', 'country', 
+    field_names = ['name', 'phone', 'address', 'email', 'date_from', 'date_to', 'vehicle_id', 'country', 'country', 
      'vehicle_status', 'employee_id', 'loan_date', 'return_date', 'total', 'loan_status']
 
 

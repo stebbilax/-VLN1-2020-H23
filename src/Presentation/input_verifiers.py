@@ -10,7 +10,7 @@ class Input_Verifiers:
             'address': None,
             'email': ['(.+@.+\..+)', 'Must be a valid email format.'],
             'date_from': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
-            'date_too': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
+            'date_to': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)',test_func],
             'vehicle_id': ['(\d)', 'Must be digits only'],
             'country': [enum_to_regex(Enum_Country), enum_to_instructions(Enum_Country)],
             'vehicle_status': ['(OK|DEFECTIVE)', 'Please enter valid vehicle status (OK or DEFECTIVE)'],
@@ -20,3 +20,9 @@ class Input_Verifiers:
             'total': ['(\d)', 'Must be digits only'],
             'loan_status': ['(OK|RETURNED|LATE)', 'Please enter a valid loan status (OK or RETURNED or LATE)']
         }
+
+
+
+
+def test_func():
+    print('works')
