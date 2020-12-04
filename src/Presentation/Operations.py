@@ -104,6 +104,7 @@ def register_contract(logicAPI, ui):
     
     logicAPI.contract.register_contract(form)
 
+
 def edit_contract(logicAPI, ui):
     # Need to impliment date checking
     # Need to add the ability to break while input is prompted
