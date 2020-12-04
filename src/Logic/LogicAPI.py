@@ -58,8 +58,9 @@ class ManageContracts:
         new_contract = Contract(*form)
         self.dataAPI.append_contract(new_contract)
     
-    def edit_contract(self):
-        pass
+    def edit_contract(self, form, id):
+        new_contract = Contract(**form)
+        self.dataAPI.edit_contract(new_contract, id)
     
     def get_contract(self):
         return self.searchAPI.search_contract() # Search

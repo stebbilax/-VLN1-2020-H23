@@ -1,21 +1,21 @@
 name,regions,rate,id
-Medium water,Greenland,1337,1
-Light road,Iceland,1337,2
-Light road,Svalbard,1337,3
-Medium water,Shetland,1337,4
-Medium water,Svalbard,1337,5
-Light water,Svalbard,1337,6
-Light road,Svalbard,1337,7
-Light water,Farao Islands,1337,8
-Light road,Farao Islands,1337,9
-Light water,Iceland,1337,10
-Light off-road,Greenland,1337,11
+Light water,Iceland,1337,1
+Medium water,Shetland,1337,2
+Light water,Svalbard,1337,3
+Light water,Greenland,1337,4
+Medium water,Greenland,1337,5
+Light water,Greenland,1337,6
+Light road,Greenland,1337,7
+Medium water,Iceland,1337,8
+Medium water,Shetland,1337,9
+Light water,Greenland,1337,10
+Medium water,Greenland,1337,11
 Light water,Greenland,1337,12
-Medium water,Farao Islands,1337,13
-Light off-road,Svalbard,1337,14
-Medium water,Greenland,1337,15
-Light off-road,Farao Islands,1337,16
-Light water,Farao Islands,1337,17
-Light off-road,Greenland,1337,18
-Medium water,Iceland,1337,19
-Light road,Greenland,1337,20
+Light road,Iceland,1337,13
+Medium water,Greenland,1337,14
+Light road,Greenland,1337,15
+Medium off-road,Greenland,1337,16
+Light water,Iceland,1337,17
+Medium water,Greenland,1337,18
+Medium off-road,Greenland,1337,19
+Light off-road,Iceland,1337,20

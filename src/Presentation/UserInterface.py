@@ -219,6 +219,10 @@ class UserInterface:
         if prompt_answer.lower() == 'y':
             exit()
 
+
+    def display_error(self, errorMsg):
+        input(errorMsg)
+
     def interface_loop(self):
         while True:
             self.current_menu.display()

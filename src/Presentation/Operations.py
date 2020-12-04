@@ -88,6 +88,7 @@ def display_all_contracts(logicAPI, ui):
 
 
 def register_contract(logicAPI, ui):
+    # Need to impliment date checking
     form = ui.get_user_form(
         {
             'Name': None,
@@ -114,7 +115,43 @@ def register_contract(logicAPI, ui):
     logicAPI.contract.register_contract(form)
 
 def edit_contract(logicAPI, ui):
-    pass
+    # Need to impliment date checking
+    # Need to impliment basic validation
+    id = ui.get_user_input('Please enter contract ID: ')
+    result = logicAPI.contract.get_contract().by_id(id)
+    if result == []: ui.display_error(f'No contract found with the ID {id}\n')
+    else:
+        contract = result[0].__dict__()
+        submit = False
+        options = {}
+
+        while submit == False:
+            print('Select field to edit:')
+
+            for index, (key, val) in enumerate(contract.items()):
+                index += 1
+                options[str(index)] = key
+                print('{}.{:<15} {:<20}'.format(index, key, val))
+            print('q. QUIT')
+            print('s. SUBMIT')
+            
+            field_num = input()
+            if field_num.lower() == 'q':
+                submit = True
+                continue
+            if field_num.lower() == 's':
+                submit = True
+                logicAPI.contract.edit_contract(contract, contract['id'])
+                continue
+
+
+            new_entry = ui.get_user_input(f'Please enter a new {options[field_num]}: ')
+            contract[options[field_num]] = new_entry
+
+        
+
+    
+
 
 def get_contract(logicAPI, ui):
     # "Search by: name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status, id"

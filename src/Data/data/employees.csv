@@ -1,22 +1,21 @@
 name,address,postal_code,ssn,phone,mobile_phone,email,title,airport,country,id
-William,IsabellaTown 14,747,101074-3411,663-8314,683-3517,Noah@nan.is,airport,reykjavik,Farao Islands,1
-Noah,OliverStreet 22,935,101050-2511,763-1430,861-5298,Benjamin@nan.is,office,torshavn,Iceland,2
-Elijah,JamesRoad 16,561,101271-5469,966-2328,988-0849,Ethan@nan.is,airport,tingwall,Farao Islands,3
-Elijah,EthanStreet 4,679,101066-1317,989-2263,798-9915,Mia@nan.is,office,reykjavik,Greenland,4
-Elijah,MasonRoad 20,286,101089-8024,989-2163,899-1360,Olivia@nan.is,airport,tingwall,Shetland,5
-Isabella,LucasTown 15,555,101069-3715,786-2482,698-5183,Harper@nan.is,airport,nuuk,Svalbard,6
-Mia,OliviaTown 25,771,121170-3032,965-2860,798-6107,Mia@nan.is,office,reykjavik,Greenland,7
-Ethan,EmmaSquare 16,186,121052-3013,962-3895,689-5576,James@nan.is,office,kulusk,Shetland,8
-James,AvaRoad 26,596,121080-2139,660-5697,681-2761,Olivia@nan.is,airport,reykjavik,Iceland,9
-Jack,HarperStreet 8,251,111163-6464,799-9192,763-6280,Evelyn@nan.is,airport,kulusk,Shetland,10
-Oliver,ElijahSquare 22,859,101273-8542,794-6218,775-2313,James@nan.is,airport,kulusk,Iceland,11
-Liam,OliverRoad 30,727,111057-5753,681-6565,978-5884,Liam@nan.is,airport,nuuk,Farao Islands,12
-Evelyn,AvaSquare 7,823,101261-6573,967-3346,781-5361,James@nan.is,office,nuuk,Svalbard,13
-James,AvaSquare 30,931,101263-5211,660-8842,792-6089,Noah@nan.is,airport,longyearbyen,Greenland,14
-Benjamin,OliverTown 26,977,111265-4652,880-3409,678-0968,Emma@nan.is,airport,tingwall,Shetland,15
-Lucas,ElijahRoad 18,154,111275-5419,872-9324,877-2074,Charlotte@nan.is,office,nuuk,Shetland,16
-Noah,EvelynTown 3,497,121254-1450,761-9331,693-2516,Sophia@nan.is,office,kulusk,Svalbard,17
-William,JamesStreet 22,462,101168-9050,695-2779,861-8227,Amelia@nan.is,office,tingwall,Farao Islands,18
-Noah,BenjaminSquare 27,125,101252-3816,898-3324,761-0009,Mia@nan.is,office,kulusk,Shetland,19
-Charlotte,OliverSquare 13,822,111067-6451,788-7942,883-8415,Mia@nan.is,airport,reykjavik,Farao Islands,20
-Winner,adr22,123,123456-9876,56789098,1234567,gunnlaug@hoy.is,office,reykjavik,iceland,21
+Elijah,EmmaTown 15,513,101170-1214,785-4378,985-9699,Liam@nan.is,office,torshavn,Iceland,1
+Ava,MiaRoad 27,854,121250-6256,682-4752,867-4213,Liam@nan.is,office,tingwall,Farao Islands,2
+William,MasonTown 16,938,101081-3826,794-8496,760-0693,Mason@nan.is,office,kulusk,Svalbard,3
+James,ElijahTown 30,896,101059-8230,670-5564,765-5965,Liam@nan.is,airport,nuuk,Svalbard,4
+Ava,LucasTown 25,618,111260-8752,865-2470,978-7405,Amelia@nan.is,office,longyearbyen,Farao Islands,5
+Harper,EthanRoad 18,386,101052-5628,982-4828,686-2769,Oliver@nan.is,airport,reykjavik,Svalbard,6
+Charlotte,AmeliaRoad 13,293,101272-3217,868-2946,889-2248,Liam@nan.is,office,longyearbyen,Iceland,7
+Emma,ElijahRoad 27,541,111086-2282,982-6760,969-7133,Charlotte@nan.is,airport,nuuk,Iceland,8
+William,MiaStreet 19,868,111066-1884,777-5505,963-4622,Noah@nan.is,airport,kulusk,Greenland,9
+Liam,BenjaminSquare 8,359,101156-3637,897-4782,675-7705,Lucas@nan.is,office,tingwall,Shetland,10
+Liam,LiamTown 8,963,111160-5532,682-0985,860-1987,William@nan.is,airport,torshavn,Farao Islands,11
+Noah,JamesStreet 6,858,101081-3221,876-1435,880-4180,Mason@nan.is,airport,longyearbyen,Svalbard,12
+Evelyn,LiamRoad 27,198,101160-2647,765-3268,785-8965,Harper@nan.is,airport,nuuk,Iceland,13
+Charlotte,SophiaSquare 19,635,101076-5114,971-6564,769-2770,Benjamin@nan.is,office,tingwall,Svalbard,14
+Oliver,IsabellaSquare 1,482,121250-1419,789-2996,781-7368,Lucas@nan.is,office,kulusk,Shetland,15
+Emma,MasonSquare 6,792,121184-1087,780-5491,675-8802,Ethan@nan.is,office,tingwall,Greenland,16
+Charlotte,AvaRoad 3,991,121065-8880,878-0499,973-0710,Sophia@nan.is,office,longyearbyen,Shetland,17
+Isabella,EmmaTown 7,763,101080-5889,892-8607,867-4729,Emma@nan.is,office,reykjavik,Shetland,18
+Ava,CharlotteTown 21,582,101165-4610,768-7109,867-6592,Ethan@nan.is,office,torshavn,Iceland,19
+Sophia,SophiaStreet 7,857,111252-5615,765-3594,880-9638,Ava@nan.is,airport,tingwall,Shetland,20

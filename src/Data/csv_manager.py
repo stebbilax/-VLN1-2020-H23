@@ -111,6 +111,7 @@ class Csv_Manager:
             writer.writerow(obj)
 
     def edit_single(self, data, name, id):
+        # print('from csv_manager : ', data)
         ''' Edits a single model by rewriting the file with the modified value
             Expects a ID to find the modified model and replace it           '''
 
@@ -122,14 +123,14 @@ class Csv_Manager:
 
         for line in range(len(lines)):
             if lines[line].id == id:
-                print(lines[line])
-                print(data)
+                # print(lines[line])
+                # print(data)
                 new_lines.append(data)
             else:
                 new_lines.append(lines[line])
 
-        for line in new_lines:
-            print(line)
+        # for line in new_lines:
+            # print(line)
 
         self.write_all(new_lines, category_name)
 
