@@ -185,11 +185,9 @@ class UserInterface:
             Fields = {Field name : [Regex, Validation instructions]}   '''
         
         form = []
-        print(fields['Name'])
 
         for field in fields:
-            ###
-            ###
+        
             # If there is no specific regex validation to the input
             if fields[field] is None:
                 answer = input(field + ': ')
