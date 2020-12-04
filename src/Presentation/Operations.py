@@ -340,7 +340,7 @@ def edit_vehicle(logicAPI,ui):
                 index += 1
                 options[str(index)] = key
                 print('{}.{:<15} {:<20}'.format(index, format_function_name(key), val))
-            print('q. QUIT')                                    
+            print('b. BACK')                                            
             print('s. SUBMIT')                                  
             
             field_num = input()         # Select which field to edit
@@ -352,7 +352,7 @@ def edit_vehicle(logicAPI,ui):
                 logicAPI.vehicles.edit_vehicle(vehicle, vehicle['id'])
                 continue
             
-            
+
             verifiers = Input_Verifiers().fields[options[field_num]]                              # Get regex and error msg
             new_entry = ui.get_user_form({format_function_name(options[field_num]) : verifiers})  # Get input with validation
 
