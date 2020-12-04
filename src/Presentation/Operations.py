@@ -124,11 +124,11 @@ def edit_contract(logicAPI, ui):
                 index += 1
                 options[str(index)] = key
                 print('{}.{:<15} {:<20}'.format(index, format_function_name(key), val))
-            print('q. QUIT')                                    
+            print('b. BACK')                                    
             print('s. SUBMIT')                                  
             
-            field_num = input()         # Select which field to edit
-            if field_num.lower() == 'q':
+            field_num = input('Enter field number: ')         # Select which field to edit
+            if field_num.lower() == 'b':
                 submit = True
                 continue
             if field_num.lower() == 's':
