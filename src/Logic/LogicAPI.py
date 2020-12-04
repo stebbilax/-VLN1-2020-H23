@@ -2,6 +2,7 @@ from Data.DataAPI import DataAPI
 from Logic.Search_API import Search_API
 from Models.Employee import Employee
 from Models.Contract import Contract
+from Models.Vehicle import Vehicle
 
 
 class LogicAPI:
