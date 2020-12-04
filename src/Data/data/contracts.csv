@@ -1,6 +1,6 @@
 name,phone,address,email,date_from,date_to,vehicle_id,country,vehicle_status,employee_id,loan_date,return_date,total,loan_status,id
-BABA,123,ASDASD,asdasd,2020-05-18,2020-11-03,VW700,Iceland,OK,6827,2020-02-13,2020-08-03,123123,RETURNED,1
-asd,786-4042,OliviaSquare 1,Evelyn@nan.is,2020-02-20,2020-05-16,JC708,Farao Islands,DEFECTIVE,0251,2020-03-04,2020-11-20,1166,LATE,2
+asdasdasd,123,ASDASD,asdasd,2020-05-18,2020-11-03,231455,Iceland,OK,11,1991-11-18,2020-08-03,123123,RETURNED,1
+asd,12345678,OliviaSquare 1,Evelyn@nan.is,2020-02-20,2020-05-16,JC708,Farao Islands,DEFECTIVE,0251,2020-03-04,2020-11-20,1166,LATE,2
 Noah,667-3786,SophiaTown 15,Mia@nan.is,2020-05-14,2020-11-01,LH111,Shetland,OK,9458,2020-03-07,2020-10-13,1745,RETURNED,3
 James,963-8787,EmmaTown 13,Mason@nan.is,2020-05-15,2020-06-10,KV565,Greenland,OK,0517,2020-05-14,2020-09-17,1244,OK,4
 Noah,878-4507,NoahTown 7,Ethan@nan.is,2020-02-05,2020-12-04,MU932,Shetland,DEFECTIVE,2588,2020-04-04,2020-07-14,3968,RETURNED,5

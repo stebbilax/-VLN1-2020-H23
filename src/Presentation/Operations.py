@@ -1,4 +1,5 @@
 from datetime import date
+from Presentation.input_verifiers import Input_Verifiers
 from Models.Enums import *
 import re
 
@@ -116,7 +117,7 @@ def register_contract(logicAPI, ui):
 
 def edit_contract(logicAPI, ui):
     # Need to impliment date checking
-    # Need to impliment basic validation
+    
     id = ui.get_user_input('Please enter contract ID: ')
     result = logicAPI.contract.get_contract().by_id(id)
     if result == []: ui.display_error(f'No contract found with the ID {id}\n')
@@ -126,16 +127,16 @@ def edit_contract(logicAPI, ui):
         options = {}
 
         while submit == False:
-            print('Select field to edit:')
+            print('Select field to edit:')                      
 
             for index, (key, val) in enumerate(contract.items()):
                 index += 1
                 options[str(index)] = key
                 print('{}.{:<15} {:<20}'.format(index, key, val))
-            print('q. QUIT')
-            print('s. SUBMIT')
+            print('q. QUIT')                                    
+            print('s. SUBMIT')                                  
             
-            field_num = input()
+            field_num = input()         # Select which field to edit
             if field_num.lower() == 'q':
                 submit = True
                 continue
@@ -143,10 +144,12 @@ def edit_contract(logicAPI, ui):
                 submit = True
                 logicAPI.contract.edit_contract(contract, contract['id'])
                 continue
+            
+            
+            verifiers = Input_Verifiers().fields[options[field_num]]        # Get regex and error msg
+            new_entry = ui.get_user_form({options[field_num] : verifiers})  # Get input with validation
 
-
-            new_entry = ui.get_user_input(f'Please enter a new {options[field_num]}: ')
-            contract[options[field_num]] = new_entry
+            contract[options[field_num]] = new_entry[0]
 
         
 
