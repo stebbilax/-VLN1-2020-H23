@@ -280,6 +280,7 @@ def get_vehicle(logicAPI,ui):
             print(vehicle)
 
 
+
 def edit_vehicle(logicAPI,ui):
     #might call get vehicle function to search for vehicle and then edit information of that vehicle over here
     pass
