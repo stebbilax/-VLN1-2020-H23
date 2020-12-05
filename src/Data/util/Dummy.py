@@ -31,8 +31,14 @@ class Dummy:
     def make_country(self):
         return choice(['Iceland', 'Greenland', 'Svalbard', 'Farao Islands', 'Shetland'])
 
-    def make_vehicle_status(self):
+    def make_vehicle_state(self):
         return choice(['OK', 'DEFECTIVE'])
+
+    def make_vehicle_status(self):
+        return choice(['Unavailable', 'Available'])
+
+    def make_contract_state(self):
+        return choice(['Valid', 'Invalid', 'Completed'])
 
     def make_employee_id(self):
         return f'{randint(0,9)}{randint(0,9)}{randint(0,9)}{randint(0,9)}'

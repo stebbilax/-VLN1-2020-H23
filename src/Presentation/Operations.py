@@ -122,8 +122,9 @@ def display_all_contracts(logicAPI, ui):
 
 def register_contract(logicAPI, ui):
     # Need to impliment date checking
-    field_names = ['name', 'phone', 'address', 'email', 'date_from', 'date_to', 'vehicle_id', 'country', 'country', 
-     'vehicle_status', 'employee_id', 'loan_date', 'return_date', 'total', 'loan_status']
+    field_names = ['vehicle_id','vehicle_state','vehicle_status','vehicle_licence','country',
+    'customer_id','phone','email','address','customer_licence','employee_id','date_of_handover',
+    'date_of_return','contract_start','contract_end','state','rate','late_fee','total_price']
 
 
     empty_form = {format_function_name(field) : Input_Verifiers().fields[field] for field in field_names} # Create field object from the input_verifiers
@@ -173,69 +174,107 @@ def edit_contract(logicAPI, ui):
             contract[options[field_num]] = new_entry[0]
 
         
+def get_contract(logicAPI, ui):
+    search = logicAPI.contract.get_contract
+    field_names = ['vehicle_id','vehicle_state','vehicle_status','vehicle_licence','country',
+    'customer_id','phone','email','address','customer_licence','employee_id','date_of_handover',
+    'date_of_return','contract_start','contract_end','state','rate','late_fee','total_price']
+    field_dict = {
+        'vehicle_id': search().by_vehicle_id,
+        'vehicle_state': search().by_vehicle_state,
+        'vehicle_status': search().by_vehicle_status,
+        'vehicle_licence': search().by_vehicle_licence,
+        'country': search().by_country,
+        'customer_id': search().by_customer_id,
+        'phone': search().by_phone,
+        'email': search().by_email,
+        'address': search().by_address,
+        'customer_licence': search().by_customer_licence,
+        'employee_id': search().by_employee_id,
+        'date_of_handover': search().by_date_of_handover,
+        'date_of_return': search().by_date_of_return,
+        'contract_start': search().by_contract_start,
+        'contract_end': search().by_contract_end,
+        'state': search().by_state,
+        'rate': search().by_rate,
+        'late_fee': search().by_late_fee,
+        'total_price': search().by_total_price,
+        }
+
+
+    print('Search by:')
+    for i, field in enumerate(field_names):
+        index = i+1
+        print(f'{index}. {format_function_name(field_names[i])}')
+
+    choice = ui.get_user_form({'Enter Number' : ['^([1-9]|1[012345]|q)$', f'Enter valid number between 1-{len(field_names)}, enter q to quit']})[0]
+    search_term = input(f'{field_names[int(choice)-1]}: ')
+    res = field_dict[field_names[int(choice)-1]](search_term)
+    
+    for result in res:
+        print(result)
 
     
 
+# def get_contract(logicAPI, ui):
+#     "Search by: name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status, id"
+#     printlist = ["\nSearch by:","\n1. Name","\n2. Phone","\n3. Address","\n4. Email","\n5. Date From","\n6. Date To","\n7. Vehicle ID","\n8. Country","\n9. Vehicle Status","\n10. Employee ID","\n11. Loan Date","\n12. Return Date","\n13. Total","\n14. Loan Status","\n15. ID"]
+#     print(*printlist)
 
-def get_contract(logicAPI, ui):
-    # "Search by: name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status, id"
-    printlist = ["\nSearch by:","\n1. Name","\n2. Phone","\n3. Address","\n4. Email","\n5. Date From","\n6. Date To","\n7. Vehicle ID","\n8. Country","\n9. Vehicle Status","\n10. Employee ID","\n11. Loan Date","\n12. Return Date","\n13. Total","\n14. Loan Status","\n15. ID"]
-    print(*printlist)
+#     Get the user input with regex validation
+#     choice = ui.get_user_form(
+#         {
+#             'Enter Number': ['^([1-9]|1[012345]|q)$',"Enter valid number between 1-15, enter q to quit"]
+#         }
+#     )[0] # Index the first and only answer
 
-    # Get the user input with regex validation
-    choice = ui.get_user_form(
-        {
-            'Enter Number': ['^([1-9]|1[012345]|q)$',"Enter valid number between 1-15, enter q to quit"]
-        }
-    )[0] # Index the first and only answer
-
-    if choice == "1":
-        for contract in logicAPI.contract.get_contract().by_name(input("Name: ")):
-            print(contract)
-    elif choice == "2":
-        for contract in logicAPI.contract.get_contract().by_phone(input("Phone: ")):
-            print(contract)
-    elif choice == "3":
-        for contract in logicAPI.contract.get_contract().by_address(input("Address: ")):
-            print(contract)
-    elif choice == "4":
-        for contract in logicAPI.contract.get_contract().by_email(input("Email: ")):
-            print(contract)
-    elif choice == "5":
-        for contract in logicAPI.contract.get_contract().by_date_from(input("Date from: ")): 
-            print(contract)
-    elif choice == "6":
-        for contract in logicAPI.contract.get_contract().by_date_to(input("Date from: ")): 
-            print(contract)
-    elif choice == "7":
-        for contract in logicAPI.contract.get_contract().by_vehicle_id(input("Vehicle ID: ")):
-            print(contract)
-    elif choice == "8":
-        for contract in logicAPI.contract.get_contract().by_country(input("Country: ")):
-            print(contract)    
-    elif choice == "9":
-        for contract in logicAPI.contract.get_contract().by_vehicle_status(input("Vehicle Status: ")):
-            print(contract)
-    elif choice == "10":
-        for contract in logicAPI.contract.get_contract().by_employee_id(input("Employee ID: ")):
-            print(contract)
-    elif choice == "11":
-        for contract in logicAPI.contract.get_contract().by_loan_date(input("Loan Date: ")):
-            print(contract)
-    elif choice == "12":
-        for contract in logicAPI.contract.get_contract().by_return_date(input("Return Date: ")):
-            print(contract)
-    elif choice == "13":
-        for contract in logicAPI.contract.get_contract().by_total(input("total: ")):
-            print(contract)    
-    elif choice == "14":
-        for contract in logicAPI.contract.get_contract().by_loan_status(input("Loan Status: ")):
-            print(contract)
-    elif choice == "15":
-        for contract in logicAPI.contract.get_contract().by_id(input("Contract ID: ")):
-            print(contract)
-    elif choice == "b" or "q":
-        UserInterface.get_user_form(choice)
+#     if choice == "1":
+#         for contract in logicAPI.contract.get_contract().by_name(input("Name: ")):
+#             print(contract)
+#     elif choice == "2":
+#         for contract in logicAPI.contract.get_contract().by_phone(input("Phone: ")):
+#             print(contract)
+#     elif choice == "3":
+#         for contract in logicAPI.contract.get_contract().by_address(input("Address: ")):
+#             print(contract)
+#     elif choice == "4":
+#         for contract in logicAPI.contract.get_contract().by_email(input("Email: ")):
+#             print(contract)
+#     elif choice == "5":
+#         for contract in logicAPI.contract.get_contract().by_date_from(input("Date from: ")): 
+#             print(contract)
+#     elif choice == "6":
+#         for contract in logicAPI.contract.get_contract().by_date_to(input("Date from: ")): 
+#             print(contract)
+#     elif choice == "7":
+#         for contract in logicAPI.contract.get_contract().by_vehicle_id(input("Vehicle ID: ")):
+#             print(contract)
+#     elif choice == "8":
+#         for contract in logicAPI.contract.get_contract().by_country(input("Country: ")):
+#             print(contract)    
+#     elif choice == "9":
+#         for contract in logicAPI.contract.get_contract().by_vehicle_status(input("Vehicle Status: ")):
+#             print(contract)
+#     elif choice == "10":
+#         for contract in logicAPI.contract.get_contract().by_employee_id(input("Employee ID: ")):
+#             print(contract)
+#     elif choice == "11":
+#         for contract in logicAPI.contract.get_contract().by_loan_date(input("Loan Date: ")):
+#             print(contract)
+#     elif choice == "12":
+#         for contract in logicAPI.contract.get_contract().by_return_date(input("Return Date: ")):
+#             print(contract)
+#     elif choice == "13":
+#         for contract in logicAPI.contract.get_contract().by_total(input("total: ")):
+#             print(contract)    
+#     elif choice == "14":
+#         for contract in logicAPI.contract.get_contract().by_loan_status(input("Loan Status: ")):
+#             print(contract)
+#     elif choice == "15":
+#         for contract in logicAPI.contract.get_contract().by_id(input("Contract ID: ")):
+#             print(contract)
+#     elif choice == "b" or "q":
+#         UserInterface.get_user_form(choice)
     
 #vehicles
 

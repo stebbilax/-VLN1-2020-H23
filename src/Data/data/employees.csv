@@ -1,22 +1,21 @@
 name,address,postal_code,ssn,phone,mobile_phone,email,title,airport,country,id
-asdasd,EmmaTown 16,815,111111-1111,882-8155,972-6190,Benjamin@nan.is,office,tingwall,Greenland,1
-Lucas,LiamStreet 0,557,101083-8587,864-3057,893-1708,Isabella@nan.is,office,longyearbyen,Shetland,2
-Mason,EthanTown 1,494,121081-4742,681-4237,788-6399,Noah@nan.is,airport,longyearbyen,Greenland,3
-Isabella,SophiaRoad 23,126,121168-4038,664-2044,675-4002,Emma@nan.is,airport,tingwall,Shetland,4
-Lucas,EmmaSquare 7,316,111189-7518,677-2923,961-2755,Lucas@nan.is,airport,reykjavik,Greenland,5
-Charlotte,LiamStreet 4,621,101079-1724,972-3885,767-1625,Liam@nan.is,airport,torshavn,Shetland,6
-Oliver,BenjaminTown 19,255,101069-2140,760-1101,869-2596,Emma@nan.is,office,torshavn,Svalbard,7
-Evelyn,EvelynRoad 6,441,111063-2935,888-7864,699-6599,Amelia@nan.is,airport,reykjavik,Farao Islands,8
-Charlotte,MasonSquare 10,396,111269-2136,797-1560,760-8014,William@nan.is,airport,nuuk,Farao Islands,9
-Charlotte,EvelynTown 8,393,121290-2976,981-1141,681-5481,Amelia@nan.is,airport,tingwall,Greenland,10
-Benjamin,JamesSquare 2,699,121178-4916,697-6985,678-2808,William@nan.is,airport,tingwall,Greenland,11
-Evelyn,LiamRoad 5,864,121185-7617,783-3740,991-5206,Harper@nan.is,office,reykjavik,Farao Islands,12
-Mason,MiaTown 20,198,111262-8457,888-3984,990-1771,Mia@nan.is,airport,longyearbyen,Iceland,13
-Olivia,LiamTown 29,966,111280-3166,995-4865,967-0008,James@nan.is,office,kulusk,Greenland,14
-Ava,OliviaSquare 22,975,101167-3064,772-5071,962-2672,Ethan@nan.is,office,tingwall,Iceland,15
-Amelia,ElijahRoad 6,316,101159-6175,999-4160,963-5264,Mia@nan.is,office,tingwall,Iceland,16
-James,MasonTown 7,921,121161-7584,779-8001,894-4533,Noah@nan.is,airport,torshavn,Farao Islands,17
-Harper,OliverTown 19,461,111189-2837,767-7974,693-0020,Emma@nan.is,airport,torshavn,Svalbard,18
-Olivia,EmmaRoad 27,446,111178-3552,972-1814,883-9056,Elijah@nan.is,airport,kulusk,Iceland,19
-Oliver,IsabellaTown 9,861,121263-2783,686-5570,696-6133,Liam@nan.is,airport,longyearbyen,Farao Islands,20
-steini,las,654,098765-0988,9876543,09876543,fdssd@cwf.d,office,reykjavik,iceland,1
+asd,HarperTown 24,155,101072-4246,890-5161,985-2462,Liam@nan.is,airport,longyearbyen,Svalbard,1
+William,WilliamTown 1,297,111180-4359,680-7063,890-9562,Elijah@nan.is,airport,tingwall,Shetland,2
+Elijah,AvaRoad 10,896,101167-2763,972-1895,974-1081,James@nan.is,office,longyearbyen,Iceland,3
+Olivia,BenjaminRoad 28,271,101084-2516,894-2585,969-7129,Elijah@nan.is,office,reykjavik,Greenland,4
+Emma,WilliamSquare 22,156,111185-2571,883-9021,769-0029,Ethan@nan.is,office,longyearbyen,Iceland,5
+Noah,EthanRoad 9,533,101187-6154,767-1984,989-3612,Lucas@nan.is,office,longyearbyen,Shetland,6
+Amelia,OliverSquare 7,823,111058-2937,993-4172,679-4951,Evelyn@nan.is,airport,tingwall,Shetland,7
+Ethan,IsabellaSquare 29,748,101252-2868,972-8096,699-1840,James@nan.is,airport,kulusk,Farao Islands,8
+Mason,IsabellaRoad 27,788,121080-5073,678-7753,863-0663,Charlotte@nan.is,office,torshavn,Shetland,9
+William,EthanStreet 7,843,111086-3137,672-5386,687-8012,William@nan.is,office,longyearbyen,Greenland,10
+Elijah,LucasRoad 6,745,121272-7931,772-4649,779-5147,Emma@nan.is,office,reykjavik,Shetland,11
+Elijah,OliverRoad 19,963,101173-7050,677-8004,761-1009,Elijah@nan.is,airport,reykjavik,Shetland,12
+Isabella,EvelynStreet 29,837,101286-7886,869-8599,868-8735,Ethan@nan.is,airport,longyearbyen,Shetland,13
+Harper,OliverSquare 28,595,111052-8163,896-6529,761-5738,Lucas@nan.is,airport,nuuk,Svalbard,14
+Charlotte,OliviaRoad 12,197,111274-4532,664-7346,986-0347,Olivia@nan.is,airport,kulusk,Svalbard,15
+Amelia,HarperRoad 1,483,111269-2541,799-0985,977-0407,Harper@nan.is,airport,longyearbyen,Greenland,16
+Isabella,LiamStreet 5,489,101185-3456,675-8598,761-8430,Mia@nan.is,airport,reykjavik,Svalbard,17
+Mason,BenjaminTown 6,327,121279-6749,890-7828,862-6338,James@nan.is,airport,torshavn,Iceland,18
+Amelia,MiaStreet 6,621,121062-1113,987-4679,796-3458,William@nan.is,airport,nuuk,Iceland,19
+Sophia,EmmaStreet 5,122,111189-3737,984-9796,863-5642,Mia@nan.is,office,reykjavik,Farao Islands,20
