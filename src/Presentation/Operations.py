@@ -247,7 +247,7 @@ def display_all_vehicles(logicAPI, ui):
         print(vehicle)
 
 def display_all_vehicles_in_a_location(logicAPI,ui):
-    '''Display all vehicles after location'''
+    '''Display all vehicles in a location'''
 
     vehicle_location_list = ['\nDisplay vehicles after location:','\n1. Reykjavik','\n2. Nuuk','\n3. Kulusk','\n4. Tingwall','\n5. Longyearbyen','\n6. Torshavn']
     print(*vehicle_location_list)
@@ -257,20 +257,84 @@ def display_all_vehicles_in_a_location(logicAPI,ui):
         }  
     )
     choice=choice[0]
+    number = 0
     if choice == "1":
         for vehicles in logicAPI.vehicles.get_all_vehicles():
             if vehicles.__dict__()['airport'] == 'reykjavik':
-                print(vehicles)
-
-
-
-    
-    
+                number +=1
+                print("Vehicle number", number,":")
+                print("Type: {}, Manufacturer: {}, Year of manufacturer: {},"
+                        " Color: {}, Drivers Licence: {}, Airport: {},"
+                        "Condition: {}, Model: {}, Vehicle ID: {}, ID: {}"
+                        .format(vehicles.__dict__()['type'],vehicles.__dict__()['manufacturer'],
+                        vehicles.__dict__()['yom'],vehicles.__dict__()['color'],vehicles.__dict__()['licence'],
+                        vehicles.__dict__()['airport'],vehicles.__dict__()['condition'],vehicles.__dict__()['model'],
+                        vehicles.__dict__()['vehicle_id'],vehicles.__dict__()['id']))
+    elif choice == "2":
+        for vehicles in logicAPI.vehicles.get_all_vehicles():
+            if vehicles.__dict__()['airport'] == 'nuuk':
+                number +=1
+                print("Vehicle number", number,":")
+                print("Type: {}, Manufacturer: {}, Year of manufacturer: {},"
+                        " Color: {}, Drivers Licence: {}, Airport: {},"
+                        "Condition: {}, Model: {}, Vehicle ID: {}, ID: {}"
+                        .format(vehicles.__dict__()['type'],vehicles.__dict__()['manufacturer'],
+                        vehicles.__dict__()['yom'],vehicles.__dict__()['color'],vehicles.__dict__()['licence'],
+                        vehicles.__dict__()['airport'],vehicles.__dict__()['condition'],vehicles.__dict__()['model'],
+                        vehicles.__dict__()['vehicle_id'],vehicles.__dict__()['id']))
+    elif choice == "3":
+        for vehicles in logicAPI.vehicles.get_all_vehicles():
+            if vehicles.__dict__()['airport'] == 'kulusk':
+                number +=1
+                print("Vehicle number", number,":")
+                print("Type: {}, Manufacturer: {}, Year of manufacturer: {},"
+                        " Color: {}, Drivers Licence: {}, Airport: {},"
+                        "Condition: {}, Model: {}, Vehicle ID: {}, ID: {}"
+                        .format(vehicles.__dict__()['type'],vehicles.__dict__()['manufacturer'],
+                        vehicles.__dict__()['yom'],vehicles.__dict__()['color'],vehicles.__dict__()['licence'],
+                        vehicles.__dict__()['airport'],vehicles.__dict__()['condition'],vehicles.__dict__()['model'],
+                        vehicles.__dict__()['vehicle_id'],vehicles.__dict__()['id']))
+    elif choice == "4":
+        for vehicles in logicAPI.vehicles.get_all_vehicles():
+            if vehicles.__dict__()['airport'] == 'tingwall':
+                number +=1
+                print("Vehicle number", number,":")
+                print("Type: {}, Manufacturer: {}, Year of manufacturer: {},"
+                        " Color: {}, Drivers Licence: {}, Airport: {},"
+                        "Condition: {}, Model: {}, Vehicle ID: {}, ID: {}"
+                        .format(vehicles.__dict__()['type'],vehicles.__dict__()['manufacturer'],
+                        vehicles.__dict__()['yom'],vehicles.__dict__()['color'],vehicles.__dict__()['licence'],
+                        vehicles.__dict__()['airport'],vehicles.__dict__()['condition'],vehicles.__dict__()['model'],
+                        vehicles.__dict__()['vehicle_id'],vehicles.__dict__()['id']))
+    elif choice == "5":
+        for vehicles in logicAPI.vehicles.get_all_vehicles():
+            if vehicles.__dict__()['airport'] == 'longyearbyen':
+                number +=1
+                print("Vehicle number", number,":")
+                print("Type: {}, Manufacturer: {}, Year of manufacturer: {},"
+                        " Color: {}, Drivers Licence: {}, Airport: {},"
+                        "Condition: {}, Model: {}, Vehicle ID: {}, ID: {}"
+                        .format(vehicles.__dict__()['type'],vehicles.__dict__()['manufacturer'],
+                        vehicles.__dict__()['yom'],vehicles.__dict__()['color'],vehicles.__dict__()['licence'],
+                        vehicles.__dict__()['airport'],vehicles.__dict__()['condition'],vehicles.__dict__()['model'],
+                        vehicles.__dict__()['vehicle_id'],vehicles.__dict__()['id']))
+    elif choice == "6":
+        for vehicles in logicAPI.vehicles.get_all_vehicles():
+            if vehicles.__dict__()['airport'] == 'torshavn':
+                number +=1
+                print("Vehicle number", number,":")
+                print("Type: {}, Manufacturer: {}, Year of manufacturer: {},"
+                        " Color: {}, Drivers Licence: {}, Airport: {},"
+                        "Condition: {}, Model: {}, Vehicle ID: {}, ID: {}"
+                        .format(vehicles.__dict__()['type'],vehicles.__dict__()['manufacturer'],
+                        vehicles.__dict__()['yom'],vehicles.__dict__()['color'],vehicles.__dict__()['licence'],
+                        vehicles.__dict__()['airport'],vehicles.__dict__()['condition'],vehicles.__dict__()['model'],
+                        vehicles.__dict__()['vehicle_id'],vehicles.__dict__()['id']))
 
 def display_vehicle_condition(logicAPI,ui):
-        for vehicles in logicAPI.vehicles.get_all_vehicles():
-            print(vehicles)
-            print("Type: {}, Location: {}, Condition: {}, ID: {}".format(vehicles.__dict__()['type'], vehicles.__dict__()['airport'], vehicles.__dict__()['condition'], vehicles.__dict__()['id']))
+    '''Display vehicle condition'''
+    for vehicles in logicAPI.vehicles.get_all_vehicles():
+        print("Type: {}, Location: {}, Condition: {}, ID: {}".format(vehicles.__dict__()['type'], vehicles.__dict__()['airport'], vehicles.__dict__()['condition'], vehicles.__dict__()['id']))
 
 
 def register_vehicle(logicAPI,ui):
@@ -288,6 +352,7 @@ def register_vehicle(logicAPI,ui):
     logicAPI.vehicles.register_vehicle(form)
     
 def get_vehicle(logicAPI,ui):
+    ''' Get  '''
     printlist = ["\nSearch by:","\n1. Type","\n2. Manufacturer","\n3. Year Of Manufacturer","\n4. Color","\n5. drivers licence","\n6. Airport location","\n7. Condition","\n8. Model","\n9. Vehicle ID"]
     print(*printlist)
 
