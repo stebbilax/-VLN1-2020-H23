@@ -320,6 +320,7 @@ def display_vehicle_condition(logicAPI,ui):
             if vehicles.__dict__()['condition'] == 'DEFECTIVE':
                 number +=1
                 print_display_vehicle(vehicles,number)
+           # was like this before: print("Type: {}, Location: {}, Condition: {}, ID: {}".format(vehicles.__dict__()['type'], vehicles.__dict__()['airport'], vehicles.__dict__()['condition'], vehicles.__dict__()['id']))
 
 
 
@@ -432,5 +433,3 @@ def edit_vehicle(logicAPI,ui):
 def display_vehicle_rates(logicAPI,ui):
     for vehicles in logicAPI.vehicles.get_all_vehicle_types():
         print("Type: {}, Location: {}, Rate: {}, ID: {}".format(vehicles.__dict__()['name'], vehicles.__dict__()['regions'], vehicles.__dict__()['rate'], vehicles.__dict__()['id']))
-
-
