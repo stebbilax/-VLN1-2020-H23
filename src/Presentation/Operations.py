@@ -184,7 +184,8 @@ def get_contract(logicAPI, ui):
 
     # Get the user input with regex validation
     choice = ui.get_user_form(
-        {'Enter Number': ['^([1-9]|1[012345]|q)$',"Enter valid number between 1-15, enter q to quit"]
+        {
+            'Enter Number': ['^([1-9]|1[012345]|q)$',"Enter valid number between 1-15, enter q to quit"]
         }
     )[0] # Index the first and only answer
 
@@ -241,35 +242,40 @@ def get_contract(logicAPI, ui):
 
 def display_all_vehicles(logicAPI, ui):
     '''Display all vehicles'''
+
     for vehicle in logicAPI.vehicles.get_all_vehicles():
         print(vehicle)
 
 def display_all_vehicles_in_a_location(logicAPI,ui):
-    pass
+    '''Display all vehicles after location'''
+
+    vehicle_location_list = ['\nDisplay vehicles after location:','\n1. Reykjavik','\n2. Nuuk','\n3. Kulusk','\n4. Tingwall','\n5. Longyearbyen','\n6. Torshavn']
+    print(*vehicle_location_list)
+    choice = ui.get_user_form(
+        {
+            'Enter Number': ['^[1-6]$','Enter valid number between 1 and 6']
+        }  
+    )
+    choice=choice[0]
+    if choice == "1":
+        for vehicles in logicAPI.vehicles.get_all_vehicles():
+            if vehicles.__dict__()['airport'] == 'reykjavik':
+                print(vehicles)
+
+
+
+    
     
 
 def display_vehicle_condition(logicAPI,ui):
         for vehicles in logicAPI.vehicles.get_all_vehicles():
+            print(vehicles)
             print("Type: {}, Location: {}, Condition: {}, ID: {}".format(vehicles.__dict__()['type'], vehicles.__dict__()['airport'], vehicles.__dict__()['condition'], vehicles.__dict__()['id']))
 
 
 def register_vehicle(logicAPI,ui):
     '''Register new vehicle'''
-    #must include vehicle authentication
-    #must include vehicle condition
-    # form = ui.get_user_form(
-    #     {
-    #         'type': None,
-    #         'manufacturer': ['[a-z]+$', 'Alphabetical letters only'] ,
-    #         'year of manufacturer': ['\\d{4}$', 'Digits only'], #named YOM in model vehicle class
-    #         'color': ['[a-z]+$', 'Alphabetical letters only'],
-    #         'licence': None,
-    #         'airport': [enum_to_regex(Enum_Airport),enum_to_instructions(Enum_Airport)],
-    #         'condition': ['(OK|DEFECTIVE)', 'Please enter valid vehicle status (OK or DEFECTIVE)'],
-    #         'model': ['[a-z]+$', 'Alphabetical letters only'],
-    #         'vehicle id': None, # this is licence plate on a car
-    #     } 
-    # )
+
     field_names = ['type','manufacturer','year of manufacturer','color','licence','airport','condition','model','vehicle id']
     # User canceled operation
     
