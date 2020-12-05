@@ -39,47 +39,62 @@ class Search_Contract:
     def __init__(self):
         self.Search_Manager = Search_Manager()
 
-    def by_name(self, string):
-        return self.Search_Manager.search(string, 'name', 'contract')
-
-    def by_phone(self, string):
-        return self.Search_Manager.search(string, 'phone', 'contract')
-
-    def by_address(self, string):
-        return self.Search_Manager.search(string, 'address', 'contract')
-
-    def by_email(self, string):
-        return self.Search_Manager.search(string, 'email', 'contract')
-
-    def by_date_from(self, string):
-        return self.Search_Manager.search(string, 'date_from', 'contract')
-
-    def by_date_to(self, string):
-        return self.Search_Manager.search(string, 'date_to', 'contract')
-
     def by_vehicle_id(self, string):
         return self.Search_Manager.search(string, 'vehicle_id', 'contract')
 
-    def by_country(self, string):
-        return self.Search_Manager.search(string, 'country', 'contract')
+    def by_vehicle_state(self, string):
+        return self.Search_Manager.search(string, 'vehicle_state', 'contract')
 
     def by_vehicle_status(self, string):
         return self.Search_Manager.search(string, 'vehicle_status', 'contract')
 
+    def by_vehicle_licence(self, string):
+        return self.Search_Manager.search(string, 'vehicle_licence', 'contract')
+
+    def by_country(self, string):
+        return self.Search_Manager.search(string, 'country', 'contract')
+    
+    def by_customer_id(self, string):
+        return self.Search_Manager.search(string, 'customer_id', 'contract')
+
+    def by_phone(self, string):
+        return self.Search_Manager.search(string, 'phone', 'contract')
+
+    def by_email(self, string):
+        return self.Search_Manager.search(string, 'email', 'contract')
+
+    def by_address(self, string):
+        return self.Search_Manager.search(string, 'address', 'contract')
+
+    def by_customer_licence(self, string):
+        return self.Search_Manager.search(string, 'customer_licence', 'contract')
+
     def by_employee_id(self, string):
         return self.Search_Manager.search(string, 'employee_id', 'contract')
 
-    def by_loan_date(self, string):
-        return self.Search_Manager.search(string, 'loan_date', 'contract')
+    def by_date_of_handover(self, string):
+        return self.Search_Manager.search(string, 'date_of_handover', 'contract')
 
-    def by_return_date(self, string):
-        return self.Search_Manager.search(string, 'return_date', 'contract')
+    def by_date_of_return(self, string):
+        return self.Search_Manager.search(string, 'date_of_return', 'contract')
 
-    def by_total(self, string):
-        return self.Search_Manager.search(string, 'total', 'contract')
+    def by_contract_start(self, string):
+        return self.Search_Manager.search(string, 'contract_start', 'contract')
 
-    def by_loan_status(self, string):
-        return self.Search_Manager.search(string, 'loan_status', 'contract')
+    def by_contract_end(self, string):
+        return self.Search_Manager.search(string, 'contract_end', 'contract')
+
+    def by_state(self, string):
+        return self.Search_Manager.search(string, 'state', 'contract')
+
+    def by_rate(self, string):
+        return self.Search_Manager.search(string, 'rate', 'contract')
+
+    def by_late_fee(self, string):
+        return self.Search_Manager.search(string, 'late_fee', 'contract')
+
+    def by_total_price(self, string):
+        return self.Search_Manager.search(string, 'total_price', 'contract')
 
     def by_id(self, string):
         return self.Search_Manager.search(string, 'id', 'contract')

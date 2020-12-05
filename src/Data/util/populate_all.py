@@ -38,20 +38,30 @@ DB = DataAPI()
 
 def contract():
     return Contract(
-        D.make_name(),
-        D.make_phone(),
-        D.make_address(),
-        D.make_email(),
-        D.make_early_date(),
-        D.make_later_date(),
-        D.make_vehicle_id(),
-        D.make_country(),
+        '1',
+        D.make_vehicle_state(),
         D.make_vehicle_status(),
-        D.make_employee_id(),
+        D.make_licence(),
+        D.make_country(),
+
+        '1',
+        D.make_phone(),
+        D.make_email(),
+        D.make_address(),
+        D.make_licence(),
+        
+        '1',
         D.make_early_date(),
         D.make_later_date(),
-        D.make_total(),
-        D.make_loan_status(),
+        D.make_early_date(),
+        D.make_later_date(),
+        D.make_contract_state(),
+        randint(100, 1000),
+        randint(0, 300),
+        0,
+        
+        
+
     )
 def customer():
     return Customer(
@@ -101,7 +111,7 @@ def vehicle_type():
     return Vehicle_Type(
         D.make_type(),
         D.make_country(),
-        1337,
+        randint(100, 1000),
 
     )
 
