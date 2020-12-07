@@ -19,11 +19,11 @@ class Operations:
 
         # Get the number of required parameters to the init method of the class
         self.contract = [Contract(*[None for i in range(len(signature(Contract).parameters))]), lapi.contract]
-        self.customer = [Customer(*[None for i in range(len(signature(Customer).parameters))])]
-        self.destination = [Destination(*[None for i in range(len(signature(Destination).parameters))])]
+        self.customer = [Customer(*[None for i in range(len(signature(Customer).parameters))]), lapi.customer]
+        self.destination = [Destination(*[None for i in range(len(signature(Destination).parameters))]), lapi.destination]
         self.employee = [Employee(*[None for i in range(len(signature(Employee).parameters))]), lapi.employee]
         self.vehicle = [Vehicle(*[None for i in range(len(signature(Vehicle).parameters))]), lapi.vehicle]
-        self.vehicle_type = [Vehicle_Type(*[None for i in range(len(signature(Vehicle_Type).parameters))])]
+        self.vehicle_type = [Vehicle_Type(*[None for i in range(len(signature(Vehicle_Type).parameters))]), lapi.vehicle_type]
 
     def register(self, model):
         ''' Register a new object by model '''
@@ -182,6 +182,48 @@ def get_vehicle(logicAPI,ui):
 def edit_vehicle(logicAPI,ui):
     o = Operations(logicAPI, ui)
     o.edit(o.vehicle)
+
+
+
+def register_customer(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.register(o.customer)
+    
+def get_customer(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.get(o.customer)
+     
+def edit_customer(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.edit(o.customer)
+
+
+
+def register_destination(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.register(o.destination)
+    
+def get_destination(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.get(o.destination)
+     
+def edit_destination(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.edit(o.destination)
+
+
+
+def register_vehicle_type(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.register(o.vehicle_type)
+    
+def get_vehicle_type(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.get(o.vehicle_type)
+     
+def edit_vehicle_type(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.edit(o.vehicle_type)
 
 
 

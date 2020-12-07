@@ -3,6 +3,9 @@ from Logic.Search_API import Search_API
 from Models.Employee import Employee
 from Models.Contract import Contract
 from Models.Vehicle import Vehicle
+from Models.Customer import Customer
+from Models.Vehicle_Type import Vehicle_Type
+from Models.Destination import Destination
 from Logic.form_fillers import contract_filler
 
 
@@ -14,6 +17,9 @@ class LogicAPI:
         self.vehicle = ManageVehicles(self.dataAPI, self.searchAPI)
         self.employee = ManageEmployees(self.dataAPI, self.searchAPI)
         self.contract = ManageContracts(self.dataAPI, self.searchAPI)
+        self.customer = ManageCustomers(self.dataAPI, self.searchAPI)
+        self.vehicle_type = ManageVehicleTypes(self.dataAPI, self.searchAPI)
+        self.destination = ManageDestinations(self.dataAPI, self.searchAPI)
 
 class ManageVehicles:
     def __init__(self, dapi, sapi):
@@ -97,40 +103,46 @@ class ManageCustomers:
         self.searchAPI = sapi
     
     def register(self, form):
-        pass
+        new_customer = Customer(*form)
+        self.dataAPI.append_customer(new_customer)
     
     def edit(self, form, id):
-        pass
+        new_customer = Customer(**form)
+        self.dataAPI.edit_customer(new_customer, id)
     
     def get(self):
-        pass
+        return self.searchAPI.search_customer()
 
-class VehicleTypes:
+class ManageVehicleTypes:
     def __init__(self, dapi, sapi):
         self.dataAPI = dapi
         self.searchAPI = sapi
     
     def register(self, form):
-        pass
+        new_vehicle_type = Vehicle_Type(*form)
+        self.dataAPI.append_vehicle_type(new_vehicle_type)
     
     def edit(self, form, id):
-        pass
+        new_vehicle_type = Vehicle_Type(**form)
+        self.dataAPI.edit_vehicle_type(new_vehicle_type, id)
     
     def get(self):
-        pass
+        return self.searchAPI.search_vehicle_type()
 
-class Destinations:
+class ManageDestinations:
     def __init__(self, dapi, sapi):
         self.dataAPI = dapi
         self.searchAPI = sapi
     
     def register(self, form):
-        pass
+        new_destination = Destination(*form)
+        self.dataAPI.append_destination(new_destination)
     
     def edit(self, form, id):
-        pass
+        new_destination = Destination(**form)
+        self.dataAPI.edit_destination(new_destination, id)
     
     def get(self):
-        pass
+        return self.searchAPI.search_destination()
 
 
