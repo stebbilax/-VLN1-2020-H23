@@ -15,6 +15,7 @@ class Operations:
     def __init__(self, lapi, ui):
         self.logicAPI = lapi
         self.ui = ui
+        self.verify = Input_Verifiers()
 
         # Get the number of required parameters to the init method of the class
         self.contract = [Contract(*[None for i in range(len(signature(Contract).parameters))]), lapi.contract]
@@ -28,8 +29,13 @@ class Operations:
         ''' Register a new object by model '''
 
         form = self.ui.get_user_form(
-            model[0].fields()
+            {key:self.verify.get_verifier(key) for key in model[0].fields()}
         )
+
+        if not form:
+            return
+
+        model[1].register(form)
 
     def edit(self, model):
         pass
