@@ -14,20 +14,8 @@ class Vehicle:
     def __str__(self):
         return f'{self.type}, {self.manufacturer}, {self.yom}, {self.color}, {self.licence}, {self.airport}, {self.condition}, {self.model}'
 
-    def __dict__(self):
-        return {
-            'type' : self.type,  
-            'manufacturer' : self.manufacturer, 
-            'yom' : self.yom, 
-            'color' : self.color, 
-            'licence' : self.licence, 
-            'airport' : self.airport, 
-            'condition' : self.condition,
-            'model' : self.model,
-            'vehicle_id' : self.vehicle_id,
-            'id': self.id
-        }
-    
+    def fields(self):
+        return [property for property, value, in vars(self).items()]
 
     def set_type(self,Type):
         self.type = Type

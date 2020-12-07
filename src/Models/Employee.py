@@ -15,20 +15,8 @@ class Employee:
     def __str__(self):
         return f'{self.name}, {self.address}, {self.postal_code}, {self.ssn}, {self.phone}, {self.mobile_phone}, {self.email}, {self.title}, {self.airport}, {self.country}'
 
-    def __dict__(self):
-        return {
-            'name' : self.name,
-            'address' : self.address,
-            'postal_code' : self.postal_code,
-            'ssn' : self.ssn,
-            'phone' : self.phone,
-            'mobile_phone' : self.mobile_phone,
-            'email' : self.email,
-            'title' : self.title,
-            'airport' : self.airport,
-            'country' : self.country,
-            'id': self.id
-        }
+    def fields(self):
+        return [property for property, value, in vars(self).items()]
            
     def set_name(self, name):
         self.name = name

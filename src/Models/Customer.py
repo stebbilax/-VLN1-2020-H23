@@ -17,19 +17,8 @@ class Customer:
     def __str__(self):
         return f'{self.name}, {self.ssn}, {self.address}, {self.postal_code}, {self.phone}, {self.email}, {self.country}'  
 
-    def __dict__(self):
-        return {
-            'name' : self.name, 
-            'ssn' : self.ssn,
-            'address' : self.address,
-            'postal_code' : self.postal_code,
-            'phone' : self.phone,
-            'email' : self.email,
-            'country'  : self.country,
-            'licence' : self.licence,
-            'id': self.id
-        }
-
+    def fields(self):
+        return [property for property, value, in vars(self).items()]
 
     def set_name (self,name):
         self.name = name
