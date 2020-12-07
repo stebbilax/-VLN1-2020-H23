@@ -131,16 +131,18 @@ class Display:
 
     def display_all(self, data, fields):
         ''' Register a new object by model '''
+        field_lengths = self.find_header_format(data, fields)
+
         header = ''
         for field in fields:
-            header += '{:^18} '.format(field)
+            header += '{:^{L}}'.format(field, L=field_lengths[field])
         print(header)
 
         for el in data:
             obj = vars(el)
             line = ''
             for field in fields:
-                line += '{:^18} '.format(obj[field])
+                line += '{:^{L}}'.format(obj[field], L=field_lengths[field])
             print(line)
             
 
@@ -158,10 +160,22 @@ class Display:
 
         
 
+        
 
-    # def find_header_format(self, data, fields):
-    #     field_lengths = {field: 0 for field in fields}
-    #     print(field_lengths)
+
+    def find_header_format(self, data, fields):
+        field_lengths = {field: 0 for field in fields}
+        
+        for el in data:
+            obj = vars(el)
+            for field in fields:
+                if len(obj[field]) > field_lengths[field]:
+                    field_lengths[field] = len(obj[field])
+                if len(field) > field_lengths[field]:
+                    field_lengths[field] = len(field)
+
+        return field_lengths            
+        
 
 
 
