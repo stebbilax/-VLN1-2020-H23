@@ -39,6 +39,7 @@ class Operations:
 
 
     def edit(self, model):
+        ''' Editing object by model'''
         fields = model[0].fields()
         logic = model[1]
 
@@ -85,6 +86,7 @@ class Operations:
 
 
     def get(self, model):
+        '''  '''
         fields = model[0].fields()
         field_length = len(fields)
         logic = model[1]
@@ -131,11 +133,13 @@ class Display:
 
     def display_all(self,model):
         ''' display all  vehicle'''
+        fields = model[0].fields()
+        field_length = len(fields)
+        logic = model[1]
 
-        form = self.ui.get_user_form(
-            {key:self.verify.get_verifier(key) for key in model[0].fields()}
-        )
-        print(form)
+
+
+
 
 
 def display_employee(logicAPI,ui):
