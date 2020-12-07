@@ -114,6 +114,13 @@ class Operations:
         fields = model[0].fields()
         self.display.display_all(res, fields)
 
+    def get_all_location(self,Model):
+        res = model[1].get_all()
+        print(res)
+        
+        
+
+
 
 
 
@@ -135,6 +142,19 @@ class Display:
             for field in fields:
                 line += '{:^18} '.format(obj[field])
             print(line)
+            
+
+    def display_vehicle_condition(self,data,fields):
+        pass
+
+
+    def display_all_vehicles_in_a_location(self,data,fields):
+        pass
+
+    def display_vehicle_rates(self,data,fields):
+        pass
+
+
 
         
 
