@@ -90,3 +90,47 @@ class ManageContracts:
         return [getattr(self.searchAPI.search_contract(), func) 
             for func in dir(self.searchAPI.search_contract())
             if callable(getattr(self.searchAPI.search_contract(), func)) and not func.startswith('__')]
+
+class ManageCustomers:
+    def __init__(self, dapi, sapi):
+        self.dataAPI = dapi
+        self.searchAPI = sapi
+    
+    def register(self, form):
+        pass
+    
+    def edit(self, form, id):
+        pass
+    
+    def get(self):
+        pass
+
+class VehicleTypes:
+    def __init__(self, dapi, sapi):
+        self.dataAPI = dapi
+        self.searchAPI = sapi
+    
+    def register(self, form):
+        pass
+    
+    def edit(self, form, id):
+        pass
+    
+    def get(self):
+        pass
+
+class Destinations:
+    def __init__(self, dapi, sapi):
+        self.dataAPI = dapi
+        self.searchAPI = sapi
+    
+    def register(self, form):
+        pass
+    
+    def edit(self, form, id):
+        pass
+    
+    def get(self):
+        pass
+
+
