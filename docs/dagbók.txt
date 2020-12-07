@@ -218,8 +218,29 @@ Assignment:
     Stefán Laxdal                      : Date verification
     
 End report:
+    Completed edit functionality
+    Completed operations
+    Completed date verification
+    
+Notes:
+
+#----------------------------------------------------------------------------------#
+
+7.12.2020
+
+Objectives:
+    Refactor operations
+    Refactor logicAPI paths
+
+Assignment:
+    Elias Guðjohnsen, Jason Guðnason   : Refactor operations, Refactor logicAPI paths
+    Arnar Már, Stefán Laxdal           : Refactor operations, Refactor logicAPI paths
+    Bjarki Laxdal, Gunnlaug            : Refactor operations, Refactor logicAPI paths
+    
+End report:
     
     
 Notes:
+    Refactor day
 
 #----------------------------------------------------------------------------------#
