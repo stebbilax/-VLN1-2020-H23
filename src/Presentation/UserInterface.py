@@ -6,7 +6,7 @@ import os, re
 class UserInterface:
     def __init__(self):
         self.logic = LogicAPI()
-        self.logic.vehicles.get_all_vehicles()
+        self.operation = Operations(self.logic, self)
 
         self.access = 0
 

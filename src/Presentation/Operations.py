@@ -2,12 +2,79 @@ from datetime import date
 from Presentation.input_verifiers import Input_Verifiers
 from Presentation.Menu import format_function_name
 from Models.Enums import *
+from Models.Contract import Contract
+from Models.Customer import Customer
+from Models.Destination import Destination
+from Models.Employee import Employee
+from Models.Vehicle import Vehicle
+from Models.Vehicle_Type import Vehicle_Type
 import re
+from inspect import signature
+
+class Operations:
+    def __init__(self, lapi, ui):
+        self.logicAPI = lapi
+        self.ui = ui
+        self.verify = Input_Verifiers()
+
+        # Get the number of required parameters to the init method of the class
+        self.contract = [Contract(*[None for i in range(len(signature(Contract).parameters))]), lapi.contract]
+        self.customer = [Customer(*[None for i in range(len(signature(Customer).parameters))])]
+        self.destination = [Destination(*[None for i in range(len(signature(Destination).parameters))])]
+        self.employee = [Employee(*[None for i in range(len(signature(Employee).parameters))]), lapi.employee]
+        self.vehicle = [Vehicle(*[None for i in range(len(signature(Vehicle).parameters))]), lapi.vehicle]
+        self.vehicle_type = [Vehicle_Type(*[None for i in range(len(signature(Vehicle_Type).parameters))])]
+
+    def register(self, model):
+        ''' Register a new object by model '''
+
+        form = self.ui.get_user_form(
+            {key:self.verify.get_verifier(key) for key in model[0].fields()}
+        )
+
+        if not form:
+            return
+
+        model[1].register(form)
+
+    def edit(self, model):
+        pass
+
+
+    def get(self, model):
+        fields = model[0].fields()
+        field_length = len(fields)
+        logic = model[1]
+
+        # Get input from user
+        print('Search by:')
+        for i, field in enumerate(fields):
+            print(f'{i+1}. {format_function_name(field)}')
+
+        # Validate input
+        ans = -1
+        while not (0 < ans <= field_length):
+            ans = int(self.ui.get_user_form({
+                'selection' : ['\d', 'Must be digit between 1-{}'.format(field_length, field_length)]
+            })[0])
+
+        # Search and Display
+        func = getattr(logic.get(), f'by_{fields[ans-1]}')
+        result = func(input(f'Enter {fields[ans-1]}: '))
+        for i in result:
+            print(i)
+
+
+
+        
 
 def test(logicAPI, ui):
-    for i in ui.get_user_option(logicAPI.contract.get_contract_search_options())(ui.get_user_input('Input search term: ')):
-        print(i.__dict__())
+    o = Operations(logicAPI, ui)
+    o.get(o.employee)
     
+
+def register_new(logicAPI, ui, model):
+    pass
 
 
 def display_all_employees(logicAPI, ui):
@@ -18,6 +85,10 @@ def display_all_employees(logicAPI, ui):
 
 def register_employee(logicAPI, ui):
     ''' Register a new employee '''
+    ####
+    register(Employee.fields(), ui.get_user_form)
+    ####
+
 
     form = ui.get_user_form(
         {
@@ -124,13 +195,14 @@ def display_all_contracts(logicAPI, ui):
 
 def register_contract(logicAPI, ui):
     # Need to impliment date checking
-    field_names = ['vehicle_id','country',
+    field_names = ['vehicle_id','vehicle_state','vehicle_status','vehicle_licence','country',
     'customer_id','customer_name','phone','email','address','customer_licence','employee_id','date_of_handover',
-    'date_of_return','contract_start','contract_end','state','total_price']
+    'date_of_return','contract_start','contract_end','state','rate','late_fee','total_price']
 
 
     empty_form = {format_function_name(field) : Input_Verifiers().fields[field] for field in field_names} # Create field object from the input_verifiers
     form = ui.get_user_form(empty_form)  # Fill form with data
+    
     # User canceled operation
     if not form:
         return

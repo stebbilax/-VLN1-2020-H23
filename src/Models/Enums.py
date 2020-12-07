@@ -9,7 +9,6 @@ class Enum_Airport(Enum):
     longyearbyen = 5
     torshavn = 6
 
-
 class Enum_Title(Enum):
     #Titles 
     office = 1
