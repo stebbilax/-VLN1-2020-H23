@@ -74,7 +74,7 @@ class Csv_Manager:
             writer = csv.DictWriter(f, fieldnames=fields)
             writer.writeheader()
             for obj in data:
-                line_obj = vars(data)
+                line_obj = vars(obj)
                 if obj.id == None:
                     id = self.get_new_id(category_name)
                     line_obj['id'] = id

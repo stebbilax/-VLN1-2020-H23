@@ -38,7 +38,52 @@ class Operations:
         model[1].register(form)
 
     def edit(self, model):
-        pass
+        fields = model[0].fields()
+        logic = model[1]
+
+        # Get id
+        id = self.ui.get_user_form({
+                'ID' : ['\d', 'Please enter a digit']
+            })[0]
+
+        # Search for match
+        result = logic.get().by_id(id)
+        if result == []: self.ui.display_error(f'No Matches found with ID {id}\n')
+        else:
+            obj = vars(result[0])
+            submit = False
+            options = {}
+
+            # Enter editing loop
+            while submit == False:
+                print('Select field to edit: ')                      
+
+                for index, (key, val) in enumerate(obj.items()):
+                    index += 1
+                    options[str(index)] = key
+                    print('{}.{:<15} {:<20}'.format(index, format_function_name(key), val))
+                print('b. BACK')                                    
+                print('s. SUBMIT')                                  
+                
+                field_num = input('Enter field number: ')         # Select which field to edit
+                if field_num.lower() == 'b':
+                    submit = True
+                    continue
+                if field_num.lower() == 's':
+                    submit = True
+                    logic.edit(obj, obj['id'])
+                    continue
+                
+                
+                verifiers = self.verify.fields[options[field_num]]                              # Get regex and error msg
+                new_entry = self.ui.get_user_form({format_function_name(options[field_num]) : verifiers})  # Get input with validation
+                
+                if new_entry == False: return
+                
+                obj[options[field_num]] = new_entry[0]
+
+
+
 
 
     def get(self, model):
@@ -70,7 +115,7 @@ class Operations:
 
 def test(logicAPI, ui):
     o = Operations(logicAPI, ui)
-    o.get(o.employee)
+    o.edit(o.contract)
     
 
 def register_new(logicAPI, ui, model):
