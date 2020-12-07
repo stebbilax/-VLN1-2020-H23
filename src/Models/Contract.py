@@ -1,7 +1,7 @@
 class Contract:
     def __init__(self, 
         vehicle_id,vehicle_state,vehicle_status,vehicle_licence,country,
-        customer_id,phone,email,address,customer_licence,
+        customer_id,customer_name,phone,email,address,customer_licence,
         employee_id,date_of_handover,date_of_return,contract_start,
         contract_end,state,rate,late_fee,total_price,
         id=None):
@@ -13,6 +13,7 @@ class Contract:
         self.country = country
 
         self.customer_id = customer_id
+        self.customer_name = customer_name
         self.phone = phone
         self.email = email
         self.address = address
@@ -41,7 +42,8 @@ class Contract:
            'vehicle_licence' : self.vehicle_licence,  
            'country' : self.country, 
 
-           'customer_id' : self.customer_id,  
+           'customer_id' : self.customer_id,
+           'customer_name' : self.customer_name,  
            'phone' : self.phone,  
            'email' : self.email,  
            'address' : self.address, 

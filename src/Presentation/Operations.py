@@ -125,7 +125,7 @@ def display_all_contracts(logicAPI, ui):
 def register_contract(logicAPI, ui):
     # Need to impliment date checking
     field_names = ['vehicle_id','vehicle_state','vehicle_status','vehicle_licence','country',
-    'customer_id','phone','email','address','customer_licence','employee_id','date_of_handover',
+    'customer_id','customer_name','phone','email','address','customer_licence','employee_id','date_of_handover',
     'date_of_return','contract_start','contract_end','state','rate','late_fee','total_price']
 
 
@@ -177,7 +177,7 @@ def edit_contract(logicAPI, ui):
 def get_contract(logicAPI, ui):
     search = logicAPI.contract.get_contract
     field_names = ['vehicle_id','vehicle_state','vehicle_status','vehicle_licence','country',
-    'customer_id','phone','email','address','customer_licence','employee_id','date_of_handover',
+    'customer_id','customer_name','phone','email','address','customer_licence','employee_id','date_of_handover',
     'date_of_return','contract_start','contract_end','state','rate','late_fee','total_price']
     field_dict = {
         'vehicle_id': search().by_vehicle_id,
@@ -186,6 +186,7 @@ def get_contract(logicAPI, ui):
         'vehicle_licence': search().by_vehicle_licence,
         'country': search().by_country,
         'customer_id': search().by_customer_id,
+        'customer_name': search().by_customer_id,
         'phone': search().by_phone,
         'email': search().by_email,
         'address': search().by_address,

@@ -21,6 +21,8 @@ class Input_Verifiers:
             'late_fee': ['(\d)', 'Must be digits only'],
             'vehicle_licence': None,
             'customer_id': None,
+            'customer_name': None,
+            'id': None,
             'employee_id': None,
             'customer_licence': None,
             'employee_id': None,
@@ -64,4 +66,3 @@ def compare_and_verify_times(form, last_time):
 
 
 
-# compare_times(['asd', ])

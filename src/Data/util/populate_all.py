@@ -45,6 +45,7 @@ def contract():
         D.make_country(),
 
         '1',
+        D.make_name(),
         D.make_phone(),
         D.make_email(),
         D.make_address(),
