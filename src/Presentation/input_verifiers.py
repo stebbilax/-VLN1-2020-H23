@@ -49,8 +49,11 @@ class Input_Verifiers:
             'airport': [enum_to_regex(Enum_Airport), enum_to_instructions(Enum_Airport)],
         }
 
-
-
+    def get_verifier(self, key):
+        if key in self.fields:
+            return self.fields[key]
+        else:
+            return None
 
 def compare_and_verify_times(form, last_time):
     first_time = form[-1]
