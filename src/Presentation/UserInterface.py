@@ -1,5 +1,5 @@
 from Logic.LogicAPI import LogicAPI
-from Presentation.Menu import Menu
+from Presentation.Menu import Menu, format_function_name
 from Presentation.Operations import *
 import os, re
 
@@ -170,7 +170,7 @@ class UserInterface:
 
         # DEVELOPER MENU
         
-        developer_menu  = Menu("Developer Menu", [edit_employee], main_menu, self.logic, self)
+        developer_menu  = Menu("Developer Menu", [test], main_menu, self.logic, self)
         main_menu.selectable_options.append(developer_menu)
         
         # END DEVELOPER MENU
@@ -230,9 +230,33 @@ class UserInterface:
         if prompt_answer.lower() == 'y':
             exit()
 
+    def get_user_option(self, options):
+        ''' Prompt the user to select an option from a list 
+            Returns the selected item and supports a list of methods ''' 
+
+        invalid = True
+
+        # Check if options are methods
+        if callable(options[0]):
+            temp_options = [format_function_name(option.__name__) for option in options]
+        else:
+            temp_options = options
+
+        for index, option in enumerate(temp_options):
+            print(str(index + 1) + '.', option)
+        while invalid:
+            opt = self.get_user_input('Select an option: ')
+            if opt.isnumeric():
+                opt = int(opt)
+                if opt < 0 or opt > len(temp_options):
+                    print("Invalid input, please input a range between %d and %d." % (1, len(temp_options)))
+                else:
+                    invalid = False
+
+        return options[opt - 1]
 
     def display_error(self, errorMsg):
-        input(errorMsg)
+        print(errorMsg)
 
     def interface_loop(self):
         while True:

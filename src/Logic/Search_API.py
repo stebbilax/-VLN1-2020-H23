@@ -57,6 +57,9 @@ class Search_Contract:
     def by_customer_id(self, string):
         return self.Search_Manager.search(string, 'customer_id', 'contract')
 
+    def by_customer_name(self, string):
+        return self.Search_Manager.search(string, 'customer_name', 'contract')
+
     def by_phone(self, string):
         return self.Search_Manager.search(string, 'phone', 'contract')
 

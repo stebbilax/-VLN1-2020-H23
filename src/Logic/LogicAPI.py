@@ -36,6 +36,11 @@ class ManageVehicles:
     def get_all_vehicle_types(self):
         return self.dataAPI.read_all_vehicle_types()
 
+    def get_vehicle_search_options(self):
+        return [getattr(self.searchAPI.search_vehicle(), func) 
+            for func in dir(self.searchAPI.search_vehicle())
+            if callable(getattr(self.searchAPI.search_vehicle(), func)) and not func.startswith('__')]
+
 class ManageEmployees:
     def __init__(self, dapi, sapi):
         self.dataAPI = dapi
@@ -54,7 +59,11 @@ class ManageEmployees:
     
     def get_all_employees(self):
         return self.dataAPI.read_all_employees()
-    
+
+    def get_employee_search_options(self):
+        return [getattr(self.searchAPI.search_employee(), func) 
+            for func in dir(self.searchAPI.search_employee())
+            if callable(getattr(self.searchAPI.search_employee(), func)) and not func.startswith('__')]
 
 class ManageContracts:
     def __init__(self, dapi, sapi):
@@ -74,3 +83,8 @@ class ManageContracts:
     
     def get_all_contracts(self):
         return self.dataAPI.read_all_contracts()
+
+    def get_contract_search_options(self):
+        return [getattr(self.searchAPI.search_contract(), func) 
+            for func in dir(self.searchAPI.search_contract())
+            if callable(getattr(self.searchAPI.search_contract(), func)) and not func.startswith('__')]
