@@ -4,6 +4,12 @@ from Presentation.Menu import format_function_name
 from Models.Enums import *
 import re
 
+def test(logicAPI, ui):
+    for i in ui.get_user_option(logicAPI.contract.get_contract_search_options())(ui.get_user_input('Input search term: ')):
+        print(i.__dict__())
+    
+
+
 def display_all_employees(logicAPI, ui):
     ''' Display all employees '''
 
@@ -70,7 +76,6 @@ def edit_employee(logicAPI, ui):
             
             employee[options[field_num]] = new_entry[0]
 
-
 def get_employee(logicAPI, ui):
     # "Search by: name, address, postal code, SSID, landline, phone number, email, airport, country"
     printlist = ["\nSearch by:","\n1. Name","\n2. Address", "\n3. Postal Code", "\n4. SSID", "\n5. Landline", "\n6. Phone Number", "\n7. Email", "\n8. Job Title", "\n9. Airport", "\n10. Country"]
@@ -111,14 +116,11 @@ def get_employee(logicAPI, ui):
             print(employee)
     elif choice == '10':
         for employee in logicAPI.employee.get_employee().by_country(input("Country: ")):
-            print(employee)
-    
-        
+            print(employee)  
 
 def display_all_contracts(logicAPI, ui):
     for contract in logicAPI.contract.get_all_contracts():
         print(contract)
-
 
 def register_contract(logicAPI, ui):
     # Need to impliment date checking
@@ -135,7 +137,6 @@ def register_contract(logicAPI, ui):
         return
     
     logicAPI.contract.register_contract(form)
-
 
 def edit_contract(logicAPI, ui):    
     id = ui.get_user_input('Please enter contract ID: ')
@@ -172,8 +173,7 @@ def edit_contract(logicAPI, ui):
             if new_entry == False: return
             
             contract[options[field_num]] = new_entry[0]
-
-        
+      
 def get_contract(logicAPI, ui):
     search = logicAPI.contract.get_contract
     field_names = ['vehicle_id','vehicle_state','vehicle_status','vehicle_licence','country',
@@ -214,71 +214,6 @@ def get_contract(logicAPI, ui):
     for result in res:
         print(result)
 
-    
-
-# def get_contract(logicAPI, ui):
-#     "Search by: name, phone, address, email, date_from, date_to, vehicle_id, country, vehicle_status, employee_id, loan_date, return_date, total, loan_status, id"
-#     printlist = ["\nSearch by:","\n1. Name","\n2. Phone","\n3. Address","\n4. Email","\n5. Date From","\n6. Date To","\n7. Vehicle ID","\n8. Country","\n9. Vehicle Status","\n10. Employee ID","\n11. Loan Date","\n12. Return Date","\n13. Total","\n14. Loan Status","\n15. ID"]
-#     print(*printlist)
-
-#     Get the user input with regex validation
-#     choice = ui.get_user_form(
-#         {
-#             'Enter Number': ['^([1-9]|1[012345]|q)$',"Enter valid number between 1-15, enter q to quit"]
-#         }
-#     )[0] # Index the first and only answer
-
-#     if choice == "1":
-#         for contract in logicAPI.contract.get_contract().by_name(input("Name: ")):
-#             print(contract)
-#     elif choice == "2":
-#         for contract in logicAPI.contract.get_contract().by_phone(input("Phone: ")):
-#             print(contract)
-#     elif choice == "3":
-#         for contract in logicAPI.contract.get_contract().by_address(input("Address: ")):
-#             print(contract)
-#     elif choice == "4":
-#         for contract in logicAPI.contract.get_contract().by_email(input("Email: ")):
-#             print(contract)
-#     elif choice == "5":
-#         for contract in logicAPI.contract.get_contract().by_date_from(input("Date from: ")): 
-#             print(contract)
-#     elif choice == "6":
-#         for contract in logicAPI.contract.get_contract().by_date_to(input("Date from: ")): 
-#             print(contract)
-#     elif choice == "7":
-#         for contract in logicAPI.contract.get_contract().by_vehicle_id(input("Vehicle ID: ")):
-#             print(contract)
-#     elif choice == "8":
-#         for contract in logicAPI.contract.get_contract().by_country(input("Country: ")):
-#             print(contract)    
-#     elif choice == "9":
-#         for contract in logicAPI.contract.get_contract().by_vehicle_status(input("Vehicle Status: ")):
-#             print(contract)
-#     elif choice == "10":
-#         for contract in logicAPI.contract.get_contract().by_employee_id(input("Employee ID: ")):
-#             print(contract)
-#     elif choice == "11":
-#         for contract in logicAPI.contract.get_contract().by_loan_date(input("Loan Date: ")):
-#             print(contract)
-#     elif choice == "12":
-#         for contract in logicAPI.contract.get_contract().by_return_date(input("Return Date: ")):
-#             print(contract)
-#     elif choice == "13":
-#         for contract in logicAPI.contract.get_contract().by_total(input("total: ")):
-#             print(contract)    
-#     elif choice == "14":
-#         for contract in logicAPI.contract.get_contract().by_loan_status(input("Loan Status: ")):
-#             print(contract)
-#     elif choice == "15":
-#         for contract in logicAPI.contract.get_contract().by_id(input("Contract ID: ")):
-#             print(contract)
-#     elif choice == "b" or "q":
-#         UserInterface.get_user_form(choice)
-    
-#vehicles
-
-
 def display_all_vehicles(logicAPI, ui):
     '''Display all vehicles'''
     number = 0
@@ -286,8 +221,6 @@ def display_all_vehicles(logicAPI, ui):
     for vehicle in logicAPI.vehicles.get_all_vehicles():
         number +=1
         print_display_vehicle(vehicle,number,formid)
-
-
 
 def display_all_vehicles_in_a_location(logicAPI,ui):
     '''Display all vehicles in a location'''
@@ -343,7 +276,6 @@ def display_all_vehicles_in_a_location(logicAPI,ui):
                 number +=1
                 print_display_vehicle(vehicles,number,formid)
 
-
 def display_vehicle_condition(logicAPI,ui):
     '''Display vehicle condition'''
     vehicle_condition_list = ["\nDisplay vehicles after condition: \n1. OK \n2. DEFECTIVE" ]
@@ -372,7 +304,6 @@ def display_vehicle_condition(logicAPI,ui):
                 print_display_vehicle(vehicles,number,formid)
            # was like this before: print("Type: {}, Location: {}, Condition: {}, ID: {}".format(vehicles.__dict__()['type'], vehicles.__dict__()['airport'], vehicles.__dict__()['condition'], vehicles.__dict__()['id']))
 
-
 def vehicle_header(logicAPI):
     formid = vehicle_print_formatting(logicAPI)
     header = "\n\t \033[4m| {:^{MAN}} | {:^{MOD}} | {:^{TYP}} | {:^{YOM}} | {:^{VIN}} | {:^{COL}} | {:^{CON}} | {:^{LIC}} | {:^{LOC}} | {:^{ID}} |\033[0m".format('Manufacturer', 'Model', 'Type',
@@ -384,8 +315,7 @@ def vehicle_rates_header(logicAPI):
     formid = vehicle_rates_print_formatting(logicAPI)
     header = "\n\t \033[4m| {:^{NAM}} | {:^{REG}} | {:^{RAT}} | {:^{ID}} |\033[0m".format('Type','Location','Rate','ID', NAM=formid[0], REG = formid[1], RAT = formid[2], ID = formid[3])
     print(header)
-    return formid
-        
+    return formid       
 
 def vehicle_print_formatting(logicAPI):
     MAN = 0; MOD = 0; TYP = 0; YOM = 0; VIN = 0; COL = 0; CON = 0; LIC = 0; LOC = 0; ID = 0
@@ -433,7 +363,6 @@ def vehicle_print_formatting(logicAPI):
     if ID < len('id'): 
         ID = len('id')
 
-        
             
     LIST = [MAN,MOD,TYP,YOM,VIN,COL,CON,LIC,LOC,ID]
     
@@ -465,7 +394,6 @@ def vehicle_rates_print_formatting(logicAPI):
 
     return LIST
     
-
 def print_display_vehicle(vehicles,number,formid):
     '''Print function for display vehicle informations'''
     # print("Vehicle number", number,":")
@@ -536,12 +464,7 @@ def get_vehicle(logicAPI,ui):
     elif choice == "9":
         for vehicle in logicAPI.vehicles.get_vehicle().by_vehicle_id(input("Enter vehicle identification number: ")): 
             print(vehicle)
-    
-    
-
-
-
-
+     
 def edit_vehicle(logicAPI,ui):
     #might call get vehicle function to search for vehicle and then edit information of that vehicle over here
     id = ui.get_user_input("Please enter vehicle identification number: ")
@@ -576,7 +499,6 @@ def edit_vehicle(logicAPI,ui):
             new_entry = ui.get_user_form({format_function_name(options[field_num]) : verifiers})  # Get input with validation
 
             vehicle[options[field_num]] = new_entry[0]
-
 
 def display_vehicle_rates(logicAPI,ui):
     formid = vehicle_rates_header(logicAPI)
