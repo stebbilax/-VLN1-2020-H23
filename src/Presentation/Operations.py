@@ -24,6 +24,7 @@ class Operations:
         self.employee = [Employee(*[None for i in range(len(signature(Employee).parameters))]), lapi.employee]
         self.vehicle = [Vehicle(*[None for i in range(len(signature(Vehicle).parameters))]), lapi.vehicle]
         self.vehicle_type = [Vehicle_Type(*[None for i in range(len(signature(Vehicle_Type).parameters))]), lapi.vehicle_type]
+        self.display = Display()
 
     def register(self, model):
         ''' Register a new object by model '''
@@ -110,31 +111,35 @@ class Operations:
 
     def get_all(self, model):
         res = model[1].get_all()
-        for i in res:
-            print(i)
+        fields = model[0].fields()
+        self.display.display_all(res, fields)
+
 
 
 
 class Display:
-    def __init__(self,lapi,ui):
-        self.logicAPI = lapi
-        self.ui = ui
-        self.verify = Input_Verifiers()
+    def __init__(self):
+        pass
 
-        # Get the number of required parameters to the init method of the class
-        self.contract = [Contract(*[None for i in range(len(signature(Contract).parameters))]), lapi.contract]
-        self.customer = [Customer(*[None for i in range(len(signature(Customer).parameters))])]
-        self.destination = [Destination(*[None for i in range(len(signature(Destination).parameters))])]
-        self.employee = [Employee(*[None for i in range(len(signature(Employee).parameters))]), lapi.employee]
-        self.vehicle = [Vehicle(*[None for i in range(len(signature(Vehicle).parameters))]), lapi.vehicle]
-        self.vehicle_type = [Vehicle_Type(*[None for i in range(len(signature(Vehicle_Type).parameters))])]
 
-    def display_all(self,model):
+    def display_all(self, data, fields):
         ''' Register a new object by model '''
 
-        form = self.ui.get_user_form(
-            {key:self.verify.get_verifier(key) for key in model[0].fields()}
-        )
+        header = ' '.join([f'{field}' for field in fields])
+        print(header)
+
+
+
+        # for field in fields:
+        #     print(field, end='  ')
+        # print()
+        # for obj in data:
+        #     d = vars(obj)
+            
+        #     for field in fields:
+        #         print(d[field], end='  ')
+        #     print()
+
 
 
 
@@ -217,8 +222,6 @@ def edit_customer(logicAPI,ui):
 
 
 
-
-
 def register_destination(logicAPI,ui):
     o = Operations(logicAPI, ui)
     o.register(o.destination)
@@ -248,26 +251,6 @@ def edit_vehicle_type(logicAPI,ui):
 
 
 
-# TO BE REMOVED
-def display_all_employees(logicAPI, ui):
-    ''' Display all employees '''
-
-    for employee in logicAPI.employee.get_all_employees():
-        print(employee)
-        
-
-def display_all_contracts(logicAPI, ui):
-    for contract in logicAPI.contract.get_all_contracts():
-        print(contract)
-
-
-def display_all_vehicles(logicAPI, ui):
-    '''Display all vehicles'''
-    number = 0
-    formid = vehicle_header(logicAPI)
-    for vehicle in logicAPI.vehicles.get_all_vehicles():
-        number +=1
-        print_display_vehicle(vehicle,number,formid)
 
 def display_all_vehicles_in_a_location(logicAPI,ui):
     '''Display all vehicles in a location'''
