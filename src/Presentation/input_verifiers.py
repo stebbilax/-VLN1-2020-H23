@@ -1,4 +1,5 @@
 from Models.Enums import *
+from Logic.Search_API import Search_API
 import re
 from datetime import datetime
 
@@ -13,7 +14,7 @@ class Input_Verifiers:
             'email': ['(.+@.+\..+)', 'Must be a valid email format.'],
             'contract_start': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
             'contract_end': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)',compare_and_verify_times],
-            'vehicle_id': ['(\d)', 'Must be digits only'],
+            'vehicle_id': ['(\d)', 'Must be digits only', find_vehicle],
             'country': [enum_to_regex(Enum_Country), enum_to_instructions(Enum_Country)],
             'vehicle_state': ['(OK|DEFECTIVE)', 'Please enter valid vehicle state (OK or DEFECTIVE)'],
             'vehicle_status': ['(ON LOAN|AVAILABLE)', 'Please enter valid vehicle status (ON LOAN or AVAILABLE)'],
@@ -55,16 +56,29 @@ class Input_Verifiers:
         else:
             return None
 
+
+
+# Compares a previous date to the newly entered date
+# Returns false if newly entered date is earlier in time line
 def compare_and_verify_times(form, last_time):
     first_time = form[-1]
-    print(first_time, last_time)
     
     d1 = datetime.fromisoformat(first_time)
     d2 = datetime.fromisoformat(last_time)
-    if d2 > d1: return True
+    if d2 > d1: return (True, 'Success')
 
-    return False
-        
+    return (False, 'Invalid date interval')
+
+
+# Checks if vehicle exists
+def find_vehicle(form, id):
+    res = Search_API().search_vehicle().by_id(id)
+    if res != []: return (True, 'Success')
+
+    return (False, 'Vehicle does not exist')
+
+
+    
 
 
 
