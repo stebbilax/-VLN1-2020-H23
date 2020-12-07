@@ -29,11 +29,16 @@ class UserInterface:
         vehicle_menu_office     = Menu("Vehicle Menu", None, office_menu, self.logic, self)
         contract_menu_office    = Menu("Contract Menu", None, office_menu, self.logic, self)
         report_menu_office      = Menu("Report Menu", None, office_menu, self.logic, self)
+        customer_menu_office    = Menu("Customer Menu", None, office_menu, self.logic, self)
+        destination_menu_office    = Menu("Destination Menu", None, office_menu, self.logic, self)
+        vehicle_type_menu_office    = Menu("Vehicle Type Menu", None, office_menu, self.logic, self)
 
         # Add submenus to office menu node
         office_menu.selectable_options += [
             employee_menu_office, vehicle_menu_office,
-            contract_menu_office, report_menu_office
+            contract_menu_office, report_menu_office,
+            customer_menu_office, destination_menu_office,
+            vehicle_type_menu_office
         ]
 
         #region Office Employee menu    -----
@@ -92,6 +97,60 @@ class UserInterface:
         display_contract_menu_office.selectable_options += [
             display_all_contracts,
             get_contract
+        ]
+
+        #endregion                      -----
+
+        #region Customer Contract menu    -----
+
+        # Submenu for specific customer display options
+        display_customer_menu_office = Menu ("Display Customer", None, customer_menu_office, self.logic, self)
+
+        # Customer functions with customer display menu
+        customer_menu_office.selectable_options += [
+            register_customer, edit_customer,
+            display_customer_menu_office
+        ]
+
+        # Customer display functions
+        display_customer_menu_office.selectable_options += [
+            get_customer
+        ]
+
+        #endregion                      -----
+
+        #region Vehicle Type Contract menu    -----
+
+        # Submenu for specific vehicle type display options
+        display_vehicle_type_menu_office = Menu ("Display Vehicle Type", None, vehicle_type_menu_office, self.logic, self)
+
+        # Vehicle type functions with vehicle type display menu
+        vehicle_type_menu_office.selectable_options += [
+            register_vehicle_type, edit_vehicle_type,
+            display_vehicle_type_menu_office
+        ]
+
+        # vehicle_type display functions
+        display_vehicle_type_menu_office.selectable_options += [
+            get_vehicle_type
+        ]
+
+        #endregion                      -----
+
+        #region destination Contract menu    -----
+
+        # Submenu for specific destination display options
+        display_destination_menu_office = Menu ("Display destination", None, destination_menu_office, self.logic, self)
+
+        # destination functions with destination display menu
+        destination_menu_office.selectable_options += [
+            register_destination, edit_destination,
+            display_destination_menu_office
+        ]
+
+        # destination display functions
+        display_destination_menu_office.selectable_options += [
+            get_destination
         ]
 
         #endregion                      -----

@@ -3,6 +3,9 @@ from Logic.Search_API import Search_API
 from Models.Employee import Employee
 from Models.Contract import Contract
 from Models.Vehicle import Vehicle
+from Models.Customer import Customer
+from Models.Vehicle_Type import Vehicle_Type
+from Models.Destination import Destination
 from Logic.form_fillers import contract_filler
 
 
@@ -14,6 +17,9 @@ class LogicAPI:
         self.vehicle = ManageVehicles(self.dataAPI, self.searchAPI)
         self.employee = ManageEmployees(self.dataAPI, self.searchAPI)
         self.contract = ManageContracts(self.dataAPI, self.searchAPI)
+        self.customer = ManageCustomers(self.dataAPI, self.searchAPI)
+        self.vehicle_type = ManageVehicleTypes(self.dataAPI, self.searchAPI)
+        self.destination = ManageDestinations(self.dataAPI, self.searchAPI)
 
 class ManageVehicles:
     def __init__(self, dapi, sapi):
@@ -107,7 +113,7 @@ class ManageCustomers:
     def get(self):
         return self.searchAPI.search_customer()
 
-class VehicleTypes:
+class ManageVehicleTypes:
     def __init__(self, dapi, sapi):
         self.dataAPI = dapi
         self.searchAPI = sapi
@@ -123,7 +129,7 @@ class VehicleTypes:
     def get(self):
         return self.searchAPI.search_vehicle_type()
 
-class Destinations:
+class ManageDestinations:
     def __init__(self, dapi, sapi):
         self.dataAPI = dapi
         self.searchAPI = sapi
