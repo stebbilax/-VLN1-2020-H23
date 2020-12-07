@@ -40,12 +40,37 @@ class Operations:
     def edit(self, model):
         pass
 
+
     def get(self, model):
-        pass
+        fields = model[0].fields()
+        field_length = len(fields)
+        logic = model[1]
+
+        # Get input from user
+        print('Search by:')
+        for i, field in enumerate(fields):
+            print(f'{i+1}. {format_function_name(field)}')
+
+        # Validate input
+        ans = -1
+        while not (0 < ans <= field_length):
+            ans = int(self.ui.get_user_form({
+                'selection' : ['\d', 'Must be digit between 1-{}'.format(field_length, field_length)]
+            })[0])
+
+        # Search and Display
+        func = getattr(logic.get(), f'by_{fields[ans-1]}')
+        result = func(input(f'Enter {fields[ans-1]}: '))
+        for i in result:
+            print(i)
+
+
+
+        
 
 def test(logicAPI, ui):
     o = Operations(logicAPI, ui)
-    o.register(o.employee)
+    o.get(o.employee)
     
 
 def register_new(logicAPI, ui, model):
