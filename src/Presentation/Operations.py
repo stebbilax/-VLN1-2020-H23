@@ -356,8 +356,6 @@ def display_vehicle_condition(logicAPI,ui):
     choice=choice[0]
     number = 0
     
-
-
     if choice == "1":
         formid = vehicle_header(logicAPI)
         for vehicles in logicAPI.vehicles.get_all_vehicles():
@@ -375,14 +373,14 @@ def display_vehicle_condition(logicAPI,ui):
 
 def vehicle_header(logicAPI):
     formid = vehicle_print_formatting(logicAPI)
-    header = "\n\t \033[4m| {:^{MAN}} | {:^{MOD}} | {:^{TYP}} | {:^{YOM}} | {:^{VIN}} | {:^{COL}} | {:^{CON}} | {:^{LIC}} | {:^{LOC}} | {:^{ID}} |\033[0m".format('Manufacturer', 'Model', 'Type',
+    header = "\n\t\033[4m| {:^{MAN}} | {:^{MOD}} | {:^{TYP}} | {:^{YOM}} | {:^{VIN}} | {:^{COL}} | {:^{CON}} | {:^{LIC}} | {:^{LOC}} | {:^{ID}} |\033[0m".format('Manufacturer', 'Model', 'Type',
     'YOM','VIN','Color','Condition','Licence','Location','ID',MAN = formid[0],MOD = formid[1],TYP=formid[2],YOM=formid[3],VIN = formid[4],COL = formid[5], CON = formid[6], LIC =formid[7],LOC = formid[8], ID = formid[9])
     print(header)
     return formid
 
 def vehicle_rates_header(logicAPI):
     formid = vehicle_rates_print_formatting(logicAPI)
-    header = "\n\t \033[4m| {:^{NAM}} | {:^{REG}} | {:^{RAT}} | {:^{ID}} |\033[0m".format('Type','Location','Rate','ID', NAM=formid[0], REG = formid[1], RAT = formid[2], ID = formid[3])
+    header = "\n\t\033[4m| {:^{NAM}} | {:^{REG}} | {:^{RAT}} | {:^{ID}} |\033[0m".format('Type','Location','Rate','ID', NAM=formid[0], REG = formid[1], RAT = formid[2], ID = formid[3])
     print(header)
     return formid
         
@@ -478,7 +476,7 @@ def print_display_vehicle(vehicles,number,formid):
     #     vehicles.__dict__()['vehicle_id'],vehicles.__dict__()['id']))
 
 
-    print("\t | {:^{MAN}} | {:^{MOD}} | {:^{TYP}} | {:^{YOM}} | {:^{VIN}} | {:^{COL}} | {:^{CON}} | {:^{LIC}} | {:^{LOC}} | {:^{ID}} |".format(vehicles.__dict__()['manufacturer'], 
+    print("| {:^{MAN}} | {:^{MOD}} | {:^{TYP}} | {:^{YOM}} | {:^{VIN}} | {:^{COL}} | {:^{CON}} | {:^{LIC}} | {:^{LOC}} | {:^{ID}} |".format(vehicles.__dict__()['manufacturer'], 
     vehicles.__dict__()['model'], vehicles.__dict__()['type'],vehicles.__dict__()['yom'],vehicles.__dict__()['vehicle_id'],
     vehicles.__dict__()['color'],vehicles.__dict__()['condition'],vehicles.__dict__()['licence'],vehicles.__dict__()['airport'],
     vehicles.__dict__()['id'],MAN = formid[0],MOD = formid[1],TYP=formid[2],YOM=formid[3],VIN = formid[4],COL = formid[5], CON = formid[6], LIC =formid[7],LOC = formid[8], ID = formid[9]))
