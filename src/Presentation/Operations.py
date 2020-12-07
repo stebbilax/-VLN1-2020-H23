@@ -61,6 +61,9 @@ class Operations:
                 print('Select field to edit: ')                      
 
                 for index, (key, val) in enumerate(obj.items()):
+                    # Disable id display in editing screen
+                    if key == 'id': continue
+
                     index += 1
                     options[str(index)] = key
                     print('{}.{:<15} {:<20}'.format(index, format_function_name(key), val))
@@ -105,8 +108,7 @@ class Operations:
         # Search and Display
         func = getattr(logic.get(), f'by_{fields[ans-1]}')
         result = func(input(f'Enter {fields[ans-1]}: '))
-        for i in result:
-            print(i)
+        self.display.display_all(result, fields)
 
 
     def get_all(self, model):
