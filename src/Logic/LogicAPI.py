@@ -43,9 +43,6 @@ class ManageVehicles:
     def get_all_location(self):
         return self.dataAPI.read_all_vehicles()
 
-    def get_all_vehicle_types(self):
-        return self.dataAPI.read_all_vehicle_types()
-
     def get_vehicle_search_options(self):
         return [getattr(self.searchAPI.search_vehicle(), func) 
             for func in dir(self.searchAPI.search_vehicle())
@@ -131,6 +128,10 @@ class ManageVehicleTypes:
     
     def get(self):
         return self.searchAPI.search_vehicle_type()
+
+    def get_all(self):
+        return self.dataAPI.read_all_vehicle_types()
+
 
 class ManageDestinations:
     def __init__(self, dapi, sapi):

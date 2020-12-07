@@ -61,6 +61,9 @@ class Operations:
                 print('Select field to edit: ')                      
 
                 for index, (key, val) in enumerate(obj.items()):
+                    # Disable id display in editing screen
+                    if key == 'id': continue
+
                     index += 1
                     options[str(index)] = key
                     print('{}.{:<15} {:<20}'.format(index, format_function_name(key), val))
@@ -105,8 +108,7 @@ class Operations:
         # Search and Display
         func = getattr(logic.get(), f'by_{fields[ans-1]}')
         result = func(input(f'Enter {fields[ans-1]}: '))
-        for i in result:
-            print(i)
+        self.display.display_all(result, fields)
 
 
     def get_all(self, model):
@@ -134,22 +136,15 @@ class Display:
 
         header = ''
         for field in fields:
-            header += '{:^{L}}'.format(field, L=field_lengths[field])
-        print(header)
+            header += '| {:^{L}} '.format(field, L=field_lengths[field])
+        print('\n\t\033[4m' + header + '|\033[0m')
 
         for el in data:
             obj = vars(el)
             line = ''
             for field in fields:
-                line += '{:^{L}}'.format(obj[field], L=field_lengths[field])
-            print(line)
-            
-
-    def display_all_in_a_location(self,data,fields):
-        '''Display efter location'''
-        for el in data:
-            obj = vars(el)
-            print(obj[field])
+                line += '| {:^{L}} '.format(obj[field], L=field_lengths[field])
+            print('\t'+line + '|')
 
 
     def display_vehicle_condition(self,data,fields):
@@ -281,6 +276,10 @@ def get_vehicle_type(logicAPI,ui):
 def edit_vehicle_type(logicAPI,ui):
     o = Operations(logicAPI, ui)
     o.edit(o.vehicle_type)
+
+def get_all_vehicle_types(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get_all(o.vehicle_type)
 
 
 
