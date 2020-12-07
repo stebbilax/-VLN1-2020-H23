@@ -235,43 +235,39 @@ def display_all_vehicles_in_a_location(logicAPI,ui):
     )
     choice=choice[0]
     number = 0
+    formid = vehicle_header(logicAPI)
+
     if choice == "1":
-        formid = vehicle_header(logicAPI)
         for vehicles in logicAPI.vehicles.get_all_vehicles():
             if vehicles.__dict__()['airport'] == 'reykjavik':
                 number +=1
                 print_display_vehicle(vehicles,number,formid)
 
     elif choice == "2":
-        formid = vehicle_header(logicAPI)        
         for vehicles in logicAPI.vehicles.get_all_vehicles():
             if vehicles.__dict__()['airport'] == 'nuuk':
                 number +=1
                 print_display_vehicle(vehicles,number,formid)
 
     elif choice == "3":
-        formid = vehicle_header(logicAPI)
         for vehicles in logicAPI.vehicles.get_all_vehicles():
             if vehicles.__dict__()['airport'] == 'kulusk':
                 number +=1
                 print_display_vehicle(vehicles,number,formid)
 
     elif choice == "4":
-        formid = vehicle_header(logicAPI)
         for vehicles in logicAPI.vehicles.get_all_vehicles():
             if vehicles.__dict__()['airport'] == 'tingwall':
                 number +=1
                 print_display_vehicle(vehicles,number,formid)
 
     elif choice == "5":
-        formid = vehicle_header(logicAPI)
         for vehicles in logicAPI.vehicles.get_all_vehicles():
             if vehicles.__dict__()['airport'] == 'longyearbyen':
                 number +=1
                 print_display_vehicle(vehicles,number,formid)
 
     elif choice == "6":
-        formid = vehicle_header(logicAPI)
         for vehicles in logicAPI.vehicles.get_all_vehicles():
             if vehicles.__dict__()['airport'] == 'torshavn':
                 number +=1
@@ -288,17 +284,16 @@ def display_vehicle_condition(logicAPI,ui):
     )
     choice=choice[0]
     number = 0
-    
+    formid = vehicle_header(logicAPI)
+
 
 
     if choice == "1":
-        formid = vehicle_header(logicAPI)
         for vehicles in logicAPI.vehicles.get_all_vehicles():
             if vehicles.__dict__()['condition'] == 'OK':
                 number +=1
                 print_display_vehicle(vehicles,number,formid)
     elif choice == "2":
-        formid = vehicle_header(logicAPI)
         for vehicles in logicAPI.vehicles.get_all_vehicles():
             if vehicles.__dict__()['condition'] == 'DEFECTIVE':
                 number +=1
