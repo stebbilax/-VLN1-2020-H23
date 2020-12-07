@@ -259,6 +259,10 @@ def edit_vehicle_type(logicAPI,ui):
     o = Operations(logicAPI, ui)
     o.edit(o.vehicle_type)
 
+def get_all_vehicle_types(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get_all(o.vehicle_type)
+
 
 
 

@@ -76,7 +76,7 @@ class UserInterface:
             get_all_vehicles,
             get_vehicle,
             display_all_vehicles_in_a_location,
-            display_vehicle_rates,
+            get_all_vehicle_types,
             display_vehicle_condition
         ]
 
