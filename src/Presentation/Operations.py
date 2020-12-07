@@ -124,27 +124,35 @@ class Display:
 
     def display_all(self, data, fields):
         ''' Register a new object by model '''
-
-        header = ' '.join([f'{field}' for field in fields])
+        header = ''
+        for field in fields:
+            header += '{:^18} '.format(field)
         print(header)
 
+        for el in data:
+            obj = vars(el)
+            line = ''
+            for field in fields:
+                line += '{:^18} '.format(obj[field])
+            print(line)
+
+        
 
 
-        # for field in fields:
-        #     print(field, end='  ')
-        # print()
-        # for obj in data:
-        #     d = vars(obj)
-            
-        #     for field in fields:
-        #         print(d[field], end='  ')
-        #     print()
+    # def find_header_format(self, data, fields):
+    #     field_lengths = {field: 0 for field in fields}
+    #     print(field_lengths)
+
+
+
+
+
 
 def test(logicAPI, ui):
     o = Operations(logicAPI, ui)
     o.get(o.contract)
-    
-        
+
+
 
 def register_employee(logicAPI, ui):
     o = Operations(logicAPI, ui)
