@@ -20,3 +20,4 @@ vehicle_id,vehicle_state,vehicle_status,vehicle_licence,country,customer_id,cust
 1,DEFECTIVE,Available,Drivers licence,Svalbard,1,Amelia,793-9156,Liam@nan.is,LiamTown 4,Drivers licence,1,2020-05-20,2020-05-19,2020-04-20,2020-10-03,Completed,403,175,0,19
 1,DEFECTIVE,Available,Im amazing licence,Svalbard,1,Mia,668-8961,Isabella@nan.is,EthanStreet 17,None,1,2020-02-04,2020-12-12,2020-05-09,2020-09-02,Completed,846,270,0,20
 123,OK,ON LOAN,asd,iceland,123,123,123123123,2@2.com,asd,d,123,1010-01-01,1010-02-02,1010-10-10,1200-01-01,VALID,123,123,123,21
+1,Available,Available,Im amazing licence,iceland,123,name,9999999999999999,s@s.com,address,licence,1,2020-01-01,2020-02-02,2020-01-01,2020-02-02,VALID,500,N/A,9999999,1

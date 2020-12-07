@@ -3,6 +3,8 @@ from Logic.Search_API import Search_API
 from Models.Employee import Employee
 from Models.Contract import Contract
 from Models.Vehicle import Vehicle
+from Logic.form_fillers import contract_filler
+
 
 
 class LogicAPI:
@@ -71,7 +73,8 @@ class ManageContracts:
         self.searchAPI = sapi
     
     def register_contract(self, form):
-        new_contract = Contract(*form)
+        new_form = contract_filler(form)
+        new_contract = Contract(*new_form)
         self.dataAPI.append_contract(new_contract)
     
     def edit_contract(self, form, id):
