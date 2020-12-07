@@ -124,14 +124,13 @@ def display_all_contracts(logicAPI, ui):
 
 def register_contract(logicAPI, ui):
     # Need to impliment date checking
-    field_names = ['vehicle_id','vehicle_state','vehicle_status','vehicle_licence','country',
+    field_names = ['vehicle_id','country',
     'customer_id','customer_name','phone','email','address','customer_licence','employee_id','date_of_handover',
-    'date_of_return','contract_start','contract_end','state','rate','late_fee','total_price']
+    'date_of_return','contract_start','contract_end','state','total_price']
 
 
     empty_form = {format_function_name(field) : Input_Verifiers().fields[field] for field in field_names} # Create field object from the input_verifiers
     form = ui.get_user_form(empty_form)  # Fill form with data
-    
     # User canceled operation
     if not form:
         return

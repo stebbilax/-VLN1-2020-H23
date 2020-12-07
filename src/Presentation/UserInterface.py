@@ -211,13 +211,14 @@ class UserInterface:
                     if not match:
                         print(fields[field][1])
 
-                    ###  Calls date checking function
+                    # Calls validation function, if one is provided
                     if len(fields[field]) == 3 and match:
                         if callable(fields[field][2]):
-                            match = fields[field][2](form, answer)
-                            if match == False:
-                                print('Invalid date interval')
-                    ###
+                            res = fields[field][2](form, answer)
+                            match = res[0]
+                            if res[0] == False:
+                                print(res[1])
+                    
             
             form.append(answer)
 

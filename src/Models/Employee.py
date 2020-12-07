@@ -15,6 +15,7 @@ class Employee:
     def __str__(self):
         return f'{self.name}, {self.address}, {self.postal_code}, {self.ssn}, {self.phone}, {self.mobile_phone}, {self.email}, {self.title}, {self.airport}, {self.country}'
 
+    @staticmethod
     def fields(self):
         return [property for property, value, in vars(self).items()]
            
