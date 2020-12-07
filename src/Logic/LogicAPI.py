@@ -11,7 +11,7 @@ class LogicAPI:
     def __init__(self):
         self.dataAPI = DataAPI()
         self.searchAPI = Search_API()
-        self.vehicles = ManageVehicles(self.dataAPI, self.searchAPI)
+        self.vehicle = ManageVehicles(self.dataAPI, self.searchAPI)
         self.employee = ManageEmployees(self.dataAPI, self.searchAPI)
         self.contract = ManageContracts(self.dataAPI, self.searchAPI)
 
@@ -28,7 +28,6 @@ class ManageVehicles:
         new_vehicle = Vehicle(**form)
         self.dataAPI.edit_vehicle(new_vehicle, id)
 
-    #def get_vehicle(self, field, value):
     def get_vehicle(self):
         return self.searchAPI.search_vehicle() # Search
 

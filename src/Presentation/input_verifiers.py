@@ -56,8 +56,6 @@ class Input_Verifiers:
         else:
             return None
 
-
-
 # Compares a previous date to the newly entered date
 # Returns false if newly entered date is earlier in time line
 def compare_and_verify_times(form, last_time):

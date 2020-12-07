@@ -9,7 +9,6 @@ class Destination:
     def __str__(self):
         return "{:10} {:12} {:15} {:10}".format(self.country, self.airport, self.phone, self.opening_hours)
     
-    @staticmethod
     def fields(self):
         return [property for property, value, in vars(self).items()]
 
