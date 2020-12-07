@@ -2,11 +2,16 @@ from datetime import date
 from Presentation.input_verifiers import Input_Verifiers
 from Presentation.Menu import format_function_name
 from Models.Enums import *
+from Models.Employee import Employee
 import re
 
 def test(logicAPI, ui):
     for i in ui.get_user_option(logicAPI.contract.get_contract_search_options())(ui.get_user_input('Input search term: ')):
         print(i.__dict__())
+
+
+def register(fields, func):
+    print(model.fields())
     
 
 
@@ -18,6 +23,10 @@ def display_all_employees(logicAPI, ui):
 
 def register_employee(logicAPI, ui):
     ''' Register a new employee '''
+    ####
+    register(Employee.fields(), ui.get_user_form)
+    ####
+
 
     form = ui.get_user_form(
         {
