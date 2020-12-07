@@ -108,6 +108,12 @@ class Operations:
             print(i)
 
 
+    def get_all(self, model):
+        res = model[1].get_all()
+        for i in res:
+            print(i)
+
+
 
 class Display:
     def __init__(self,lapi,ui):
@@ -156,6 +162,10 @@ def get_employee(logicAPI, ui):
     o = Operations(logicAPI, ui)
     o.get(o.employee)
 
+def get_all_employees(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get_all(o.employee)
+
 
 def register_contract(logicAPI, ui):
     o = Operations(logicAPI, ui)
@@ -168,6 +178,10 @@ def edit_contract(logicAPI, ui):
 def get_contract(logicAPI, ui):
     o = Operations(logicAPI, ui)
     o.get(o.employee)
+
+def get_all_contracts(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get_all(o.contract)
 
 
 
@@ -183,6 +197,10 @@ def edit_vehicle(logicAPI,ui):
     o = Operations(logicAPI, ui)
     o.edit(o.vehicle)
 
+def get_all_vehicles(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get_all(o.vehicle)
+
 
 
 def register_customer(logicAPI,ui):
@@ -196,6 +214,8 @@ def get_customer(logicAPI,ui):
 def edit_customer(logicAPI,ui):
     o = Operations(logicAPI, ui)
     o.edit(o.customer)
+
+
 
 
 
@@ -228,7 +248,7 @@ def edit_vehicle_type(logicAPI,ui):
 
 
 
-
+# TO BE REMOVED
 def display_all_employees(logicAPI, ui):
     ''' Display all employees '''
 

@@ -37,7 +37,7 @@ class ManageVehicles:
     def get(self):
         return self.searchAPI.search_vehicle() # Search
 
-    def get_all_vehicles(self):
+    def get_all(self):
         return self.dataAPI.read_all_vehicles()
 
     def get_all_vehicle_types(self):
@@ -64,7 +64,7 @@ class ManageEmployees:
     def get(self):
         return self.searchAPI.search_employee() # Search
     
-    def get_all_employees(self):
+    def get_all(self):
         return self.dataAPI.read_all_employees()
 
     def get_employee_search_options(self):
@@ -89,7 +89,7 @@ class ManageContracts:
     def get(self):
         return self.searchAPI.search_contract() # Search
     
-    def get_all_contracts(self):
+    def get_all(self):
         return self.dataAPI.read_all_contracts()
 
     def get_contract_search_options(self):
