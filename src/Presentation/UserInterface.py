@@ -248,7 +248,10 @@ class UserInterface:
         form = []
         
         for field in fields:
-            
+            # Disable the ability to change id's
+            if field == 'id': continue
+
+
             # If there is no specific regex validation to the input
             if fields[field] is None:
                 answer = input(field + ': ')
