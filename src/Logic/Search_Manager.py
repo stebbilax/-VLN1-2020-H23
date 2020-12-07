@@ -33,7 +33,7 @@ class Search_Manager:
 
     def _search(self):
         for el in self.current_data:
-            obj = el.__dict__()
+            obj = vars(el)
             if obj[self.search_field].lower() == self.search_string:
                 self.result.append(el)
             

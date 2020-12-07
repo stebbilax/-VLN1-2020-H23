@@ -9,17 +9,9 @@ class Destination:
     def __str__(self):
         return "{:10} {:12} {:15} {:10}".format(self.country, self.airport, self.phone, self.opening_hours)
     
-    
-    def __dict__(self):
-        return {
-            'country' : self.country,
-            'airport' : self.airport,
-            'phone' : self.phone,
-            'opening_hours' : self.opening_hours,
-            'id': self.id
-        }
-
-
+    def fields(self):
+        return [property for property, value, in vars(self).items()]
+        
     def set_country(self, country):
         # self.country = Country(int(country)).name
         self.country = country

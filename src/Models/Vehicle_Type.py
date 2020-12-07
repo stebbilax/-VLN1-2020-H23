@@ -8,14 +8,8 @@ class Vehicle_Type:
     def __str__(self):
         return f'{self.name}, {self.regions}, {self.rate}'
 
-
-    def __dict__(self):
-        return {
-            'name' : self.name,
-            'regions' : self.regions,
-            'rate' : self.rate,
-            'id': self.id
-        }
+    def fields(self):
+        return [property for property, value, in vars(self).items()]
 
     def set_name(self, name):
         self.name = name
