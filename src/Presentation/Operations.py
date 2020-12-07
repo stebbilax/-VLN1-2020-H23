@@ -39,7 +39,7 @@ class Operations:
 
 
     def edit(self, model):
-            fields = model[0].fields()
+        fields = model[0].fields()
         logic = model[1]
 
         # Get id
@@ -111,7 +111,7 @@ class Operations:
 
 class Display:
     def __init__(self,lapi,ui):
-                self.logicAPI = lapi
+        self.logicAPI = lapi
         self.ui = ui
         self.verify = Input_Verifiers()
 
@@ -124,13 +124,18 @@ class Display:
         self.vehicle_type = [Vehicle_Type(*[None for i in range(len(signature(Vehicle_Type).parameters))])]
 
     def display_all(self,model):
-        pass
+        ''' Register a new object by model '''
+
+        form = self.ui.get_user_form(
+            {key:self.verify.get_verifier(key) for key in model[0].fields()}
+        )
 
 
 
 
 
-        
+
+
 
 def test(logicAPI, ui):
     o = Operations(logicAPI, ui)
