@@ -202,7 +202,7 @@ class UserInterface:
         display_vehicle_menu_airport.selectable_options += [
             get_all_vehicles,
             get_vehicle,
-            display_all_vehicles_in_a_location,
+            get_vehicle_after_location,
         ]
 
         #endregion                      -----

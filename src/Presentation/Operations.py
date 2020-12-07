@@ -110,16 +110,15 @@ class Operations:
 
 
     def get_all(self, model):
-        res = model[1].get_all()
-        fields = model[0].fields()
+        res = model[0].get_all()
+        fields = model[1].fields()
         self.display.display_all(res, fields)
 
-    def get_all_location(self,Model):
-        res = model[1].get_all()
-        print(res)
-        
-        
 
+    def get_all_location(self, model,choice):
+        res = model[0].get_all()
+        fields = model[1].fields()
+        self.display.display_all_in_a_location(res, fields,choice)
 
 
 
@@ -146,22 +145,18 @@ class Display:
             print(line)
             
 
+    def display_all_in_a_location(self,data,fields):
+        '''Display efter location'''
+        for el in data:
+            obj = vars(el)
+            print(obj[field])
+
+
     def display_vehicle_condition(self,data,fields):
-        pass
-
-
-    def display_all_vehicles_in_a_location(self,data,fields):
         pass
 
     def display_vehicle_rates(self,data,fields):
         pass
-
-
-
-        
-
-        
-
 
     def find_header_format(self, data, fields):
         field_lengths = {field: 0 for field in fields}
@@ -175,16 +170,13 @@ class Display:
                     field_lengths[field] = len(field)
 
         return field_lengths            
-        
-
-
-
-
 
 
 def test(logicAPI, ui):
     o = Operations(logicAPI, ui)
     o.get(o.contract)
+
+
 
 
 
@@ -239,7 +231,16 @@ def get_all_vehicles(logicAPI, ui):
     o = Operations(logicAPI, ui)
     o.get_all(o.vehicle)
 
-
+def get_vehicle_after_location(logicAPI,ui):
+    vehicle_location_list = ['\nDisplay vehicles after location:','\n1. Reykjavik','\n2. Nuuk','\n3. Kulusk','\n4. Tingwall','\n5. Longyearbyen','\n6. Torshavn']
+    print(*vehicle_location_list)
+    choice = ui.get_user_form(
+        {
+            'Enter Number': ['^[1-6]$','Enter valid number between 1 and 6']
+        }  
+    )
+    o = Operations(logicAPI, ui)
+    o.get_all(o.vehicle,choice)
 
 def register_customer(logicAPI,ui):
     o = Operations(logicAPI, ui)

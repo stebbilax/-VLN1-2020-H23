@@ -43,3 +43,5 @@ class Vehicle:
 
     def set_vehicle_id(self, vehicle_id):
         self.vehicle_id = vehicle_id
+
+        

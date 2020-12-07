@@ -38,8 +38,10 @@ class ManageVehicles:
         return self.searchAPI.search_vehicle() # Search
 
     def get_all(self):
-        return self.dataAPI.re
-        #return self.dataAPI.read_all_vehicles()
+        return self.dataAPI.read_all_vehicles()
+    
+    def get_all_location(self):
+        return self.dataAPI.read_all_vehicles()
 
     def get_all_vehicle_types(self):
         return self.dataAPI.read_all_vehicle_types()
