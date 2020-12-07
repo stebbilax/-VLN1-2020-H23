@@ -159,6 +159,48 @@ def edit_vehicle(logicAPI,ui):
 
 
 
+def register_customer(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.register(o.customer)
+    
+def get_customer(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.get(o.customer)
+     
+def edit_customer(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.edit(o.customer)
+
+
+
+def register_destination(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.register(o.destination)
+    
+def get_destination(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.get(o.destination)
+     
+def edit_destination(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.edit(o.destination)
+
+
+
+def register_vehicle_type(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.register(o.vehicle_type)
+    
+def get_vehicle_type(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.get(o.vehicle_type)
+     
+def edit_vehicle_type(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.edit(o.vehicle_type)
+
+
+
 
 
 def display_all_employees(logicAPI, ui):

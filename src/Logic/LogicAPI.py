@@ -97,13 +97,15 @@ class ManageCustomers:
         self.searchAPI = sapi
     
     def register(self, form):
-        pass
+        new_customer = Customer(*form)
+        self.dataAPI.append_customer(new_customer)
     
     def edit(self, form, id):
-        pass
+        new_customer = Customer(**form)
+        self.dataAPI.edit_customer(new_customer, id)
     
     def get(self):
-        pass
+        return self.searchAPI.search_customer()
 
 class VehicleTypes:
     def __init__(self, dapi, sapi):
@@ -111,13 +113,15 @@ class VehicleTypes:
         self.searchAPI = sapi
     
     def register(self, form):
-        pass
+        new_vehicle_type = Vehicle_Type(*form)
+        self.dataAPI.append_vehicle_type(new_vehicle_type)
     
     def edit(self, form, id):
-        pass
+        new_vehicle_type = Vehicle_Type(**form)
+        self.dataAPI.edit_vehicle_type(new_vehicle_type, id)
     
     def get(self):
-        pass
+        return self.searchAPI.search_vehicle_type()
 
 class Destinations:
     def __init__(self, dapi, sapi):
@@ -125,12 +129,14 @@ class Destinations:
         self.searchAPI = sapi
     
     def register(self, form):
-        pass
+        new_destination = Destination(*form)
+        self.dataAPI.append_destination(new_destination)
     
     def edit(self, form, id):
-        pass
+        new_destination = Destination(**form)
+        self.dataAPI.edit_destination(new_destination, id)
     
     def get(self):
-        pass
+        return self.searchAPI.search_destination()
 
 
