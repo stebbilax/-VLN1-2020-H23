@@ -14,6 +14,7 @@ class Vehicle:
     def __str__(self):
         return f'{self.type}, {self.manufacturer}, {self.yom}, {self.color}, {self.licence}, {self.airport}, {self.condition}, {self.model}'
 
+    @staticmethod
     def fields(self):
         return [property for property, value, in vars(self).items()]
 
