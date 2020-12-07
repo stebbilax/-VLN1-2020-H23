@@ -18,17 +18,28 @@ class Operations:
 
         # Get the number of required parameters to the init method of the class
         self.contract = [Contract(*[None for i in range(len(signature(Contract).parameters))]), lapi.contract]
-        self.customer = [Customer(*[None for i in range(len(signature(Customer).parameters))]), lapi.customer]
-        self.destination = [Destination(*[None for i in range(len(signature(Customer).parameters))])]
-        self.employee = [Employee(*[None for i in range(len(signature(Customer).parameters))]), lapi.employee]
-        self.vehicle = [Vehicle(*[None for i in range(len(signature(Customer).parameters))]), lapi.vehicle]
-        self.vehicle_type = [Vehicle_Type(*[None for i in range(len(signature(Customer).parameters))])]
+        self.customer = [Customer(*[None for i in range(len(signature(Customer).parameters))])]
+        self.destination = [Destination(*[None for i in range(len(signature(Destination).parameters))])]
+        self.employee = [Employee(*[None for i in range(len(signature(Employee).parameters))]), lapi.employee]
+        self.vehicle = [Vehicle(*[None for i in range(len(signature(Vehicle).parameters))]), lapi.vehicle]
+        self.vehicle_type = [Vehicle_Type(*[None for i in range(len(signature(Vehicle_Type).parameters))])]
 
     def register(self, model):
+        ''' Register a new object by model '''
+
+        form = self.ui.get_user_form(
+            model[0].fields()
+        )
+
+    def edit(self, model):
+        pass
+
+    def get(self, model):
         pass
 
 def test(logicAPI, ui):
     o = Operations(logicAPI, ui)
+    o.register(o.employee)
     
 
 def register_new(logicAPI, ui, model):
