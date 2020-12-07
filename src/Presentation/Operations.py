@@ -128,7 +128,7 @@ class Display:
 
         header = ''
         for field in fields:
-            header += '{:^{L}} '.format(field, L=field_lengths[field])
+            header += '{:^{L}}'.format(field, L=field_lengths[field])
         print(header)
         total_length = sum([val for key, val in field_lengths.items()]) + (2*len(fields))
         print(''.join('-' for _ in range(total_length)))
@@ -136,7 +136,7 @@ class Display:
             obj = vars(el)
             line = ''
             for field in fields:
-                line += '{:^{L}}  '.format(obj[field], L=field_lengths[field])
+                line += '{:^{L}}'.format(obj[field], L=field_lengths[field])
             print(line)
 
 
