@@ -40,7 +40,6 @@ class Operations:
 
 
     def edit(self, model):
-        ''' Editing object by model'''
         fields = model[0].fields()
         logic = model[1]
 
@@ -87,7 +86,6 @@ class Operations:
 
 
     def get(self, model):
-        '''  '''
         fields = model[0].fields()
         field_length = len(fields)
         logic = model[1]
@@ -124,11 +122,124 @@ class Display:
         pass
 
 
-    def display_all(self,model):
-        ''' display all  vehicle'''
-        fields = model[0].fields()
-        field_length = len(fields)
-        logic = model[1]
+    def display_all(self, data, fields):
+        ''' Register a new object by model '''
+
+        header = ' '.join([f'{field}' for field in fields])
+        print(header)
+
+
+
+        # for field in fields:
+        #     print(field, end='  ')
+        # print()
+        # for obj in data:
+        #     d = vars(obj)
+            
+        #     for field in fields:
+        #         print(d[field], end='  ')
+        #     print()
+
+def test(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get(o.contract)
+    
+        
+
+def register_employee(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.register(o.employee)
+    
+def edit_employee(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.edit(o.employee)
+
+def get_employee(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get(o.employee)
+
+def get_all_employees(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get_all(o.employee)
+
+
+def register_contract(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.register(o.contract)
+
+def edit_contract(logicAPI, ui):    
+    o = Operations(logicAPI, ui)
+    o.edit(o.employee)
+      
+def get_contract(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get(o.employee)
+
+def get_all_contracts(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get_all(o.contract)
+
+
+
+def register_vehicle(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.register(o.vehicle)
+    
+def get_vehicle(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.get(o.vehicle)
+     
+def edit_vehicle(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.edit(o.vehicle)
+
+def get_all_vehicles(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get_all(o.vehicle)
+
+
+
+def register_customer(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.register(o.customer)
+    
+def get_customer(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.get(o.customer)
+     
+def edit_customer(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.edit(o.customer)
+
+
+
+def register_destination(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.register(o.destination)
+    
+def get_destination(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.get(o.destination)
+     
+def edit_destination(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.edit(o.destination)
+
+
+
+def register_vehicle_type(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.register(o.vehicle_type)
+    
+def get_vehicle_type(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.get(o.vehicle_type)
+     
+def edit_vehicle_type(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.edit(o.vehicle_type)
+
+
 
 
 
@@ -147,40 +258,40 @@ def display_all_vehicles_in_a_location(logicAPI,ui):
     formid = vehicle_header(logicAPI)
 
     if choice == "1":
-        for vehicle in logicAPI.vehicle.get_all_vehicles():
-            if vehicle.__dict__()['airport'] == 'reykjavik':
+        for vehicles in logicAPI.vehicles.get_all_vehicles():
+            if vehicles.__dict__()['airport'] == 'reykjavik':
                 number +=1
-                print_display_vehicle(vehicle,number,formid)
+                print_display_vehicle(vehicles,number,formid)
 
     elif choice == "2":
-        for vehicle in logicAPI.vehicle.get_all_vehicles():
-            if vehicle.__dict__()['airport'] == 'nuuk':
+        for vehicles in logicAPI.vehicles.get_all_vehicles():
+            if vehicles.__dict__()['airport'] == 'nuuk':
                 number +=1
-                print_display_vehicle(vehicle,number,formid)
+                print_display_vehicle(vehicles,number,formid)
 
     elif choice == "3":
-        for vehicle in logicAPI.vehicle.get_all_vehicles():
-            if vehicle.__dict__()['airport'] == 'kulusk':
+        for vehicles in logicAPI.vehicles.get_all_vehicles():
+            if vehicles.__dict__()['airport'] == 'kulusk':
                 number +=1
-                print_display_vehicle(vehicle,number,formid)
+                print_display_vehicle(vehicles,number,formid)
 
     elif choice == "4":
-        for vehicle in logicAPI.vehicle.get_all_vehicles():
-            if vehicle.__dict__()['airport'] == 'tingwall':
+        for vehicles in logicAPI.vehicles.get_all_vehicles():
+            if vehicles.__dict__()['airport'] == 'tingwall':
                 number +=1
-                print_display_vehicle(vehicle,number,formid)
+                print_display_vehicle(vehicles,number,formid)
 
     elif choice == "5":
-        for vehicle in logicAPI.vehicle.get_all_vehicles():
-            if vehicle.__dict__()['airport'] == 'longyearbyen':
+        for vehicles in logicAPI.vehicles.get_all_vehicles():
+            if vehicles.__dict__()['airport'] == 'longyearbyen':
                 number +=1
-                print_display_vehicle(vehicle,number,formid)
+                print_display_vehicle(vehicles,number,formid)
 
     elif choice == "6":
-        for vehicle in logicAPI.vehicle.get_all_vehicles():
-            if vehicle.__dict__()['airport'] == 'torshavn':
+        for vehicles in logicAPI.vehicles.get_all_vehicles():
+            if vehicles.__dict__()['airport'] == 'torshavn':
                 number +=1
-                print_display_vehicle(vehicle,number,formid)
+                print_display_vehicle(vehicles,number,formid)
 
 def display_vehicle_condition(logicAPI,ui):
     '''Display vehicle condition'''
@@ -198,20 +309,20 @@ def display_vehicle_condition(logicAPI,ui):
 
 
     if choice == "1":
-        for vehicle in logicAPI.vehicle.get_all_vehicles():
-            if vehicle.__dict__()['condition'] == 'OK':
+        for vehicles in logicAPI.vehicles.get_all_vehicles():
+            if vehicles.__dict__()['condition'] == 'OK':
                 number +=1
                 print_display_vehicle(vehicles,number,formid)
     elif choice == "2":
-        for vehicle in logicAPI.vehicle.get_all_vehicles():
-            if vehicle.__dict__()['condition'] == 'DEFECTIVE':
+        for vehicles in logicAPI.vehicles.get_all_vehicles():
+            if vehicles.__dict__()['condition'] == 'DEFECTIVE':
                 number +=1
-                print_display_vehicle(vehicle,number,formid)
+                print_display_vehicle(vehicles,number,formid)
            # was like this before: print("Type: {}, Location: {}, Condition: {}, ID: {}".format(vehicles.__dict__()['type'], vehicles.__dict__()['airport'], vehicles.__dict__()['condition'], vehicles.__dict__()['id']))
 
 def vehicle_header(logicAPI):
     formid = vehicle_print_formatting(logicAPI)
-    header = "\n\t\033[4m| {:^{MAN}} | {:^{MOD}} | {:^{TYP}} | {:^{YOM}} | {:^{VIN}} | {:^{COL}} | {:^{CON}} | {:^{LIC}} | {:^{LOC}} | {:^{ID}} |\033[0m".format('Manufacturer', 'Model', 'Type',
+    header = "\n\t\033[4m| {:^{:30}} | {:^{MOD}} | {:^{TYP}} | {:^{YOM}} | {:^{VIN}} | {:^{COL}} | {:^{CON}} | {:^{LIC}} | {:^{LOC}} | {:^{ID}} |\033[0m".format('Manufacturer', 'Model', 'Type',
     'YOM','VIN','Color','Condition','Licence','Location','ID',MAN = formid[0],MOD = formid[1],TYP=formid[2],YOM=formid[3],VIN = formid[4],COL = formid[5], CON = formid[6], LIC =formid[7],LOC = formid[8], ID = formid[9])
     print(header)
     return formid
@@ -315,126 +426,6 @@ def print_display_vehicle(vehicles,number,formid):
     vehicles.__dict__()['model'], vehicles.__dict__()['type'],vehicles.__dict__()['yom'],vehicles.__dict__()['vehicle_id'],
     vehicles.__dict__()['color'],vehicles.__dict__()['condition'],vehicles.__dict__()['licence'],vehicles.__dict__()['airport'],
     vehicles.__dict__()['id'],MAN = formid[0],MOD = formid[1],TYP=formid[2],YOM=formid[3],VIN = formid[4],COL = formid[5], CON = formid[6], LIC =formid[7],LOC = formid[8], ID = formid[9]))
-
-
-
-
-
-
-
-
-def test(logicAPI, ui):
-    o = Operations(logicAPI, ui)
-    o.get(o.contract)
-    
-
-
-
-def register_employee(logicAPI, ui):
-    o = Operations(logicAPI, ui)
-    o.register(o.employee)
-    
-def edit_employee(logicAPI, ui):
-    o = Operations(logicAPI, ui)
-    o.edit(o.employee)
-
-def get_employee(logicAPI, ui):
-    o = Operations(logicAPI, ui)
-    o.get(o.employee)
-
-
-def register_contract(logicAPI, ui):
-    o = Operations(logicAPI, ui)
-    o.register(o.contract)
-
-def edit_contract(logicAPI, ui):    
-    o = Operations(logicAPI, ui)
-    o.edit(o.employee)
-      
-def get_contract(logicAPI, ui):
-    o = Operations(logicAPI, ui)
-    o.get(o.employee)
-
-
-
-def register_vehicle(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.register(o.vehicle)
-    
-def get_vehicle(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.get(o.vehicle)
-     
-def edit_vehicle(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.edit(o.vehicle)
-
-
-
-def register_customer(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.register(o.customer)
-    
-def get_customer(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.get(o.customer)
-     
-def edit_customer(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.edit(o.customer)
-
-
-
-def register_destination(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.register(o.destination)
-    
-def get_destination(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.get(o.destination)
-     
-def edit_destination(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.edit(o.destination)
-
-
-
-def register_vehicle_type(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.register(o.vehicle_type)
-    
-def get_vehicle_type(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.get(o.vehicle_type)
-     
-def edit_vehicle_type(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.edit(o.vehicle_type)
-
-
-
-
-
-def display_all_employees(logicAPI, ui):
-    ''' Display all employees '''
-
-    for employee in logicAPI.employee.get_all_employees():
-        print(employee)
-        
-
-def display_all_contracts(logicAPI, ui):
-    for contract in logicAPI.contract.get_all_contracts():
-        print(contract)
-
-
-def display_all_vehicles(logicAPI, ui):
-    '''Display all vehicles'''
-    number = 0
-    formid = vehicle_header(logicAPI)
-    for vehicle in logicAPI.vehicle.get_all_vehicle():
-        number +=1
-        print_display_vehicle(vehicle,number,formid)
-
 
 
 
