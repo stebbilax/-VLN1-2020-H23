@@ -54,7 +54,7 @@ class UserInterface:
 
         # Employee display functions
         display_employee_menu_office.selectable_options += [
-            display_all_employees,
+            get_all_employees,
             get_employee
         ]
 
@@ -73,7 +73,7 @@ class UserInterface:
 
         # Vehicle display functions
         display_vehicle_menu_office.selectable_options += [
-            display_all_vehicles,
+            get_all_vehicles,
             get_vehicle,
             display_all_vehicles_in_a_location,
             display_vehicle_rates,
@@ -95,7 +95,7 @@ class UserInterface:
 
         # Contract display functions
         display_contract_menu_office.selectable_options += [
-            display_all_contracts,
+            get_all_contracts,
             get_contract
         ]
 
@@ -181,7 +181,7 @@ class UserInterface:
 
         # Employee display functions
         display_employee_menu.selectable_options += [
-            display_all_employees,
+            get_all_employees,
             get_employee
         ]
 
@@ -200,7 +200,7 @@ class UserInterface:
 
         # Vehicle display functions
         display_vehicle_menu_airport.selectable_options += [
-            display_all_vehicles,
+            get_all_vehicles,
             get_vehicle,
             display_all_vehicles_in_a_location,
         ]
@@ -220,7 +220,7 @@ class UserInterface:
 
         # Contract display functions
         display_contract_menu_airport.selectable_options += [
-            display_all_contracts,
+            get_all_contracts,
             get_contract
         ]
 

@@ -108,6 +108,12 @@ class Operations:
             print(i)
 
 
+    def get_all(self, model):
+        res = model[1].get_all()
+        for i in res:
+            print(i)
+
+
 
 class Display:
     def __init__(self,lapi,ui):
