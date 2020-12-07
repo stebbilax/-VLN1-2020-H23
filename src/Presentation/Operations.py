@@ -38,7 +38,7 @@ class Operations:
         model[1].register(form)
 
     def edit(self, model):
-        fields = model[0].fields()
+            fields = model[0].fields()
         logic = model[1]
 
         # Get id
@@ -111,11 +111,32 @@ class Operations:
 
 
 
+class Display:
+    def __init__(self,lapi,ui):
+                self.logicAPI = lapi
+        self.ui = ui
+        self.verify = Input_Verifiers()
+
+        # Get the number of required parameters to the init method of the class
+        self.contract = [Contract(*[None for i in range(len(signature(Contract).parameters))]), lapi.contract]
+        self.customer = [Customer(*[None for i in range(len(signature(Customer).parameters))])]
+        self.destination = [Destination(*[None for i in range(len(signature(Destination).parameters))])]
+        self.employee = [Employee(*[None for i in range(len(signature(Employee).parameters))]), lapi.employee]
+        self.vehicle = [Vehicle(*[None for i in range(len(signature(Vehicle).parameters))]), lapi.vehicle]
+        self.vehicle_type = [Vehicle_Type(*[None for i in range(len(signature(Vehicle_Type).parameters))])]
+
+    def display_all(self,model):
+        pass
+
+
+
+
+
         
 
 def test(logicAPI, ui):
     o = Operations(logicAPI, ui)
-    o.edit(o.contract)
+    o.get(o.contract)
     
 
 def register_new(logicAPI, ui, model):
