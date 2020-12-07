@@ -24,6 +24,7 @@ class Operations:
         self.employee = [Employee(*[None for i in range(len(signature(Employee).parameters))]), lapi.employee]
         self.vehicle = [Vehicle(*[None for i in range(len(signature(Vehicle).parameters))]), lapi.vehicle]
         self.vehicle_type = [Vehicle_Type(*[None for i in range(len(signature(Vehicle_Type).parameters))]), lapi.vehicle_type]
+        self.display = Display()
 
     def register(self, model):
         ''' Register a new object by model '''
@@ -112,24 +113,16 @@ class Operations:
 
     def get_all(self, model):
         res = model[1].get_all()
-        for i in res:
-            print(i)
+        fields = model[0].fields()
+        self.display.display_all(res, fields)
+
 
 
 
 class Display:
-    def __init__(self,lapi,ui):
-        self.logicAPI = lapi
-        self.ui = ui
-        self.verify = Input_Verifiers()
+    def __init__(self):
+        pass
 
-        # Get the number of required parameters to the init method of the class
-        self.contract = [Contract(*[None for i in range(len(signature(Contract).parameters))]), lapi.contract]
-        self.customer = [Customer(*[None for i in range(len(signature(Customer).parameters))])]
-        self.destination = [Destination(*[None for i in range(len(signature(Destination).parameters))])]
-        self.employee = [Employee(*[None for i in range(len(signature(Employee).parameters))]), lapi.employee]
-        self.vehicle = [Vehicle(*[None for i in range(len(signature(Vehicle).parameters))]), lapi.vehicle]
-        self.vehicle_type = [Vehicle_Type(*[None for i in range(len(signature(Vehicle_Type).parameters))])]
 
     def display_all(self,model):
         ''' display all  vehicle'''
@@ -137,16 +130,6 @@ class Display:
         field_length = len(fields)
         logic = model[1]
 
-
-
-
-
-
-def display_employee(logicAPI,ui):
-    o = Display(logicAPI,ui)
-    o.display_all(o.employee)
-
-print(display_employee)
 
 
 def display_all_vehicles_in_a_location(logicAPI,ui):
