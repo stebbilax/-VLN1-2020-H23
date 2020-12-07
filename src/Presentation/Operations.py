@@ -54,6 +54,10 @@ def display_all_employees(logicAPI, ui):
 
 def register_employee(logicAPI, ui):
     ''' Register a new employee '''
+    ####
+    register(Employee.fields(), ui.get_user_form)
+    ####
+
 
     form = ui.get_user_form(
         {
