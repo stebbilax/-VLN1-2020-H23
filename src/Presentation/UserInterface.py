@@ -230,9 +230,38 @@ class UserInterface:
         if prompt_answer.lower() == 'y':
             exit()
 
+    def get_user_category(self, categories):
+        
+
+    def get_user_option(self, options):
+        invalid = True
+
+        for index, option in enumerate(options):
+            print(index, option)
+        while invalid:
+            opt = self.get_user_input('Select an option: ')
+            if opt.isnumeric():
+                if int(opt) < 1 or int(opt) > len(options):
+
+        return options[opt]
+
+    def get_user_category(self, categories):
+        
+
+    def get_user_option(self, options):
+        invalid = True
+
+        for index, option in enumerate(options):
+            print(index, option)
+        while invalid:
+            opt = self.get_user_input('Select an option: ')
+            if opt.isnumeric():
+                if int(opt) < 1 or int(opt) > len(options):
+
+        return options[opt]
 
     def display_error(self, errorMsg):
-        input(errorMsg)
+        print(errorMsg)
 
     def interface_loop(self):
         while True:
