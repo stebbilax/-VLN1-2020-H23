@@ -70,7 +70,10 @@ class Operations:
                 print('b. BACK')                                    
                 print('s. SUBMIT')                                  
                 
-                field_num = input('Enter field number: ')         # Select which field to edit
+                field_num = self.ui.get_user_form({
+                'selection' : ['\d|s|b', 'Please select a valid option.'.format(len(fields), len(fields))]
+            })[0]
+            
                 if field_num.lower() == 'b':
                     submit = True
                     continue
@@ -256,11 +259,11 @@ def register_contract(logicAPI, ui):
 
 def edit_contract(logicAPI, ui):    
     o = Operations(logicAPI, ui)
-    o.edit(o.employee)
+    o.edit(o.contract)
       
 def get_contract(logicAPI, ui):
     o = Operations(logicAPI, ui)
-    o.get(o.employee)
+    o.get(o.contract)
 
 def get_all_contracts(logicAPI, ui):
     o = Operations(logicAPI, ui)

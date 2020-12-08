@@ -31,6 +31,7 @@ class ManageVehicles:
         self.dataAPI.append_vehicle(new_vehicle)
 
     def edit(self,form,id):
+        print(form)
         new_vehicle = Vehicle(**form)
         self.dataAPI.edit_vehicle(new_vehicle, id)
 
@@ -81,8 +82,8 @@ class ManageContracts:
         self.searchAPI = sapi
     
     def register(self, form):
-        new_form = contract_filler(form)
-        new_contract = Contract(*new_form)
+        # new_form = contract_filler(form)
+        new_contract = Contract(*form)
         self.dataAPI.append_contract(new_contract)
     
     def edit(self, form, id):
@@ -115,6 +116,10 @@ class ManageCustomers:
     
     def get(self):
         return self.searchAPI.search_customer()
+
+    def get_all(self):
+        return self.dataAPI.read_all_customers()
+
 
 class ManageVehicleTypes:
     def __init__(self, dapi, sapi):

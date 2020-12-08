@@ -1,8 +1,8 @@
 type,manufacturer,yom,color,licence,airport,condition,model,vehicle_id,id
-Medium off-road,Kayman Kayaks,2004,grey,Drivers licence,torshavn,Available,Fat Max,HX174,1
-Light road,WildChild,1992,blue,Im amazing licence,torshavn,Unavailable,Free Fly II,XF092,2
+type,manufacturer,yom,color,licence,airport,condition,model,vehicle_id,id
+type,manufacturer,yom,color,licence,airport,condition,model,vehicle_id,id
 Light water,Yedoo,2009,black,Im amazing licence,reykjavik,Available,Free Fly II,ZJ454,3
-Medium off-road,Kayman Kayaks,2004,black,Drivers licence,nuuk,Available,Free Fly II,LH509,4
+asdasdasd,Kayman Kayaks,2004,black,Drivers licence,nuuk,Available,Free Fly II,LH509,4
 Light road,Cani-Fit,2003,blue,None,tingwall,Unavailable,Free Fly II,UA216,5
 Medium water,Cani-Fit,2002,green,None,tingwall,Available,Fat Max,UA103,6
 Light off-road,Cani-Fit,2005,black,None,tingwall,Available,Free Fly II,BW955,7
@@ -19,3 +19,4 @@ Medium water,Cani-Fit,1992,green,Drivers licence,longyearbyen,Unavailable,Free F
 Medium water,WildChild,1994,black,Drivers licence,nuuk,Available,Fat Max,JP900,18
 Light road,TAILG,2019,red,Drivers licence,tingwall,Available,Crazy,KV798,19
 Light road,Yedoo,2018,black,Drivers licence,tingwall,Unavailable,Fat Max,VO716,20
+type,manufacturer,yom,color,licence,airport,condition,model,vehicle_id,id

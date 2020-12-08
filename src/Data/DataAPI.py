@@ -43,7 +43,7 @@ class DataAPI:
         self.manager.write_all(data, 'destination')
     def read_all_destinations(self):
         return self.manager.read_all('destination')
-    def append_destination(self):
+    def append_destination(self, data):
         self.manager.append(data, 'destination')
     def edit_destination(self, data, id):
         self.manager.edit_single(data, 'destination', id)
