@@ -8,7 +8,7 @@ from Models.Destination import Destination
 from Models.Employee import Employee
 from Models.Vehicle import Vehicle
 from Models.Vehicle_Type import Vehicle_Type
-import re
+import os, re
 from inspect import signature
 
 class Operations:
@@ -193,7 +193,7 @@ class Operations:
         self.display.display(res, fields,choice)
 
     def printable_version(self, model):
-        res = model[1].get_all()
+        res = model[1].get()
         fields = model[0].fields()
         counter= 0
         counter_list= []
@@ -255,7 +255,9 @@ class Display:
                     print('\t\t'+line + '|')
     
     def display_printable_version(self,data,fields,choice):
+        ''' display printable ersion on screen '''
         field_lengths = self.find_header_format(data, fields)
+        os.system('cls')# to clear window
         header = '\n\t\t\t\033[4mThis is printable version of contract with ID: {}\033[0m'.format(choice)
         print(header)
         for el in data:
@@ -267,7 +269,8 @@ class Display:
                 if val == choice:
                     for field in fields:
                         line += '\n\t\t| {:<30}|{:>30} |'.format(field,obj[field])
-                    print('\t'+line )
+                    print(line)
+
 
 
 

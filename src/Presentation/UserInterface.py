@@ -17,6 +17,7 @@ class UserInterface:
         main_menu       = Menu("Main Menu", None, None, self.logic, self)
         office_menu     = Menu("Office Menu", None, main_menu, self.logic, self)
         airport_menu    = Menu("Airport menu", None, main_menu, self.logic, self)
+        papa_chuck_menu = Menu("Papa Chuck menu", None,main_menu,self.logic,self)
 
         # Add two menu nodes to the main menu
         main_menu.selectable_options.append(office_menu)
@@ -229,7 +230,6 @@ class UserInterface:
         display_contract_menu_airport.selectable_options += [
             get_all_contracts,
             get_contract,
-            get_printable_contract
         ]
 
         #endregion                      -----
