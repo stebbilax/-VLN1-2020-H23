@@ -124,7 +124,12 @@ class Operations:
         while not (0 < ans <= field_length):
             ans = int(self.ui.get_user_form({
                 'selection' : ['\d', 'Must be digit between 1-{}'.format(field_length, field_length)]
-            })[0])
+            }))
+
+            if not ans:
+                return
+
+            ans = ans[0]
 
         # Search and Display
         func = getattr(logic.get(), f'by_{fields[ans-1]}')
@@ -163,6 +168,9 @@ class Operations:
             }  
         )
 
+        if not choice:
+            return
+
         for key,val in location_dict.items():
             if key == str(choice[0]):
                 choice = val
@@ -180,6 +188,10 @@ class Operations:
                 'Enter Number': ['^[1-2]$','Enter valid number between 1 and 2']
             }  
         )
+
+        if not choice:
+            return
+
         for key,val in dictionary_condition_list.items():
             if key == str(choice[0]):
                 choice = val
