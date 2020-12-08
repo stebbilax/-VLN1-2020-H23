@@ -7,13 +7,14 @@ from Models.Customer import Customer
 from Models.Vehicle_Type import Vehicle_Type
 from Models.Destination import Destination
 from Logic.form_fillers import contract_filler, vehicle_filler
-
+from Logic.Enums import EnumManager
 
 
 class LogicAPI:
     def __init__(self):
         self.dataAPI = DataAPI()
         self.searchAPI = Search_API()
+        self.enums = EnumManager(self.dataAPI)
         self.vehicle = ManageVehicles(self.dataAPI, self.searchAPI)
         self.employee = ManageEmployees(self.dataAPI, self.searchAPI)
         self.contract = ManageContracts(self.dataAPI, self.searchAPI)
@@ -149,6 +150,7 @@ class ManageDestinations:
     def register(self, form):
         new_destination = Destination(*form)
         self.dataAPI.append_destination(new_destination)
+        self.enums = EnumManager(self.dataAPI)
     
     def edit(self, form, id):
         new_destination = Destination(**form)
@@ -156,7 +158,7 @@ class ManageDestinations:
     
     def get(self):
         return self.searchAPI.search_destination()
-    
+
     def get_all(self):
         return self.dataAPI.read_all_destinations()
     

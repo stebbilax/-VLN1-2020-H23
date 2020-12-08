@@ -18,6 +18,7 @@ class DataAPI:
         self.data_dir = os.getcwd() + '\data/'
         self.manager = Csv_Manager(self.data_dir)
 
+
     # Contract menu
     def write_all_contracts(self, data):
         self.manager.write_all(data, 'contract')
