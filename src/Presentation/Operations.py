@@ -209,6 +209,14 @@ class Operations:
             print("invalid number entered!")
         self.display.display_printable_version(res,fields,choice)
 
+    def get_overview(self,model):
+        # •Til að hafa yfirlit með rekstrinum vill Chuck geta kallað fram eftirfarandi skýrslur í prentvænusniðmáti (print friendly formatting):
+        # –Yfirlit yfir tekjur þar sem ætti að vera hægt að velja tímabilið sem á að skoða. Einnigværi gott að sjá sundurliðun á tekjum útibúa og tegund farartækja.
+        # –Yfirlit yfir nýtingu farartækja á hverjum stað, flokkað eftir tegund.
+        # –Yfirlit yfir reikninga á ákveðnu tímabili, þar sem hægt er að flokka eftir viðskiptavinumog hvort þeir séu farnir í inheimtu (rukkaðir).
+        res = model[1].get()
+        fields = model[0].fields()
+        
 
 
 
@@ -270,6 +278,10 @@ class Display:
                     for field in fields:
                         line += '\n\t\t| {:<30}|{:>30} |'.format(field,obj[field])
                     print(line)
+    
+    def display_for_papa_chuck(self,data,fields,choice):
+        '''This is for some papa chuck dinero'''
+        pass
 
 
 
@@ -441,6 +453,13 @@ def edit_vehicle_type(logicAPI,ui):
 def get_all_vehicle_types(logicAPI, ui):
     o = Operations(logicAPI, ui)
     o.get_all(o.vehicle_type)
+
+
+'''This is for chuck to be able to get overview of his company'''
+def get_printable_overview_of_business(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.get_overview(o.contract)
+
 
 
 
