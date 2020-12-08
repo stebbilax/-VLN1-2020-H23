@@ -45,18 +45,26 @@ class Operations:
 
         # Get Employee
         print("Choose a method to select a %s" % model[0].__class__.__name__)
-        employee = self.ui.get_user_option(logic.get_search_options())(self.ui.get_user_input("Enter a search term: "))
+        search_query = self.ui.get_user_option(logic.get_search_options())
+
+        if not search_query:
+            return
+        else:
+            employee = search_query(self.ui.get_user_input("Enter a search term: "))
 
         if len(employee) > 1:
             print("Multiple results, select a %s" % model[0].__class__.__name__)
             id = self.ui.get_user_option(employee).id
+        elif len(employee) == 0:
+            print("Search returned no %s" % model[0].__class__.__name__)
+            return
         else:
             id = employee[0].id
 
+        if not id:
+            return
+
         # Search for match
-        result = logic.get().by_id(id)
-        if result == []: self.ui.display_error(f'No Matches found with ID {id}\n')
-        else:
             obj = vars(result[0])
             submit = False
             options = {}
