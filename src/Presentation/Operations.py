@@ -45,7 +45,7 @@ class Operations:
 
         # Get Employee
         print("Choose a method to select a %s" % model[0].__class__.__name__)
-        employee = self.ui.get_user_option(logic.get_employee_search_options())(self.ui.get_user_input("Enter a search term: "))
+        employee = self.ui.get_user_option(logic.get_search_options())(self.ui.get_user_input("Enter a search term: "))
 
         if len(employee) > 1:
             print("Multiple results, select a %s" % model[0].__class__.__name__)
