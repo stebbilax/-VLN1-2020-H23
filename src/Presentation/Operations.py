@@ -46,10 +46,15 @@ class Operations:
         fields = model[0].fields()
         logic = model[1]
 
-        # Get id
-        id = self.ui.get_user_form({
-                'ID' : ['\d', 'Please enter a digit']
-            })[0]
+        # Get Employee
+        print("Choose a method to select a %s" % model[0].__class__.__name__)
+        employee = self.ui.get_user_option(logic.get_employee_search_options())(self.ui.get_user_input("Enter a search term: "))
+
+        if len(employee) > 1:
+            print("Multiple results, select a %s" % model[0].__class__.__name__)
+            id = self.ui.get_user_option(employee).id
+        else:
+            id = employee[0].id
 
         # Search for match
         result = logic.get().by_id(id)
@@ -74,9 +79,14 @@ class Operations:
                 print('s. SUBMIT')                                  
                 
                 field_num = self.ui.get_user_form({
-                'selection' : ['\d|s|b', 'Please select a valid option.'.format(len(fields), len(fields))]
-            })[0]
+                    'selection' : ['\d|s|b', 'Please select a valid option.'.format(len(fields), len(fields))]
+                })
             
+                if not field_num:
+                    break
+
+                field_num = field_num[0]
+
                 if field_num.lower() == 'b':
                     submit = True
                     continue

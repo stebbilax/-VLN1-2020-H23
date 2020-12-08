@@ -1,4 +1,5 @@
 import csv
+import os
 
 class id_manager:
     def __init__(self):
@@ -24,7 +25,6 @@ class id_manager:
 
     # Need to change os to be modular
     def write(self):
-        import os
         curDir = os.getcwd()
         #################
         
