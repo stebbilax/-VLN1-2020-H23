@@ -44,7 +44,7 @@ class ManageVehicles:
     def get_all_location(self):
         return self.dataAPI.read_all_vehicles()
 
-    def get_vehicle_search_options(self):
+    def get_search_options(self):
         return [getattr(self.searchAPI.search_vehicle(), func) 
             for func in dir(self.searchAPI.search_vehicle())
             if callable(getattr(self.searchAPI.search_vehicle(), func)) and not func.startswith('__')]
@@ -71,7 +71,7 @@ class ManageEmployees:
     def get_all_location(self):
         return self.dataAPI.read_all_employees()
 
-    def get_employee_search_options(self):
+    def get_search_options(self):
         return [getattr(self.searchAPI.search_employee(), func) 
             for func in dir(self.searchAPI.search_employee())
             if callable(getattr(self.searchAPI.search_employee(), func)) and not func.startswith('__')]
@@ -96,7 +96,7 @@ class ManageContracts:
     def get_all(self):
         return self.dataAPI.read_all_contracts()
 
-    def get_contract_search_options(self):
+    def get_search_options(self):
         return [getattr(self.searchAPI.search_contract(), func) 
             for func in dir(self.searchAPI.search_contract())
             if callable(getattr(self.searchAPI.search_contract(), func)) and not func.startswith('__')]

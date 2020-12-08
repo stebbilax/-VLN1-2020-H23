@@ -43,15 +43,28 @@ class Operations:
         fields = model[0].fields()
         logic = model[1]
 
-        # Get id
-        id = self.ui.get_user_form({
-                'ID' : ['\d', 'Please enter a digit']
-            })[0]
+        # Get Employee
+        print("Choose a method to select a %s" % model[0].__class__.__name__)
+        search_query = self.ui.get_user_option(logic.get_search_options())
+
+        if not search_query:
+            return
+        else:
+            employee = search_query(self.ui.get_user_input("Enter a search term: "))
+
+        if len(employee) > 1:
+            print("Multiple results, select a %s" % model[0].__class__.__name__)
+            id = self.ui.get_user_option(employee).id
+        elif len(employee) == 0:
+            print("Search returned no %s" % model[0].__class__.__name__)
+            return
+        else:
+            id = employee[0].id
+
+        if not id:
+            return
 
         # Search for match
-        result = logic.get().by_id(id)
-        if result == []: self.ui.display_error(f'No Matches found with ID {id}\n')
-        else:
             obj = vars(result[0])
             submit = False
             options = {}
@@ -70,7 +83,15 @@ class Operations:
                 print('b. BACK')                                    
                 print('s. SUBMIT')                                  
                 
-                field_num = input('Enter field number: ')         # Select which field to edit
+                field_num = self.ui.get_user_form({
+                    'selection' : ['\d|s|b', 'Please select a valid option.'.format(len(fields), len(fields))]
+                })
+            
+                if not field_num:
+                    break
+
+                field_num = field_num[0]
+
                 if field_num.lower() == 'b':
                     submit = True
                     continue
@@ -101,9 +122,14 @@ class Operations:
         # Validate input
         ans = -1
         while not (0 < ans <= field_length):
-            ans = int(self.ui.get_user_form({
+            ans = (self.ui.get_user_form({
                 'selection' : ['\d', 'Must be digit between 1-{}'.format(field_length, field_length)]
-            })[0])
+            }))
+
+            if not ans:
+                return
+
+            ans = int(ans[0])
 
         # Search and Display
         func = getattr(logic.get(), f'by_{fields[ans-1]}')
@@ -145,6 +171,9 @@ class Operations:
                 'Enter Number': ['^[1-6]$','Enter valid number between 1 and 6']
             }  
         )
+
+        if not choice:
+            return
 
         for key,val in location_dict.items():
             if key == str(choice[0]):
@@ -258,11 +287,11 @@ def register_contract(logicAPI, ui):
 
 def edit_contract(logicAPI, ui):    
     o = Operations(logicAPI, ui)
-    o.edit(o.employee)
+    o.edit(o.contract)
       
 def get_contract(logicAPI, ui):
     o = Operations(logicAPI, ui)
-    o.get(o.employee)
+    o.get(o.contract)
 
 def get_all_contracts(logicAPI, ui):
     o = Operations(logicAPI, ui)
