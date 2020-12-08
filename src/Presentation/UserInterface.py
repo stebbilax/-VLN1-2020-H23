@@ -321,6 +321,8 @@ class UserInterface:
                     print("Invalid input, please input a range between %d and %d." % (1, len(temp_options)))
                 else:
                     invalid = False
+            elif opt == 'b':
+                return False
 
         return options[opt - 1]
 
