@@ -2,8 +2,8 @@ class Contract:
     def __init__(self, 
         vehicle_id,vehicle_state,vehicle_status,vehicle_licence,country,
         customer_id,customer_name,phone,email,address,customer_licence,
-        employee_id,date_of_handover,date_of_return,contract_start,
-        contract_end,state,rate,late_fee,total_price,
+        employee_id,location_handover,location_return,date_of_handover,
+        date_of_return,contract_start,contract_end,state,rate,late_fee,total_price,
         id=None):
 
         self.vehicle_id = vehicle_id
@@ -20,6 +20,8 @@ class Contract:
         self.customer_licence = customer_licence
 
         self.employee_id = employee_id
+        self.location_handover = location_handover
+        self.location_return = location_return
         self.date_of_handover = date_of_handover
         self.date_of_return = date_of_return        # Day of return, registered on return
         self.contract_start = contract_start        # Day of contract creation

@@ -364,6 +364,8 @@ def get_all_vehicle_types(logicAPI, ui):
 
 
 
+
+
 def display_all_vehicles_in_a_location(logicAPI,ui):
     '''Display all vehicles in a location'''
 

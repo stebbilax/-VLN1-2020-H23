@@ -39,6 +39,8 @@ class Input_Verifiers:
             'color': ['[a-z]+$', 'Alphabetical letters only'],
             'licence': None,
             'airport': [enum_to_regex(Enum_Airport),enum_to_instructions(Enum_Airport)],
+            'location_handover': [enum_to_regex(Enum_Airport),enum_to_instructions(Enum_Airport)],
+            'location_return': [enum_to_regex(Enum_Airport),enum_to_instructions(Enum_Airport)],
             'condition': ['(OK|DEFECTIVE)', 'Please enter valid vehicle status (OK or DEFECTIVE)'],
             'model': ['[a-z]+$', 'Alphabetical letters only'],
             'vehicle id': None, # this is licence plate on a car
