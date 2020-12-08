@@ -280,11 +280,11 @@ def register_contract(logicAPI, ui):
 
 def edit_contract(logicAPI, ui):    
     o = Operations(logicAPI, ui)
-    o.edit(o.employee)
+    o.edit(o.contract)
       
 def get_contract(logicAPI, ui):
     o = Operations(logicAPI, ui)
-    o.get(o.employee)
+    o.get(o.contract)
 
 def get_all_contracts(logicAPI, ui):
     o = Operations(logicAPI, ui)
