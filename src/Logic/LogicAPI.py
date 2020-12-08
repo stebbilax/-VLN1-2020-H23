@@ -6,7 +6,7 @@ from Models.Vehicle import Vehicle
 from Models.Customer import Customer
 from Models.Vehicle_Type import Vehicle_Type
 from Models.Destination import Destination
-from Logic.form_fillers import contract_filler
+from Logic.form_fillers import contract_filler, vehicle_filler
 
 
 
@@ -27,7 +27,8 @@ class ManageVehicles:
         self.searchAPI = sapi
 
     def register(self,form):
-        new_vehicle = Vehicle(*form)
+        new_form = vehicle_filler(form)
+        new_vehicle = Vehicle(*new_form)
         self.dataAPI.append_vehicle(new_vehicle)
 
     def edit(self,form,id):

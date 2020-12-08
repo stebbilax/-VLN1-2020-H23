@@ -33,7 +33,7 @@ class Input_Verifiers:
             'total_price': ['(\d)', 'Must be digits only'],
             'loan_status': ['(OK|RETURNED|LATE)', 'Please enter a valid loan status (OK or RETURNED or LATE)'],
             #this must be so that edit vehicle works
-            'type': None,
+            'type': ['.*', 'Error', find_vehicle_type],
             'manufacturer': ['[a-z]+$', 'Alphabetical letters only'] ,
             'yom': ['\\d{4}$', 'Digits only'], #named YOM in model vehicle class
             'color': ['[a-z]+$', 'Alphabetical letters only'],
@@ -74,6 +74,15 @@ def find_vehicle(form, id):
     if res != []: return (True, 'Success')
 
     return (False, 'Vehicle does not exist')
+
+
+def find_vehicle_type(form, type):
+    res = Search_API().search_vehicle_type().by_name(type)
+    if res != []: return (True, 'Success')
+    return (False, 'Vehicle Type does not exist')
+
+
+
 
 
     
