@@ -1,21 +1,21 @@
 name,regions,rate,id
-Light off-road,Svalbard,383,1
-Medium off-road,Iceland,103,2
-Light off-road,Iceland,454,3
-Light off-road,Shetland,959,4
-Light water,Iceland,101,5
-Medium water,Farao Islands,178,6
-Light water,Shetland,681,7
-Medium water,Svalbard,621,8
-Medium water,Svalbard,678,9
-Light off-road,Greenland,168,10
-Medium water,Iceland,685,11
-Medium off-road,Greenland,237,12
-Light road,Greenland,668,13
-Medium water,Greenland,334,14
-Medium off-road,Shetland,637,15
-Medium water,Farao Islands,536,16
-Medium water,Farao Islands,269,17
-Medium water,Iceland,509,18
-Light road,Iceland,809,19
-Light water,Shetland,158,20
+Medium water,Svalbard,413,1
+Medium water,Greenland,984,2
+Light road,Svalbard,820,3
+Medium off-road,Farao Islands,704,4
+Light off-road,Shetland,897,5
+Medium water,Svalbard,632,6
+Light water,Farao Islands,436,7
+Light road,Svalbard,699,8
+Light off-road,Svalbard,856,9
+Medium water,Farao Islands,290,10
+Medium off-road,Shetland,592,11
+Medium water,Farao Islands,627,12
+Light off-road,Iceland,860,13
+Light road,Iceland,398,14
+Medium water,Greenland,132,15
+Light water,Svalbard,633,16
+Light road,Greenland,647,17
+Light water,Shetland,182,18
+Medium off-road,Svalbard,171,19
+Medium water,Farao Islands,316,20

@@ -26,11 +26,14 @@ class Operations:
         self.vehicle_type = [Vehicle_Type(*[None for i in range(len(signature(Vehicle_Type).parameters))]), lapi.vehicle_type]
         self.display = Display()
 
-    def register(self, model):
+    def register(self, model, ignore_fields):
         ''' Register a new object by model '''
 
+        # Remove fields on 'ignore_fields' list
+        fields = [field for field in model[0].fields() if field not in ignore_fields]
+
         form = self.ui.get_user_form(
-            {key:self.verify.get_verifier(key) for key in model[0].fields()}
+            {key:self.verify.get_verifier(key) for key in fields}
         )
 
         if not form:
@@ -237,8 +240,9 @@ def get_vehicle_after_condition(logicAPI,ui):
 
 
 def register_employee(logicAPI, ui):
+    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.register(o.employee)
+    o.register(o.employee, ignore_fields)
     
 def edit_employee(logicAPI, ui):
     o = Operations(logicAPI, ui)
@@ -254,8 +258,9 @@ def get_all_employees(logicAPI, ui):
 
 
 def register_contract(logicAPI, ui):
+    ignore_fields = ['vehicle_state', 'vehicle_status', 'vehicle_licence', 'state', 'rate', 'late_fee', 'total_price', 'id']
     o = Operations(logicAPI, ui)
-    o.register(o.contract)
+    o.register(o.contract, ignore_fields)
 
 def edit_contract(logicAPI, ui):    
     o = Operations(logicAPI, ui)
@@ -272,8 +277,9 @@ def get_all_contracts(logicAPI, ui):
 
 
 def register_vehicle(logicAPI,ui):
+    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.register(o.vehicle)
+    o.register(o.vehicle, ignore_fields)
     
 def get_vehicle(logicAPI,ui):
     o = Operations(logicAPI, ui)
@@ -299,8 +305,9 @@ def get_vehicle_after_location(logicAPI,ui):
 
 
 def register_customer(logicAPI,ui):
+    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.register(o.customer)
+    o.register(o.customer, ignore_fields)
     
 def get_customer(logicAPI,ui):
     o = Operations(logicAPI, ui)
@@ -318,8 +325,9 @@ def get_all_customers(logicAPI,ui):
 
 
 def register_destination(logicAPI,ui):
+    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.register(o.destination)
+    o.register(o.destination, ignore_fields)
     
 def get_destination(logicAPI,ui):
     o = Operations(logicAPI, ui)
@@ -336,8 +344,9 @@ def get_all_destinations(logicAPI,ui):
 
 
 def register_vehicle_type(logicAPI,ui):
+    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.register(o.vehicle_type)
+    o.register(o.vehicle_type, ignore_fields)
     
 def get_vehicle_type(logicAPI,ui):
     o = Operations(logicAPI, ui)

@@ -81,7 +81,7 @@ class ManageContracts:
         self.searchAPI = sapi
     
     def register(self, form):
-        # new_form = contract_filler(form)
+        new_form = contract_filler(form)
         new_contract = Contract(*form)
         self.dataAPI.append_contract(new_contract)
     
