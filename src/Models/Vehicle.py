@@ -1,12 +1,14 @@
 class Vehicle:
-    def __init__(self,type, manufacturer, yom, color, licence, airport, condition, model, vehicle_id, id=None):
+    def __init__(self,type, manufacturer, yom, color, licence, airport, vehicle_state, vehicle_status, rate, model, vehicle_id, id=None):
         self.type = type
         self.manufacturer = manufacturer
         self.yom = yom
         self.color = color
         self.licence = licence
         self.airport = airport
-        self.condition = condition
+        self.vehicle_state = vehicle_state
+        self.vehicle_status = vehicle_status
+        self.rate = rate
         self.model = model
         self.vehicle_id = vehicle_id
         self.id = id

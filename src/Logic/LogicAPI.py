@@ -31,7 +31,6 @@ class ManageVehicles:
         self.dataAPI.append_vehicle(new_vehicle)
 
     def edit(self,form,id):
-        print(form)
         new_vehicle = Vehicle(**form)
         self.dataAPI.edit_vehicle(new_vehicle, id)
 

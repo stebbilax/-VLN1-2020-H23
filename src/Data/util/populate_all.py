@@ -105,6 +105,8 @@ def vehicle():
         D.make_licence(),
         D.make_airport(),
         D.make_vehicle_status(),
+        D.make_vehicle_state(),
+        randint(100,300),
         D.make_model(),
         D.make_vehicle_id(),
     )

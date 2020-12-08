@@ -1,23 +1,21 @@
 name,regions,rate,id
-labla,Shetland,280,1
-lllll,Greenland,802,2
-Light off-road,Farao Islands,745,3
-Light off-road,Farao Islands,819,4
-Light water,Shetland,992,5
-Light off-road,Farao Islands,405,6
-Medium off-road,Shetland,334,7
-Medium off-road,Farao Islands,250,8
-Light road,Greenland,927,9
-Medium water,Farao Islands,391,10
-Medium off-road,Shetland,566,11
-Medium off-road,Farao Islands,352,12
-Medium off-road,Svalbard,817,13
-Medium off-road,Farao Islands,802,14
-Light off-road,Shetland,927,15
-Light road,Iceland,506,16
-Light off-road,Farao Islands,911,17
-Medium water,Farao Islands,200,18
-Medium water,Farao Islands,593,19
-Light road,Shetland,127,20
-labla,Shetland,280,1
-labla,Shetland,280,1
+Light off-road,Svalbard,383,1
+Medium off-road,Iceland,103,2
+Light off-road,Iceland,454,3
+Light off-road,Shetland,959,4
+Light water,Iceland,101,5
+Medium water,Farao Islands,178,6
+Light water,Shetland,681,7
+Medium water,Svalbard,621,8
+Medium water,Svalbard,678,9
+Light off-road,Greenland,168,10
+Medium water,Iceland,685,11
+Medium off-road,Greenland,237,12
+Light road,Greenland,668,13
+Medium water,Greenland,334,14
+Medium off-road,Shetland,637,15
+Medium water,Farao Islands,536,16
+Medium water,Farao Islands,269,17
+Medium water,Iceland,509,18
+Light road,Iceland,809,19
+Light water,Shetland,158,20
