@@ -159,5 +159,8 @@ class ManageDestinations:
     
     def get_all(self):
         return self.dataAPI.read_all_destinations()
+    
+    def get_all_location(self):
+        return self.dataAPI.read_all_destinations()
 
 

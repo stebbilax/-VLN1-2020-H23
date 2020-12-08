@@ -26,14 +26,11 @@ class Operations:
         self.vehicle_type = [Vehicle_Type(*[None for i in range(len(signature(Vehicle_Type).parameters))]), lapi.vehicle_type]
         self.display = Display()
 
-    def register(self, model, ignore_fields):
+    def register(self, model):
         ''' Register a new object by model '''
 
-        # Remove fields on 'ignore_fields' list
-        fields = [field for field in model[0].fields() if field not in ignore_fields]
-
         form = self.ui.get_user_form(
-            {key:self.verify.get_verifier(key) for key in fields}
+            {key:self.verify.get_verifier(key) for key in model[0].fields()}
         )
 
         if not form:
@@ -134,15 +131,31 @@ class Operations:
 
     def get_all_location(self, model):
         # ATH get breytt þessum auðveldlega þannig að það sé líka hægt að nota þetta fall fyrir display all staff eftir location SKOÐA ÞAÐ
-        vehicle_location_list = ['\nDisplay vehicles after location:','\n1. Reykjavik','\n2. Nuuk','\n3. Kulusk','\n4. Tingwall','\n5. Longyearbyen','\n6. Torshavn']
-        dictionary_location_list = {'1':'reykjavik','2':'nuuk','3':'kulusk','4':'tingwall','5':'longyear','6':'torshavn'} #dictionary to translate user input into airport location
-        print(*vehicle_location_list)
+        res = model[1].get_all_location()
+        fields = model[0].fields()
+        location_list = ['\nDisplay vehicles after location:',]
+        location_dict = {}
+        counter = 0
+        for el in res:
+            obj = vars(el)
+            for index,(key,val) in enumerate(obj.items()):
+                    for field in fields:
+                        if key == 'airport':
+                            if val not in location_list:
+                                location_list.append(val)
+        print(location_list[0])
+        for destination in location_list[1:]:
+            counter +=1
+            print('\n %s. %s'% (counter,destination))
+            location_dict.update({str(counter):destination})
+
         choice = self.ui.get_user_form(
             {
                 'Enter Number': ['^[1-6]$','Enter valid number between 1 and 6']
             }  
         )
-        for key,val in dictionary_location_list.items():
+
+        for key,val in location_dict.items():
             if key == str(choice[0]):
                 choice = val
         res = model[1].get_all_location()
@@ -165,11 +178,6 @@ class Operations:
         res = model[1].get_all_location()
         fields = model[0].fields()
         self.display.display(res, fields,choice)
-
-
-
-
-
 
 class Display:
     def __init__(self):
@@ -250,9 +258,8 @@ def get_vehicle_after_condition(logicAPI,ui):
 
 
 def register_employee(logicAPI, ui):
-    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.register(o.employee, ignore_fields)
+    o.register(o.employee)
     
 def edit_employee(logicAPI, ui):
     o = Operations(logicAPI, ui)
@@ -268,17 +275,16 @@ def get_all_employees(logicAPI, ui):
 
 
 def register_contract(logicAPI, ui):
-    ignore_fields = ['vehicle_state', 'vehicle_status', 'vehicle_licence', 'state', 'rate', 'late_fee', 'total_price', 'id']
     o = Operations(logicAPI, ui)
-    o.register(o.contract, ignore_fields)
+    o.register(o.contract)
 
 def edit_contract(logicAPI, ui):    
     o = Operations(logicAPI, ui)
-    o.edit(o.contract)
+    o.edit(o.employee)
       
 def get_contract(logicAPI, ui):
     o = Operations(logicAPI, ui)
-    o.get(o.contract)
+    o.get(o.employee)
 
 def get_all_contracts(logicAPI, ui):
     o = Operations(logicAPI, ui)
@@ -287,9 +293,8 @@ def get_all_contracts(logicAPI, ui):
 
 
 def register_vehicle(logicAPI,ui):
-    ignore_fields = ['rate', 'vehicle_status']
     o = Operations(logicAPI, ui)
-    o.register(o.vehicle, ignore_fields)
+    o.register(o.vehicle)
     
 def get_vehicle(logicAPI,ui):
     o = Operations(logicAPI, ui)
@@ -315,9 +320,8 @@ def get_vehicle_after_location(logicAPI,ui):
 
 
 def register_customer(logicAPI,ui):
-    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.register(o.customer, ignore_fields)
+    o.register(o.customer)
     
 def get_customer(logicAPI,ui):
     o = Operations(logicAPI, ui)
@@ -335,9 +339,8 @@ def get_all_customers(logicAPI,ui):
 
 
 def register_destination(logicAPI,ui):
-    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.register(o.destination, ignore_fields)
+    o.register(o.destination)
     
 def get_destination(logicAPI,ui):
     o = Operations(logicAPI, ui)
@@ -354,9 +357,8 @@ def get_all_destinations(logicAPI,ui):
 
 
 def register_vehicle_type(logicAPI,ui):
-    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.register(o.vehicle_type, ignore_fields)
+    o.register(o.vehicle_type)
     
 def get_vehicle_type(logicAPI,ui):
     o = Operations(logicAPI, ui)
@@ -369,8 +371,6 @@ def edit_vehicle_type(logicAPI,ui):
 def get_all_vehicle_types(logicAPI, ui):
     o = Operations(logicAPI, ui)
     o.get_all(o.vehicle_type)
-
-
 
 
 

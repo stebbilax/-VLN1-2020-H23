@@ -52,8 +52,12 @@ def contract():
         D.make_licence(),
         
         '1',
+        D.make_airport(),
+        D.make_airport(),
         D.make_early_date(),
         D.make_later_date(),
+        '10:30',
+        '10:30',
         D.make_early_date(),
         D.make_later_date(),
         D.make_contract_state(),
