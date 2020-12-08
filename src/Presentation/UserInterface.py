@@ -97,7 +97,8 @@ class UserInterface:
         # Contract display functions
         display_contract_menu_office.selectable_options += [
             get_all_contracts,
-            get_contract
+            get_contract,
+            get_printable_contract
         ]
 
         #endregion                      -----
@@ -227,7 +228,8 @@ class UserInterface:
         # Contract display functions
         display_contract_menu_airport.selectable_options += [
             get_all_contracts,
-            get_contract
+            get_contract,
+            get_printable_contract
         ]
 
         #endregion                      -----

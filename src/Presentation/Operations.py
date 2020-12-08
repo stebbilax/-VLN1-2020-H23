@@ -149,8 +149,8 @@ class Operations:
 
     def get_all_after_choice(self, model,key_type):
         #get all vehicle/staff after choice
-        choice_list = ["\nDisplay all after {}".format(key_type)] #list to append locations to
-        choice_dict = {} # dictionary to numerate and append locations to 
+        choice_list = ["\nDisplay all after {}".format(key_type)] #list to append choices to
+        choice_dict = {} # dictionary to numerate and append choices to
         counter = 0  #count number of vehicles
         res = model[1].get_all_after_choice()
         fields = model[0].fields()
@@ -188,6 +188,25 @@ class Operations:
 
         #calls display function in Display class
         self.display.display(res, fields,choice)
+
+    def printable_version(self, model):
+        res = model[1].get_all()
+        fields = model[0].fields()
+        counter= 0
+        counter_list= []
+
+        for element in res:
+            obj = vars(element)
+            for index,(key,val) in enumerate(obj.items()):
+                    if key == 'id':
+                        counter +=1
+                        counter_list.append(str(counter))
+        choice = input('Enter valid number between 1 and {}: '.format(counter))
+        if str(choice) not in counter_list:
+            print("invalid number entered!")
+        self.display.display_printable_version(res,fields,choice)
+
+
 
 
 
@@ -230,7 +249,25 @@ class Display:
                 if val == choice:
                     for field in fields:
                         line += '| {:^{L}} '.format(obj[field], L=field_lengths[field])
-                    print('\t'+line + '|')
+                    print('\t\t'+line + '|')
+    
+    def display_printable_version(self,data,fields,choice):
+        field_lengths = self.find_header_format(data, fields)
+        header = '\n\t\t\t\033[4mThis is printable version of contract with ID: {}\033[0m'.format(choice)
+        print(header)
+        for el in data:
+            obj = vars(el)
+            line = ''
+            #for field in fields:
+            for index,(key,val) in enumerate(obj.items()):
+                index +=1
+                if val == choice:
+                    for field in fields:
+                        line += '\n\t\t| {:<30}|{:>30} |'.format(field,obj[field])
+                    print('\t'+line )
+
+
+
  
 
 
@@ -301,6 +338,10 @@ def get_contract(logicAPI, ui):
 def get_all_contracts(logicAPI, ui):
     o = Operations(logicAPI, ui)
     o.get_all(o.contract)
+
+def get_printable_contract(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.printable_version(o.contract)
 
 
 
