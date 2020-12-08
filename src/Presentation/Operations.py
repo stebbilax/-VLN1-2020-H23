@@ -122,14 +122,14 @@ class Operations:
         # Validate input
         ans = -1
         while not (0 < ans <= field_length):
-            ans = int(self.ui.get_user_form({
+            ans = (self.ui.get_user_form({
                 'selection' : ['\d', 'Must be digit between 1-{}'.format(field_length, field_length)]
             }))
 
             if not ans:
                 return
 
-            ans = ans[0]
+            ans = int(ans[0])
 
         # Search and Display
         func = getattr(logic.get(), f'by_{fields[ans-1]}')
