@@ -150,12 +150,12 @@ class Operations:
         fields = model[0].fields()
         self.display.display_all(res, fields)
 
-    def get_all_location(self, model,key_type):
-        #get all vehicle/staff after location
-        location_list = ["\nDisplay all after {}".format(key_type)] #list to append locations to
-        location_dict = {} # dictionary to numerate and append locations to 
+    def get_all_after_choice(self, model,key_type):
+        #get all vehicle/staff after choice
+        choice_list = ["\nDisplay all after {}".format(key_type)] #list to append locations to
+        choice_dict = {} # dictionary to numerate and append locations to 
         counter = 0  #count number of vehicles
-        res = model[1].get_all_location()
+        res = model[1].get_all_after_choice()
         fields = model[0].fields()
 
 
@@ -164,15 +164,15 @@ class Operations:
             for index,(key,val) in enumerate(obj.items()):
                     for field in fields:
                         if key == str(key_type):
-                            if val not in location_list:
-                                location_list.append(val)
+                            if val not in choice_list:
+                                choice_list.append(val)
 
-        print(location_list[0])
+        print(choice_list[0])
 
-        for destination in location_list[1:]:
+        for destination in choice_list[1:]:
             counter +=1
             print(' %s. %s'% (counter,destination))
-            location_dict.update({str(counter):destination})
+            choice_dict.update({str(counter):destination})
 
         choice = self.ui.get_user_form(
             {
@@ -183,10 +183,10 @@ class Operations:
         if not choice:
             return
 
-        for key,val in location_dict.items():
+        for key,val in choice_dict.items():
             if key == str(choice[0]):
                 choice = val
-        res = model[1].get_all_location()
+        res = model[1].get_all_after_choice()
         fields = model[0].fields()
 
         #calls display function in Display class
@@ -217,7 +217,7 @@ class Display:
 
     
     def display(self,data,fields,choice):
-        '''Display after location/condition'''
+        '''Display after choice'''
         number =0
         field_lengths = self.find_header_format(data, fields)
         header = ''
@@ -270,7 +270,7 @@ def get_employee_after_location(logicAPI,ui):
         }  
     )
     o = Operations(logicAPI, ui)
-    o.get_all_location(o.employee,key_type[0])
+    o.get_all_after_choice(o.employee,key_type[0])
 
 def register_employee(logicAPI, ui):
     o = Operations(logicAPI, ui)
@@ -331,7 +331,7 @@ def get_vehicle_type_rates(logicAPI,ui):
 def get_vehicle_after_location(logicAPI,ui):
     key_type = ['airport']
     o = Operations(logicAPI, ui)
-    o.get_all_location(o.vehicle,key_type[0])
+    o.get_all_after_choice(o.vehicle,key_type[0])
 
 def get_vehicle_after_condition(logicAPI,ui):
     key_type = ui.get_user_form(
@@ -340,7 +340,7 @@ def get_vehicle_after_condition(logicAPI,ui):
         }  
     )
     o = Operations(logicAPI, ui)
-    o.get_all_location(o.vehicle,key_type[0])
+    o.get_all_after_choice(o.vehicle,key_type[0])
 
 
 
@@ -402,194 +402,3 @@ def get_all_vehicle_types(logicAPI, ui):
 
 
 
-def display_all_vehicles_in_a_location(logicAPI,ui):
-    '''Display all vehicles in a location'''
-
-    vehicle_location_list = ['\nDisplay vehicles after location:','\n1. Reykjavik','\n2. Nuuk','\n3. Kulusk','\n4. Tingwall','\n5. Longyearbyen','\n6. Torshavn']
-    print(*vehicle_location_list)
-    choice = ui.get_user_form(
-        {
-            'Enter Number': ['^[1-6]$','Enter valid number between 1 and 6']
-        }  
-    )
-    choice=choice[0]
-    number = 0
-    formid = vehicle_header(logicAPI)
-
-    if choice == "1":
-        for vehicles in logicAPI.vehicles.get_all_vehicles():
-            if vehicles.__dict__()['airport'] == 'reykjavik':
-                number +=1
-                print_display_vehicle(vehicles,number,formid)
-
-    elif choice == "2":
-        for vehicles in logicAPI.vehicles.get_all_vehicles():
-            if vehicles.__dict__()['airport'] == 'nuuk':
-                number +=1
-                print_display_vehicle(vehicles,number,formid)
-
-    elif choice == "3":
-        for vehicles in logicAPI.vehicles.get_all_vehicles():
-            if vehicles.__dict__()['airport'] == 'kulusk':
-                number +=1
-                print_display_vehicle(vehicles,number,formid)
-
-    elif choice == "4":
-        for vehicles in logicAPI.vehicles.get_all_vehicles():
-            if vehicles.__dict__()['airport'] == 'tingwall':
-                number +=1
-                print_display_vehicle(vehicles,number,formid)
-
-    elif choice == "5":
-        for vehicles in logicAPI.vehicles.get_all_vehicles():
-            if vehicles.__dict__()['airport'] == 'longyearbyen':
-                number +=1
-                print_display_vehicle(vehicles,number,formid)
-
-    elif choice == "6":
-        for vehicles in logicAPI.vehicles.get_all_vehicles():
-            if vehicles.__dict__()['airport'] == 'torshavn':
-                number +=1
-                print_display_vehicle(vehicles,number,formid)
-
-def display_vehicle_condition(logicAPI,ui):
-    '''Display vehicle condition'''
-    vehicle_condition_list = ["\nDisplay vehicles after condition: \n1. OK \n2. DEFECTIVE" ]
-    print(*vehicle_condition_list)
-    choice = ui.get_user_form(
-        {
-            'Enter Number': ['^[1-2]$','Enter valid number between 1 and 2']
-        }  
-    )
-    choice=choice[0]
-    number = 0
-    formid = vehicle_header(logicAPI)
-
-
-
-    if choice == "1":
-        for vehicles in logicAPI.vehicles.get_all_vehicles():
-            if vehicles.__dict__()['condition'] == 'OK':
-                number +=1
-                print_display_vehicle(vehicles,number,formid)
-    elif choice == "2":
-        for vehicles in logicAPI.vehicles.get_all_vehicles():
-            if vehicles.__dict__()['condition'] == 'DEFECTIVE':
-                number +=1
-                print_display_vehicle(vehicles,number,formid)
-           # was like this before: print("Type: {}, Location: {}, Condition: {}, ID: {}".format(vehicles.__dict__()['type'], vehicles.__dict__()['airport'], vehicles.__dict__()['condition'], vehicles.__dict__()['id']))
-
-def vehicle_header(logicAPI):
-    formid = vehicle_print_formatting(logicAPI)
-    header = "\n\t\033[4m| {:^{MAN}} | {:^{MOD}} | {:^{TYP}} | {:^{YOM}} | {:^{VIN}} | {:^{COL}} | {:^{CON}} | {:^{LIC}} | {:^{LOC}} | {:^{ID}} |\033[0m".format('Manufacturer', 'Model', 'Type',
-    'YOM','VIN','Color','Condition','Licence','Location','ID',MAN = formid[0],MOD = formid[1],TYP=formid[2],YOM=formid[3],VIN = formid[4],COL = formid[5], CON = formid[6], LIC =formid[7],LOC = formid[8], ID = formid[9])
-    print(header)
-    return formid
-
-def vehicle_rates_header(logicAPI):
-    formid = vehicle_rates_print_formatting(logicAPI)
-    header = "\n\t\033[4m| {:^{NAM}} | {:^{REG}} | {:^{RAT}} | {:^{ID}} |\033[0m".format('Type','Location','Rate','ID', NAM=formid[0], REG = formid[1], RAT = formid[2], ID = formid[3])
-    print(header)
-    return formid       
-
-def vehicle_print_formatting(logicAPI):
-    MAN = 0; MOD = 0; TYP = 0; YOM = 0; VIN = 0; COL = 0; CON = 0; LIC = 0; LOC = 0; ID = 0
-
-    for i in logicAPI.vehicles.get_all_vehicles():
-        if len(i.__dict__()['manufacturer']) > MAN: 
-            MAN = len(i.__dict__()['manufacturer'])
-        if len(i.__dict__()['model']) > MOD: 
-            MOD = len(i.__dict__()['model'])
-        if len(i.__dict__()['type']) > TYP: 
-            TYP = len(i.__dict__()['type'])
-        if len(i.__dict__()['yom']) > YOM: 
-            YOM = len(i.__dict__()['yom'])
-        if len(i.__dict__()['vehicle_id']) > VIN: 
-            VIN = len(i.__dict__()['vehicle_id'])
-        if len(i.__dict__()['color']) > COL: 
-            COL = len(i.__dict__()['color'])
-        if len(i.__dict__()['condition']) > CON: 
-            CON = len(i.__dict__()['condition'])
-        if len(i.__dict__()['licence']) > LIC: 
-            LIC = len(i.__dict__()['licence'])
-        if len(i.__dict__()['airport']) > LOC: 
-            LOC = len(i.__dict__()['airport'])
-        if len(i.__dict__()['id']) > ID: 
-            ID = len(i.__dict__()['id'])
-    
-    if MAN < len('manufacturer'): 
-        MAN = len('manufacturer')
-    if MOD < len('model'): 
-        MOD = len('model')
-    if TYP < len('type'): 
-        TYP = len('type')
-    if YOM < len('yom'): 
-        YOM = len('yom')
-    if VIN < len('vehicle_id'): 
-        VIN = len('vehicle_id')
-    if COL < len('color'): 
-        COL = len('color')
-    if CON < len('condition'): 
-        CON = len('condition')
-    if LIC < len('licence'): 
-        LIC = len('licence')
-    if LOC < len('airport'): 
-        LOC = len('airport')
-    if ID < len('id'): 
-        ID = len('id')
-
-            
-    LIST = [MAN,MOD,TYP,YOM,VIN,COL,CON,LIC,LOC,ID]
-    
-    return LIST
-
-def vehicle_rates_print_formatting(logicAPI):
-    NAM = 0; REG = 0; RAT = 0; ID = 0
-    
-    for i in logicAPI.vehicles.get_all_vehicle_types():
-        if len(i.__dict__()['name']) > NAM: 
-            NAM = len(i.__dict__()['name'])
-        if len(i.__dict__()['regions']) > REG: 
-            REG = len(i.__dict__()['regions'])
-        if len(i.__dict__()['rate']) > RAT: 
-            RAT = len(i.__dict__()['rate'])
-        if len(i.__dict__()['id']) > ID: 
-            ID = len(i.__dict__()['id'])
-
-    if NAM < len('Type'): 
-        NAM = len('Type')
-    if REG < len('Location'): 
-        REG = len('Location')
-    if RAT < len('Rate'): 
-        RAT = len('Rate') 
-    if ID < len('ID'): 
-        ID = len('ID')
-
-    LIST = [NAM,REG,RAT,ID]
-
-    return LIST
-    
-def print_display_vehicle(vehicles,number,formid):
-    '''Print function for display vehicle informations'''
-    # print("Vehicle number", number,":")
-    # print("\n\t\tType: {},\n\t\tManufacturer: {}\n\t\tYear of manufacture: {},"
-    #     "\n\t\tColor: {},\n\t\t Drivers Licence: {},\n\t\tAirport: {},"
-    #     "\n\t\tCondition: {},\n\t\tModel: {},\n\t\tVehicle ID: {},\n\t\tID: {}"
-    #     .format(vehicles.__dict__()['type'],vehicles.__dict__()['manufacturer'],
-    #     vehicles.__dict__()['yom'],vehicles.__dict__()['color'],vehicles.__dict__()['licence'],
-    #     vehicles.__dict__()['airport'],vehicles.__dict__()['condition'],vehicles.__dict__()['model'],
-    #     vehicles.__dict__()['vehicle_id'],vehicles.__dict__()['id']))
-
-
-    print("| {:^{MAN}} | {:^{MOD}} | {:^{TYP}} | {:^{YOM}} | {:^{VIN}} | {:^{COL}} | {:^{CON}} | {:^{LIC}} | {:^{LOC}} | {:^{ID}} |".format(vehicles.__dict__()['manufacturer'], 
-    vehicles.__dict__()['model'], vehicles.__dict__()['type'],vehicles.__dict__()['yom'],vehicles.__dict__()['vehicle_id'],
-    vehicles.__dict__()['color'],vehicles.__dict__()['condition'],vehicles.__dict__()['licence'],vehicles.__dict__()['airport'],
-    vehicles.__dict__()['id'],MAN = formid[0],MOD = formid[1],TYP=formid[2],YOM=formid[3],VIN = formid[4],COL = formid[5], CON = formid[6], LIC =formid[7],LOC = formid[8], ID = formid[9]))
-
-
-
-def display_vehicle_rates(logicAPI,ui):
-    formid = vehicle_rates_header(logicAPI)
-    for vehicles in logicAPI.vehicles.get_all_vehicle_types():
-        print("\t | {:^{NAM}} | {:^{REG}} | {:^{RAT}} | {:^{ID}} |".format(vehicles.__dict__()['name'],vehicles.__dict__()['regions'],
-            vehicles.__dict__()['rate'],vehicles.__dict__()['id'],NAM = formid[0],REG=formid[1],RAT=formid[2],ID=formid[3]))

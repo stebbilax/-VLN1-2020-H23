@@ -65,11 +65,11 @@ class Csv_Manager:
 
 
     # Possible names are in get_name_and_fields function
-    def write_all(self, data, name):
+    def write_all(self, data, name, clear_fields=True):
         category_name = name
         name, fields = self.get_name_and_fields(name)
         
-        self.clear_id_line(category_name)
+        if clear_fields: self.clear_id_line(category_name)
         with open(f'{self.directory}/data/{name}', 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=fields)
             writer.writeheader()
@@ -131,6 +131,6 @@ class Csv_Manager:
 
         # for line in new_lines:
             # print(line)
-
-        self.write_all(new_lines, category_name)
+        
+        self.write_all(new_lines, category_name, False)
 
