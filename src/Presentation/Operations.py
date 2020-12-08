@@ -190,7 +190,7 @@ class Operations:
         self.display.display(res, fields,choice)
 
     def printable_version(self, model):
-        res = model[1].get()
+        res = model[1].get_all()
         fields = model[0].fields()
         counter= 0
         counter_list= []
@@ -211,8 +211,19 @@ class Operations:
         # –Yfirlit yfir tekjur þar sem ætti að vera hægt að velja tímabilið sem á að skoða. Einnigværi gott að sjá sundurliðun á tekjum útibúa og tegund farartækja.
         # –Yfirlit yfir nýtingu farartækja á hverjum stað, flokkað eftir tegund.
         # –Yfirlit yfir reikninga á ákveðnu tímabili, þar sem hægt er að flokka eftir viðskiptavinumog hvort þeir séu farnir í inheimtu (rukkaðir).
-        res = model[1].get()
+        res = model[1].get_all()
         fields = model[0].fields()
+        money_counter = 0
+        dates_list = []
+        dates_dict = {}
+        for element in res:
+            obj = vars(element)
+            for index, (key,val) in enumerate(obj.items()):
+                if key == 'total_price':
+
+                    money_counter += int(val) 
+                if key == 'late_fee':
+                    money_counter += int(val)
         
 
 
@@ -271,11 +282,11 @@ class Display:
             #for field in fields:
             for index,(key,val) in enumerate(obj.items()):
                 index +=1
-                if val == choice:
+                if key == 'id' and val == choice:
                     for field in fields:
                         line += '\n\t\t| {:<30}|{:>30} |'.format(field,obj[field])
                     print(line)
-    
+
     def display_for_papa_chuck(self,data,fields,choice):
         '''This is for some papa chuck dinero'''
         pass
