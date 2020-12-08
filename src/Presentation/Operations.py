@@ -54,7 +54,8 @@ class Operations:
 
         if len(employee) > 1:
             print("Multiple results, select a %s" % model[0].__class__.__name__)
-            id = self.ui.get_user_option(employee).id
+            employee = self.ui.get_user_option(employee)
+            id = employee.id
         elif len(employee) == 0:
             print("Search returned no %s" % model[0].__class__.__name__)
             return
@@ -65,48 +66,49 @@ class Operations:
             return
 
         # Search for match
-            obj = vars(result[0])
-            submit = False
-            options = {}
+        obj = vars(employee)
+        submit = False
+        options = {}
 
-            # Enter editing loop
-            while submit == False:
-                print('Select field to edit: ')                      
+        # Enter editing loop
+        while submit == False:
+            print('Select field to edit: ')                      
 
-                for index, (key, val) in enumerate(obj.items()):
-                    # Disable id display in editing screen
-                    if key == 'id': continue
+            for index, (key, val) in enumerate(obj.items()):
+                # Disable id display in editing screen
+                if key == 'id': continue
 
-                    index += 1
-                    options[str(index)] = key
-                    print('{}.{:<15} {:<20}'.format(index, format_function_name(key), val))
-                print('b. BACK')                                    
-                print('s. SUBMIT')                                  
-                
-                field_num = self.ui.get_user_form({
-                    'selection' : ['\d|s|b', 'Please select a valid option.'.format(len(fields), len(fields))]
-                })
+                index += 1
+                options[str(index)] = key
+                print('{}.{:<15} {:<20}'.format(index, format_function_name(key), val))
+            print('b. BACK')                                    
+            print('s. SUBMIT')                                  
             
-                if not field_num:
-                    break
+            field_num = self.ui.get_user_form({
+                'selection' : ['\d|s|b', 'Please select a valid option.'.format(len(fields), len(fields))]
+            })
+        
+            if not field_num:
+                break
 
-                field_num = field_num[0]
+            field_num = field_num[0]
 
-                if field_num.lower() == 'b':
-                    submit = True
-                    continue
-                if field_num.lower() == 's':
-                    submit = True
-                    logic.edit(obj, obj['id'])
-                    continue
-                
-                
-                verifiers = self.verify.fields[options[field_num]]                              # Get regex and error msg
-                new_entry = self.ui.get_user_form({format_function_name(options[field_num]) : verifiers})  # Get input with validation
-                
-                if new_entry == False: return
-                
-                obj[options[field_num]] = new_entry[0]
+            if field_num.lower() == 'b':
+                submit = True
+                continue
+            if field_num.lower() == 's':
+                submit = True
+                logic.edit(obj, obj['id'])
+                continue
+            
+            
+            verifiers = self.verify.fields[options[field_num]]                              # Get regex and error msg
+            new_entry = self.ui.get_user_form({format_function_name(options[field_num]) : verifiers})  # Get input with validation
+            
+            if not new_entry:
+                retu
+            
+            obj[options[field_num]] = new_entry[0]
 
 
     def get(self, model):
