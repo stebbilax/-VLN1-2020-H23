@@ -67,6 +67,9 @@ class ManageEmployees:
     def get_all(self):
         return self.dataAPI.read_all_employees()
 
+    def get_all_location(self):
+        return self.dataAPI.read_all_employees()
+
     def get_employee_search_options(self):
         return [getattr(self.searchAPI.search_employee(), func) 
             for func in dir(self.searchAPI.search_employee())
@@ -148,5 +151,8 @@ class ManageDestinations:
     
     def get(self):
         return self.searchAPI.search_destination()
+    
+    def get_all(self):
+        return self.dataAPI.read_all_destinations()
 
 

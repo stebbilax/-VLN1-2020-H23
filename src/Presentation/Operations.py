@@ -112,15 +112,45 @@ class Operations:
 
 
     def get_all(self, model):
-        res = model[0].get_all()
-        fields = model[1].fields()
+        res = model[1].get_all()
+        fields = model[0].fields()
         self.display.display_all(res, fields)
 
+    def get_all_location(self, model):
+        # ATH get breytt þessum auðveldlega þannig að það sé líka hægt að nota þetta fall fyrir display all staff eftir location SKOÐA ÞAÐ
+        vehicle_location_list = ['\nDisplay vehicles after location:','\n1. Reykjavik','\n2. Nuuk','\n3. Kulusk','\n4. Tingwall','\n5. Longyearbyen','\n6. Torshavn']
+        dictionary_location_list = {'1':'reykjavik','2':'nuuk','3':'kulusk','4':'tingwall','5':'longyear','6':'torshavn'} #dictionary to translate user input into airport location
+        print(*vehicle_location_list)
+        choice = self.ui.get_user_form(
+            {
+                'Enter Number': ['^[1-6]$','Enter valid number between 1 and 6']
+            }  
+        )
+        for key,val in dictionary_location_list.items():
+            if key == str(choice[0]):
+                choice = val
+        res = model[1].get_all_location()
+        fields = model[0].fields()
+        self.display.display(res, fields,choice)
 
-    def get_all_location(self, model,choice):
-        res = model[0].get_all()
-        fields = model[1].fields()
-        self.display.display_all_in_a_location(res, fields,choice)
+    def get_all_condition(self, model):
+        #þetta fall er líka hægt að nota til að displaya starfsmenn eftir staðsetningu
+        vehicle_condition_list = ['\nDisplay vehicles after condition:','\n1. AVAILABLE','\n2. UNAVAILABLE']
+        dictionary_condition_list = {'1':'Available','2':'Unavailable'} #dictionary to translate user input into airport location
+        print(*vehicle_condition_list)
+        choice = self.ui.get_user_form(
+            {
+                'Enter Number': ['^[1-2]$','Enter valid number between 1 and 2']
+            }  
+        )
+        for key,val in dictionary_condition_list.items():
+            if key == str(choice[0]):
+                choice = val
+        res = model[1].get_all_location()
+        fields = model[0].fields()
+        self.display.display(res, fields,choice)
+
+
 
 
 
@@ -131,7 +161,7 @@ class Display:
 
 
     def display_all(self, data, fields):
-        ''' Register a new object by model '''
+        ''' Display all  '''
         field_lengths = self.find_header_format(data, fields)
 
         header = ''
@@ -146,12 +176,28 @@ class Display:
                 line += '| {:^{L}} '.format(obj[field], L=field_lengths[field])
             print('\t'+line + '|')
 
+    
+    def display(self,data,fields,choice):
+        '''Display after location'''
+        number =0
+        field_lengths = self.find_header_format(data, fields)
+        header = ''
+        for field in fields:
+            header += '| {:^{L}} '.format(field, L=field_lengths[field])
+        print('\n\t\033[4m' + header + '|\033[0m')
+        for el in data:
+            obj = vars(el)
+            line = ''
+            #for field in fields:
+            for index,(key,val) in enumerate(obj.items()):
+                index +=1
+                if val == choice:
+                    for field in fields:
+                        line += '| {:^{L}} '.format(obj[field], L=field_lengths[field])
+                    print('\t'+line + '|')
+ 
 
-    def display_vehicle_condition(self,data,fields):
-        pass
 
-    def display_vehicle_rates(self,data,fields):
-        pass
 
     def find_header_format(self, data, fields):
         field_lengths = {field: 0 for field in fields}
@@ -165,6 +211,11 @@ class Display:
                     field_lengths[field] = len(field)
 
         return field_lengths            
+        
+
+
+
+
 
 
 def test(logicAPI, ui):
@@ -173,6 +224,13 @@ def test(logicAPI, ui):
 
 
 
+def get_employee_after_location(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.get_all_location(o.employee)
+
+def get_vehicle_after_condition(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.get_all_condition(o.vehicle)
 
 
 def register_employee(logicAPI, ui):
@@ -226,16 +284,16 @@ def get_all_vehicles(logicAPI, ui):
     o = Operations(logicAPI, ui)
     o.get_all(o.vehicle)
 
+def get_vehicle_type_rates(logicAPI,ui):
+    o = Operations(logicAPI,ui)
+    o.get_all(o.vehicle_type)
+
+
 def get_vehicle_after_location(logicAPI,ui):
-    vehicle_location_list = ['\nDisplay vehicles after location:','\n1. Reykjavik','\n2. Nuuk','\n3. Kulusk','\n4. Tingwall','\n5. Longyearbyen','\n6. Torshavn']
-    print(*vehicle_location_list)
-    choice = ui.get_user_form(
-        {
-            'Enter Number': ['^[1-6]$','Enter valid number between 1 and 6']
-        }  
-    )
     o = Operations(logicAPI, ui)
-    o.get_all(o.vehicle,choice)
+    o.get_all_location(o.vehicle)
+
+
 
 def register_customer(logicAPI,ui):
     o = Operations(logicAPI, ui)
@@ -248,6 +306,11 @@ def get_customer(logicAPI,ui):
 def edit_customer(logicAPI,ui):
     o = Operations(logicAPI, ui)
     o.edit(o.customer)
+
+def get_all_customers(logicAPI,ui):
+    #get all customers table is too large for terminal
+    o = Operations(logicAPI, ui)
+    o.get_all(o.customer)
 
 
 
@@ -262,6 +325,10 @@ def get_destination(logicAPI,ui):
 def edit_destination(logicAPI,ui):
     o = Operations(logicAPI, ui)
     o.edit(o.destination)
+
+def get_all_destinations(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.get_all(o.destination)
 
 
 
@@ -364,7 +431,7 @@ def display_vehicle_condition(logicAPI,ui):
 
 def vehicle_header(logicAPI):
     formid = vehicle_print_formatting(logicAPI)
-    header = "\n\t\033[4m| {:^{:30}} | {:^{MOD}} | {:^{TYP}} | {:^{YOM}} | {:^{VIN}} | {:^{COL}} | {:^{CON}} | {:^{LIC}} | {:^{LOC}} | {:^{ID}} |\033[0m".format('Manufacturer', 'Model', 'Type',
+    header = "\n\t\033[4m| {:^{MAN}} | {:^{MOD}} | {:^{TYP}} | {:^{YOM}} | {:^{VIN}} | {:^{COL}} | {:^{CON}} | {:^{LIC}} | {:^{LOC}} | {:^{ID}} |\033[0m".format('Manufacturer', 'Model', 'Type',
     'YOM','VIN','Color','Condition','Licence','Location','ID',MAN = formid[0],MOD = formid[1],TYP=formid[2],YOM=formid[3],VIN = formid[4],COL = formid[5], CON = formid[6], LIC =formid[7],LOC = formid[8], ID = formid[9])
     print(header)
     return formid

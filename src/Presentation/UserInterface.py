@@ -55,7 +55,8 @@ class UserInterface:
         # Employee display functions
         display_employee_menu_office.selectable_options += [
             get_all_employees,
-            get_employee
+            get_employee,
+            get_employee_after_location,
         ]
 
         #endregion                      -----
@@ -75,9 +76,9 @@ class UserInterface:
         display_vehicle_menu_office.selectable_options += [
             get_all_vehicles,
             get_vehicle,
-            display_all_vehicles_in_a_location,
+            get_vehicle_after_location,
             get_all_vehicle_types,
-            display_vehicle_condition
+            get_vehicle_after_condition,
         ]
 
         #endregion                      -----
@@ -114,7 +115,8 @@ class UserInterface:
 
         # Customer display functions
         display_customer_menu_office.selectable_options += [
-            get_customer
+            get_customer,
+            get_all_customers,
         ]
 
         #endregion                      -----
@@ -132,7 +134,8 @@ class UserInterface:
 
         # vehicle_type display functions
         display_vehicle_type_menu_office.selectable_options += [
-            get_vehicle_type
+            get_vehicle_type,
+            get_vehicle_type_rates
         ]
 
         #endregion                      -----
@@ -150,7 +153,8 @@ class UserInterface:
 
         # destination display functions
         display_destination_menu_office.selectable_options += [
-            get_destination
+            get_destination,
+            get_all_destinations,
         ]
 
         #endregion                      -----
@@ -182,7 +186,8 @@ class UserInterface:
         # Employee display functions
         display_employee_menu.selectable_options += [
             get_all_employees,
-            get_employee
+            get_employee,
+            get_employee_after_location,
         ]
 
         #endregion                      -----
@@ -203,6 +208,7 @@ class UserInterface:
             get_all_vehicles,
             get_vehicle,
             get_vehicle_after_location,
+            get_vehicle_after_condition,
         ]
 
         #endregion                      -----
