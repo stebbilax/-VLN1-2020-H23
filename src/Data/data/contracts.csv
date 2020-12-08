@@ -1,21 +1,21 @@
 vehicle_id,vehicle_state,vehicle_status,vehicle_licence,country,customer_id,customer_name,phone,email,address,customer_licence,employee_id,location_handover,location_return,date_handover,date_return,time_handover,time_return,contract_start,contract_end,state,rate,late_fee,total_price,id
-1,OK,Unavailable,Drivers licence,Svalbard,1,Mia,768-0504,Elijah@nan.is,ElijahSquare 29,Drivers licence,1,nuuk,tingwall,2020-04-16,2020-06-12,10:30,10:30,2020-05-12,2020-08-17,Completed,847,205,0,1
-1,OK,Available,Drivers licence,Greenland,1,Benjamin,790-3271,Ethan@nan.is,LiamSquare 22,Drivers licence,1,longyearbyen,reykjavik,2020-01-15,2020-11-13,10:30,10:30,2020-02-11,2020-10-03,Completed,912,159,0,2
-1,DEFECTIVE,Available,None,Svalbard,1,Lucas,764-5623,James@nan.is,IsabellaTown 17,Im amazing licence,1,longyearbyen,reykjavik,2020-03-02,2020-12-13,10:30,10:30,2020-01-02,2020-12-17,Invalid,109,36,0,3
-1,DEFECTIVE,Unavailable,Im amazing licence,Svalbard,1,Amelia,690-0207,Emma@nan.is,OliverStreet 11,Im amazing licence,1,nuuk,nuuk,2020-04-16,2020-10-06,10:30,10:30,2020-05-15,2020-11-20,Completed,513,297,0,4
-1,OK,Unavailable,None,Svalbard,1,Lucas,676-8938,Ethan@nan.is,JamesStreet 28,Im amazing licence,1,reykjavik,reykjavik,2020-05-16,2020-07-14,10:30,10:30,2020-02-13,2020-09-15,Invalid,228,216,0,5
-1,DEFECTIVE,Unavailable,None,Svalbard,1,Ava,783-5541,Benjamin@nan.is,IsabellaTown 3,None,1,reykjavik,torshavn,2020-03-10,2020-08-14,10:30,10:30,2020-03-09,2020-05-17,Valid,557,46,0,6
-1,OK,Available,Drivers licence,Farao Islands,1,Isabella,871-7797,Lucas@nan.is,IsabellaTown 23,Im amazing licence,1,torshavn,tingwall,2020-04-08,2020-08-07,10:30,10:30,2020-03-04,2020-09-01,Completed,149,226,0,7
-1,OK,Unavailable,Im amazing licence,Shetland,1,Olivia,676-1369,Ava@nan.is,EvelynSquare 11,Drivers licence,1,nuuk,reykjavik,2020-01-06,2020-10-19,10:30,10:30,2020-03-07,2020-05-07,Valid,395,72,0,8
-1,OK,Available,None,Iceland,1,Liam,986-0369,Olivia@nan.is,LucasTown 9,None,1,longyearbyen,longyearbyen,2020-01-01,2020-11-07,10:30,10:30,2020-03-17,2020-08-16,Valid,545,290,0,9
-1,OK,Unavailable,Im amazing licence,Svalbard,1,William,889-5072,Mason@nan.is,OliverTown 24,Drivers licence,1,kulusk,tingwall,2020-03-15,2020-08-09,10:30,10:30,2020-02-12,2020-07-14,Invalid,189,106,0,10
-1,OK,Unavailable,Drivers licence,Farao Islands,1,Liam,873-8839,Oliver@nan.is,LiamTown 0,Im amazing licence,1,nuuk,torshavn,2020-03-20,2020-05-03,10:30,10:30,2020-04-13,2020-10-14,Completed,138,190,0,11
-1,OK,Unavailable,None,Shetland,1,Elijah,667-0070,Emma@nan.is,WilliamSquare 16,None,1,tingwall,longyearbyen,2020-05-19,2020-07-17,10:30,10:30,2020-02-16,2020-07-02,Valid,691,183,0,12
-1,OK,Available,Drivers licence,Svalbard,1,Harper,680-2215,Emma@nan.is,MasonTown 6,Drivers licence,1,tingwall,reykjavik,2020-04-09,2020-06-13,10:30,10:30,2020-02-18,2020-10-06,Invalid,452,36,0,13
-1,OK,Available,None,Svalbard,1,Ethan,681-9063,Liam@nan.is,OliverSquare 17,Drivers licence,1,tingwall,longyearbyen,2020-05-01,2020-10-11,10:30,10:30,2020-05-12,2020-12-16,Invalid,353,28,0,14
-1,DEFECTIVE,Unavailable,Drivers licence,Svalbard,1,Olivia,697-3266,Mia@nan.is,EmmaStreet 9,None,1,tingwall,reykjavik,2020-04-01,2020-08-18,10:30,10:30,2020-05-14,2020-05-03,Completed,678,247,0,15
-1,OK,Unavailable,Im amazing licence,Svalbard,1,Harper,681-2618,Mia@nan.is,SophiaTown 23,None,1,kulusk,longyearbyen,2020-05-08,2020-11-03,10:30,10:30,2020-01-15,2020-07-01,Completed,661,259,0,16
-1,DEFECTIVE,Unavailable,Im amazing licence,Greenland,1,Emma,975-0065,Benjamin@nan.is,SophiaStreet 5,None,1,torshavn,longyearbyen,2020-02-10,2020-12-13,10:30,10:30,2020-05-09,2020-06-06,Valid,553,45,0,17
-1,OK,Available,Im amazing licence,Farao Islands,1,Sophia,681-9874,William@nan.is,NoahRoad 15,Im amazing licence,1,tingwall,tingwall,2020-05-10,2020-08-19,10:30,10:30,2020-01-16,2020-07-05,Valid,379,1,0,18
-1,OK,Available,Im amazing licence,Farao Islands,1,Oliver,691-6215,William@nan.is,HarperTown 29,Drivers licence,1,torshavn,longyearbyen,2020-04-15,2020-06-13,10:30,10:30,2020-02-17,2020-07-17,Valid,500,171,0,19
-1,OK,Available,Drivers licence,Shetland,1,Amelia,785-7348,Mason@nan.is,EthanStreet 7,Drivers licence,1,nuuk,torshavn,2020-04-18,2020-12-06,10:30,10:30,2020-02-03,2020-11-03,Completed,426,6,0,20
+1,DEFECTIVE,Unavailable,Drivers licence,Svalbard,1,Evelyn,996-5816,Lucas@nan.is,WilliamRoad 29,Im amazing licence,1,nuuk,longyearbyen,2020-03-10,2020-12-19,10:30,10:30,2020-02-12,2020-07-20,Completed,602,259,0,1
+1,DEFECTIVE,Available,None,Iceland,1,Isabella,785-7257,Lucas@nan.is,HarperTown 3,Drivers licence,1,tingwall,nuuk,2020-04-03,2020-06-06,10:30,10:30,2020-02-14,2020-12-06,Completed,498,19,0,2
+1,DEFECTIVE,Available,Im amazing licence,Svalbard,1,Ethan,678-4871,Benjamin@nan.is,EvelynTown 23,Drivers licence,1,reykjavik,tingwall,2020-05-13,2020-05-04,10:30,10:30,2020-04-19,2020-05-15,Valid,385,7,0,3
+1,OK,Unavailable,Drivers licence,Iceland,1,Mason,892-7257,Benjamin@nan.is,EvelynTown 6,Drivers licence,1,kulusk,nuuk,2020-03-17,2020-12-10,10:30,10:30,2020-01-17,2020-07-02,Completed,509,87,0,4
+1,DEFECTIVE,Unavailable,None,Svalbard,1,Elijah,786-7648,William@nan.is,OliviaSquare 17,Drivers licence,1,nuuk,kulusk,2020-01-10,2020-11-09,10:30,10:30,2020-02-06,2020-07-14,Completed,716,124,0,5
+1,OK,Available,Im amazing licence,Svalbard,1,Liam,789-7761,Mason@nan.is,MiaSquare 4,Drivers licence,1,kulusk,tingwall,2020-03-03,2020-12-02,10:30,10:30,2020-05-13,2020-05-11,Completed,631,257,0,6
+1,OK,Unavailable,None,Farao Islands,1,Ava,690-3382,Lucas@nan.is,LiamStreet 14,Im amazing licence,1,longyearbyen,torshavn,2020-04-02,2020-11-01,10:30,10:30,2020-01-02,2020-11-02,Valid,431,63,0,7
+1,DEFECTIVE,Unavailable,Im amazing licence,Svalbard,1,William,782-3209,Ethan@nan.is,NoahStreet 26,Drivers licence,1,reykjavik,reykjavik,2020-05-06,2020-07-16,10:30,10:30,2020-05-02,2020-07-04,Completed,350,280,0,8
+1,OK,Available,Drivers licence,Greenland,1,Elijah,982-4869,Elijah@nan.is,AmeliaRoad 24,None,1,nuuk,reykjavik,2020-03-10,2020-06-01,10:30,10:30,2020-03-11,2020-07-17,Invalid,916,193,0,9
+1,OK,Available,Drivers licence,Shetland,1,James,977-4380,Ava@nan.is,EvelynStreet 6,Im amazing licence,1,longyearbyen,nuuk,2020-03-10,2020-12-18,10:30,10:30,2020-01-03,2020-11-07,Valid,941,145,0,10
+1,DEFECTIVE,Unavailable,Im amazing licence,Svalbard,1,Charlotte,965-6848,Evelyn@nan.is,JamesRoad 12,None,1,longyearbyen,torshavn,2020-05-13,2020-07-19,10:30,10:30,2020-03-07,2020-06-13,Valid,952,18,0,11
+1,DEFECTIVE,Unavailable,Im amazing licence,Iceland,1,Sophia,992-5871,Lucas@nan.is,OliverStreet 28,Drivers licence,1,reykjavik,tingwall,2020-01-18,2020-12-18,10:30,10:30,2020-02-15,2020-11-15,Invalid,728,120,0,12
+1,OK,Available,None,Greenland,1,Evelyn,698-4577,Benjamin@nan.is,LucasRoad 9,Drivers licence,1,torshavn,nuuk,2020-03-07,2020-10-14,10:30,10:30,2020-02-19,2020-11-12,Invalid,722,142,0,13
+1,DEFECTIVE,Available,Drivers licence,Greenland,1,Charlotte,680-9495,Ava@nan.is,OliviaRoad 11,None,1,torshavn,longyearbyen,2020-03-04,2020-12-15,10:30,10:30,2020-01-09,2020-11-18,Invalid,172,23,0,14
+1,DEFECTIVE,Unavailable,Im amazing licence,Iceland,1,Isabella,976-5544,Elijah@nan.is,HarperStreet 20,Im amazing licence,1,nuuk,tingwall,2020-03-03,2020-09-10,10:30,10:30,2020-01-20,2020-09-12,Completed,134,245,0,15
+1,OK,Unavailable,Im amazing licence,Shetland,1,Charlotte,672-4521,William@nan.is,JamesTown 11,None,1,torshavn,torshavn,2020-04-19,2020-09-14,10:30,10:30,2020-04-18,2020-12-07,Valid,302,63,0,16
+1,DEFECTIVE,Available,Drivers licence,Svalbard,1,Emma,691-4112,Benjamin@nan.is,OliviaRoad 11,Im amazing licence,1,tingwall,torshavn,2020-01-18,2020-11-14,10:30,10:30,2020-02-01,2020-09-06,Completed,652,277,0,17
+1,DEFECTIVE,Available,Drivers licence,Svalbard,1,Mia,688-7626,William@nan.is,EvelynSquare 27,Im amazing licence,1,longyearbyen,tingwall,2020-02-05,2020-05-20,10:30,10:30,2020-05-13,2020-06-07,Invalid,154,112,0,18
+1,DEFECTIVE,Unavailable,None,Shetland,1,Ethan,791-6767,Ethan@nan.is,SophiaSquare 12,Im amazing licence,1,nuuk,tingwall,2020-03-03,2020-11-09,10:30,10:30,2020-01-19,2020-05-17,Invalid,671,14,0,19
+1,DEFECTIVE,Available,Drivers licence,Iceland,1,Harper,887-5325,Lucas@nan.is,EmmaSquare 8,Im amazing licence,1,kulusk,tingwall,2020-01-04,2020-11-05,10:30,10:30,2020-05-01,2020-08-15,Completed,989,188,0,20
