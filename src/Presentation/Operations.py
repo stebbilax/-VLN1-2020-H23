@@ -1,7 +1,6 @@
 from datetime import date
 from Presentation.input_verifiers import Input_Verifiers
 from Presentation.Menu import format_function_name
-from Models.Enums import *
 from Models.Contract import Contract
 from Models.Customer import Customer
 from Models.Destination import Destination
@@ -15,7 +14,7 @@ class Operations:
     def __init__(self, lapi, ui):
         self.logicAPI = lapi
         self.ui = ui
-        self.verify = Input_Verifiers()
+        self.verify = Input_Verifiers(lapi)
 
         # Get the number of required parameters to the init method of the class
         self.contract = [Contract(*[None for i in range(len(signature(Contract).parameters))]), lapi.contract]
@@ -43,7 +42,7 @@ class Operations:
         fields = model[0].fields()
         logic = model[1]
 
-        # Get Employee
+        # Get Object
         print("Choose a method to select a %s" % model[0].__class__.__name__)
         search_query = self.ui.get_user_option(logic.get_search_options())
 
@@ -64,8 +63,6 @@ class Operations:
 
         if not id:
             return
-
-        print(employee)
 
         # Search for match
         if type(employee) is list:
@@ -112,7 +109,7 @@ class Operations:
             new_entry = self.ui.get_user_form({format_function_name(options[field_num]) : verifiers})  # Get input with validation
             
             if not new_entry:
-                retu
+                return
             
             obj[options[field_num]] = new_entry[0]
 
@@ -258,8 +255,8 @@ class Display:
 
 
 def test(logicAPI, ui):
-    o = Operations(logicAPI, ui)
-    o.get(o.contract)
+    pass
+    #logicAPI.dataAPI.enums
 
 
 

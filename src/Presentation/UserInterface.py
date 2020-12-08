@@ -11,7 +11,7 @@ class UserInterface:
         self.access = 0
 
         # Clear window
-        os.system('cls')
+        #os.system('cls')
 
         # Create main categories
         main_menu       = Menu("Main Menu", None, None, self.logic, self)
