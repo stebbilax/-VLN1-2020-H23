@@ -41,7 +41,7 @@ class ManageVehicles:
     def get_all(self):
         return self.dataAPI.read_all_vehicles()
     
-    def get_all_location(self):
+    def get_all_after_choice(self):
         return self.dataAPI.read_all_vehicles()
 
     def get_search_options(self):
@@ -68,7 +68,7 @@ class ManageEmployees:
     def get_all(self):
         return self.dataAPI.read_all_employees()
 
-    def get_all_location(self):
+    def get_all_after_choice(self):
         return self.dataAPI.read_all_employees()
 
     def get_search_options(self):
