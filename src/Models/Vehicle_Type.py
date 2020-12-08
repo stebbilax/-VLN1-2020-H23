@@ -1,12 +1,12 @@
 class Vehicle_Type:
-    def __init__(self, name, regions, rate, id=None):
+    def __init__(self, name, airport, rate, id=None):
         self.name = name
-        self.regions = regions
+        self.airport = airport
         self.rate = rate
         self.id = id
 
     def __str__(self):
-        return f'{self.name}, {self.regions}, {self.rate}'
+        return f'{self.name}, {self.airport}, {self.rate}'
 
     def fields(self):
         return [property for property, value, in vars(self).items()]

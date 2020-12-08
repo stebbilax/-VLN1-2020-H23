@@ -1,4 +1,13 @@
 from Logic.Search_API import Search_API
+from datetime import datetime
+
+# Recives two dates and calculates the difference, returning in days
+def calculate_date_difference(d1, d2):
+    d1 = datetime.fromisoformat(d1)
+    d2 = datetime.fromisoformat(d2)
+
+    delta = d2 - d1
+    return delta.days
 
 
 # Finds vehicle with matching id and inserts relevant information about it
@@ -9,6 +18,8 @@ def contract_filler(form):
     vehicle_state_idx = 1
     vehicle_status_idx = 2
     vehicle_licence_idx = 3
+    date_from_idx = 12
+    date_too_idx = 13
     contract_state_idx = 16
     vehicle_rate_idx = 17
     vehicle_late_fee_idx = 18

@@ -113,7 +113,7 @@ def vehicle():
 def vehicle_type():
     return Vehicle_Type(
         D.make_type(),
-        D.make_country(),
+        D.make_airport(),
         randint(100, 1000),
 
     )

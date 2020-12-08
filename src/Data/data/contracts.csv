@@ -1,22 +1,21 @@
 vehicle_id,vehicle_state,vehicle_status,vehicle_licence,country,customer_id,customer_name,phone,email,address,customer_licence,employee_id,date_of_handover,date_of_return,contract_start,contract_end,state,rate,late_fee,total_price,id
-1,DEFECTIVE,Available,Drivers licence,Greenland,1,Amelia,776-6635,Amelia@nan.is,MasonSquare 10,Im amazing licence,1,2020-02-05,2020-10-18,2020-05-01,2020-07-18,Completed,745,74,0,1
-1,OK,Available,Drivers licence,Svalbard,1,Noah,794-6401,Sophia@nan.is,LiamSquare 17,Im amazing licence,1,2020-02-10,2020-06-14,2020-03-05,2020-10-14,Completed,272,294,0,2
-1,DEFECTIVE,Unavailable,None,Farao Islands,1,Mason,884-2427,Evelyn@nan.is,MasonSquare 7,Drivers licence,1,2020-01-02,2020-12-19,2020-03-09,2020-07-04,Valid,815,169,0,3
-1,DEFECTIVE,Unavailable,Im amazing licence,Svalbard,1,Benjamin,666-1470,Benjamin@nan.is,LucasStreet 14,None,1,2020-01-04,2020-05-03,2020-04-06,2020-06-14,Invalid,658,92,0,4
-1,OK,Available,Im amazing licence,Farao Islands,1,Ava,661-0907,Mia@nan.is,AvaTown 28,None,1,2020-02-19,2020-08-06,2020-04-07,2020-05-14,Invalid,976,123,0,5
-1,OK,Unavailable,None,Iceland,1,Harper,773-3452,Ethan@nan.is,NoahRoad 1,Drivers licence,1,2020-05-04,2020-09-16,2020-04-01,2020-11-15,Valid,306,251,0,6
-1,DEFECTIVE,Unavailable,Im amazing licence,Svalbard,1,Ethan,772-7731,Liam@nan.is,EmmaSquare 17,Drivers licence,1,2020-01-01,2020-08-08,2020-05-04,2020-09-14,Invalid,641,70,0,7
-1,DEFECTIVE,Unavailable,None,Shetland,1,Sophia,771-7330,Benjamin@nan.is,BenjaminRoad 30,None,1,2020-03-19,2020-06-01,2020-02-15,2020-11-07,Valid,389,105,0,8
-1,DEFECTIVE,Unavailable,Drivers licence,Greenland,1,Ethan,991-3264,Ethan@nan.is,SophiaStreet 12,Drivers licence,1,2020-01-02,2020-05-05,2020-01-07,2020-05-02,Completed,872,233,0,9
-1,DEFECTIVE,Unavailable,None,Shetland,1,Mia,775-0252,Mason@nan.is,LucasStreet 21,None,1,2020-01-18,2020-05-09,2020-01-20,2020-07-06,Completed,844,289,0,10
-1,OK,Available,Im amazing licence,Greenland,1,Elijah,691-0949,Emma@nan.is,MiaTown 16,Im amazing licence,1,2020-05-03,2020-08-14,2020-05-01,2020-07-16,Completed,475,263,0,11
-1,DEFECTIVE,Available,Im amazing licence,Svalbard,1,Ethan,695-9152,Lucas@nan.is,SophiaRoad 9,Drivers licence,1,2020-05-09,2020-09-04,2020-01-06,2020-09-15,Valid,743,114,0,12
-1,OK,Unavailable,Drivers licence,Greenland,1,James,668-1508,Ethan@nan.is,MasonStreet 15,Im amazing licence,1,2020-04-02,2020-12-03,2020-03-12,2020-08-13,Invalid,852,119,0,13
-1,DEFECTIVE,Available,None,Svalbard,1,Harper,764-0125,Olivia@nan.is,LiamTown 26,Drivers licence,1,2020-04-01,2020-09-15,2020-01-17,2020-11-20,Invalid,820,274,0,14
-1,DEFECTIVE,Unavailable,Im amazing licence,Shetland,1,Elijah,667-0820,Charlotte@nan.is,JamesTown 28,Im amazing licence,1,2020-02-15,2020-09-05,2020-04-12,2020-06-16,Completed,889,192,0,15
-1,OK,Available,Im amazing licence,Greenland,1,Mason,783-5522,Amelia@nan.is,SophiaStreet 12,None,1,2020-05-03,2020-12-15,2020-02-01,2020-05-05,Invalid,975,87,0,16
-1,OK,Unavailable,None,Iceland,1,Lucas,987-6429,Harper@nan.is,EmmaStreet 14,Im amazing licence,1,2020-05-12,2020-08-14,2020-01-11,2020-10-12,Valid,752,300,0,17
-1,DEFECTIVE,Unavailable,Im amazing licence,Shetland,1,Noah,787-7642,Olivia@nan.is,EvelynRoad 1,Im amazing licence,1,2020-04-09,2020-07-19,2020-05-06,2020-11-14,Valid,129,14,0,18
-1,DEFECTIVE,Unavailable,Drivers licence,Shetland,1,Mason,678-4042,Isabella@nan.is,IsabellaSquare 21,None,1,2020-02-18,2020-10-13,2020-02-06,2020-07-12,Valid,719,243,0,19
-1,OK,Available,Drivers licence,Shetland,1,Elijah,867-1248,James@nan.is,LucasRoad 16,Im amazing licence,1,2020-02-13,2020-08-13,2020-05-13,2020-08-15,Valid,888,71,0,20
-1,Unavailable,DEFECTIVE,None,iceland,2,asd,123123123,s@s.com,address,licence,2,2020-01-01,2020-02-02,2020-01-01,2020-02-02,VALID,118,N/A,N/A,21
+1,OK,Available,Drivers licence,Shetland,1,Emma,969-5684,Lucas@nan.is,EthanRoad 5,Im amazing licence,1,2020-05-12,2020-05-03,2020-03-10,2020-07-17,Completed,208,5,0,1
+1,OK,Available,None,Svalbard,1,William,663-3764,Liam@nan.is,IsabellaTown 17,None,1,2020-04-03,2020-09-17,2020-03-20,2020-09-15,Completed,440,107,0,2
+1,OK,Unavailable,Drivers licence,Farao Islands,1,Sophia,996-5507,Emma@nan.is,EvelynTown 3,Drivers licence,1,2020-03-14,2020-12-04,2020-04-10,2020-12-14,Valid,305,93,0,3
+1,DEFECTIVE,Unavailable,None,Greenland,1,Ethan,877-0339,Amelia@nan.is,JamesStreet 22,None,1,2020-01-06,2020-06-17,2020-01-01,2020-05-01,Completed,451,184,0,4
+1,OK,Unavailable,Im amazing licence,Greenland,1,Elijah,681-9176,Liam@nan.is,EvelynRoad 7,Im amazing licence,1,2020-01-12,2020-06-07,2020-01-15,2020-11-08,Invalid,315,97,0,5
+1,OK,Unavailable,Drivers licence,Greenland,1,Elijah,798-0608,Olivia@nan.is,EmmaRoad 27,Im amazing licence,1,2020-01-02,2020-10-10,2020-01-09,2020-10-18,Completed,811,271,0,6
+1,DEFECTIVE,Available,None,Iceland,1,Evelyn,993-9597,Charlotte@nan.is,BenjaminRoad 24,Drivers licence,1,2020-03-16,2020-10-20,2020-05-02,2020-05-07,Valid,979,194,0,7
+1,OK,Unavailable,Im amazing licence,Iceland,1,Elijah,896-6701,Harper@nan.is,CharlotteTown 9,Im amazing licence,1,2020-02-18,2020-07-04,2020-01-16,2020-07-09,Valid,102,271,0,8
+1,DEFECTIVE,Unavailable,Im amazing licence,Greenland,1,Harper,973-7860,James@nan.is,EmmaRoad 18,Im amazing licence,1,2020-04-07,2020-12-12,2020-03-05,2020-11-10,Invalid,803,137,0,9
+1,OK,Available,Drivers licence,Greenland,1,Mason,681-8070,William@nan.is,EvelynRoad 20,Drivers licence,1,2020-05-20,2020-07-06,2020-03-11,2020-06-19,Valid,504,108,0,10
+1,DEFECTIVE,Unavailable,Drivers licence,Greenland,1,Sophia,784-6251,Oliver@nan.is,NoahStreet 26,Im amazing licence,1,2020-01-17,2020-11-07,2020-01-06,2020-09-13,Invalid,231,292,0,11
+1,DEFECTIVE,Available,Im amazing licence,Greenland,1,Amelia,660-9568,Charlotte@nan.is,LucasSquare 11,Drivers licence,1,2020-02-13,2020-07-15,2020-05-20,2020-09-17,Invalid,246,82,0,12
+1,DEFECTIVE,Available,None,Farao Islands,1,Ava,864-5778,Liam@nan.is,LucasSquare 2,None,1,2020-05-06,2020-07-07,2020-04-09,2020-08-09,Valid,636,268,0,13
+1,DEFECTIVE,Available,Drivers licence,Iceland,1,Benjamin,875-6317,Liam@nan.is,MiaSquare 23,Im amazing licence,1,2020-05-15,2020-11-10,2020-02-20,2020-06-19,Invalid,578,116,0,14
+1,OK,Available,None,Farao Islands,1,Isabella,884-2123,Ethan@nan.is,MasonRoad 16,None,1,2020-05-09,2020-10-02,2020-02-06,2020-11-08,Invalid,371,218,0,15
+1,DEFECTIVE,Available,Drivers licence,Shetland,1,Ethan,990-2551,James@nan.is,EmmaRoad 16,Drivers licence,1,2020-04-17,2020-07-09,2020-02-05,2020-06-08,Invalid,456,1,0,16
+1,DEFECTIVE,Available,Drivers licence,Svalbard,1,Charlotte,896-6705,Sophia@nan.is,LiamSquare 1,Drivers licence,1,2020-03-07,2020-12-02,2020-03-12,2020-12-06,Completed,333,288,0,17
+1,DEFECTIVE,Unavailable,Im amazing licence,Iceland,1,Harper,785-4570,Elijah@nan.is,HarperRoad 25,Drivers licence,1,2020-05-04,2020-05-19,2020-02-11,2020-11-15,Valid,180,113,0,18
+1,DEFECTIVE,Unavailable,Im amazing licence,Svalbard,1,James,864-2946,Isabella@nan.is,EmmaSquare 20,None,1,2020-01-16,2020-11-09,2020-04-03,2020-10-03,Invalid,897,157,0,19
+1,DEFECTIVE,Unavailable,None,Farao Islands,1,Olivia,796-0775,Elijah@nan.is,IsabellaStreet 8,Drivers licence,1,2020-04-18,2020-12-11,2020-02-08,2020-11-14,Valid,617,291,0,20
