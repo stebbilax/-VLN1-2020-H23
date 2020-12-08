@@ -144,24 +144,28 @@ class Operations:
         fields = model[0].fields()
         self.display.display_all(res, fields)
 
-    def get_all_location(self, model):
-        # ATH get breytt þessum auðveldlega þannig að það sé líka hægt að nota þetta fall fyrir display all staff eftir location SKOÐA ÞAÐ
+    def get_all_location(self, model,key_type):
+        #get all vehicle/staff after location
+        location_list = ["\nDisplay all after {}".format(key_type)] #list to append locations to
+        location_dict = {} # dictionary to numerate and append locations to 
+        counter = 0  #count number of vehicles
         res = model[1].get_all_location()
         fields = model[0].fields()
-        location_list = ['\nDisplay vehicles after location:',]
-        location_dict = {}
-        counter = 0
-        for el in res:
-            obj = vars(el)
+
+
+        for element in res:
+            obj = vars(element)
             for index,(key,val) in enumerate(obj.items()):
                     for field in fields:
-                        if key == 'airport':
+                        if key == str(key_type):
                             if val not in location_list:
                                 location_list.append(val)
+
         print(location_list[0])
+
         for destination in location_list[1:]:
             counter +=1
-            print('\n %s. %s'% (counter,destination))
+            print(' %s. %s'% (counter,destination))
             location_dict.update({str(counter):destination})
 
         choice = self.ui.get_user_form(
@@ -178,28 +182,11 @@ class Operations:
                 choice = val
         res = model[1].get_all_location()
         fields = model[0].fields()
+
+        #calls display function in Display class
         self.display.display(res, fields,choice)
 
-    def get_all_condition(self, model):
-        #þetta fall er líka hægt að nota til að displaya starfsmenn eftir staðsetningu
-        vehicle_condition_list = ['\nDisplay vehicles after condition:','\n1. AVAILABLE','\n2. UNAVAILABLE']
-        dictionary_condition_list = {'1':'Available','2':'Unavailable'} #dictionary to translate user input into airport location
-        print(*vehicle_condition_list)
-        choice = self.ui.get_user_form(
-            {
-                'Enter Number': ['^[1-2]$','Enter valid number between 1 and 2']
-            }  
-        )
 
-        if not choice:
-            return
-
-        for key,val in dictionary_condition_list.items():
-            if key == str(choice[0]):
-                choice = val
-        res = model[1].get_all_location()
-        fields = model[0].fields()
-        self.display.display(res, fields,choice)
 
 class Display:
     def __init__(self):
@@ -224,7 +211,7 @@ class Display:
 
     
     def display(self,data,fields,choice):
-        '''Display after location'''
+        '''Display after location/condition'''
         number =0
         field_lengths = self.find_header_format(data, fields)
         header = ''
@@ -271,13 +258,13 @@ def test(logicAPI, ui):
 
 
 def get_employee_after_location(logicAPI,ui):
+    key_type = ui.get_user_form(
+        {
+            'Pick one: country, airport, title ': ['(?:country|airport|title)$','Enter valid word!']
+        }  
+    )
     o = Operations(logicAPI, ui)
-    o.get_all_location(o.employee)
-
-def get_vehicle_after_condition(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.get_all_condition(o.vehicle)
-
+    o.get_all_location(o.employee,key_type[0])
 
 def register_employee(logicAPI, ui):
     o = Operations(logicAPI, ui)
@@ -336,8 +323,18 @@ def get_vehicle_type_rates(logicAPI,ui):
 
 
 def get_vehicle_after_location(logicAPI,ui):
+    key_type = ['airport']
     o = Operations(logicAPI, ui)
-    o.get_all_location(o.vehicle)
+    o.get_all_location(o.vehicle,key_type[0])
+
+def get_vehicle_after_condition(logicAPI,ui):
+    key_type = ui.get_user_form(
+        {
+            'Pick one: vehicle_state or vehicle_statur': ['(?:vehicle_state|vehicle_status)$','Enter valid word!']
+        }  
+    )
+    o = Operations(logicAPI, ui)
+    o.get_all_location(o.vehicle,key_type[0])
 
 
 
@@ -357,6 +354,7 @@ def get_all_customers(logicAPI,ui):
     #get all customers table is too large for terminal
     o = Operations(logicAPI, ui)
     o.get_all(o.customer)
+
 
 
 
