@@ -14,7 +14,7 @@ class Vehicle:
         self.id = id
 
     def __str__(self):
-        return f'{self.type}, {self.manufacturer}, {self.yom}, {self.color}, {self.licence}, {self.airport}, {self.condition}, {self.model}'
+        return f'{self.type}, {self.manufacturer}, {self.yom}, {self.color}, {self.licence}, {self.airport}, {self.vehicle_state}, {self.model}'
 
     def fields(self):
         return [property for property, value, in vars(self).items()]

@@ -65,8 +65,14 @@ class Operations:
         if not id:
             return
 
+        print(employee)
+
         # Search for match
-        obj = vars(employee)
+        if type(employee) is list:
+            obj = vars(employee[0])
+        else:
+            obj = vars(employee)
+
         submit = False
         options = {}
 
