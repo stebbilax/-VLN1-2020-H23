@@ -347,10 +347,8 @@ class Display:
 
 
 def test(logicAPI, ui):
-    ignore_fields = []
-    o = Operations(logicAPI, ui)
-    o.edit(o.employe, ignore_fields)
-    
+    get_invoice(logicAPI, ui)
+    pay_invoice(logicAPI, ui)
 
 def get_total_cost(logicAPI, ui):
     o = Operations(logicAPI, ui)
@@ -520,6 +518,19 @@ def get_printable_overview_of_business(logicAPI,ui):
     o = Operations(logicAPI, ui)
     o.get_overview(o.contract)
 
+
+def get_invoice(logicAPI, ui):
+    print('Please enter Id of contract')
+    id = input('ID: ')
+    res = logicAPI.invoice.generate_invoice(id)
+    print(res)
+
+
+def pay_invoice(logicAPI, ui):
+    print('Please enter Id of contract')
+    id = input('ID: ')
+    res = logicAPI.invoice.pay_invoice(id)
+    print(res)
 
 
 

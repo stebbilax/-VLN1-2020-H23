@@ -8,7 +8,11 @@ class Invoice_Manager:
 
 
     def generate_invoice(self, id):
-        contract = vars(self.sapi.search_contract().by_id(str(id))[0])
+        res = self.sapi.search_contract().by_id(str(id))
+        if res == []: return {}
+        contract = vars(res[0])
+
+
         rate = contract['rate']
         contract_end = contract['contract_end']
         date_return = contract['date_return']
@@ -24,7 +28,31 @@ class Invoice_Manager:
         }
 
         # Edit contract
-        contract['state'] = 'Completed'
+        contract['state']       = 'Awaiting Payment'
+        contract['rate']       = invoice['price']
+        contract['late_fee']    = invoice['late_fee']
+        contract['total_price'] = invoice['total_price']
         self.lapi.contract.edit(contract, str(id))
 
         return invoice
+
+
+
+    def pay_invoice(self, id):
+        res = self.sapi.search_contract().by_id(str(id))
+        if res == []: return False
+
+
+        contract = vars(res[0])
+        receipt = {
+            'type': contract['vehicle_type'],
+            'country': contract['country'],
+            'price': contract['rate'],
+            'late_fee': contract['late_fee'],
+            'total_price': contract['total_price'],
+        }
+
+        contract['state'] = 'Completed'
+        self.lapi.contract.edit(contract, str(id))
+
+        return receipt
