@@ -21,12 +21,11 @@ class Input_Verifiers:
             'rate': ['(\d)', 'Must be digits only'],
             'late_fee': ['(\d)', 'Must be digits only'],
             'vehicle_licence': None,
-            'customer_id': None,
+            'customer_id': ['^(\d)|N$', 'Digits only, if new customer press N']
             'customer_name': None,
-            'id': None,
-            'employee_id': None,
-            'customer_licence': None,
-            'employee_id': None,
+            'id': ['(\d)','Must be digits only'],
+            'employee_id':['(\d)', 'Must be digits only'],
+            'customer_licence': ['(None|Drivers licence)', 'Invalid input! Input examples: None, Drivers licence'],
             'state': ['(Valid|Invalid|Completed)', 'Please enter valid contract status (Vaild or Invalid or Completed)'], #Contract state
             'date_handover': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
             'date_return': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)', compare_and_verify_times],

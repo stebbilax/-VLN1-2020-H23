@@ -24,12 +24,12 @@ class Contract:
         self.employee_id = employee_id
         self.location_handover = location_handover
         self.location_return = location_return
+        self.contract_start = contract_start        # Day of contract creation
+        self.contract_end = contract_end            # Expiration date for return
         self.date_handover = date_handover
         self.date_return = date_return        # Day of return, registered on return
         self.time_handover = time_handover
         self.time_return = time_return
-        self.contract_start = contract_start        # Day of contract creation
-        self.contract_end = contract_end            # Expiration date for return
         self.state = state                          # Valid / Invalid / Completed
         self.rate = rate
         self.late_fee = late_fee
