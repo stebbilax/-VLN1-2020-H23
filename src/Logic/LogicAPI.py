@@ -189,6 +189,8 @@ class ManageInvoices:
         self.IM = Invoice_Manager(dapi, sapi, self)
         self.contract = contract
 
-
     def generate_invoice(self, id):
         return self.IM.generate_invoice(id)
+
+    def pay_invoice(self, id):
+        return self.IM.pay_invoice(id)

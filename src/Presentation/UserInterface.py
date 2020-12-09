@@ -292,7 +292,6 @@ class UserInterface:
         print("Press b to go back")
         form = []
 
-        
         for field in fields:
             # Disable the ability to change id's
             if field == 'id': continue

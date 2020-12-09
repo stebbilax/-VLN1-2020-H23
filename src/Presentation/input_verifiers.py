@@ -32,7 +32,7 @@ class Input_Verifiers:
             'date_return': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)', compare_and_verify_times],
             'total_price': ['(\d)', 'Must be digits only'],
             'loan_status': ['(OK|RETURNED|LATE)', 'Please enter a valid loan status (OK or RETURNED or LATE)'],
-            'type': ['.*','wrong',find_vehicle_type],
+            'type': ['(.*)','wrong',find_vehicle_type],
             'manufacturer': ['[a-z]+$', 'Alphabetical letters only'] ,
             'yom': ['^\d{4}$', 'Digits only'], #named YOM in model vehicle class
             'color': ['[a-z]+$', 'Alphabetical letters only'],
@@ -83,8 +83,9 @@ def find_vehicle(form, vehicle_id):
 
 def find_vehicle_type(form, type):
     res = Search_API().search_vehicle_type().by_name(type)
-    if res != []: return (True, 'Success')
-    if res == []: (False, 'Vehicle Type does not exist, vehicle type examples: Light road, Medium water')
+    if res == []: return (False, 'Vehicle Type does not exist, vehicle type examples: Light road, Medium water')
+
+    return (True, 'Success')
     
 
 
