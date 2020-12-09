@@ -56,7 +56,7 @@ class Dummy:
         return f'{randint(1,9)}{randint(1,9)}{randint(1,9)}'
 
     def make_airport(self):
-        return choice(['reykjavik', 'nuuk', 'kulusk', 'tingwall', 'tingwall', 'longyearbyen', 'torshavn'])
+        return choice(['reykjavik', 'nuuk', 'kulusuk', 'tingwall', 'tingwall', 'longyearbyen', 'torshavn'])
 
     def make_opening_hours(self):
         return '10:00-15:30'
