@@ -38,7 +38,7 @@ DB = DataAPI()
 
 def contract():
     return Contract(
-        '1',
+        randint(1, 10),
         D.make_vehicle_state(),
         D.make_vehicle_status(),
         D.make_licence(),
@@ -108,8 +108,8 @@ def vehicle():
         D.make_color(),
         D.make_licence(),
         D.make_airport(),
-        D.make_vehicle_status(),
         D.make_vehicle_state(),
+        D.make_vehicle_status(),
         randint(100,300),
         D.make_model(),
         D.make_vehicle_id(),

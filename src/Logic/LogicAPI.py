@@ -22,7 +22,7 @@ class LogicAPI:
         self.customer = ManageCustomers(self.dataAPI, self.searchAPI)
         self.vehicle_type = ManageVehicleTypes(self.dataAPI, self.searchAPI)
         self.destination = ManageDestinations(self.dataAPI, self.searchAPI)
-        self.report = ManageReports(self.dataAPI)
+        self.report = ManageReports(self.dataAPI, self.searchAPI)
 
 class ManageVehicles:
     def __init__(self, dapi, sapi):
@@ -169,10 +169,12 @@ class ManageDestinations:
 
 
 class ManageReports:
-    def __init__(self, dapi):
-        self.RG = Report_Generator(dapi)
+    def __init__(self, dapi, sapi):
+        self.RG = Report_Generator(dapi, sapi)
+        
 
     def financial_report(self):
         return self.RG.financial_report(time_from=None, time_to=None)
 
-
+    def vehicle_report(self):
+        return self.RG.vehicle_report()
