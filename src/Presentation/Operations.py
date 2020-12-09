@@ -233,7 +233,13 @@ class Operations:
         #             money_counter += int(val) 
         #         if key == 'late_fee':
         #             money_counter += int(val)
+    
+    def get_report(self,report_type):
+        data = getattr(self.logicAPI.report, f'{report_type}_report')
+        self.display.display_report(data())
 
+        
+        
 
 
             
@@ -340,7 +346,10 @@ class Display:
                 if len(field) > field_lengths[field]:
                     field_lengths[field] = len(field)
 
-        return field_lengths            
+        return field_lengths
+
+    def display_report(self,data):
+        print(data)
         
 
 
@@ -522,6 +531,14 @@ def get_printable_overview_of_business(logicAPI,ui):
 
 
 
+def get_financial_report(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get_report('financial')
 
+def get_vehicle_report(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get_report('vehicle')
 
-
+def get_invoice_report(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get_report('invoice')

@@ -110,6 +110,18 @@ class UserInterface:
 
         #endregion                      -----
 
+        #region Report menu
+
+        report_menu_office.selectable_options += [
+            get_financial_report,
+            get_vehicle_report,
+            get_invoice_report
+        ]
+
+
+        #endregion
+
+
         #region Customer Contract menu    -----
 
         # Submenu for specific customer display options
@@ -259,6 +271,7 @@ class UserInterface:
         main_menu.selectable_options.append(developer_menu)
         
         # END DEVELOPER MENU
+
 
 
 
