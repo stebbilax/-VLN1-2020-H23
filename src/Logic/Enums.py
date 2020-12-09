@@ -21,6 +21,7 @@ class EnumManager:
     def enum_to_regex(self, enum):
         ''' Converts an enum to a OR regex string '''
 
+
         s = '('
         for var in enum:
             s += var.name + '|'

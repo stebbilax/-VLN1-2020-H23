@@ -361,12 +361,6 @@ def test(logicAPI, ui):
     print(x)
     
 
-def get_total_cost(logicAPI, ui):
-    o = Operations(logicAPI, ui)
-    o.calculate_total_cost(o.contract)
-
-
-
 def get_employee_after_location(logicAPI,ui):
     key_type = ui.get_user_form(
         {

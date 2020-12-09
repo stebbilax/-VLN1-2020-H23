@@ -98,7 +98,6 @@ class UserInterface:
         contract_menu_office.selectable_options += [
             register_contract, edit_contract,
             display_contract_menu_office,
-            get_total_cost
         ]
 
         # Contract display functions

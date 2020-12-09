@@ -6,14 +6,18 @@ def vehicle_editor(form):
     
     return form
 
-
-
 def contract_editor(form):
-    if form['contract_start'] == '2020-11-01':
-        if form['contract_end'] == '2021-03-31':
+    if form['country'] == 'Iceland': form['airport'] = 'reykjavik'
+    elif form['country'] == 'Svalbard': form['airport'] = 'longyearbyen'
+    elif form['country'] == 'Shetland': form['airport'] = 'tingwall'
+    elif form['country'] == 'Farao islands': form['airport'] = 'torshavn'
+    else:
+        return None 
+
+    if form['contract_start'] == '2020-11-01' and form['contract_end'] == '2021-03-31':
             if ['vehicle_type'] == 'Light water' or ['vehicle_type'] == 'Light road':
                 form['late_fee'] = '0'
-            if ['vehicle_type'] == 'Light water':
+            if ['vehicle_type'] == 'Medium water':
                 form['late_fee'] = '200'
     return form
 
