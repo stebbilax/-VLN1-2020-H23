@@ -11,8 +11,8 @@ class EnumManager:
         # Add any additional destinations
         for dest in destinations_list:
             v = vars(dest)
-            countries.add(v['country'])
-            airports.add(v['airport'])
+            countries.add(v['destination_name'])
+            airports.add(v['destination_airport'])
 
         self.airport_enum = Enum('Airport', {key:i for (i, key) in enumerate(airports)})
         self.country_enum = Enum('Countries', {key:i for (i, key) in enumerate(countries)})

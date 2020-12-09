@@ -1,21 +1,23 @@
-country,airport,phone,opening_hours,id
-Iceland,nuuk,993-6551,10:00-15:30,1
-Greenland,torshavn,691-4128,10:00-15:30,2
-Iceland,longyearbyen,664-9875,10:00-15:30,3
-Svalbard,torshavn,765-6977,10:00-15:30,4
-Svalbard,tingwall,991-5146,10:00-15:30,5
-Iceland,torshavn,699-9759,10:00-15:30,6
-Farao Islands,kulusk,968-0472,10:00-15:30,7
-Iceland,reykjavik,888-7357,10:00-15:30,8
-Farao Islands,tingwall,870-1175,10:00-15:30,9
-Greenland,kulusk,663-4117,10:00-15:30,10
-Farao Islands,kulusk,660-4474,10:00-15:30,11
-Greenland,kulusk,662-0672,10:00-15:30,12
-Iceland,kulusk,983-3853,10:00-15:30,13
-Iceland,tingwall,884-6522,10:00-15:30,14
-Iceland,nuuk,662-7685,10:00-15:30,15
-Farao Islands,torshavn,776-4334,10:00-15:30,16
-Farao Islands,longyearbyen,993-0598,10:00-15:30,17
-Svalbard,longyearbyen,779-6093,10:00-15:30,18
-Shetland,tingwall,877-7902,10:00-15:30,19
-Greenland,longyearbyen,887-0265,10:00-15:30,20
+destination_name,destination_airport,phone,opening_hours,id
+Iceland,tingwall,668-5246,10:00-15:30,1
+Greenland,torshavn,781-0549,10:00-15:30,2
+Farao Islands,torshavn,862-5804,10:00-15:30,3
+Farao Islands,reykjavik,772-6675,10:00-15:30,4
+Iceland,longyearbyen,867-8940,10:00-15:30,5
+Farao Islands,tingwall,866-9708,10:00-15:30,6
+Iceland,tingwall,984-3066,10:00-15:30,7
+Farao Islands,kulusk,784-7485,10:00-15:30,8
+Iceland,reykjavik,660-9951,10:00-15:30,9
+Svalbard,tingwall,867-1406,10:00-15:30,10
+Greenland,nuuk,982-8838,10:00-15:30,11
+Iceland,longyearbyen,990-1169,10:00-15:30,12
+Farao Islands,nuuk,984-0230,10:00-15:30,13
+Iceland,nuuk,894-8756,10:00-15:30,14
+Shetland,longyearbyen,972-3387,10:00-15:30,15
+Shetland,nuuk,683-9893,10:00-15:30,16
+Shetland,tingwall,761-6737,10:00-15:30,17
+Svalbard,nuuk,864-8706,10:00-15:30,18
+Iceland,tingwall,799-9944,10:00-15:30,19
+Iceland,reykjavik,987-1845,10:00-15:30,20
+lalaland,lalaba,2312345123,03:12-02:02,21
+asdasd,asdasdasd,123123123,20:00-21:00,22

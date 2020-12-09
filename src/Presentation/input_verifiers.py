@@ -84,10 +84,8 @@ def find_vehicle(form, vehicle_id):
 def find_vehicle_type(form, type):
     res = Search_API().search_vehicle_type().by_name(type)
     if res != []: return (True, 'Success')
-    if res == []: print("Want to register new type? y/n ")
-    answer = input()
-    if answer == 'y':return (True, 'Success')
-    return (False, 'Vehicle Type does not exist, vehicle type examples: Light road, Medium water')
+    if res == []: (False, 'Vehicle Type does not exist, vehicle type examples: Light road, Medium water')
+    
 
 
 
