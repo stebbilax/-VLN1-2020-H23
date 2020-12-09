@@ -19,3 +19,4 @@ vehicle_id,vehicle_state,vehicle_status,vehicle_licence,vehicle_type,country,cus
 3,OK,Unavailable,None,Light road,Iceland,1,Sophia,686-1257,Benjamin@nan.is,LucasSquare 9,None,1,tingwall,nuuk,2020-02-02,2020-02-09,10:30,10:30,2020-01-05,2020-02-09,Invalid,125,207,0,18
 9,DEFECTIVE,Unavailable,Drivers licence,Light water,Greenland,1,Ethan,660-8666,Charlotte@nan.is,LucasSquare 7,Drivers licence,1,nuuk,reykjavik,2020-02-01,2020-02-09,10:30,10:30,2020-01-04,2020-02-07,Valid,853,214,0,19
 8,OK,Unavailable,Drivers licence,Light water,Iceland,1,Charlotte,770-2551,Oliver@nan.is,OliviaStreet 3,None,1,longyearbyen,nuuk,2020-02-01,2020-02-10,10:30,10:30,2020-01-03,2020-02-07,Completed,563,287,0,20
+1,OK,Available,Drivers licence,Medium off-road,Iceland,2,Mason,867-6081,Liam@nan.is,LucasStreet 17,None,3,Nuuk,Nuuk,N/A,N/A,N/A,N/A,2020-01-01,2020-02-02,Valid,591,N/A,N/A,21

@@ -90,7 +90,7 @@ class ManageContracts:
     
     def register(self, form):
         new_form = contract_filler(form)
-        new_contract = Contract(*form)
+        new_contract = Contract(**new_form)
         self.dataAPI.append_contract(new_contract)
     
     def edit(self, form, id):
