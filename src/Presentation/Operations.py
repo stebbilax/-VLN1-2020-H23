@@ -156,6 +156,7 @@ class Operations:
         choice_dict = {} # dictionary to numerate and append choices to
         counter = 0  #count number of vehicles
         res = model[1].get_all_after_choice()
+
         fields = model[0].fields()
 
 
@@ -453,6 +454,8 @@ def get_vehicle_after_condition(logicAPI,ui):
             'Pick one: vehicle_state or vehicle_status': ['(?:vehicle_state|vehicle_status)$','Enter valid word!']
         }  
     )
+    if key_type == False: return
+
     o = Operations(logicAPI, ui)
     o.get_all_after_choice(o.vehicle,key_type[0])
 
