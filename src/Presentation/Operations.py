@@ -479,7 +479,7 @@ def get_vehicle_after_location(logicAPI,ui):
 def get_vehicle_after_condition(logicAPI,ui):
     key_type = ui.get_user_form(
         {
-            'Pick one: vehicle_state or vehicle_statur': ['(?:vehicle_state|vehicle_status)$','Enter valid word!']
+            'Pick one: vehicle_state or vehicle_status': ['(?:vehicle_state|vehicle_status)$','Enter valid word!']
         }  
     )
     o = Operations(logicAPI, ui)
