@@ -5,13 +5,8 @@ class EnumManager:
         destinations_list = dapi.read_all_destinations()
 
         # Initialize with basic locations and countries
-<<<<<<< HEAD
-        countries = set(['Svalbard', 'Shetland', 'Farao islands', 'Iceland', 'Greenland'])
-        airports = set(['Nuuk', 'Tingwall', 'Kulusuk', 'Longyearbyen', 'Reykjavik', 'Torshavn'])
-=======
         countries = set(['svalbard', 'shetland', 'farao islands', 'iceland', 'greenland'])
-        airports = set(['nuuk', 'tingwall', 'kulusk', 'longyearbyen', 'reykjavik', 'torshavn'])
->>>>>>> 31c4875322457cf19ba6b61375ba6e817e804b70
+        airports = set(['nuuk', 'tingwall', 'kulusuk', 'longyearbyen', 'reykjavik', 'torshavn'])
 
         # Add any additional destinations
         for dest in destinations_list:
