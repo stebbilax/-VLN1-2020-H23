@@ -86,7 +86,7 @@ def find_vehicle_type(form, type):
     if res == []: print("Want to register new type? y/n ")
     answer = input()
     if answer == 'y':return (True, 'Success')
-    return (False, 'Vehicle Type does not exist, vehicle type examples: Light road, Medium water')
+    return (False, 'Vehicle Type does not exist, vehicle type examples: light road, medium water')
 
 
 

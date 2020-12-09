@@ -1,10 +1,10 @@
 type,manufacturer,yom,color,licence,airport,vehicle_state,vehicle_status,rate,model,vehicle_id,id
-Light water,Kayman Kayaks,1998,green,None,kulusk,DEFECTIVE,Available,232,Free Fly II,YP598,1
+Light water,Kayman Kayaks,2019,green,None,kulusk,DEFECTIVE,Available,232,Free Fly II,YP598,1
 Light water,TAILG,1995,grey,Drivers licence,tingwall,OK,Available,194,Fat Max,YK144,2
 Light off-road,WildChild,1993,green,Im amazing licence,kulusk,DEFECTIVE,Unavailable,269,Crazy,MP231,3
 Medium water,WildChild,2001,blue,None,tingwall,DEFECTIVE,Available,153,Free Fly II,XD924,4
 Medium water,Kayman Kayaks,2015,grey,Im amazing licence,longyearbyen,DEFECTIVE,Available,123,Fat Max,TY000,5
-Medium off-road,WildChild,2016,black,Drivers licence,reykjavik,OK,Unavailable,131,Crazy,QC694,6
+Medium off-road,WildChild,2020,black,Drivers licence,reykjavik,OK,Unavailable,131,Crazy,QC694,6
 Light water,Yedoo,2020,black,Drivers licence,tingwall,DEFECTIVE,Available,243,Crazy,CT223,7
 Light off-road,TAILG,2013,blue,Im amazing licence,torshavn,OK,Available,276,Crazy,UG625,8
 Light road,TAILG,1996,red,Im amazing licence,tingwall,DEFECTIVE,Available,175,Fat Max,MQ875,9
