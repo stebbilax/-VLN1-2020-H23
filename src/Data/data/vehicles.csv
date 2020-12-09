@@ -1,5 +1,5 @@
 type,manufacturer,yom,color,licence,airport,vehicle_state,vehicle_status,rate,model,vehicle_id,id
-Light water,Kayman Kayaks,1998,green,None,kulusk,DEFECTIVE,Available,232,Free Fly II,YP598,1
+lalala,Kayman Kayaks,0000,green,None,kulusk,DEFECTIVE,Available,232,Free Fly II,YP598,1
 Light water,TAILG,1995,grey,Drivers licence,tingwall,OK,Available,194,Fat Max,YK144,2
 Light off-road,WildChild,1993,green,Im amazing licence,kulusk,DEFECTIVE,Unavailable,269,Crazy,MP231,3
 Medium water,WildChild,2001,blue,None,tingwall,DEFECTIVE,Available,153,Free Fly II,XD924,4

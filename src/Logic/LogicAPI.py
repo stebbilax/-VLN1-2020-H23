@@ -7,6 +7,7 @@ from Models.Customer import Customer
 from Models.Vehicle_Type import Vehicle_Type
 from Models.Destination import Destination
 from Logic.form_fillers import contract_filler, vehicle_filler
+from Logic.form_editors import vehicle_editor
 from Logic.Report_Generator import Report_Generator
 from Logic.Invoice_Manager import Invoice_Manager
 from Logic.Enums import EnumManager
@@ -37,7 +38,8 @@ class ManageVehicles:
         self.dataAPI.append_vehicle(new_vehicle)
 
     def edit(self,form,id):
-        new_vehicle = Vehicle(**form)
+        new_form =  vehicle_editor(form)
+        new_vehicle = Vehicle(**new_form)
         self.dataAPI.edit_vehicle(new_vehicle, id)
 
     def get(self):
