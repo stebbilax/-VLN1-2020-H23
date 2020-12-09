@@ -389,8 +389,11 @@ class Display:
 
 
 def test(logicAPI, ui):
-    pass
-    #logicAPI.dataAPI.enums
+    from Logic.Report_Generator import Report_Generator
+    rp = Report_Generator()
+    d1 = '2020-01-01'
+    d2 = '2020-12-10'
+    rp.financial_report(d1, d2)
 
 def get_total_cost(logicAPI, ui):
     o = Operations(logicAPI, ui)

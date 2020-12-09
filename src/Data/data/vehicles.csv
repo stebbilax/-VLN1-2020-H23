@@ -1,6 +1,6 @@
 type,manufacturer,yom,color,licence,airport,vehicle_state,vehicle_status,rate,model,vehicle_id,id
-Light road,WildChild,1991,blue,Drivers licence,longyearbyen,Unavailable,OK,180,Fat Max,UX692,1
-Medium water,WildChild,2005,grey,None,reykjavik,Available,DEFECTIVE,178,Crazy,IB271,2
+asd,WildChild,1991,blue,Drivers licence,longyearbyen,OK,Available,180,Fat Max,UX692,1
+bla,WildChild,2005,red,None,reykjavik,Available,DEFECTIVE,200,Crazy,IB271,2
 Light water,Cani-Fit,2001,blue,Drivers licence,torshavn,Available,DEFECTIVE,294,Fat Max,QH107,3
 Light water,TAILG,2002,black,Drivers licence,tingwall,Available,DEFECTIVE,231,Fat Max,KT735,4
 Medium off-road,Yedoo,2009,red,Im amazing licence,tingwall,Available,DEFECTIVE,134,Free Fly II,FG683,5

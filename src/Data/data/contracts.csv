@@ -1,6 +1,6 @@
 vehicle_id,vehicle_state,vehicle_status,vehicle_licence,country,customer_id,customer_name,phone,email,address,customer_licence,employee_id,location_handover,location_return,date_handover,date_return,time_handover,time_return,contract_start,contract_end,state,rate,late_fee,total_price,id
 1,DEFECTIVE,Unavailable,Drivers licence,Svalbard,1,Evelyn,996-5816,Lucas@nan.is,WilliamRoad 29,Im amazing licence,1,nuuk,longyearbyen,2020-03-10,2020-12-19,10:30,10:30,2020-02-12,2020-07-20,Completed,602,259,0,1
-1,DEFECTIVE,Available,None,Iceland,1,Isabella,785-7257,Lucas@nan.is,HarperTown 3,Drivers licence,1,tingwall,nuuk,2020-04-03,2020-06-06,10:30,10:30,2020-02-14,2020-12-06,Completed,498,19,0,2
+1,DEFECTIVE,Available,None,Iceland,1,Isabella,785-7257,Lucas@nan.is,HarperTown 3,Drivers licence,1,tingwall,nuuk,2020-04-03,2020-06-06,10:30,10:30,2020-02-14,2020-12-06,Completed,498,19,1000,2
 1,DEFECTIVE,Available,Im amazing licence,Svalbard,1,Ethan,678-4871,Benjamin@nan.is,EvelynTown 23,Drivers licence,1,reykjavik,tingwall,2020-05-13,2020-05-04,10:30,10:30,2020-04-19,2020-05-15,Valid,385,7,0,3
 1,OK,Unavailable,Drivers licence,Iceland,1,Mason,892-7257,Benjamin@nan.is,EvelynTown 6,Drivers licence,1,kulusk,nuuk,2020-03-17,2020-12-10,10:30,10:30,2020-01-17,2020-07-02,Completed,509,87,0,4
 1,DEFECTIVE,Unavailable,None,Svalbard,1,Elijah,786-7648,William@nan.is,OliviaSquare 17,Drivers licence,1,nuuk,kulusk,2020-01-10,2020-11-09,10:30,10:30,2020-02-06,2020-07-14,Completed,716,124,0,5
