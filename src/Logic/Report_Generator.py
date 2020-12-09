@@ -57,8 +57,7 @@ class Report_Generator:
                 report[location][field] += total_price
             else:
                  report[location][field] = total_price
-        for k, v in report.items():
-            print(k, v)
+        
         return report
 
 

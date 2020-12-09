@@ -230,6 +230,7 @@ class Operations:
 
 
     def get_overview(self,model):
+        """For papa chuck menu"""
         # •Til að hafa yfirlit með rekstrinum vill Chuck geta kallað fram eftirfarandi skýrslur í prentvænusniðmáti (print friendly formatting):
         # –Yfirlit yfir tekjur þar sem ætti að vera hægt að velja tímabilið sem á að skoða. Einnigværi gott að sjá sundurliðun á tekjum útibúa og tegund farartækja.
         # –Yfirlit yfir nýtingu farartækja á hverjum stað, flokkað eftir tegund.
@@ -239,13 +240,13 @@ class Operations:
         money_counter = 0
         dates_list = []
         dates_dict = {}
-        for element in res:
-            obj = vars(element)
-            for index, (key,val) in enumerate(obj.items()):
-                if key == 'total_price':
-                    money_counter += int(val) 
-                if key == 'late_fee':
-                    money_counter += int(val)
+        # for element in res:
+        #     obj = vars(element)
+        #     for index, (key,val) in enumerate(obj.items()):
+        #         if key == 'total_price':
+        #             money_counter += int(val) 
+        #         if key == 'late_fee':
+        #             money_counter += int(val)
 
 
 
@@ -393,7 +394,7 @@ def test(logicAPI, ui):
     from Logic.LogicAPI import LogicAPI
     d1 = '2020-01-01'
     d2 = '2020-12-10'
-    rp = LogicAPI().report.financial_report()
+    rp = LogicAPI().invoice.generate_invoice(2)
     print(rp)
     
 

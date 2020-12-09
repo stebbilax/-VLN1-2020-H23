@@ -42,6 +42,7 @@ def contract():
         D.make_vehicle_state(),
         D.make_vehicle_status(),
         D.make_licence(),
+        D.make_type(),
         D.make_country(),
 
         '1',
