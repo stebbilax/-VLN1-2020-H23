@@ -21,7 +21,7 @@ class Input_Verifiers:
             'rate': ['(\d)', 'Must be digits only'],
             'late_fee': ['(\d)', 'Must be digits only'],
             'vehicle_licence': None,
-            'customer_id': None,
+            'customer_id': ['(\d|n|N)', 'Must be digits only', check_customer_id],
             'customer_name': None,
             'id': None,
             'employee_id': None,
@@ -63,6 +63,7 @@ class Input_Verifiers:
 # Compares a previous date to the newly entered date
 # Returns false if newly entered date is earlier in time line
 def compare_and_verify_times(form, last_time):
+    if form == []: return (True, 'Success')
     first_time = form[-1]
     
     d1 = datetime.fromisoformat(first_time)
@@ -90,11 +91,12 @@ def find_vehicle_type(form, type):
 
 
 
-
-
-
+def check_customer_id(form, id):
+    res = Search_API().search_customer().by_id(id)
     
-
+    if res == []: return (False, 'Customer does not exist. Please register customer')
+        
+    return (True, 'Success')
 
 
 
