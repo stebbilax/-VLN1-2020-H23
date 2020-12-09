@@ -347,8 +347,8 @@ class Display:
 
 
 def test(logicAPI, ui):
-    get_invoice(logicAPI, ui)
-    pay_invoice(logicAPI, ui)
+    x = logicAPI.report.vehicle_report()
+    
 
 def get_total_cost(logicAPI, ui):
     o = Operations(logicAPI, ui)

@@ -111,16 +111,7 @@ class Report_Generator:
             report[airport][v_type]['total_times_loaned'] += 1
 
 
-            
-
-
-
-
-
-
-        
-        for k, v in report.items():
-            print(k, v)
+        return report
             
 
 
