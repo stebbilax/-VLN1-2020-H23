@@ -20,10 +20,10 @@ class Dummy:
         return f'{self.make_name()}@nan.is'
 
     def make_early_date(self):
-        return datetime.date(2020, randint(1,5), randint(1,20))
+        return datetime.date(2020, randint(1,2), randint(1,5))
 
     def make_later_date(self):
-        return datetime.date(2020, randint(5,12), randint(1,20))
+        return datetime.date(2020, 2, randint(5,10))
 
     def make_vehicle_id(self):
         return f'{choice(AU)}{choice(AU)}{randint(0, 9)}{randint(0, 9)}{randint(0, 9)}'
