@@ -237,7 +237,7 @@ class Operations:
     
     def get_report(self,report_type):
         data = getattr(self.logicAPI.report, f'{report_type}_report')
-        self.display.display_report(data())
+        self.display.display_report(data(), report_type)
 
         
         
@@ -349,9 +349,25 @@ class Display:
 
         return field_lengths
 
-    def display_report(self,data):
-        print(data)
-        
+    def display_report(self, data, report_type):
+        header = '\n\t\t\t{:^71}'.format(f'\033[4m{report_type} report\033[0m')
+        print(header)
+
+        for key,val in data.items():
+            location_header = '\n\t\t\t{:_^71}\n'.format(f'\033[4m{key} report\033[0m')
+            print(location_header)
+            for (k,v) in val.items():
+                if type(v) is dict:
+                    var_line = '\n\t\t\t{:-^71}\n'.format(f'\033[4m{k} report\033[0m')
+                    print(var_line)
+                    for (keys,vals) in v.items():
+                        value_line = '\t\t\t|{:-<30}|{:->30}|'.format(keys,vals)
+                        print(value_line)
+                else:
+                    value_line = '\t\t\t|{:-<30}|{:->30}|'.format(k,v)
+                    print(value_line)
+
+
 
 
 
