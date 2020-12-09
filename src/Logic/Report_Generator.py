@@ -1,5 +1,5 @@
 from datetime import datetime, date
-from Logic.form_calculators import calculate_late_fee
+from Logic.form_calculators import calculate_total_price
 
 class Report_Generator:
     def __init__(self, dapi, sapi):
@@ -40,8 +40,8 @@ class Report_Generator:
             contract_end = contract['contract_end']
             date_return = contract['date_return']
             rate = contract['rate']
-            late_fee = calculate_late_fee(rate, contract_end, date_return)
-            total_price = int(rate) + late_fee
+            
+            total_price = calculate_total_price(contract)
 
             # Create a entry for each location
             if location not in report: report[location] = {}
