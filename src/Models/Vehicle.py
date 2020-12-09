@@ -1,5 +1,5 @@
 class Vehicle:
-    def __init__(self,type, manufacturer, yom, color, licence, airport, vehicle_state, vehicle_status, rate, model, vehicle_id, id=None):
+    def __init__(self,type, manufacturer, yom, color, licence, airport, vehicle_state, vehicle_status, rate, model, vehicle_authentication, id=None):
         self.type = type
         self.manufacturer = manufacturer
         self.yom = yom
@@ -10,7 +10,7 @@ class Vehicle:
         self.vehicle_status = vehicle_status
         self.rate = rate
         self.model = model
-        self.vehicle_id = vehicle_id
+        self.vehicle_authentication = vehicle_authentication
         self.id = id
 
     def __str__(self):
