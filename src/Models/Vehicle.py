@@ -18,32 +18,3 @@ class Vehicle:
 
     def fields(self):
         return [property for property, value, in vars(self).items()]
-
-    def set_type(self,Type):
-        self.type = Type
-
-    def set_manufacturer(self, Manufacturer):
-        self.manufacturer = Manufacturer
-
-    def set_yom(self, YOM):
-        self.yom = YOM
-
-    def set_color(self, Color):
-        self.color = Color
-
-    def set_licence(self, licence):
-        self.licence = licence
-
-    def set_airport(self, Airport):
-        self.airport = Airport
-
-    def set_condition(self, Condition):
-        self.condition = Condition
-
-    def set_model(self, Model):
-        self.model = Model
-
-    def set_vehicle_id(self, vehicle_authentication):
-        self.vehicle_id = vehicle_authentication
-
-        

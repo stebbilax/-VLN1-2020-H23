@@ -48,9 +48,9 @@ class Report_Generator:
 
             # Creates fields for total price of valid, invalid and completed contracts
             field = None
-            if contract['state'].lower() == 'valid': field = f'{location}_valid'
-            if contract['state'].lower() == 'invalid': field = f'{location}_invalid'
-            if contract['state'].lower() == 'completed': field = f'{location}_completed'
+            if contract['state'].lower() == 'valid': field = 'valid'
+            if contract['state'].lower() == 'invalid': field = 'invalid'
+            if contract['state'].lower() == 'completed': field = 'completed'
                 
 
             if field in report[location]:

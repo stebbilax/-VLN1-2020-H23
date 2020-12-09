@@ -25,7 +25,7 @@ def contract_filler(form):
         'contract_end': form[7],
     }
     vehicle         = vars(Search.search_vehicle().by_id(contract['vehicle_id'])[0])
-    vehicle_type    = Search.search_vehicle_type().by_name(vehicle['type'])
+    vehicle_type    = Search.search_vehicle_type().by_type(vehicle['type'])
     customer        = vars(Search.search_customer().by_id(contract['customer_id'])[0])
 
     contract['vehicle_state']       = vehicle['vehicle_state']
@@ -75,7 +75,7 @@ def vehicle_filler(form):
         'id' : None,
     }
 
-    types = Search.search_vehicle_type().by_name(vehicle['type'])
+    types = Search.search_vehicle_type().by_type(vehicle['type'])
     for t in types:
         obj = vars(t)
         if obj['type'].lower() == vehicle['type'].lower() and obj['airport'].lower() == vehicle['airport'].lower():

@@ -11,11 +11,3 @@ class Vehicle_Type:
     def fields(self):
         return [property for property, value, in vars(self).items()]
 
-    def set_name(self, type):
-        self.type = type
-
-    def set_regions(self, regions):
-        self.regions = regions
-
-    def set_rate(self, rate):
-        self.rate = rate

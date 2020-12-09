@@ -357,7 +357,8 @@ class Display:
 
 
 def test(logicAPI, ui):
-    x = logicAPI.report.vehicle_report()
+    x = logicAPI.report.financial_report()
+    print(x)
     
 
 def get_total_cost(logicAPI, ui):
