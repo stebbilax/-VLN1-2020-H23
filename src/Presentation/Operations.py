@@ -139,12 +139,13 @@ class Operations:
 
         # Search and Display
         func = getattr(logic.get(), f'by_{fields[ans-1]}')
-        result = func(input(f'Enter {fields[ans-1]}: '))
+        query = input(f'Enter {fields[ans-1]}: ')
+        result = func(query)
 
         if result != []:
             self.display.display_all(result, fields)
         else: 
-            print("There is no {} with this name!".format(fields[ans-1]))
+            print("There is no {} that matches {}".format(fields[ans-1], query))
 
 
     def get_all(self, model):
@@ -320,7 +321,7 @@ class Display:
                 if val == choice:
                     for field in fields:
                         line += '| {:^{L}} '.format(obj[field], L=field_lengths[field])
-                    print('\t\t'+line + '|')
+                    print('\t'+line + '|')
     
     def display_printable_version(self,data,fields,choice):
         ''' display printable ersion on screen '''
@@ -479,7 +480,7 @@ def get_vehicle_after_location(logicAPI,ui):
 def get_vehicle_after_condition(logicAPI,ui):
     key_type = ui.get_user_form(
         {
-            'Pick one: vehicle_state or vehicle_statur': ['(?:vehicle_state|vehicle_status)$','Enter valid word!']
+            'Pick one: vehicle_state or vehicle_status': ['(?:vehicle_state|vehicle_status)$','Enter valid word!']
         }  
     )
     o = Operations(logicAPI, ui)
