@@ -54,7 +54,6 @@ def contract_filler(form):
     else: 
         contract['rate'] = vars(vehicle_type[0])['rate']
     
-    print(contract)
     return contract
 
 

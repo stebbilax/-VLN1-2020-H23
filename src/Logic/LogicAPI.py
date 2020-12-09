@@ -7,7 +7,7 @@ from Models.Customer import Customer
 from Models.Vehicle_Type import Vehicle_Type
 from Models.Destination import Destination
 from Logic.form_fillers import contract_filler, vehicle_filler
-from Logic.form_editors import vehicle_editor
+from Logic.form_editors import vehicle_editor, contract_editor
 from Logic.Report_Generator import Report_Generator
 from Logic.Invoice_Manager import Invoice_Manager
 from Logic.Enums import EnumManager
@@ -94,6 +94,7 @@ class ManageContracts:
         self.dataAPI.append_contract(new_contract)
     
     def edit(self, form, id):
+        new_form = contract_editor(form)
         new_contract = Contract(**form)
         self.dataAPI.edit_contract(new_contract, id)
     

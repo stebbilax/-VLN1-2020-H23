@@ -1,7 +1,7 @@
 type,manufacturer,yom,color,licence,airport,vehicle_state,vehicle_status,rate,model,vehicle_authentication,id
 Light road,Kayman Kayaks,1997,green,Drivers licence,tingwall,DEFECTIVE,Available,237,Free Fly II,CK703,1
 Medium off-road,Cani-Fit,2009,red,Drivers licence,tingwall,OK,Unavailable,164,Crazy,LE828,2
-Light water,Kayman Kayaks,2003,grey,Drivers licence,reykjavik,DEFECTIVE,Unavailable,225,Free Fly II,HD470,3
+Light water,Kayman Kayaks,2000,grey,Drivers licence,reykjavik,DEFECTIVE,Unavailable,225,Free Fly II,HD470,3
 Medium off-road,Cani-Fit,2004,black,Drivers licence,nuuk,DEFECTIVE,Available,255,Free Fly II,GZ315,4
 Light water,Cani-Fit,2010,green,Drivers licence,tingwall,DEFECTIVE,Unavailable,207,Fat Max,BW997,5
 Light water,Yedoo,2020,red,None,nuuk,DEFECTIVE,Unavailable,262,Crazy,TL933,6
@@ -20,3 +20,4 @@ Light off-road,WildChild,1999,green,None,reykjavik,OK,Unavailable,169,Free Fly I
 Light road,TAILG,1993,green,Drivers licence,nuuk,DEFECTIVE,Unavailable,173,Fat Max,XB948,19
 Light road,WildChild,2018,grey,Drivers licence,longyearbyen,DEFECTIVE,Available,134,Fat Max,AE809,20
 light road,asd,2133,asd,asd,lalaba,OK,Available,N/A,asd,asd,21
+light road,asd,1234,red,asdasd,nuuk,OK,Available,616,asd,asd,22
