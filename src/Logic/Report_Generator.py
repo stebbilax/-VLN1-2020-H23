@@ -1,9 +1,9 @@
-from Data.DataAPI import DataAPI
 from datetime import datetime, date
 
 class Report_Generator:
-    def __init__(self):
-        self.Data = DataAPI()
+    def __init__(self, dapi, sapi):
+        self.Data = dapi
+        self.Search = sapi
 
 
     def financial_report(self, time_from=None, time_to=None):
@@ -85,19 +85,83 @@ class Report_Generator:
 
 
     def vehicle_report(self):
-        pass
+        contracts = self.Data.read_all_contracts()
+        vehicles = self.Data.read_all_vehicles()
+        report = {}
+        
+        # Run over every vehicle in database
+        for vehicle in vehicles:
+            vehicle = vars(vehicle)
+
+            if vehicle:
+                airport = vehicle['airport']
+                v_type = vehicle['type']
+                model = vehicle['model']
+                state = vehicle['vehicle_state']
+                status = vehicle['vehicle_status']
+                
+                # Initial setup for new locations and types
+                if airport not in report: report[airport] = {}
+                if v_type not in report[airport]:
+                    report[airport][v_type] = {}
+                    report[airport][v_type]['total_times_loaned'] = 0
+                    report[airport][v_type]['currently_on_loan'] = 0
+                    report[airport][v_type]['currently_available'] = 0
+                    report[airport][v_type]['currently_in_repair'] = 0
+
+                if status == 'Available' and state == 'OK': 
+                    report[airport][v_type]['currently_available'] += 1
+                if status == 'Available' and state == 'DEFECTIVE':
+                    report[airport][v_type]['currently_in_repair'] += 1
+                if status == 'Unavailable' and state == 'DEFECTIVE':
+                    report[airport][v_type]['currently_in_repair'] += 1
+                if status == 'Unavailable' and state == 'OK':
+                    report[airport][v_type]['currently_on_loan'] += 1
+
+        
+        # Run over every vehicle mentioned in contracts
+        for contract in contracts:
+            contract_id = vars(contract)['vehicle_id']
+            vehicle = vars(self.Search.search_vehicle().by_id(contract_id)[0])
+
+            airport = vehicle['airport']
+            v_type = vehicle['type']
+            model = vehicle['model']
+            state = vehicle['vehicle_state']
+            status = vehicle['vehicle_status']
+
+            # Add to total_times_loaned variable for each location and type
+            report[airport][v_type]['total_times_loaned'] += 1
+
+
+            
+
+
+
+
+
+
+        
+        for k, v in report.items():
+            print(k, v)
+            
+
+
+
 
 
     def invoice_report(self):
         pass
-
-
-
-
-r = {
-    'nuuk_completed_profit': 500,
-    'nuuk_awaited_profit': 500,
-    'nuuk_total_profit': 400,
-    'most profitable vehicle': 
-    'least profitable vehicle'
-}
+# {
+#     reykjavik: 
+#     {
+#         Type: 
+#         {
+#             Total_times_loaned
+#             Currently_on_loan
+#             Currently_available
+#             currently_in_repair
+            
+#         }
+#     }
+# }

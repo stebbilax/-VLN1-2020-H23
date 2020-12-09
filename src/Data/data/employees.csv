@@ -1,23 +1,21 @@
 name,address,postal_code,ssn,phone,mobile_phone,email,title,airport,country,id
-asd,OliverTown 25,719,101081-7358,788-0323,890-8339,Ethan@nan.is,office,torshavn,Farao Islands,1
-Benjamin,OliviaRoad 12,353,121052-6722,791-5206,971-4452,Amelia@nan.is,office,longyearbyen,Shetland,2
-Ethan,SophiaStreet 21,612,101088-1721,793-5475,976-1431,Elijah@nan.is,airport,reykjavik,Iceland,3
-Charlotte,JamesTown 29,777,121184-8956,779-1003,697-7161,Evelyn@nan.is,office,torshavn,Greenland,4
-James,OliverStreet 21,747,101287-5727,661-2214,967-3057,Liam@nan.is,office,nuuk,Farao Islands,5
-Noah,EmmaStreet 9,447,101252-3344,874-5322,872-2420,Olivia@nan.is,airport,kulusk,Shetland,6
-Oliver,WilliamRoad 6,458,101151-6567,781-6983,689-9905,Elijah@nan.is,office,tingwall,Svalbard,7
-William,SophiaTown 0,514,101068-1047,984-5508,883-7751,Lucas@nan.is,airport,tingwall,Shetland,8
-Elijah,MiaRoad 9,312,101176-7330,865-2837,793-0459,Elijah@nan.is,office,tingwall,Iceland,9
-Ava,JamesSquare 20,345,121271-1749,883-6126,985-9387,Oliver@nan.is,airport,nuuk,Farao Islands,10
-Olivia,JamesRoad 8,857,111174-1523,699-1080,868-9359,Isabella@nan.is,airport,longyearbyen,Farao Islands,11
-Emma,EvelynStreet 30,732,121074-9072,979-2433,973-1663,James@nan.is,airport,torshavn,Greenland,12
-Olivia,OliverSquare 24,473,101282-1570,899-9899,964-1561,Evelyn@nan.is,airport,kulusk,Iceland,13
-Amelia,CharlotteSquare 12,527,101250-5728,683-5205,695-0142,William@nan.is,office,torshavn,Farao Islands,14
-Benjamin,HarperTown 16,559,121167-8561,980-5568,777-4745,James@nan.is,office,tingwall,Iceland,15
-Elijah,EvelynRoad 17,681,111186-2030,977-0801,767-5966,Charlotte@nan.is,airport,tingwall,Shetland,16
-Amelia,OliverStreet 9,469,111073-3490,879-6575,981-3672,William@nan.is,office,torshavn,Farao Islands,17
-Evelyn,MiaStreet 2,939,121054-7159,878-2436,678-9643,Emma@nan.is,airport,kulusk,Greenland,18
-Harper,MiaRoad 7,886,111168-1117,895-2270,960-6491,Isabella@nan.is,airport,torshavn,Iceland,19
-Benjamin,OliverStreet 4,643,101186-8028,792-4495,667-8332,William@nan.is,airport,reykjavik,Farao Islands,20
-naaa,asdads,123,123456-1234,123123123,123123123123,123@123.com,airport,nuuk,iceland,21
-halli,skjolsalir,201,556005-5555,6654432,33345432,gunnli@ho.is,office,reykjavik,Iceland,22
+Isabella,LucasRoad 2,117,101083-4882,781-3927,697-2226,Lucas@nan.is,office,kulusk,Iceland,1
+Mia,MasonRoad 30,471,111260-1141,895-4004,679-0308,Noah@nan.is,office,longyearbyen,Shetland,2
+James,OliviaTown 3,239,111074-1569,771-5588,860-0615,Charlotte@nan.is,airport,longyearbyen,Svalbard,3
+Mason,CharlotteTown 10,965,121083-3417,989-0036,971-6285,Mason@nan.is,office,kulusk,Greenland,4
+Emma,WilliamRoad 6,242,121086-2748,899-3805,671-9617,Mia@nan.is,airport,nuuk,Shetland,5
+Olivia,WilliamSquare 27,339,121165-2233,768-0419,887-6063,Harper@nan.is,office,reykjavik,Greenland,6
+Benjamin,ElijahTown 8,251,111288-4589,997-0374,771-8710,Olivia@nan.is,airport,kulusk,Shetland,7
+Lucas,EvelynRoad 14,945,101182-4087,773-2822,678-9806,Isabella@nan.is,airport,torshavn,Shetland,8
+Charlotte,HarperStreet 21,245,121160-7725,687-8597,985-4931,Olivia@nan.is,airport,kulusk,Greenland,9
+Liam,SophiaStreet 21,451,111051-3381,891-8103,765-5292,Liam@nan.is,airport,reykjavik,Greenland,10
+James,CharlotteRoad 5,981,101266-3319,991-2620,668-2619,Noah@nan.is,office,tingwall,Farao Islands,11
+Noah,MasonTown 9,432,111050-6757,871-1861,699-5863,Ava@nan.is,airport,kulusk,Svalbard,12
+Isabella,MasonTown 3,954,121057-8056,899-5810,678-4209,Olivia@nan.is,airport,tingwall,Iceland,13
+Harper,LiamRoad 8,615,121282-5578,688-7678,674-1194,James@nan.is,airport,longyearbyen,Greenland,14
+William,EmmaRoad 5,258,101164-6278,698-5886,989-8487,Elijah@nan.is,office,tingwall,Iceland,15
+Liam,MiaStreet 27,777,101187-2668,863-2181,875-7572,Sophia@nan.is,office,tingwall,Iceland,16
+Emma,AvaSquare 13,573,111187-5024,773-7281,987-8861,William@nan.is,office,tingwall,Shetland,17
+Lucas,AmeliaTown 22,288,121276-6617,893-3298,898-1216,Lucas@nan.is,office,tingwall,Svalbard,18
+William,IsabellaRoad 4,634,111059-3352,668-1017,782-6659,James@nan.is,office,torshavn,Svalbard,19
+Oliver,SophiaSquare 22,721,111065-7844,969-5355,868-4689,Ethan@nan.is,office,torshavn,Shetland,20
