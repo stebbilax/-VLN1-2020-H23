@@ -84,7 +84,7 @@ class Dummy:
         return choice(['red', 'blue', 'green', 'grey', 'black'])
 
     def make_licence(self):
-        return choice(['None', 'Drivers licence', 'Im amazing licence'])
+        return choice(['None', 'Drivers licence'])
 
     def make_model(self):
         return choice(['Free Fly II', 'Crazy', 'Fat Max'])

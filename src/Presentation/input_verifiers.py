@@ -14,14 +14,14 @@ class Input_Verifiers:
             'email': ['(.+@.+\..+)', 'Must be a valid email format.'],
             'contract_start': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
             'contract_end': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)',compare_and_verify_times],
-            'vehicle_id': ['(\d)', 'Must be digits only', find_vehicle],
+            'vehicle_id': None,
             'country': [self.enum.enum_to_regex(self.enum.country_enum), self.enum.enum_to_instructions(self.enum.country_enum)],
             'vehicle_state': ['(OK|DEFECTIVE)', 'Please enter valid vehicle state (OK or DEFECTIVE)'],
             'vehicle_status': ['(Unavailable|Available)', 'Please enter valid vehicle status (Unavailable or Available)'],
             'rate': ['(\d)', 'Must be digits only'],
             'late_fee': ['(\d)', 'Must be digits only'],
             'vehicle_licence': None,
-            'customer_id': ['^(\d)|N$', 'Digits only, if new customer press N'],
+            'customer_id': ['(\d|n|N)', 'Must be digits only', check_customer_id],
             'customer_name': None,
             'id': ['(\d)','Must be digits only'],
             'employee_id':['(\d)', 'Must be digits only'],
@@ -33,7 +33,7 @@ class Input_Verifiers:
             'loan_status': ['(OK|RETURNED|LATE)', 'Please enter a valid loan status (OK or RETURNED or LATE)'],
             'type': ['.*','wrong',find_vehicle_type],
             'manufacturer': ['[a-z]+$', 'Alphabetical letters only'] ,
-            'yom': ['\\d{4}$', 'Digits only'], #named YOM in model vehicle class
+            'yom': ['^\d{4}$', 'Digits only'], #named YOM in model vehicle class
             'color': ['[a-z]+$', 'Alphabetical letters only'],
             'licence': None,
             'airport': [self.enum.enum_to_regex(self.enum.airport_enum), self.enum.enum_to_instructions(self.enum.airport_enum)],
@@ -73,11 +73,11 @@ def compare_and_verify_times(form, last_time):
 
 
 # Checks if vehicle exists
-def find_vehicle(form, id):
-    res = Search_API().search_vehicle().by_id(id)
-    if res != []: return (True, 'Success')
+def find_vehicle(form, vehicle_id):
+    res = Search_API().search_vehicle().by_vehicle_id(vehicle_id)
+    if res == []: return (True, 'Success')
 
-    return (False, 'Vehicle does not exist')
+    return (False, 'Vehicle with that authentication already exists!')
 
 
 def find_vehicle_type(form, type):
@@ -86,16 +86,16 @@ def find_vehicle_type(form, type):
     if res == []: print("Want to register new type? y/n ")
     answer = input()
     if answer == 'y':return (True, 'Success')
-    return (False, 'Vehicle Type does not exist, vehicle type examples: light road, medium water')
+    return (False, 'Vehicle Type does not exist, vehicle type examples: Light road, Medium water')
 
 
 
-
-
-
-
+def check_customer_id(form, id):
+    res = Search_API().search_customer().by_id(id)
     
-
+    if res == []: return (False, 'Customer does not exist. Please register customer')
+        
+    return (True, 'Success')
 
 
 

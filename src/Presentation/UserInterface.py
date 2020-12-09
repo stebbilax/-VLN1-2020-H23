@@ -278,12 +278,14 @@ class UserInterface:
             Fields = {Field name : [Regex, Validation instructions]}   '''
         
         form = []
+
         
         for field in fields:
             # Disable the ability to change id's
             if field == 'id': continue
 
-
+            
+            
             # If there is no specific regex validation to the input
             if fields[field] is None:
                 print("Press b to go back")
@@ -294,9 +296,15 @@ class UserInterface:
 
             else:
                 match = False
+                # Check for input message
+                msg = None
+                if len(fields[field]) == 4: 
+                    msg = fields[field][3]
+                else:
+                    msg = field
 
                 while not match:
-                    answer = input(field + ': ')
+                    answer = input(msg + ': ')
 
                     if answer.lower() == 'b':
                         return False

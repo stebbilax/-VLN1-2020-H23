@@ -387,7 +387,7 @@ def get_all_employees(logicAPI, ui):
 
 
 def register_contract(logicAPI, ui):
-    ignore_fields = []
+    ignore_fields = ['vehicle_state', 'vehicle_status', 'vehicle_licence', 'vehicle_type', 'rate', 'late_fee', 'total_price']
     o = Operations(logicAPI, ui)
     o.register(o.contract, ignore_fields)
 
