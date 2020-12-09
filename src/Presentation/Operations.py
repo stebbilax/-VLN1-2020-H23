@@ -383,7 +383,7 @@ def register_employee(logicAPI, ui):
     o.register(o.employee, ignore_fields)
     
 def edit_employee(logicAPI, ui):
-    ignore_fields = []
+    ignore_fields = ['name','ssn']
     o = Operations(logicAPI, ui)
     o.edit(o.employee, ignore_fields)
 
