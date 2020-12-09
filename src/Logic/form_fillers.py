@@ -13,32 +13,63 @@ def calculate_date_difference(d1, d2):
 # Finds vehicle with matching id and inserts relevant information about it
 def contract_filler(form):
     Search = Search_API()
+    for i in form:
+        print(i)
 
-    vehicle_id_idx = 0
-    vehicle_state_idx = 1
-    vehicle_status_idx = 2
-    vehicle_licence_idx = 3
-    date_from_idx = 12
-    date_too_idx = 13
-    contract_state_idx = 16
-    vehicle_rate_idx = 17
-    vehicle_late_fee_idx = 18
-    vehicle_total_price_idx = 19
-
-    vehicle_id = form[vehicle_id_idx]
-
-    vehicle = vars(Search.search_vehicle().by_id(vehicle_id)[0])
+    input()
+    contract = {
+        'vehicle_id': form[0],
+        'country': form[1],
+        'country': form[1],
+        'country': form[1],
+        'country': form[1],
+        'country': form[1],
+        'country': form[1],
+        'country': form[1],
+        'country': form[1],
+        'country': form[1],
+        'country': form[1],
+    }
     
-    
-    form.insert(vehicle_state_idx, vehicle['vehicle_state'])
-    form.insert(vehicle_status_idx, vehicle['vehicle_status'])    
-    form.insert(vehicle_licence_idx, vehicle['licence'])
-    form.insert(contract_state_idx, 'VALID')
-    form.insert(vehicle_rate_idx, vehicle['rate'])       
-    form.insert(vehicle_late_fee_idx, 'N/A')
-    form.insert(vehicle_total_price_idx, 'N/A')
+    # vehicle_id_idx = 0
+    # vehicle_state_idx = 1
+    # vehicle_status_idx = 2
+    # vehicle_licence_idx = 3
+    # customer_id_idx = 6
+    # customer_name_idx = 7
+    # customer_phone_idx = 8
+    # customer_email_idx = 9
+    # customer_address_idx = 10
+    # customer_licence_idx = 11
+    # date_from_idx = 12
+    # date_too_idx = 13
+    # contract_state_idx = 16
+    # vehicle_rate_idx = 17
+    # vehicle_late_fee_idx = 18
+    # vehicle_total_price_idx = 19
 
-    return form
+    # vehicle_id = form[vehicle_id_idx]
+    # customer_id = form[customer_id_idx]
+
+    # vehicle = vars(Search.search_vehicle().by_id(vehicle_id)[0])
+    # customer = vars(Search.search_customer().by_id(customer_id)[0])
+    
+    # form.insert(vehicle_state_idx, vehicle['vehicle_state'])
+    # form.insert(vehicle_status_idx, vehicle['vehicle_status'])    
+    # form.insert(vehicle_licence_idx, vehicle['licence'])
+
+    # form.insert(customer_name_idx, customer['name'])
+    # form.insert(customer_phone_idx, customer['phone'])
+    # form.insert(customer_email_idx, customer['email'])
+    # form.insert(customer_address_idx, customer['address'])
+    # form.insert(customer_licence_idx, customer['licence'])
+
+    # form.insert(contract_state_idx, 'VALID')
+    # form.insert(vehicle_rate_idx, vehicle['rate'])       
+    # form.insert(vehicle_late_fee_idx, 'N/A')
+    # form.insert(vehicle_total_price_idx, 'N/A')
+
+    # return form
 
 
 def vehicle_filler(form):
