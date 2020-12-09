@@ -51,6 +51,27 @@ class Search_Contract:
     def by_vehicle_licence(self, string):
         return self.Search_Manager.search(string, 'vehicle_licence', 'contract')
 
+    def by_vehicle_type(self, string):
+        return self.Search_Manager.search(string, 'vehicle_type', 'contract')
+
+    def by_location_handover(self, string):
+        return self.Search_Manager.search(string, 'location_handover', 'contract')
+
+    def by_location_return(self, string):
+        return self.Search_Manager.search(string, 'location_return', 'contract')
+
+    def by_date_handover(self, string):
+        return self.Search_Manager.search(string, 'date_handover', 'contract')
+
+    def by_date_return(self, string):
+        return self.Search_Manager.search(string, 'date_return', 'contract')
+
+    def by_time_handover(self, string):
+        return self.Search_Manager.search(string, 'time_handover', 'contract')
+
+    def by_time_return(self, string):
+        return self.Search_Manager.search(string, 'time_return', 'contract')
+
     def by_country(self, string):
         return self.Search_Manager.search(string, 'country', 'contract')
     
