@@ -233,7 +233,7 @@ class Search_Vehicle:
         return self.Search_Manager.search(string, 'airport', 'vehicle')
 
     def by_condition(self, string):
-        return self.Search_Manager.search(string, 'condition', 'vehicle')
+        return self.Search_Manager.search(string, 'vehicle_state', 'vehicle')
 
     def by_model(self, string):
         return self.Search_Manager.search(string, 'model', 'vehicle')

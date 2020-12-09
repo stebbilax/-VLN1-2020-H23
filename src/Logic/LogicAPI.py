@@ -7,6 +7,7 @@ from Models.Customer import Customer
 from Models.Vehicle_Type import Vehicle_Type
 from Models.Destination import Destination
 from Logic.form_fillers import contract_filler, vehicle_filler
+from Logic.Report_Generator import Report_Generator
 from Logic.Enums import EnumManager
 
 
@@ -21,6 +22,7 @@ class LogicAPI:
         self.customer = ManageCustomers(self.dataAPI, self.searchAPI)
         self.vehicle_type = ManageVehicleTypes(self.dataAPI, self.searchAPI)
         self.destination = ManageDestinations(self.dataAPI, self.searchAPI)
+        self.report = ManageReports(self.dataAPI)
 
 class ManageVehicles:
     def __init__(self, dapi, sapi):
@@ -164,5 +166,13 @@ class ManageDestinations:
     
     def get_all_location(self):
         return self.dataAPI.read_all_destinations()
+
+
+class ManageReports:
+    def __init__(self, dapi):
+        self.RG = Report_Generator(dapi)
+
+    def financial_report(self):
+        return self.RG.financial_report(time_from=None, time_to=None)
 
 

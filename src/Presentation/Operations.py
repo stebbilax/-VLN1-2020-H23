@@ -389,11 +389,12 @@ class Display:
 
 
 def test(logicAPI, ui):
-    from Logic.Report_Generator import Report_Generator
-    rp = Report_Generator()
+    from Logic.LogicAPI import LogicAPI
     d1 = '2020-01-01'
     d2 = '2020-12-10'
-    rp.financial_report(d1, d2)
+    rp = LogicAPI().report.financial_report()
+    print(rp)
+    
 
 def get_total_cost(logicAPI, ui):
     o = Operations(logicAPI, ui)

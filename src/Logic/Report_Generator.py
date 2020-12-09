@@ -1,9 +1,8 @@
-from Data.DataAPI import DataAPI
 from datetime import datetime, date
 
 class Report_Generator:
-    def __init__(self):
-        self.Data = DataAPI()
+    def __init__(self, dapi):
+        self.Data = dapi
 
 
     def financial_report(self, time_from=None, time_to=None):
