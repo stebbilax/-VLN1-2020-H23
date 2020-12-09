@@ -153,6 +153,11 @@ class ManageVehicleTypes:
     def get_all(self):
         return self.dataAPI.read_all_vehicle_types()
 
+    def get_search_options(self):
+        return [getattr(self.searchAPI.search_vehicle_type(), func) 
+            for func in dir(self.searchAPI.search_vehicle_type())
+            if callable(getattr(self.searchAPI.search_vehicle_type(), func)) and not func.startswith('__')]
+
 
 class ManageDestinations:
     def __init__(self, dapi, sapi):
@@ -177,6 +182,11 @@ class ManageDestinations:
     def get_all_location(self):
         return self.dataAPI.read_all_destinations()
 
+    def get_search_options(self):
+        return [getattr(self.searchAPI.search_destination(), func) 
+            for func in dir(self.searchAPI.search_destination())
+            if callable(getattr(self.searchAPI.search_destination(), func)) and not func.startswith('__')]
+
 
 class ManageReports:
     def __init__(self, dapi, sapi):
@@ -187,6 +197,12 @@ class ManageReports:
 
     def vehicle_report(self):
         return self.RG.vehicle_report()
+
+    
+    def get_search_options(self):
+        return [getattr(self.searchAPI.search_report(), func) 
+            for func in dir(self.searchAPI.search_report())
+            if callable(getattr(self.searchAPI.search_report(), func)) and not func.startswith('__')]
 
 
 
@@ -200,3 +216,9 @@ class ManageInvoices:
 
     def pay_invoice(self, id):
         return self.IM.pay_invoice(id)
+
+
+    def get_search_options(self):
+        return [getattr(self.searchAPI.search_invoice(), func) 
+            for func in dir(self.searchAPI.search_invoice())
+            if callable(getattr(self.searchAPI.search_invoice(), func)) and not func.startswith('__')]

@@ -160,11 +160,11 @@ class Search_Destination:
     def __init__(self):
         self.Search_Manager = Search_Manager()
 
-    def by_country(self, string):
-        return self.Search_Manager.search(string, 'country', 'destination')
+    def by_destination_name(self, string):
+        return self.Search_Manager.search(string, 'destination_name', 'destination')
 
-    def by_airport(self, string):
-        return self.Search_Manager.search(string, 'airport', 'destination')
+    def by_destination_airport(self, string):
+        return self.Search_Manager.search(string, 'destination_airport', 'destination')
 
     def by_phone(self, string):
         return self.Search_Manager.search(string, 'phone', 'destination')
