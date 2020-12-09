@@ -321,7 +321,7 @@ class Display:
                 if val == choice:
                     for field in fields:
                         line += '| {:^{L}} '.format(obj[field], L=field_lengths[field])
-                    print('\t\t'+line + '|')
+                    print('\t'+line + '|')
     
     def display_printable_version(self,data,fields,choice):
         ''' display printable ersion on screen '''
