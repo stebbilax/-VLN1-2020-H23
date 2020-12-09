@@ -6,13 +6,13 @@ class Vehicle_Type:
         self.id = id
 
     def __str__(self):
-        return f'{self.name}, {self.airport}, {self.rate}'
+        return f'{self.type}, {self.airport}, {self.rate}'
 
     def fields(self):
         return [property for property, value, in vars(self).items()]
 
-    def set_name(self, name):
-        self.name = name
+    def set_name(self, type):
+        self.type = type
 
     def set_regions(self, regions):
         self.regions = regions
