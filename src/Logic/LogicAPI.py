@@ -128,6 +128,11 @@ class ManageCustomers:
     def get_all(self):
         return self.dataAPI.read_all_customers()
 
+    def get_search_options(self):
+        return [getattr(self.searchAPI.search_customer(), func) 
+            for func in dir(self.searchAPI.search_customer())
+            if callable(getattr(self.searchAPI.search_customer(), func)) and not func.startswith('__')]
+
 
 class ManageVehicleTypes:
     def __init__(self, dapi, sapi):
