@@ -43,7 +43,7 @@ class Vehicle:
     def set_model(self, Model):
         self.model = Model
 
-    def set_vehicle_id(self, vehicle_id):
-        self.vehicle_id = vehicle_id
+    def set_vehicle_id(self, vehicle_authentication):
+        self.vehicle_id = vehicle_authentication
 
         
