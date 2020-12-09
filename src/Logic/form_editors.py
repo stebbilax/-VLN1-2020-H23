@@ -1,4 +1,4 @@
-
+from datetime import datetime,timedelta
 
 def vehicle_editor(form):
 
@@ -8,4 +8,6 @@ def vehicle_editor(form):
         if form['contract_end'] == '2021-03-31':
             if ['vehicle_type'] == 'Light water' or ['vehicle_type'] == 'Light road':
                 form['late_fee'] = '0'
+            if ['vehicle_type'] == 'Light water':
+                form['late_fee'] = '200'
     return form
