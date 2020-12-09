@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date,datetime
 from Presentation.input_verifiers import Input_Verifiers
 from Presentation.Menu import format_function_name
 from Models.Contract import Contract
@@ -9,6 +9,7 @@ from Models.Vehicle import Vehicle
 from Models.Vehicle_Type import Vehicle_Type
 import os, re
 from inspect import signature
+
 
 class Operations:
     def __init__(self, lapi, ui):
@@ -139,7 +140,11 @@ class Operations:
         # Search and Display
         func = getattr(logic.get(), f'by_{fields[ans-1]}')
         result = func(input(f'Enter {fields[ans-1]}: '))
-        self.display.display_all(result, fields)
+
+        if result != []:
+            self.display.display_all(result, fields)
+        else: 
+            print("There is no {} with this name!".format(fields[ans-1]))
 
 
     def get_all(self, model):
@@ -189,6 +194,18 @@ class Operations:
         #calls display function in Display class
         self.display.display(res, fields,choice)
 
+
+    def get_all_fit_for_rental(self,model):
+        '''Get all vehicles that are fit for rental'''
+        res = model[1].get_all()
+        fields = model[0].fields()
+        self.display.display_all_fit_for_rental(res, fields)
+
+
+
+
+                     
+
     def printable_version(self, model):
         res = model[1].get_all()
         fields = model[0].fields()
@@ -206,6 +223,11 @@ class Operations:
             print("invalid number entered!")
         self.display.display_printable_version(res,fields,choice)
 
+
+
+
+
+
     def get_overview(self,model):
         # •Til að hafa yfirlit með rekstrinum vill Chuck geta kallað fram eftirfarandi skýrslur í prentvænusniðmáti (print friendly formatting):
         # –Yfirlit yfir tekjur þar sem ætti að vera hægt að velja tímabilið sem á að skoða. Einnigværi gott að sjá sundurliðun á tekjum útibúa og tegund farartækja.
@@ -220,12 +242,43 @@ class Operations:
             obj = vars(element)
             for index, (key,val) in enumerate(obj.items()):
                 if key == 'total_price':
-
                     money_counter += int(val) 
                 if key == 'late_fee':
                     money_counter += int(val)
-        
 
+
+
+
+    def calculate_total_cost(self,model):
+        ''' ÞARF AÐ ENDURSKOÐA ÞETTA ÚT FRÁ GÖGNUM SKIL EKKI ALVEG '''
+        res = model[1].get_all()
+        fields = model[0].fields() 
+        date_format = "%Y-%m-%d"
+        for element in res:
+            obj = vars(element)
+            for index, (key,val) in enumerate(obj.items()):
+                if key == 'date_handover':
+                    date_return = datetime.fromisoformat(val)                    
+                if key == 'date_return':
+                    date_return = datetime.fromisoformat(val)
+                if key == 'contract_start':
+                    contract_start = datetime.fromisoformat(val)
+                if key == 'contract_end':
+                    contract_end = datetime.fromisoformat(val)
+                if key == 'rate':
+                    rate = val
+                if key == 'id':
+                    contract_id = val
+            delta = date_return - contract_end
+            delta = delta.days
+            if delta > 0:
+                late_fee
+                total_cost = int(delta) * int(rate) * 0.2 + int(rate)
+                 
+            else:
+                fine = int(rate)
+            fixing = model[1].edit(contract_id)
+            
 
 
 
@@ -253,7 +306,6 @@ class Display:
     
     def display(self,data,fields,choice):
         '''Display after choice'''
-        number =0
         field_lengths = self.find_header_format(data, fields)
         header = ''
         for field in fields:
@@ -287,14 +339,35 @@ class Display:
                         line += '\n\t\t| {:<30}|{:>30} |'.format(field,obj[field])
                     print(line)
 
+
+    def display_all_fit_for_rental(self,data,fields):
+        field_lengths = self.find_header_format(data, fields)
+        header = ''
+        for field in fields:
+            header += '| {:^{L}} '.format(field, L=field_lengths[field])
+        print('\n\t\033[4m' + header + '|\033[0m')
+
+
+        for el in data:
+            obj = vars(el)
+            state = 0
+            status = 0
+            line = ''
+            for index,(key,val) in enumerate(obj.items()):
+                    if val == 'Available':
+                        state = 'Available'
+                    if val == 'OK':
+                        status = 'OK'
+            if state == 'Available' and status == 'OK':
+                for field in fields:
+                    line += '| {:^{L}} '.format(obj[field], L=field_lengths[field])
+                print('\t'+line + '|')
+    
+
+
     def display_for_papa_chuck(self,data,fields,choice):
         '''This is for some papa chuck dinero'''
         pass
-
-
-
-
- 
 
 
 
@@ -315,11 +388,13 @@ class Display:
 
 
 
-
-
 def test(logicAPI, ui):
     pass
     #logicAPI.dataAPI.enums
+
+def get_total_cost(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.calculate_total_cost(o.contract)
 
 
 
@@ -406,6 +481,9 @@ def get_vehicle_after_condition(logicAPI,ui):
     o = Operations(logicAPI, ui)
     o.get_all_after_choice(o.vehicle,key_type[0])
 
+def get_vehicle_fit_for_rental(logicAPI,ui):
+    o = Operations(logicAPI, ui)
+    o.get_all_fit_for_rental(o.vehicle)
 
 
 def register_customer(logicAPI,ui):

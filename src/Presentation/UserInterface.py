@@ -73,7 +73,8 @@ class UserInterface:
         # Vehicle functions with vehicle display menu
         vehicle_menu_office.selectable_options += [
             register_vehicle, edit_vehicle,
-            display_vehicle_menu_office
+            display_vehicle_menu_office,
+            
         ]
 
         # Vehicle display functions
@@ -83,6 +84,7 @@ class UserInterface:
             get_vehicle_after_location,
             get_all_vehicle_types,
             get_vehicle_after_condition,
+            get_vehicle_fit_for_rental,
         ]
 
         #endregion                      -----
@@ -95,7 +97,8 @@ class UserInterface:
         # Contract functions with contract display menu
         contract_menu_office.selectable_options += [
             register_contract, edit_contract,
-            display_contract_menu_office
+            display_contract_menu_office,
+            get_total_cost
         ]
 
         # Contract display functions
@@ -214,6 +217,7 @@ class UserInterface:
             get_vehicle,
             get_vehicle_after_location,
             get_vehicle_after_condition,
+            get_vehicle_fit_for_rental,
         ]
 
         #endregion                      -----

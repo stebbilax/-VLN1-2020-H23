@@ -17,7 +17,7 @@ class Input_Verifiers:
             'vehicle_id': ['(\d)', 'Must be digits only', find_vehicle],
             'country': [self.enum.enum_to_regex(self.enum.country_enum), self.enum.enum_to_instructions(self.enum.country_enum)],
             'vehicle_state': ['(OK|DEFECTIVE)', 'Please enter valid vehicle state (OK or DEFECTIVE)'],
-            'vehicle_status': ['(ON LOAN|AVAILABLE)', 'Please enter valid vehicle status (ON LOAN or AVAILABLE)'],
+            'vehicle_status': ['(Unavailable|Available)', 'Please enter valid vehicle status (Unavailable or Available)'],
             'rate': ['(\d)', 'Must be digits only'],
             'late_fee': ['(\d)', 'Must be digits only'],
             'vehicle_licence': None,
@@ -27,13 +27,12 @@ class Input_Verifiers:
             'employee_id': None,
             'customer_licence': None,
             'employee_id': None,
-            'state': ['(VALID|INVALID|COMPLETED)', 'Please enter valid contract status (VALID or INVALID or COMPLETED)'], #Contract state
-            'date_of_handover': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
-            'date_of_return': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)', compare_and_verify_times],
+            'state': ['(Valid|Invalid|Completed)', 'Please enter valid contract status (Vaild or Invalid or Completed)'], #Contract state
+            'date_handover': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
+            'date_return': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)', compare_and_verify_times],
             'total_price': ['(\d)', 'Must be digits only'],
             'loan_status': ['(OK|RETURNED|LATE)', 'Please enter a valid loan status (OK or RETURNED or LATE)'],
-            #this must be so that edit vehicle works
-            'type': ['.*', 'Error', find_vehicle_type],
+            'type': ['.*','wrong',find_vehicle_type],
             'manufacturer': ['[a-z]+$', 'Alphabetical letters only'] ,
             'yom': ['\\d{4}$', 'Digits only'], #named YOM in model vehicle class
             'color': ['[a-z]+$', 'Alphabetical letters only'],
@@ -50,6 +49,9 @@ class Input_Verifiers:
             'email': ['(.+@.+\..+)', 'Must be a valid email format.'],
             'title': [self.enum.enum_to_regex(self.enum.title_enum), self.enum.enum_to_instructions(self.enum.title_enum)],
             'airport': [self.enum.enum_to_regex(self.enum.airport_enum), self.enum.enum_to_instructions(self.enum.airport_enum)],
+            'opening_hours': ['^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])-(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$','Invalid clock format, right format: 03:15-04:33'],
+            'time_handover': ['^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$', 'Invalid clock format, right format 00:00'],
+            'time_return': ['^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$', 'Invalid clock format, right format 00:00'],
         }
 
     def get_verifier(self, key):
@@ -81,7 +83,10 @@ def find_vehicle(form, id):
 def find_vehicle_type(form, type):
     res = Search_API().search_vehicle_type().by_name(type)
     if res != []: return (True, 'Success')
-    return (False, 'Vehicle Type does not exist')
+    if res == []: print("Want to register new type? y/n ")
+    answer = input()
+    if answer == 'y':return (True, 'Success')
+    return (False, 'Vehicle Type does not exist, vehicle type examples: Light road, Medium water')
 
 
 
