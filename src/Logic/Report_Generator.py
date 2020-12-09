@@ -12,7 +12,7 @@ class Report_Generator:
 
         def calculate_late_fee(rate, contract_end, date_return):
             ''' Calculates late fee
-            For every given contract, adds 20% of the original rate for every
+            For every given contract, adds 20% of the rate on top of the original rate for every
             day that has passed the contract_end date. If vehicle has not been returned
             the function returns late fee as it would be as of date of calculation '''
             
@@ -23,7 +23,7 @@ class Report_Generator:
 
                 if days_late < 1 : return 0
 
-                return (int(rate) * 0.20) * days_late
+                return (days_late * int(rate)) + ((days_late * int(rate)) * 0.2)
 
             except ValueError:
                 d1 = datetime.fromisoformat(contract_end)
@@ -32,7 +32,7 @@ class Report_Generator:
 
                 if days_late < 1 : return 0
 
-                return (int(rate) * 0.20) * days_late
+                return (days_late * int(rate)) + ((days_late * int(rate)) * 0.2)
 
         def select_time_period(contracts, date_from, date_to):
             '''Recieves contracts and a start and end date.
@@ -147,21 +147,5 @@ class Report_Generator:
             
 
 
-
-
-
     def invoice_report(self):
         pass
-# {
-#     reykjavik: 
-#     {
-#         Type: 
-#         {
-#             Total_times_loaned
-#             Currently_on_loan
-#             Currently_available
-#             currently_in_repair
-            
-#         }
-#     }
-# }

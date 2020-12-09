@@ -391,9 +391,8 @@ class Display:
 
 def test(logicAPI, ui):
     from Logic.LogicAPI import LogicAPI
-    d1 = '2020-01-01'
-    d2 = '2020-12-10'
-    rp = LogicAPI().report.vehicle_report()
+    
+    rp = LogicAPI().invoice.generate_invoice(1)
     print(rp)
     
 
@@ -480,7 +479,7 @@ def get_vehicle_after_location(logicAPI,ui):
 def get_vehicle_after_condition(logicAPI,ui):
     key_type = ui.get_user_form(
         {
-            'Pick one: vehicle_state or vehicle_statur': ['(?:vehicle_state|vehicle_status)$','Enter valid word!']
+            'Pick one: vehicle_state or vehicle_status': ['(?:vehicle_state|vehicle_status)$','Enter valid word!']
         }  
     )
     o = Operations(logicAPI, ui)

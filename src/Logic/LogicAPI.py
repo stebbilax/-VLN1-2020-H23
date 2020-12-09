@@ -7,7 +7,9 @@ from Models.Customer import Customer
 from Models.Vehicle_Type import Vehicle_Type
 from Models.Destination import Destination
 from Logic.form_fillers import contract_filler, vehicle_filler
+from Logic.form_editors import vehicle_editor
 from Logic.Report_Generator import Report_Generator
+from Logic.Invoice_Manager import Invoice_Manager
 from Logic.Enums import EnumManager
 
 
@@ -23,6 +25,7 @@ class LogicAPI:
         self.vehicle_type = ManageVehicleTypes(self.dataAPI, self.searchAPI)
         self.destination = ManageDestinations(self.dataAPI, self.searchAPI)
         self.report = ManageReports(self.dataAPI, self.searchAPI)
+        self.invoice = ManageInvoices(self.dataAPI, self.searchAPI)
 
 class ManageVehicles:
     def __init__(self, dapi, sapi):
@@ -35,7 +38,8 @@ class ManageVehicles:
         self.dataAPI.append_vehicle(new_vehicle)
 
     def edit(self,form,id):
-        new_vehicle = Vehicle(**form)
+        new_form =  vehicle_editor(form)
+        new_vehicle = Vehicle(**new_form)
         self.dataAPI.edit_vehicle(new_vehicle, id)
 
     def get(self):
@@ -172,9 +176,18 @@ class ManageReports:
     def __init__(self, dapi, sapi):
         self.RG = Report_Generator(dapi, sapi)
         
-
     def financial_report(self):
         return self.RG.financial_report(time_from=None, time_to=None)
 
     def vehicle_report(self):
         return self.RG.vehicle_report()
+
+
+
+class ManageInvoices:
+    def __init__(self, dapi, sapi):
+        self.IM = Invoice_Manager(dapi, sapi)
+
+
+    def generate_invoice(self, id):
+        self.IM.generate_invoice(id)
