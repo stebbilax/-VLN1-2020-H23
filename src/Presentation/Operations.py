@@ -356,11 +356,11 @@ class Display:
         print(header)
 
         for key,val in data.items():
-            location_header = '\n\t\t\t{:_^71}\n'.format(f'\033[4m{key} report\033[0m')
+            location_header = '\n\t\t\t{:_^71}\n'.format(f'\033[4m{key}\033[0m')
             print(location_header)
             for (k,v) in val.items():
                 if type(v) is dict:
-                    var_line = '\n\t\t\t{:-^71}\n'.format(f'\033[4m{k} report\033[0m')
+                    var_line = '\n\t\t\t{:-^71}\n'.format(f'\033[4m{k}\033[0m')
                     print(var_line)
                     for (keys,vals) in v.items():
                         value_line = '\t\t\t|{:-<30}|{:->30}|'.format(keys,vals)
