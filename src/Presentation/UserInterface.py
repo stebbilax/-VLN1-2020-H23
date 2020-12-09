@@ -286,6 +286,7 @@ class UserInterface:
 
             # If there is no specific regex validation to the input
             if fields[field] is None:
+                print("Press b to go back")
                 answer = input(field + ': ')
 
                 if answer.lower() == 'b':

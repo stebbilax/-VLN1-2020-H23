@@ -21,7 +21,7 @@ class Input_Verifiers:
             'rate': ['(\d)', 'Must be digits only'],
             'late_fee': ['(\d)', 'Must be digits only'],
             'vehicle_licence': None,
-            'customer_id': ['^(\d)|N$', 'Digits only, if new customer press N']
+            'customer_id': ['^(\d)|N$', 'Digits only, if new customer press N'],
             'customer_name': None,
             'id': ['(\d)','Must be digits only'],
             'employee_id':['(\d)', 'Must be digits only'],
@@ -62,6 +62,7 @@ class Input_Verifiers:
 # Compares a previous date to the newly entered date
 # Returns false if newly entered date is earlier in time line
 def compare_and_verify_times(form, last_time):
+    if form == []: return (True, 'Success')
     first_time = form[-1]
     
     d1 = datetime.fromisoformat(first_time)
