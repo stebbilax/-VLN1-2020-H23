@@ -34,7 +34,7 @@ class Operations:
 
         if not form:
             return
-
+        
         model[1].register(form)
 
 

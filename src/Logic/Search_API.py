@@ -198,7 +198,7 @@ class Search_Vehicle_Type:
         self.Search_Manager = Search_Manager()
 
     def by_name(self, string):
-        return self.Search_Manager.search(string, 'name', 'vehicle_type')
+        return self.Search_Manager.search(string, 'type', 'vehicle_type')
 
     def by_airport(self, string):
         return self.Search_Manager.search(string, 'airport', 'vehicle_type')
