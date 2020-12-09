@@ -390,9 +390,8 @@ class Display:
 
 def test(logicAPI, ui):
     from Logic.LogicAPI import LogicAPI
-    d1 = '2020-01-01'
-    d2 = '2020-12-10'
-    rp = LogicAPI().report.vehicle_report()
+    
+    rp = LogicAPI().invoice.generate_invoice(1)
     print(rp)
     
 
