@@ -25,7 +25,7 @@ class LogicAPI:
         self.vehicle_type = ManageVehicleTypes(self.dataAPI, self.searchAPI)
         self.destination = ManageDestinations(self.dataAPI, self.searchAPI)
         self.report = ManageReports(self.dataAPI, self.searchAPI)
-        self.invoice = ManageInvoices(self.dataAPI, self.searchAPI)
+        self.invoice = ManageInvoices(self.dataAPI, self.searchAPI, self.contract)
 
 class ManageVehicles:
     def __init__(self, dapi, sapi):
@@ -185,9 +185,10 @@ class ManageReports:
 
 
 class ManageInvoices:
-    def __init__(self, dapi, sapi):
-        self.IM = Invoice_Manager(dapi, sapi)
+    def __init__(self, dapi, sapi, contract):
+        self.IM = Invoice_Manager(dapi, sapi, self)
+        self.contract = contract
 
 
     def generate_invoice(self, id):
-        self.IM.generate_invoice(id)
+        return self.IM.generate_invoice(id)
