@@ -1,5 +1,5 @@
 type,manufacturer,yom,color,licence,airport,vehicle_state,vehicle_status,rate,model,vehicle_authentication,id
-Light road,Kayman Kayaks,1997,green,Drivers licence,tingwall,DEFECTIVE,Available,237,Free Fly II,CK703,1
+Light road,Kayman Kayaks,1997,green,Drivers licence,tingwall,DEFECTIVE,Unavailable,237,Free Fly II,CK703,1
 Medium off-road,Cani-Fit,2009,red,Drivers licence,tingwall,OK,Unavailable,164,Crazy,LE828,2
 Light water,Kayman Kayaks,2000,grey,Drivers licence,reykjavik,DEFECTIVE,Unavailable,225,Free Fly II,HD470,3
 Medium off-road,Cani-Fit,2004,black,Drivers licence,nuuk,DEFECTIVE,Available,255,Free Fly II,GZ315,4
