@@ -2,7 +2,7 @@ type,airport,rate,id
 Light off-road,reykjavik,423,1
 Medium off-road,reykjavik,581,2
 Light off-road,torshavn,821,3
-Light road,nuuk,616,4
+light water,nuuk,616,4
 Light road,tingwall,446,5
 Light water,torshavn,211,6
 Medium off-road,kulusk,688,7
