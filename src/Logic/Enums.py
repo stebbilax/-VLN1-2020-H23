@@ -5,8 +5,8 @@ class EnumManager:
         destinations_list = dapi.read_all_destinations()
 
         # Initialize with basic locations and countries
-        countries = set(['Svalbard', 'Shetland', 'Farao islands', 'Iceland', 'Greenland'])
-        airports = set(['Nuuk', 'Tingwall', 'Kulusuk', 'Longyearbyen', 'Reykjavik', 'Torshavn'])
+        countries = set(['svalbard', 'shetland', 'farao islands', 'iceland', 'greenland'])
+        airports = set(['nuuk', 'tingwall', 'kulusuk', 'longyearbyen', 'reykjavik', 'torshavn'])
 
         # Add any additional destinations
         for dest in destinations_list:
@@ -14,8 +14,8 @@ class EnumManager:
             countries.add(v['destination_name'])
             airports.add(v['destination_airport'])
 
-        self.airport_enum = Enum('Airport', {key:i for (i, key) in enumerate(airports)})
-        self.country_enum = Enum('Countries', {key:i for (i, key) in enumerate(countries)})
+        self.airport_enum = Enum('Airport', {key.lower():i for (i, key) in enumerate(airports)})
+        self.country_enum = Enum('Countries', {key.lower():i for (i, key) in enumerate(countries)})
         self.title_enum = Enum('Titles', {'office' : 1, 'airport' : 2})
 
     def enum_to_regex(self, enum):
