@@ -61,24 +61,29 @@ def contract_filler(form):
 def vehicle_filler(form):
     Search = Search_API()
 
-    type_idx = 0
-    airport_idx = 5
-    vehicle_status = 7
-    rate_index = 8
+    vehicle = {
+        'type' : form[0],
+        'manufacturer' : form[1],
+        'yom' : form[2],
+        'color' : form[3],
+        'licence' : form[4],
+        'airport' : form[5],
+        'vehicle_state' : 'OK',
+        'vehicle_status' : 'Available',
+        'rate': 'N/A',
+        'model' : form[6],
+        'vehicle_authentication' : form[7],
+        'id' : None,
+    }
 
-    airport_name = form[airport_idx]
-    type_name = form[type_idx]
-
-    form.insert(rate_index, 'N/A')
-    form.insert(vehicle_status, 'AVAILABLE')
-
-    types = Search.search_vehicle_type().by_name(type_name)
+    types = Search.search_vehicle_type().by_name(vehicle['type'])
     for t in types:
         obj = vars(t)
-        if obj['name'].lower() == type_name.lower() and obj['airport'].lower() == airport_name.lower():
-            form.insert(rate_index, obj['rate'])
+        if obj['type'].lower() == vehicle['type'].lower() and obj['airport'].lower() == vehicle['airport'].lower():
+            vehicle['rate'] = obj['rate']
 
-    return form
+    
+    return vehicle
 
 
     

@@ -413,7 +413,7 @@ def get_printable_contract(logicAPI,ui):
 
 
 def register_vehicle(logicAPI,ui):
-    ignore_fields = []
+    ignore_fields = ['rate', 'vehicle_status', 'vehicle_state']
     o = Operations(logicAPI, ui)
     o.register(o.vehicle, ignore_fields)
 

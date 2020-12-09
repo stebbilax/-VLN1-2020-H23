@@ -34,7 +34,7 @@ class ManageVehicles:
 
     def register(self,form):
         new_form = vehicle_filler(form)
-        new_vehicle = Vehicle(*new_form)
+        new_vehicle = Vehicle(**new_form)
         self.dataAPI.append_vehicle(new_vehicle)
 
     def edit(self,form,id):
