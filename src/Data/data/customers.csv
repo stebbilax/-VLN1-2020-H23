@@ -1,21 +1,21 @@
 name,ssn,address,postal_code,phone,email,country,licence,id
-Noah,101184-1836,EvelynRoad 19,448,794-9678,Oliver@nan.is,Svalbard,Drivers licence,1
-Emma,121059-6024,MasonStreet 6,863,762-1912,Mason@nan.is,Greenland,Drivers licence,2
-Charlotte,121254-5210,AvaStreet 0,744,788-1565,Lucas@nan.is,Iceland,Drivers licence,3
-Sophia,111068-9049,LiamSquare 8,349,971-1206,Charlotte@nan.is,Greenland,Drivers licence,4
-Ethan,121284-3115,OliverSquare 30,318,772-3829,Oliver@nan.is,Iceland,None,5
-Oliver,121187-7837,MiaStreet 12,894,788-1881,Lucas@nan.is,Greenland,None,6
-Liam,121050-9082,BenjaminTown 23,918,881-6279,Harper@nan.is,Iceland,None,7
-Mia,111052-3545,EvelynRoad 30,746,697-4553,Elijah@nan.is,Farao Islands,None,8
-Evelyn,101064-3763,NoahRoad 23,372,861-7709,Olivia@nan.is,Iceland,None,9
-Amelia,121163-2774,EvelynTown 15,512,980-3267,Evelyn@nan.is,Shetland,None,10
-Noah,121176-2073,MasonStreet 25,774,971-8437,Benjamin@nan.is,Shetland,Drivers licence,11
-Mason,111189-8870,MasonStreet 3,684,981-4466,Benjamin@nan.is,Greenland,Drivers licence,12
-Ethan,121076-3054,NoahStreet 7,831,791-6054,James@nan.is,Farao Islands,None,13
-Elijah,121154-8467,WilliamTown 0,144,885-5864,Emma@nan.is,Farao Islands,None,14
-Oliver,111256-2347,NoahTown 7,163,878-9916,Noah@nan.is,Svalbard,Drivers licence,15
-Mason,111290-5136,NoahSquare 11,179,868-4685,Lucas@nan.is,Greenland,None,16
-James,121054-3025,BenjaminRoad 18,422,765-3677,Elijah@nan.is,Svalbard,Drivers licence,17
-James,111154-1625,ElijahTown 26,866,880-5801,Olivia@nan.is,Farao Islands,None,18
-James,121078-3283,NoahRoad 30,689,860-2305,Liam@nan.is,Iceland,Drivers licence,19
-Noah,121185-1462,SophiaSquare 6,929,664-0418,Elijah@nan.is,Greenland,None,20
+Sophia,101056-8045,JamesStreet 10,656,976-1886,Emma@nan.is,Farao Islands,None,1
+James,121151-1775,EthanTown 24,777,972-5654,Emma@nan.is,Svalbard,None,2
+William,121166-4131,MasonSquare 1,544,990-5163,Lucas@nan.is,Svalbard,None,3
+William,111277-5924,WilliamStreet 11,694,675-8762,Olivia@nan.is,Farao Islands,None,4
+Harper,101086-8845,AvaSquare 12,861,996-8527,Benjamin@nan.is,Iceland,Drivers licence,5
+Emma,101172-8285,MiaSquare 13,759,661-4474,Olivia@nan.is,Shetland,Drivers licence,6
+Elijah,121280-4710,LucasStreet 0,499,676-1319,Evelyn@nan.is,Farao Islands,Drivers licence,7
+William,121187-1274,AmeliaStreet 2,498,788-7761,Ava@nan.is,Iceland,None,8
+Liam,101064-8476,EvelynStreet 16,591,766-0946,Emma@nan.is,Farao Islands,Drivers licence,9
+Ava,111180-6638,ElijahRoad 11,979,678-7337,Liam@nan.is,Iceland,Drivers licence,10
+Noah,121077-3138,NoahSquare 0,555,763-1587,Amelia@nan.is,Greenland,None,11
+James,121260-8482,WilliamStreet 25,383,781-6941,Charlotte@nan.is,Svalbard,Drivers licence,12
+Charlotte,101286-2384,SophiaTown 25,644,972-8672,Benjamin@nan.is,Greenland,Drivers licence,13
+Sophia,121070-8090,LiamSquare 17,132,867-6479,William@nan.is,Greenland,Drivers licence,14
+Charlotte,121251-3686,MasonSquare 14,492,688-1922,Noah@nan.is,Greenland,None,15
+Noah,121273-7218,SophiaSquare 27,532,870-3006,William@nan.is,Greenland,Drivers licence,16
+Lucas,121065-7346,JamesRoad 1,312,962-1319,Oliver@nan.is,Svalbard,None,17
+Ava,111161-2482,OliviaStreet 11,437,894-0191,Elijah@nan.is,Shetland,None,18
+Benjamin,111278-6444,EvelynRoad 27,256,792-8573,William@nan.is,Shetland,Drivers licence,19
+Sophia,111261-1049,AmeliaRoad 8,667,995-9143,Liam@nan.is,Greenland,None,20

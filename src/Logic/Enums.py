@@ -6,7 +6,7 @@ class EnumManager:
 
         # Initialize with basic locations and countries
         countries = set(['Svalbard', 'Shetland', 'Farao islands', 'Iceland', 'Greenland'])
-        airports = set(['Nuuk', 'Tingwall', 'Kulusk', 'Longyearbyen', 'Reykjavik', 'Torshavn'])
+        airports = set(['Nuuk', 'Tingwall', 'Kulusuk', 'Longyearbyen', 'Reykjavik', 'Torshavn'])
 
         # Add any additional destinations
         for dest in destinations_list:
