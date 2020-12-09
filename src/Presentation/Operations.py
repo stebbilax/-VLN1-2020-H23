@@ -372,6 +372,7 @@ def get_employee_after_location(logicAPI,ui):
             'Pick one: country, airport, title ': ['(?:country|airport|title)$','Enter valid word!']
         }  
     )
+    if key_type == False: return
     o = Operations(logicAPI, ui)
     o.get_all_after_choice(o.employee,key_type[0])
 
