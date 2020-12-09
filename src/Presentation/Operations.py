@@ -26,11 +26,10 @@ class Operations:
         self.vehicle_type = [Vehicle_Type(*[None for i in range(len(signature(Vehicle_Type).parameters))]), lapi.vehicle_type]
         self.display = Display()
 
-    def register(self, model):
+    def register(self, model, ignore_fields=[]):
         ''' Register a new object by model '''
-
         form = self.ui.get_user_form(
-            {key:self.verify.get_verifier(key) for key in model[0].fields()}
+            {key:self.verify.get_verifier(key) for key in model[0].fields() if key not in ignore_fields}
         )
 
         if not form:
@@ -39,7 +38,7 @@ class Operations:
         model[1].register(form)
 
 
-    def edit(self, model):
+    def edit(self, model, ignore_fields=[]):
         fields = model[0].fields()
         logic = model[1]
 
@@ -80,7 +79,7 @@ class Operations:
 
             for index, (key, val) in enumerate(obj.items()):
                 # Disable id display in editing screen
-                if key == 'id': continue
+                if key in ignore_fields: continue
 
                 index += 1
                 options[str(index)] = key
@@ -114,7 +113,6 @@ class Operations:
             
             obj[options[field_num]] = new_entry[0]
 
-
     def get(self, model):
         fields = model[0].fields()
         field_length = len(fields)
@@ -146,7 +144,6 @@ class Operations:
             self.display.display_all(result, fields)
         else: 
             print("There is no {} that matches {}".format(fields[ans-1], query))
-
 
     def get_all(self, model):
         res = model[1].get_all()
@@ -195,17 +192,11 @@ class Operations:
         #calls display function in Display class
         self.display.display(res, fields,choice)
 
-
     def get_all_fit_for_rental(self,model):
         '''Get all vehicles that are fit for rental'''
         res = model[1].get_all()
         fields = model[0].fields()
         self.display.display_all_fit_for_rental(res, fields)
-
-
-
-
-                     
 
     def printable_version(self, model):
         res = model[1].get_all()
@@ -223,11 +214,6 @@ class Operations:
         if str(choice) not in counter_list:
             print("invalid number entered!")
         self.display.display_printable_version(res,fields,choice)
-
-
-
-
-
 
     def get_overview(self,model):
         # •Til að hafa yfirlit með rekstrinum vill Chuck geta kallað fram eftirfarandi skýrslur í prentvænusniðmáti (print friendly formatting):
@@ -249,36 +235,6 @@ class Operations:
 
 
 
-
-    def calculate_total_cost(self,model):
-        ''' ÞARF AÐ ENDURSKOÐA ÞETTA ÚT FRÁ GÖGNUM SKIL EKKI ALVEG '''
-        res = model[1].get_all()
-        fields = model[0].fields() 
-        date_format = "%Y-%m-%d"
-        for element in res:
-            obj = vars(element)
-            for index, (key,val) in enumerate(obj.items()):
-                if key == 'date_handover':
-                    date_return = datetime.fromisoformat(val)                    
-                if key == 'date_return':
-                    date_return = datetime.fromisoformat(val)
-                if key == 'contract_start':
-                    contract_start = datetime.fromisoformat(val)
-                if key == 'contract_end':
-                    contract_end = datetime.fromisoformat(val)
-                if key == 'rate':
-                    rate = val
-                if key == 'id':
-                    contract_id = val
-            delta = date_return - contract_end
-            delta = delta.days
-            if delta > 0:
-                late_fee
-                total_cost = int(delta) * int(rate) * 0.2 + int(rate)
-                 
-            else:
-                fine = int(rate)
-            fixing = model[1].edit(contract_id)
             
 
 
@@ -390,11 +346,9 @@ class Display:
 
 
 def test(logicAPI, ui):
-    from Logic.LogicAPI import LogicAPI
-    d1 = '2020-01-01'
-    d2 = '2020-12-10'
-    rp = LogicAPI().invoice.generate_invoice(2)
-    print(rp)
+    ignore_fields = []
+    o = Operations(logicAPI, ui)
+    o.edit(o.employe, ignore_fields)
     
 
 def get_total_cost(logicAPI, ui):
@@ -413,12 +367,14 @@ def get_employee_after_location(logicAPI,ui):
     o.get_all_after_choice(o.employee,key_type[0])
 
 def register_employee(logicAPI, ui):
+    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.register(o.employee)
+    o.register(o.employee, ignore_fields)
     
 def edit_employee(logicAPI, ui):
+    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.edit(o.employee)
+    o.edit(o.employee, ignore_fields)
 
 def get_employee(logicAPI, ui):
     o = Operations(logicAPI, ui)
@@ -430,12 +386,14 @@ def get_all_employees(logicAPI, ui):
 
 
 def register_contract(logicAPI, ui):
+    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.register(o.contract)
+    o.register(o.contract, ignore_fields)
 
-def edit_contract(logicAPI, ui):    
+def edit_contract(logicAPI, ui):   
+    ignore_fields = [] 
     o = Operations(logicAPI, ui)
-    o.edit(o.contract)
+    o.edit(o.contract, ignore_fields)
       
 def get_contract(logicAPI, ui):
     o = Operations(logicAPI, ui)
@@ -452,17 +410,19 @@ def get_printable_contract(logicAPI,ui):
 
 
 def register_vehicle(logicAPI,ui):
+    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.register(o.vehicle)
+    o.register(o.vehicle, ignore_fields)
+
+def edit_vehicle(logicAPI,ui):
+    ignore_fields = []
+    o = Operations(logicAPI, ui)
+    o.edit(o.vehicle, ignore_fields)
     
 def get_vehicle(logicAPI,ui):
     o = Operations(logicAPI, ui)
     o.get(o.vehicle)
      
-def edit_vehicle(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.edit(o.vehicle)
-
 def get_all_vehicles(logicAPI, ui):
     o = Operations(logicAPI, ui)
     o.get_all(o.vehicle)
@@ -492,17 +452,19 @@ def get_vehicle_fit_for_rental(logicAPI,ui):
 
 
 def register_customer(logicAPI,ui):
+    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.register(o.customer)
+    o.register(o.customer, ignore_fields)
+
+def edit_customer(logicAPI,ui):
+    ignore_fields = []
+    o = Operations(logicAPI, ui)
+    o.edit(o.customer, ignore_fields)
     
 def get_customer(logicAPI,ui):
     o = Operations(logicAPI, ui)
     o.get(o.customer)
      
-def edit_customer(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.edit(o.customer)
-
 def get_all_customers(logicAPI,ui):
     #get all customers table is too large for terminal
     o = Operations(logicAPI, ui)
@@ -512,16 +474,18 @@ def get_all_customers(logicAPI,ui):
 
 
 def register_destination(logicAPI,ui):
+    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.register(o.destination)
+    o.register(o.destination, ignore_fields)
+
+def edit_destination(logicAPI,ui):
+    ignore_fields = []
+    o = Operations(logicAPI, ui)
+    o.edit(o.destination, ignore_fields)
     
 def get_destination(logicAPI,ui):
     o = Operations(logicAPI, ui)
     o.get(o.destination)
-     
-def edit_destination(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.edit(o.destination)
 
 def get_all_destinations(logicAPI,ui):
     o = Operations(logicAPI, ui)
@@ -530,16 +494,18 @@ def get_all_destinations(logicAPI,ui):
 
 
 def register_vehicle_type(logicAPI,ui):
+    ignore_fields = []
     o = Operations(logicAPI, ui)
-    o.register(o.vehicle_type)
+    o.register(o.vehicle_type, ignore_fields)
+
+def edit_vehicle_type(logicAPI,ui):
+    ignore_fields = []
+    o = Operations(logicAPI, ui)
+    o.edit(o.vehicle_type, ignore_fields)
     
 def get_vehicle_type(logicAPI,ui):
     o = Operations(logicAPI, ui)
     o.get(o.vehicle_type)
-     
-def edit_vehicle_type(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.edit(o.vehicle_type)
 
 def get_all_vehicle_types(logicAPI, ui):
     o = Operations(logicAPI, ui)
