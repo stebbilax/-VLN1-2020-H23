@@ -11,17 +11,3 @@ class Destination:
     
     def fields(self):
         return [property for property, value, in vars(self).items()]
-
-    def set_country(self, country):
-        # self.country = Country(int(country)).name
-        self.country = country
-    
-    def set_airport(self, airport):
-        # self.airport = Airport(int(airport)).name
-        self.airport = airport
-        
-    def set_phone(self, phone):
-        self.phone = phone
-        
-    def set_opening_hours(self, opening_hours):
-        self.opening_hours = opening_hours

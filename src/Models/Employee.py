@@ -18,32 +18,7 @@ class Employee:
     def fields(self):
         return [property for property, value, in vars(self).items()]
            
-    def set_name(self, name):
-        self.name = name
-
-    def set_address(self, address):
-        self.address = address
-
-    def set_postal_code(self, postal_code):
-        self.postal_code = postal_code
-
-    def set_phone(self, phone):
-        self.phone = phone
-
-    def set_mobile_phone(self, mobile_phone):
-        self.mobile_phone = mobile_phone
-
-    def set_email(self, email):
-        self.email = email
-
-    def set_airport(self, airport):
-        self.airport = airport
-        
-    def set_title(self, title):
-        self.title = title
-
-    def set_country(self, country):
-        self.country = country
+ 
 
 
     
