@@ -43,7 +43,7 @@ def contract_filler(form):
 
     contract['date_handover']       = 'N/A'
     contract['date_return']         = 'N/A'
-    contract['time_handover']         = 'N/A'
+    contract['time_handover']       = 'N/A'
     contract['time_return']         = 'N/A'
     contract['late_fee']            = 'N/A'
     contract['total_price']         = 'N/A'

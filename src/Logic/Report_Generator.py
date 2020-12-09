@@ -44,7 +44,11 @@ class Report_Generator:
             total_price = calculate_total_price(contract)
 
             # Create a entry for each location
-            if location not in report: report[location] = {}
+            if location not in report: report[location] = {
+                'valid': 0,
+                'invalid': 0,
+                'complete': 0,
+            }
 
             # Creates fields for total price of valid, invalid and completed contracts
             field = None
@@ -55,8 +59,7 @@ class Report_Generator:
 
             if field in report[location]:
                 report[location][field] += total_price
-            else:
-                 report[location][field] = total_price
+            
         
         return report
 
