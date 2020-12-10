@@ -247,6 +247,9 @@ class Search_Vehicle:
     def by_airport(self, string):
         return self.Search_Manager.search(string, 'airport', 'vehicle')
 
+    def by_vehicle_status(self, string):
+        return self.Search_Manager.search(string, 'vehicle_status', 'vehicle')
+
     def by_condition(self, string):
         return self.Search_Manager.search(string, 'vehicle_state', 'vehicle')
 

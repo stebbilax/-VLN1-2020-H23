@@ -164,13 +164,13 @@ class Display:
             print('\t\t\t|{: ^35}|'.format(''))
             print('\t\t\t|\033[4m{:<25}{:>10}\033[0m|'.format('Description','Amount'))
             print('\t\t\t| {:<34}|'.format(data['VIN'] + ' ' + data['vehicle_type']))
-            print('\t\t\t|     {:<15}{:>14} |'.format(str(days) + ' days @ {}'.format(data['rate']), int(days)*int(data['rate'])))
+            print('\t\t\t|     {:<20}{:>9} |'.format(str(days) + ' days @ {}'.format(data['rate']), int(days)*int(data['rate'])))
             if data['late_fee'] is not None:
                 lf1 = datetime.fromisoformat(data['contract_end'])            
                 lf2 = datetime.fromisoformat(data['date_return'])
                 lf = (lf2-lf1).days
                 print('\t\t\t| {:<34}|'.format('Late Fee'))
-                print('\t\t\t|     {:<15}{:>14} |'.format(str(lf) + ' days @ {}'.format(floor(int(data['rate'])*int(lf)*1.2)), floor(int(data['rate'])*int(lf)*1.2)))
+                print('\t\t\t|     {:<20}{:>9} |'.format(str(lf) + ' days @ {}'.format(floor(int(data['rate'])*1.2)), floor(int(data['rate'])*int(lf)*1.2)))
             print('\t\t\t|{:-^35}|'.format(''))
             print('\t\t\t| {:<23}{:>10} |'.format('TOTAL',str(floor(float(data['total_price'])))))
             print('\t\t\t|{:^35}|'.format(''))
