@@ -16,7 +16,7 @@ class Input_Verifiers:
             'email': ['(.+@.+\..+)', 'Must be a valid email format.'],
             'contract_start': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
             'contract_end': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)',compare_and_verify_times],
-            'vehicle_id':['(\d)', 'Must be digits only'],
+            'vehicle_id':['(\d)', 'Must be digits only', check_vehicle_id],
             'country': [self.enum.enum_to_regex(self.enum.country_enum), self.enum.enum_to_instructions(self.enum.country_enum)],
             'vehicle_state': ['(OK|DEFECTIVE)', 'Please enter valid vehicle state (OK or DEFECTIVE)'],
             'vehicle_status': ['(Unavailable|Available)', 'Please enter valid vehicle status (Unavailable or Available)'],
@@ -44,7 +44,6 @@ class Input_Verifiers:
             'location_return': [self.enum.enum_to_regex(self.enum.airport_enum), self.enum.enum_to_instructions(self.enum.airport_enum)],
             'condition': ['(OK|DEFECTIVE)', 'Please enter valid vehicle status (OK or DEFECTIVE)'],
             'model': ['[a-z]+$', 'Alphabetical letters only'],
-            'vehicle id': None, # this is licence plate on a car
             'postal_code': ['(\d)', 'Must be digits only'],
             'ssn': ['(\d{6})-(\d{4})', 'SSN must be in format (6 digits - 4 digits)'],
             'mobile_phone': ['(\d{7,15})', 'Mobile phone number must be between 7 and 15 digits'],
@@ -93,11 +92,29 @@ def find_vehicle_type(form, type):
 
 
 def check_customer_id(form, id):
+    # Check if customer exists
     res = Search_API().search_customer().by_id(id)
-    
     if res == []: return (False, 'Customer does not exist. Please register customer')
+
+    vehicle = vars(Search_API().search_vehicle().by_id(form[0])[0])
+    customer = vars(res[0])
+    # Check permitions for specified vehicle
+    if vehicle['licence'] != customer['licence']: return (False, 'Customer does not carry a licence for this vehicle')
+
+    
+
         
     return (True, 'Success')
 
+
+def check_vehicle_id(form, id):
+    res = Search_API().search_vehicle().by_id(id)
+    if res == []: return (False, 'Vehicle does not exist. Please register Vehicle')
+
+    vehicle = vars(res[0])
+    # Check if vehicle is available
+    if vehicle['vehicle_status'] == 'Unavailable' or vehicle['vehicle_state'] == 'DEFECTIVE': return (False, 'Vehicle is unavailable or undergoing repair')
+
+    return (True, 'Success')
 
 

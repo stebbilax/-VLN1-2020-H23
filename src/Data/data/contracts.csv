@@ -1,25 +1,20 @@
 vehicle_id,vehicle_state,vehicle_status,vehicle_licence,vehicle_type,country,customer_id,customer_name,phone,email,address,customer_licence,employee_id,location_handover,location_return,date_handover,date_return,time_handover,time_return,contract_start,contract_end,state,rate,late_fee,total_price,id
-1,OK,Unavailable,Drivers licence,Light road,Greenland,1,Lucas,894-9621,Emma@nan.is,NoahTown 1,Drivers licence,1,tingwall,kulusuk,2020-02-03,2020-02-07,10:30,10:30,2020-01-04,2020-02-06,Completed,326,101,0,1
-7,OK,Unavailable,Drivers licence,Light off-road,Farao Islands,1,Mia,663-3516,Isabella@nan.is,MasonRoad 19,None,1,torshavn,kulusuk,2020-02-05,2020-02-05,10:30,10:30,2020-02-04,2020-02-08,Invalid,407,12,0,2
-5,OK,Available,Drivers licence,Medium water,Farao Islands,1,Ava,982-2797,Amelia@nan.is,EvelynTown 8,None,1,nuuk,torshavn,2020-01-03,2020-02-05,10:30,10:30,2020-02-02,2020-02-10,Valid,258,246,0,3
-6,OK,Available,None,Light off-road,Svalbard,1,Evelyn,660-5370,Charlotte@nan.is,MasonRoad 25,Drivers licence,1,kulusuk,kulusuk,2020-02-04,2020-02-05,10:30,10:30,2020-01-05,2020-02-09,Completed,598,234,0,4
-2,OK,Unavailable,None,Light water,Iceland,1,Olivia,877-0295,Evelyn@nan.is,CharlotteSquare 14,Drivers licence,1,nuuk,tingwall,2020-01-05,2020-02-09,10:30,10:30,2020-02-01,2020-02-10,Valid,670,40,0,5
-10,DEFECTIVE,Unavailable,None,Light water,Greenland,1,Isabella,861-1383,Charlotte@nan.is,CharlotteTown 19,None,1,tingwall,tingwall,2020-01-03,2020-02-05,10:30,10:30,2020-02-01,2020-02-06,Valid,493,174,0,6
-7,DEFECTIVE,Unavailable,Drivers licence,Medium off-road,Shetland,1,Ethan,699-8212,Liam@nan.is,HarperSquare 20,None,1,longyearbyen,torshavn,2020-02-03,2020-02-07,10:30,10:30,2020-01-04,2020-02-09,Completed,387,126,0,7
-5,OK,Available,None,Medium water,Iceland,1,Elijah,865-6644,James@nan.is,CharlotteSquare 2,Drivers licence,1,longyearbyen,tingwall,2020-01-04,2020-02-09,10:30,10:30,2020-01-01,2020-02-05,Valid,957,139,0,8
-4,DEFECTIVE,Unavailable,None,Light road,Shetland,1,Amelia,965-4838,Elijah@nan.is,EthanTown 19,Drivers licence,1,kulusuk,kulusuk,2020-02-05,2020-02-08,10:30,10:30,2020-02-02,2020-02-07,Invalid,474,43,0,9
-5,OK,Available,None,Medium off-road,Farao Islands,1,Elijah,790-8402,Emma@nan.is,OliviaTown 3,Drivers licence,1,kulusuk,nuuk,2020-02-05,2020-02-09,10:30,10:30,2020-02-01,2020-02-08,Invalid,498,25,0,10
-6,OK,Available,None,Medium water,Iceland,1,Isabella,792-8407,Benjamin@nan.is,IsabellaTown 24,None,1,kulusuk,tingwall,2020-01-03,2020-02-07,10:30,10:30,2020-01-04,2020-02-10,Completed,608,71,0,11
-3,OK,Unavailable,None,Light off-road,Iceland,1,Evelyn,799-9281,Ethan@nan.is,CharlotteSquare 10,Drivers licence,1,nuuk,reykjavik,2020-01-02,2020-02-08,10:30,10:30,2020-02-03,2020-02-09,Completed,294,54,0,12
-7,DEFECTIVE,Unavailable,None,Medium off-road,Shetland,1,Mia,999-4916,Elijah@nan.is,EmmaTown 22,None,1,nuuk,reykjavik,2020-01-02,2020-02-05,10:30,10:30,2020-01-03,2020-02-10,Valid,485,132,0,13
-6,DEFECTIVE,Available,Drivers licence,Light road,Iceland,1,Lucas,983-2549,Ava@nan.is,MiaStreet 13,None,1,tingwall,tingwall,2020-02-03,2020-02-06,10:30,10:30,2020-02-02,2020-02-06,Invalid,942,136,0,14
-10,DEFECTIVE,Available,Drivers licence,Light road,Farao Islands,1,James,684-2027,William@nan.is,OliviaSquare 27,Drivers licence,1,reykjavik,torshavn,2020-02-03,2020-02-08,10:30,10:30,2020-01-05,2020-02-08,Valid,996,104,0,15
-1,DEFECTIVE,Unavailable,None,Light off-road,Shetland,1,Oliver,965-5847,William@nan.is,HarperRoad 16,None,1,tingwall,longyearbyen,2020-02-01,2020-02-10,10:30,10:30,2020-01-01,2020-02-08,Completed,316,69,0,16
-6,OK,Unavailable,Drivers licence,Light road,Farao Islands,1,Mia,977-5962,Liam@nan.is,OliverTown 7,Drivers licence,1,tingwall,tingwall,2020-02-02,2020-02-10,10:30,10:30,2020-01-05,2020-02-05,Invalid,712,57,0,17
-9,OK,Available,None,Light road,Svalbard,1,Olivia,671-6834,Evelyn@nan.is,MiaRoad 7,Drivers licence,1,kulusuk,nuuk,2020-01-05,2020-02-10,10:30,10:30,2020-02-05,2020-02-07,Completed,669,82,0,18
-2,OK,Available,None,Medium off-road,Iceland,1,Oliver,687-5060,Isabella@nan.is,ElijahRoad 26,Drivers licence,1,tingwall,kulusuk,2020-01-04,2020-02-05,10:30,10:30,2020-01-05,2020-02-07,Valid,800,35,0,19
-1,OK,Unavailable,Drivers licence,Light water,Greenland,1,William,791-5991,Harper@nan.is,HarperSquare 2,None,1,kulusuk,reykjavik,2020-02-02,2020-02-06,10:30,10:30,2020-02-01,2020-02-07,Invalid,192,262,0,20
-
-1,DEFECTIVE,Unavailable,Drivers licence,Light road,greenland,1,Liam,978-2377,Lucas@nan.is,OliverRoad 4,Drivers licence,2,reykjavik,nuuk,N/A,N/A,N/A,N/A,2020-11-01,2021-01-31,Valid,443,N/A,N/A,21
-1,DEFECTIVE,Unavailable,Drivers licence,Light road,greenland,1,Liam,978-2377,Lucas@nan.is,OliverRoad 4,Drivers licence,2,reykjavik,reykjavik,N/A,N/A,N/A,N/A,2020-11-01,2021-03-31,Valid,443,N/A,N/A,22
-2,DEFECTIVE,Available,Drivers licence,Light off-road,farao islands,1,Liam,978-2377,Lucas@nan.is,OliverRoad 4,Drivers licence,2,reykjavik,reykjavik,N/A,N/A,N/A,N/A,2020-12-11,2020-12-23,Valid,466,N/A,N/A,23
+8,DEFECTIVE,Available,None,Light off-road,Shetland,1,Ava,887-8966,Benjamin@nan.is,IsabellaStreet 30,Drivers licence,1,reykjavik,kulusuk,N/A,N/A,N/A,N/A,2020-02-03,2020-02-08,Valid,305,42,0,1
+7,DEFECTIVE,Unavailable,None,Medium off-road,Shetland,1,Elijah,790-9705,Elijah@nan.is,OliverTown 19,Drivers licence,1,tingwall,longyearbyen,2020-12-10,N/A,10:36,N/A,2020-01-05,2020-02-05,Completed,996,274,0,2
+3,DEFECTIVE,Unavailable,Drivers licence,Medium off-road,Farao Islands,1,Amelia,882-4380,Noah@nan.is,CharlotteStreet 18,Drivers licence,1,tingwall,tingwall,N/A,N/A,N/A,N/A,2020-01-05,2020-02-06,Completed,336,17,0,3
+6,OK,Available,None,Light road,Iceland,1,Liam,977-3543,Benjamin@nan.is,NoahTown 8,None,1,nuuk,reykjavik,N/A,N/A,N/A,N/A,2020-02-05,2020-02-09,Invalid,315,281,0,4
+8,OK,Unavailable,Drivers licence,Light off-road,Greenland,1,James,788-3215,Mia@nan.is,WilliamSquare 19,Drivers licence,1,longyearbyen,nuuk,N/A,N/A,N/A,N/A,2020-01-05,2020-02-06,Completed,136,269,0,5
+7,DEFECTIVE,Available,Drivers licence,Light off-road,Shetland,1,Ava,873-1107,Sophia@nan.is,SophiaRoad 26,Drivers licence,1,kulusuk,longyearbyen,2020-12-10,N/A,10:34,N/A,2020-01-05,2020-02-06,Valid,142,298,0,6
+2,OK,Available,Drivers licence,Light off-road,Iceland,1,Ava,982-1250,Isabella@nan.is,BenjaminStreet 14,None,1,reykjavik,tingwall,N/A,N/A,N/A,N/A,2020-01-01,2020-02-10,Completed,984,70,0,8
+1,OK,Available,None,Light off-road,Svalbard,1,Amelia,784-2058,Emma@nan.is,AmeliaSquare 8,Drivers licence,1,tingwall,nuuk,N/A,N/A,N/A,N/A,2020-02-03,2020-02-07,Valid,346,110,0,9
+10,OK,Unavailable,Drivers licence,Light water,Shetland,1,Sophia,885-9484,Mason@nan.is,BenjaminTown 15,None,1,nuuk,reykjavik,2020-12-10,N/A,10:39,N/A,2020-02-05,2020-02-10,Invalid,243,267,0,10
+6,DEFECTIVE,Unavailable,Drivers licence,Light water,Farao Islands,1,Emma,684-0072,Benjamin@nan.is,SophiaSquare 14,None,1,torshavn,torshavn,N/A,N/A,N/A,N/A,2020-02-02,2020-02-05,Invalid,414,277,0,11
+8,OK,Available,None,Medium water,Svalbard,1,Ethan,983-6357,Sophia@nan.is,ElijahRoad 16,Drivers licence,1,tingwall,reykjavik,N/A,N/A,N/A,N/A,2020-01-03,2020-02-10,Valid,169,177,0,12
+3,OK,Available,Drivers licence,Light off-road,Greenland,1,Harper,891-0095,Liam@nan.is,NoahSquare 20,Drivers licence,1,torshavn,torshavn,N/A,N/A,N/A,N/A,2020-02-05,2020-02-08,Completed,511,29,0,13
+1,OK,Available,None,Light road,Farao Islands,1,Noah,895-5009,Harper@nan.is,HarperTown 22,None,1,kulusuk,tingwall,N/A,N/A,N/A,N/A,2020-02-03,2020-02-06,Completed,907,154,0,14
+3,OK,Unavailable,None,Light off-road,Farao Islands,1,Evelyn,660-7050,Benjamin@nan.is,MiaStreet 25,None,1,torshavn,nuuk,N/A,N/A,N/A,N/A,2020-02-01,2020-02-10,Valid,558,141,0,15
+3,DEFECTIVE,Unavailable,Drivers licence,Medium off-road,Shetland,1,Emma,964-3961,Elijah@nan.is,JamesStreet 1,None,1,kulusuk,kulusuk,N/A,N/A,N/A,N/A,2020-02-04,2020-02-05,Completed,707,272,0,16
+10,DEFECTIVE,Available,None,Light road,Svalbard,1,Evelyn,864-8071,Benjamin@nan.is,OliverSquare 17,Drivers licence,1,tingwall,reykjavik,N/A,N/A,N/A,N/A,2020-01-04,2020-02-06,Completed,458,147,0,17
+6,DEFECTIVE,Unavailable,Drivers licence,Light road,Greenland,1,Liam,883-2535,Emma@nan.is,LucasSquare 3,None,1,reykjavik,longyearbyen,N/A,N/A,N/A,N/A,2020-01-03,2020-02-06,Completed,199,94,0,18
+8,DEFECTIVE,Unavailable,None,Light water,Farao Islands,1,Sophia,693-0439,Noah@nan.is,IsabellaStreet 26,Drivers licence,1,tingwall,tingwall,N/A,N/A,N/A,N/A,2020-02-02,2020-02-09,Completed,431,205,0,19
+6,OK,Available,None,Medium off-road,Iceland,1,Noah,661-5041,James@nan.is,EthanStreet 18,Drivers licence,1,kulusuk,nuuk,N/A,N/A,N/A,N/A,2020-01-05,2020-02-07,Completed,756,300,0,20

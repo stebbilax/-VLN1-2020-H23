@@ -243,5 +243,6 @@ class Operations:
         self.display.display_report(data(), report_type)
 
 def test(logicAPI, ui):
-    for x in ui.operation.verify.fields:
-        print(x, ui.operation.verify.fields[x])
+    res = logicAPI.invoice.pay_invoice(21)
+    for k, v in res.items():
+        print(k, v)
