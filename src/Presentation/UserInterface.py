@@ -38,12 +38,12 @@ class UserInterface:
         #region OFFICE MENU SYSTEM      =====
 
         # Office submenus
-        employee_menu_office    = Menu("Employee Menu", None, office_menu, self.logic, self, 'office')
-        vehicle_menu_office     = Menu("Vehicle Menu", None, office_menu, self.logic, self, 'office')
-        contract_menu_office    = Menu("Contract Menu", None, office_menu, self.logic, self, 'office')
-        report_menu_office      = Menu("Report Menu", None, office_menu, self.logic, self, 'office')
-        customer_menu_office    = Menu("Customer Menu", None, office_menu, self.logic, self, 'office')
-        destination_menu_office    = Menu("Destination Menu", None, office_menu, self.logic, self, 'office')
+        employee_menu_office        = Menu("Employee Menu", None, office_menu, self.logic, self, 'office')
+        vehicle_menu_office         = Menu("Vehicle Menu", None, office_menu, self.logic, self, 'office')
+        contract_menu_office        = Menu("Contract Menu", None, office_menu, self.logic, self, 'office')
+        report_menu_office          = Menu("Report Menu", None, office_menu, self.logic, self, 'office')
+        customer_menu_office        = Menu("Customer Menu", None, office_menu, self.logic, self, 'office')
+        destination_menu_office     = Menu("Destination Menu", None, office_menu, self.logic, self, 'office')
         vehicle_type_menu_office    = Menu("Vehicle Type Menu", None, office_menu, self.logic, self, 'office')
 
 
