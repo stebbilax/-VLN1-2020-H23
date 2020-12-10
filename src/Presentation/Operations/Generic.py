@@ -150,7 +150,7 @@ class Operations:
         else: 
             print("There is no {} that matches {}".format(fields[ans-1], query))
 
-    def get_all(self, model, ignore_fields=None):
+    def get_all(self, model, ignore_fields=[]):
         res = model[1].get_all()
         fields = [field for field in model[0].fields() if field not in ignore_fields]
         self.display.display_all(res, fields)
