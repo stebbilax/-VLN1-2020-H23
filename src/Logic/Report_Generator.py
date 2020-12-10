@@ -36,7 +36,6 @@ class Report_Generator:
             if contract['state'].lower() == 'valid': field = 'valid'
             if contract['state'].lower() == 'invalid': field = 'invalid'
             if contract['state'].lower() == 'completed': field = 'completed'
-                
 
             if field in report[location]:
                 report[location][field] += total_price
