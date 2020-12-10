@@ -121,3 +121,26 @@ class Display:
                 else:
                     value_line = '\t\t\t|{:-<30}|{:->30}|'.format(format_function_name(k),v)
                     print(value_line)
+
+    def display_invoice_report(self,data,state):
+        header = '\n\t\t\t{:^71}'.format(f'\033[4mInvoice {state} report\033[0m')
+        print(header)
+        for key,val in data.items():
+            cust_or_status = '\n\t\t\t{:_^71}\n'.format(f'\033[4m{format_function_name(key)}\033[0m')
+            print(cust_or_status)
+            
+            for k,v in val.items():
+                if state == 'customer':
+                    contract_stat_name = '\n\t\t\t{:^71}\n'.format(f'\033[4mStatus: {format_function_name(k)}\033[0m')
+                else:
+                    contract_stat_name = '\n\t\t\t{:^71}\n'.format(f'\033[4mName: {format_function_name(k)}\033[0m')
+                print(contract_stat_name)
+                if not v.items():
+                    empty = '\n\t\t\t{:^63}\n'.format(f'No contracts found')
+                    print(empty)
+                for keys,vals in v.items():
+                    contract_id = '\n\t\t\t{:<71}\n'.format(f'Contract id: {format_function_name(keys)}')
+                    print(contract_id)
+                    for ks,vl in vals.items():
+                        value_line = '\t\t\t|{:-<30}|{:->30}|'.format(format_function_name(ks),vl)
+                        print(value_line)

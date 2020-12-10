@@ -12,6 +12,7 @@ from Logic.form_editors import *
 from Logic.Report_Generator import Report_Generator
 from Logic.Invoice_Manager import Invoice_Manager
 from Logic.Enums import EnumManager
+from datetime import datetime
 
 
 class LogicAPI:
@@ -57,6 +58,80 @@ class ManageVehicles:
         return [getattr(self.searchAPI.search_vehicle(), func) 
             for func in dir(self.searchAPI.search_vehicle())
             if callable(getattr(self.searchAPI.search_vehicle(), func)) and not func.startswith('__')]
+
+
+    def handover_vehicle(self, id):
+        
+        res = self.logicAPI.vehicle.get().by_id(id)
+        # Check if vehicle exists
+        if res == []: 
+            return 'Vehicle not found'
+            
+
+        # Check if vehicle is available
+        vehicle = vars(res[0])
+        if vehicle['vehicle_status'] == 'Unavailable': 
+            return 'This vehicle is Unavailable'
+            
+
+        # Check if vehicle has a contract assigned to it
+        con_res = self.logicAPI.contract.get().by_vehicle_id(vehicle['id'])
+        if con_res == []: 
+            return 'Vehicle does not belong to any contract. Please create a contract first'
+        
+
+        contract = vars(con_res[0])
+
+        #Check if contract has a rate
+        if contract['rate'] == 'N/A':
+            return 'Contract does not yet have a rate. Please add a rate before handing over vehicle'
+            
+        # Add handover time and date to contract
+        date, time = datetime.now().replace(microsecond=0, second=0).isoformat().split('T')
+        vehicle['vehicle_status'] = 'Unavailable'
+        contract['vehicle_status'] = 'Unavailable'
+        contract['date_handover'] = date
+        contract['time_handover'] = time[0:5]
+
+        self.logicAPI.vehicle.edit(vehicle, vehicle['id'])
+        self.logicAPI.contract.edit(contract, contract['id'])
+
+        return 'Success'
+
+
+    def handin_vehicle(self, id):
+        res = self.logicAPI.vehicle.get().by_id(id)
+        # Check if vehicle exists
+        if res == []: 
+            return 'Vehicle not found'
+            
+
+        vehicle = vars(res[0])
+        # Check if vehicle has a contract assigned to it
+        con_res = self.logicAPI.contract.get().by_vehicle_id(vehicle['id'])
+        if con_res == []: 
+            return'Vehicle does not belong to any contract. Please create a contract first'
+            
+
+        contract = vars(con_res[0])
+
+        #Check if contract has a rate
+        if contract['rate'] == 'N/A':
+            return'Contract does not yet have a rate. Please add a rate before handing in vehicle'
+            
+
+        # Add handover time and date to contract
+        date, time = datetime.now().replace(microsecond=0, second=0).isoformat().split('T')
+        vehicle['vehicle_status'] = 'Available'
+        contract['vehicle_status'] = 'Available'
+        contract['date_return'] = date
+        contract['time_return'] = time[0:5]
+
+
+        self.logicAPI.vehicle.edit(vehicle, vehicle['id'])
+        self.logicAPI.contract.edit(contract, contract['id'])
+
+        return 'Success'
 
 class ManageEmployees:
     def __init__(self, lapi, dapi, sapi):
@@ -202,17 +277,17 @@ class ManageReports:
     def __init__(self, lapi, dapi, sapi):
         self.RG = Report_Generator(dapi, sapi)
         
-    def financial_report(self):
-        return self.RG.financial_report(time_from=None, time_to=None)
+    def financial_report(self, time_from=None, time_to=None):
+        return self.RG.financial_report(time_from, time_to)
 
-    def invoice_report_by_state(self):
-        return self.RG.invoice_report_by_state(time_from=None, time_to=None)
+    def invoice_report_by_state(self, time_from=None, time_to=None):
+        return self.RG.invoice_report_by_state(time_from, time_to)
 
-    def invoice_report_by_customer(self):
-        return self.RG.invoice_report_by_customer(time_from=None, time_to=None)
+    def invoice_report_by_customer(self, time_from=None, time_to=None):
+        return self.RG.invoice_report_by_customer(time_from, time_to)
 
-    def vehicle_report(self):
-        return self.RG.vehicle_report()
+    def vehicle_report(self, time_from=None, time_to=None):
+        return self.RG.vehicle_report(time_from, time_to)
 
     
     def get_search_options(self):

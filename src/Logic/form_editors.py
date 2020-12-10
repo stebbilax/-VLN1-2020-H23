@@ -1,4 +1,5 @@
 from Presentation.input_verifiers import Input_Verifiers
+from Logic.Enums import EnumManager
 
 """PÆLING AÐ BREYTA ÞESSU Í CLASA? þá get ég gert dict en ekki if if if """
 def vehicle_editor(form):
@@ -20,35 +21,7 @@ def employee_editor(form):
     if form['title'] == 'office':
         form['airport'] = 'reykjavik'
         form['country'] = 'Iceland'
-
-    if form['title'] == 'airport':
-        if form['airport'] == 'reykjavik':
-            form['country'] ='iceland'
-        if form['airport'] == 'tingwall':
-            form['country'] == 'shetland'
-        if form['airport'] == 'nuuk' or form['airport'] == 'kulusuk':
-            form['country'] ='greenland'
-        if form['airport'] == 'longyearbyen':
-            form['country'] ='svalbard'
-        if form['airport'] == 'torshavn':
-            form['country'] = 'farao Islands'
     return form
 
-def destination_editor(form):
-    if form['destination_name'] == 'iceland':
-        form['destination_airport'] = 'reykjavik'
-    if form['destination_name'] == 'Greenland':
-        choice = self.ui.get_user_form(
-            {
-                'Airports in greenland': ['(nuuk|kulusuk)','Enter valid airport: nuuk or kulusuk']
-            }  
-        )
-        form['destination_airport'] = choice
-    if form['destination_name'] == 'svalbard':
-        form['destination_airport'] = 'longyearbyen'
-    if form['destination_name'] == 'farao islands':
-        form['destination_airport'] = 'torshavn'
-    if form['destination_name'] == 'shetland':
-        form['destination_airport'] = 'tingwall'
 
         

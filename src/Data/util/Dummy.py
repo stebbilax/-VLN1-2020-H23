@@ -3,6 +3,12 @@ import datetime
 from string import ascii_uppercase as AU
 
 class Dummy:
+    def __init__(self):
+        self.job = ''
+        self.airport = ''
+        self.country = ''
+        self.state = ''
+
     def make_name(self):
         names = ['Liam','Olivia','Noah','Emma','Oliver','Ava','William','Sophia','Elijah','Isabella',
         'James','Charlotte','Benjamin','Amelia','Lucas','Mia','Mason','Harper','Ethan','Evelyn']
@@ -10,7 +16,7 @@ class Dummy:
 
 
     def make_phone(self):
-        return f'{randint(6,9)}{randint(6,9)}{randint(0,9)}-{randint(0,9)}{randint(0,9)}{randint(0,9)}{randint(0,9)}'
+        return f'{randint(6,9)}{randint(6,9)}{randint(0,9)}{randint(0,9)}{randint(0,9)}{randint(0,9)}{randint(0,9)}'
 
     def make_address(self):
         l = ['Street','Town','Road', 'Square']
@@ -29,13 +35,31 @@ class Dummy:
         return f'{choice(AU)}{choice(AU)}{randint(0, 9)}{randint(0, 9)}{randint(0, 9)}'
 
     def make_country(self):
-        return choice(['Iceland', 'Greenland', 'Svalbard', 'Farao Islands', 'Shetland'])
+        self.country =choice(['Iceland', 'Greenland', 'Svalbard', 'Farao Islands', 'Shetland'])
+        return self.country
+
+
+    def make_country_after_airport(self):
+        if self.airport == 'reykjavik':
+            return 'Iceland'
+        if self.airport == 'nuuk' or self.airport =='kulusuk':
+            return 'Greenland'
+        if self.airport == 'longyearbyen':
+            return 'Svalbard'
+        if self.airport == 'torshavn':
+            return 'Farao Islands'
+        if self.airport ==  'tingwall':
+            return 'Shetland'
 
     def make_vehicle_state(self):
-        return choice(['OK', 'DEFECTIVE'])
+        self.state = choice(['OK', 'DEFECTIVE'])
+        return self.state
 
     def make_vehicle_status(self):
-        return choice(['Unavailable', 'Available'])
+        if self.state == 'OK':
+            return choice(['Unavailable', 'Available'])
+        else:
+            return 'Unavailable'
 
     def make_contract_state(self):
         return choice(['Valid', 'Invalid', 'Completed'])
@@ -56,13 +80,37 @@ class Dummy:
         return f'{randint(1,9)}{randint(1,9)}{randint(1,9)}'
 
     def make_airport(self):
-        return choice(['reykjavik', 'nuuk', 'kulusuk', 'tingwall', 'tingwall', 'longyearbyen', 'torshavn'])
+        return choice(['reykjavik', 'nuuk', 'kulusuk', 'tingwall', 'longyearbyen', 'torshavn'])
+    
+    def make_airport_after_title(self):
+        if self.job == 'office':
+            self.airport = 'reykjavik'
+            return self.airport
+        elif self.job == 'airport':
+            self.airport = choice(['reykjavik', 'nuuk', 'kulusuk', 'tingwall', 'longyearbyen', 'torshavn'])
+            return self.airport
+
+    
+    def make_airport_after_country(self):
+        if self.country =='Iceland' :
+            return 'reykjavik'
+        if self.country == 'Greenland' :
+            self.airport = choice(['nuuk','kulusuk'])
+            return self.airport
+        if self.country == 'Svalbard':
+            return 'longyearbyen'
+        if self.country == 'Farao Islands':
+            return 'torshavn'
+        if self.country == 'Shetland':
+            return 'tingwall'
+
 
     def make_opening_hours(self):
         return '10:00-15:30'
 
     def make_title(self):
-        return choice(['airport', 'office'])
+        self.job = choice(['airport', 'office'])
+        return self.job
 
     def make_id(self):
         return randint(1, 999)

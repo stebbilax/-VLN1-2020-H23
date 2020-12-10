@@ -85,7 +85,7 @@ class UserInterface:
         vehicle_menu_office.selectable_options += [
             register_vehicle, edit_vehicle,
             display_vehicle_menu_office,
-            handover_vehicle
+            handover_vehicle, handin_vehicle
             
         ]
 
@@ -127,7 +127,8 @@ class UserInterface:
         report_menu_office.selectable_options += [
             get_financial_report,
             get_vehicle_report,
-            get_invoice_report
+            get_invoice_report_by_state,
+            get_invoice_report_by_customer,
         ]
 
 
@@ -326,7 +327,7 @@ class UserInterface:
             
             # If there is no specific regex validation to the input
             if fields[field] is None:
-                answer = input(field + ': ')
+                answer = input(format_function_name(field) + ': ')
 
                 if answer.lower() == 'b':
                     return False
@@ -341,7 +342,7 @@ class UserInterface:
                     msg = field
 
                 while not match:
-                    answer = input(msg + ': ')
+                    answer = input(format_function_name(msg) + ': ')
 
                     if answer.lower() == 'b':
                         return False
