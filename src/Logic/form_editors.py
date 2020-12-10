@@ -1,40 +1,54 @@
-from datetime import datetime,timedelta
+from Presentation.input_verifiers import Input_Verifiers
 
+"""PÆLING AÐ BREYTA ÞESSU Í CLASA? þá get ég gert dict en ekki if if if """
 def vehicle_editor(form):
     # make sure no vehicle is defective and available
     if form['vehicle_state'] == 'DEFECTIVE': form['vehicle_status'] = 'Unavailable'
     
     return form
 
-
-
-def contract_editor(form):
-    if form['contract_start'] == '2020-11-01':
-        if form['contract_end'] == '2021-03-31':
+def contract_editor(form):    
+ 
+    if form['contract_start'] == '2020-11-01' and form['contract_end'] == '2021-03-31':
             if ['vehicle_type'] == 'Light water' or ['vehicle_type'] == 'Light road':
                 form['late_fee'] = '0'
-            if ['vehicle_type'] == 'Light water':
+            if ['vehicle_type'] == 'Medium water':
                 form['late_fee'] = '200'
     return form
 
 def employee_editor(form):
-    if form['titel'] == 'office':
+    if form['title'] == 'office':
         form['airport'] = 'reykjavik'
         form['country'] = 'Iceland'
 
     if form['title'] == 'airport':
         if form['airport'] == 'reykjavik':
-            form['country'] ='Iceland'
+            form['country'] ='iceland'
         if form['airport'] == 'tingwall':
-            form['country'] == 'Shetland'
+            form['country'] == 'shetland'
         if form['airport'] == 'nuuk' or form['airport'] == 'kulusuk':
-            form['country'] ='Greenland'
+            form['country'] ='greenland'
         if form['airport'] == 'longyearbyen':
-            form['country'] ='Svalbard'
+            form['country'] ='svalbard'
         if form['airport'] == 'torshavn':
-            form['country'] = 'Farao Islands'
+            form['country'] = 'farao Islands'
     return form
-        
-        
+
+def destination_editor(form):
+    if form['destination_name'] == 'iceland':
+        form['destination_airport'] = 'reykjavik'
+    if form['destination_name'] == 'Greenland':
+        choice = self.ui.get_user_form(
+            {
+                'Airports in greenland': ['(nuuk|kulusuk)','Enter valid airport: nuuk or kulusuk']
+            }  
+        )
+        form['destination_airport'] = choice
+    if form['destination_name'] == 'svalbard':
+        form['destination_airport'] = 'longyearbyen'
+    if form['destination_name'] == 'farao islands':
+        form['destination_airport'] = 'torshavn'
+    if form['destination_name'] == 'shetland':
+        form['destination_airport'] = 'tingwall'
 
         

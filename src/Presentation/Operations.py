@@ -356,17 +356,17 @@ class Display:
         print(header)
 
         for key,val in data.items():
-            location_header = '\n\t\t\t{:_^71}\n'.format(f'\033[4m{key}\033[0m')
+            location_header = '\n\t\t\t{:_^71}\n'.format(f'\033[4m{format_function_name(key)}\033[0m')
             print(location_header)
             for (k,v) in val.items():
                 if type(v) is dict:
-                    var_line = '\n\t\t\t{:-^71}\n'.format(f'\033[4m{k}\033[0m')
+                    var_line = '\n\t\t\t{:^71}\n'.format(f'\033[4m{k}\033[0m')
                     print(var_line)
                     for (keys,vals) in v.items():
-                        value_line = '\t\t\t|{:-<30}|{:->30}|'.format(keys,vals)
+                        value_line = '\t\t\t|{:-<30}|{:->30}|'.format(format_function_name(keys),vals)
                         print(value_line)
                 else:
-                    value_line = '\t\t\t|{:-<30}|{:->30}|'.format(k,v)
+                    value_line = '\t\t\t|{:-<30}|{:->30}|'.format(format_function_name(k),v)
                     print(value_line)
 
 
@@ -378,12 +378,6 @@ def test(logicAPI, ui):
     x = logicAPI.report.financial_report()
     print(x)
     
-
-def get_total_cost(logicAPI, ui):
-    o = Operations(logicAPI, ui)
-    o.calculate_total_cost(o.contract)
-
-
 
 def get_employee_after_location(logicAPI,ui):
     key_type = ui.get_user_form(
