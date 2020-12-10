@@ -7,8 +7,8 @@ from Models.Vehicle import Vehicle
 from Models.Customer import Customer
 from Models.Vehicle_Type import Vehicle_Type
 from Models.Destination import Destination
-from Logic.form_fillers import contract_filler, vehicle_filler
-from Logic.form_editors import vehicle_editor, contract_editor
+from Logic.form_fillers import *
+from Logic.form_editors import *
 from Logic.Report_Generator import Report_Generator
 from Logic.Invoice_Manager import Invoice_Manager
 from Logic.Enums import EnumManager

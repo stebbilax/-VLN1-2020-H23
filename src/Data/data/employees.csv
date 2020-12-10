@@ -1,11 +1,11 @@
 name,address,postal_code,ssn,phone,mobile_phone,email,title,airport,country,id
-Charlotte,LucasSquare 17,352,111188-7630,781-9264,691-7497,Emma@nan.is,airport,torshavn,Farao Islands,1
+Charlotte,LucasSquare 17,352,111188-7630,781-9264,691-7497,Emma@nan.is,office,reykjavik,Iceland,1
 Emma,OliverTown 24,268,121072-2334,990-9131,692-1879,Mia@nan.is,office,tingwall,Greenland,2
 Mason,SophiaSquare 13,214,121153-7262,792-4205,671-8997,Amelia@nan.is,office,tingwall,Greenland,3
 Sophia,OliviaRoad 21,215,111179-6071,971-8175,679-4648,Noah@nan.is,office,longyearbyen,Shetland,4
 Oliver,AmeliaStreet 10,863,111070-1621,667-4035,891-9647,Noah@nan.is,office,torshavn,Greenland,5
 Ethan,BenjaminStreet 27,826,101268-3387,766-2653,992-1215,Amelia@nan.is,office,kulusuk,Shetland,6
-James,EvelynRoad 13,771,121057-3467,870-2737,989-3561,Liam@nan.is,airport,longyearbyen,Greenland,7
+James,EvelynRoad 13,771,121057-3467,870-2737,989-3561,Liam@nan.is,office,reykjavik,Iceland,7
 Oliver,LucasTown 1,614,121280-1982,771-0391,886-6038,Noah@nan.is,airport,reykjavik,Iceland,8
 Harper,LiamTown 19,912,101084-5688,783-0809,776-2195,William@nan.is,office,longyearbyen,Farao Islands,9
 Isabella,ElijahRoad 13,293,111077-6143,789-3217,787-5858,Emma@nan.is,airport,reykjavik,Iceland,10
