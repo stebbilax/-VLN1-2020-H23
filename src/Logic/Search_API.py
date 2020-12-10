@@ -247,14 +247,17 @@ class Search_Vehicle:
     def by_airport(self, string):
         return self.Search_Manager.search(string, 'airport', 'vehicle')
 
+    def by_vehicle_status(self, string):
+        return self.Search_Manager.search(string, 'vehicle_status', 'vehicle')
+
     def by_condition(self, string):
         return self.Search_Manager.search(string, 'vehicle_state', 'vehicle')
 
     def by_model(self, string):
         return self.Search_Manager.search(string, 'model', 'vehicle')
 
-    def by_vehicle_id(self, string):
-        return self.Search_Manager.search(string, 'vehicle_id', 'vehicle')
+    def by_vehicle_authentication(self, string):
+        return self.Search_Manager.search(string, 'vehicle_authentication', 'vehicle')
 
     def by_id(self, string):
         return self.Search_Manager.search(string, 'id', 'vehicle')
