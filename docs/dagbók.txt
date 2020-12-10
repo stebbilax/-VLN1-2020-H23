@@ -238,9 +238,74 @@ Assignment:
     Bjarki Laxdal, Gunnlaug            : Refactor operations, Refactor logicAPI paths
     
 End report:
-    
+    Completed refactoring
     
 Notes:
     Refactor day
 
 #----------------------------------------------------------------------------------#
+
+8.12.2020
+
+Objectives:
+    Dynamic enums
+    Printable functions
+    Bugfixing
+
+Assignment:
+    Elias Guðjohnsen                   : Dynamic Enums, Bugfixing
+    Jason Guðnason                     : Bugfixing
+    Arnar Már, Stefán Laxdal           : Bugfixing
+    Bjarki Laxdal, Gunnlaug            : Printable functions
+    
+End report:
+    Completed dynamic enums
+    Completed printable functions
+    Progress on bugfixing
+    
+Notes:
+
+#----------------------------------------------------------------------------------#
+
+9.12.2020
+
+Objectives:
+    Report refining
+    Bugfixing
+
+Assignment:
+    Elias Guðjohnsen, Jason Guðnason   : Bugfixing
+    Arnar Már, Stefán Laxdal           : Bugfixing
+    Bjarki Laxdal, Gunnlaug            : Bugfixing, Report refining
+    
+End report:
+    Completed dynamic enums
+    Completed printable functions
+    Progress on bugfixing
+    
+Notes:
+    
+#----------------------------------------------------------------------------------#
+
+10.12.2020
+
+Objectives:
+    Report refining
+    Restructure operations
+    Class diagram
+    Use cases
+    Invoice manager
+
+Assignment:
+    Elias Guðjohnsen                   : Class diagram, Restructure operations
+    Jason Guðnason                     : Use cases
+    Arnar Már, Stefán Laxdal           : Invoice manager
+    Bjarki Laxdal, Gunnlaug            : Bugfixing, report refinment
+    
+End report:
+    Completed class diagram
+    Completed use cases
+    Completed invoice manager 
+    Completed restructure of operations
+    
+Notes:
