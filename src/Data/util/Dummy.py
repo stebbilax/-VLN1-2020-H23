@@ -7,6 +7,7 @@ class Dummy:
         self.job = ''
         self.airport = ''
         self.country = ''
+        self.state = ''
 
     def make_name(self):
         names = ['Liam','Olivia','Noah','Emma','Oliver','Ava','William','Sophia','Elijah','Isabella',
@@ -51,10 +52,14 @@ class Dummy:
             return 'Shetland'
 
     def make_vehicle_state(self):
-        return choice(['OK', 'DEFECTIVE'])
+        self.state = choice(['OK', 'DEFECTIVE'])
+        return self.state
 
     def make_vehicle_status(self):
-        return choice(['Unavailable', 'Available'])
+        if self.state == 'OK':
+            return choice(['Unavailable', 'Available'])
+        else:
+            return 'Unavailable'
 
     def make_contract_state(self):
         return choice(['Valid', 'Invalid', 'Completed'])
