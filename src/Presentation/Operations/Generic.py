@@ -249,10 +249,23 @@ class Operations:
         
     def invoice_reciept(self, status):
         data = getattr(self.logicAPI.invoice, f'{status}_invoice')
-        print('Please enter Id of contract')
-        id = input('ID: ')
-        data = data(id)
-        self.display.display_invoice(data,status)
+
+        leng = len(self.contract[1].get_all())
+        ans = -1
+        while not (0 < ans <= leng):
+            ans = (self.ui.get_user_form({
+                'Please enter ID' : ['\d', 'Must be digit between 1-{}'.format(leng)]
+            }))
+
+            if not ans:
+                return
+            ans = int(ans[0])
+
+        data = data(ans)
+        if not data:
+            return
+        else:
+            self.display.display_invoice(data,status)
         
 def test(logicAPI, ui):
     res = logicAPI.report.vehicle_report()
