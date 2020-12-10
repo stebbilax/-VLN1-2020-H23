@@ -46,6 +46,7 @@ class Invoice_Manager:
         contract = vars(res[0])
         
         if contract['state'] == 'Completed': return 'Invoice already paid'
+        if contract['state'] != 'Awaiting Payment': return 'Must generate invoice before paying it'
 
         receipt = {
             'type': contract['vehicle_type'],
