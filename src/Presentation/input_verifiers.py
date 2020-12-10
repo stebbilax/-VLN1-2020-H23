@@ -5,10 +5,12 @@ from datetime import datetime
 
 class Input_Verifiers:
     def __init__(self, lapi):
+        #lapi = LogicAPI
         self.enum = lapi.enums
         self.generate_fields()
 
     def generate_fields(self):
+        #Regex for inputs
         self.fields = {
             'name': None,
             'phone': ['(\d{7,15})', 'Phone number must be between 7 and 15 digits'],
@@ -17,7 +19,7 @@ class Input_Verifiers:
             'contract_start': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
             'contract_end': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)',compare_and_verify_times],
             'vehicle_id':['(\d)', 'Must be digits only', check_vehicle_id],
-            'country': [self.enum.enum_to_regex(self.enum.country_enum), self.enum.enum_to_instructions(self.enum.country_enum)],
+            'country': [self.enum.enum_to_regex(self.enum.country_enum), self.enum.enum_to_instructions(self.enum.country_enum)], # checks if country exists in enum
             'vehicle_state': ['(OK|DEFECTIVE)', 'Please enter valid vehicle state (OK or DEFECTIVE)'],
             'vehicle_status': ['(Unavailable|Available)', 'Please enter valid vehicle status (Unavailable or Available)'],
             'rate': ['(\d)', 'Must be digits only'],
@@ -36,16 +38,16 @@ class Input_Verifiers:
             'loan_status': ['(OK|RETURNED|LATE)', 'Please enter a valid loan status (OK or RETURNED or LATE)'],
             'type': ['(.*)','wrong',find_vehicle_type],
             'manufacturer': ['[a-z]+$', 'Alphabetical letters only'] ,
-            'yom': ['^\d{4}$', 'Digits only'], #named YOM in model vehicle class
+            'yom': ['^\d{4}$', 'Digits only'], #named yom = year of manufacturer
             'color': ['[a-z]+$', 'Alphabetical letters only'],
             'licence': None,
-            'airport': [self.enum.enum_to_regex(self.enum.airport_enum), self.enum.enum_to_instructions(self.enum.airport_enum)],
-            'location_handover': [self.enum.enum_to_regex(self.enum.airport_enum), self.enum.enum_to_instructions(self.enum.airport_enum)],
+            'airport': [self.enum.enum_to_regex(self.enum.airport_enum), self.enum.enum_to_instructions(self.enum.airport_enum)], #checks if airport exixts in enum 
+            'location_handover': [self.enum.enum_to_regex(self.enum.airport_enum), self.enum.enum_to_instructions(self.enum.airport_enum)], 
             'location_return': [self.enum.enum_to_regex(self.enum.airport_enum), self.enum.enum_to_instructions(self.enum.airport_enum)],
             'condition': ['(OK|DEFECTIVE)', 'Please enter valid vehicle status (OK or DEFECTIVE)'],
             'model': ['[a-z]+$', 'Alphabetical letters only'],
             'postal_code': ['(\d)', 'Must be digits only'],
-            'ssn': ['(\d{6})-(\d{4})', 'SSN must be in format (6 digits - 4 digits)'],
+            'ssn': ['^(\d{6})-(\d{4})$', 'SSN must be in format (6 digits - 4 digits)'],
             'mobile_phone': ['(\d{7,15})', 'Mobile phone number must be between 7 and 15 digits'],
             'email': ['(.+@.+\..+)', 'Must be a valid email format ( example: OldGregg@nan.is ).'],
             'title': [self.enum.enum_to_regex(self.enum.title_enum), self.enum.enum_to_instructions(self.enum.title_enum)],
@@ -83,8 +85,10 @@ def find_vehicle(form, vehicle_id):
     return (False, 'Vehicle with that authentication already exists!')
 
 
+
 def find_vehicle_type(form, type):
-    res = Search_API().search_vehicle_type().by_type(type)
+    #chekc if vehicle type exists
+    res = Search_API().search_vehicle_type().by_type_name(type)
     if res == []: return (False, 'Vehicle Type does not exist, vehicle type examples: Light road, Medium water')
 
     return (True, 'Success')
@@ -109,6 +113,7 @@ def check_customer_id(form, id):
 
 
 def check_vehicle_id(form, id):
+    #looks for Vehicle id
     res = Search_API().search_vehicle().by_id(id)
     if res == []: return (False, 'Vehicle does not exist. Please register Vehicle')
 
