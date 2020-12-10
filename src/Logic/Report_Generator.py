@@ -10,7 +10,7 @@ class Report_Generator:
     def financial_report(self, time_from=None, time_to=None):
         contracts = [vars(contract) for contract in self.Data.read_all_contracts()]
         report = {}
-
+        overall_income = 0
 
 
         if time_from != None: contracts = select_time_period(contracts, time_from, time_to)
@@ -26,20 +26,28 @@ class Report_Generator:
 
             # Create a entry for each location
             if location not in report: report[location] = {
-                'valid': 0,
-                'invalid': 0,
-                'complete': 0,
+                'valid'             : 0,
+                'invalid'           : 0,
+                'awaiting payment'  : 0,
+                'complete'          : 0,
+                'total_income'      : 0,
             }
 
             # Creates fields for total price of valid, invalid and completed contracts
             field = None
             if contract['state'].lower() == 'valid': field = 'valid'
             if contract['state'].lower() == 'invalid': field = 'invalid'
+            if contract['state'].lower() == 'awaiting payment': field = 'awaiting payment'
             if contract['state'].lower() == 'completed': field = 'completed'
 
             if field in report[location]:
                 report[location][field] += total_price
+                if field != 'invalid':
+                    report[location]['total_income'] += total_price
+                    overall_income += total_price
+
             
+        report['overall_income'] = overall_income
         
         return report
 
@@ -97,12 +105,6 @@ class Report_Generator:
 
         def get_vehicle_stats(obj):
             # Add extra fields to each airport
-            # for airport, _ in obj.items():
-            #     obj[airport]['most_popular_vehicle'] = 0
-            #     obj[airport]['total_vehicles_in_use'] = 0
-            #     obj[airport]['total_vehicles_in_repair'] = 0
-            #     obj[airport]['total_vehicles_available'] = 0
-
             for airport, fields in obj.items():
                 most_popular_vehicle        = None
                 most_popular_num            = 0
