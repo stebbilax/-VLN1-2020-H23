@@ -21,24 +21,7 @@ def employee_editor(form):
     if form['title'] == 'office':
         form['airport'] = 'reykjavik'
         form['country'] = 'Iceland'
-
     return form
 
-def destination_editor(form):
-    if form['destination_name'] == 'iceland':
-        form['destination_airport'] = 'reykjavik'
-    if form['destination_name'] == 'Greenland':
-        choice = self.ui.get_user_form(
-            {
-                'Airports in greenland': ['(nuuk|kulusuk)','Enter valid airport: nuuk or kulusuk']
-            }  
-        )
-        form['destination_airport'] = choice
-    if form['destination_name'] == 'svalbard':
-        form['destination_airport'] = 'longyearbyen'
-    if form['destination_name'] == 'farao islands':
-        form['destination_airport'] = 'torshavn'
-    if form['destination_name'] == 'shetland':
-        form['destination_airport'] = 'tingwall'
 
         
