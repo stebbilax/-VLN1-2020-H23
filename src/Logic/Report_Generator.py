@@ -1,5 +1,5 @@
 from datetime import datetime, date
-from Logic.form_calculators import calculate_total_price
+from Logic.form_calculators import *
 
 class Report_Generator:
     def __init__(self, dapi, sapi):
@@ -12,25 +12,6 @@ class Report_Generator:
         report = {}
 
 
-        def select_time_period(contracts, date_from, date_to):
-            '''Recieves contracts and a start and end date.
-            Filters out any contract that does not fit within the 
-            given time frame and returns the filtered list
-            '''
-            date_from = datetime.fromisoformat(date_from)
-            date_to = datetime.fromisoformat(date_to)
-            new_contracts = []
-            for contract in contracts:
-                contract_start = datetime.fromisoformat(contract['contract_start'])
-                contract_end = datetime.fromisoformat(contract['contract_end'])
-
-                # Check if contract fits in the given window
-                if contract_start <= date_from: continue
-                if contract_end >= date_to: continue
-
-                new_contracts.append(contract)
-
-            return new_contracts
 
         if time_from != None: contracts = select_time_period(contracts, time_from, time_to)
 
@@ -117,5 +98,67 @@ class Report_Generator:
             
 
 
-    def invoice_report(self):
-        pass
+    def invoice_report_by_state(self, time_from=None, time_to=None):
+        contracts = [vars(contract) for contract in self.Data.read_all_contracts()]
+        if time_from != None: contracts = select_time_period(contracts, time_from, time_to)
+        
+        report = {
+            'Awaiting Payment' : {},
+            'Completed' : {}
+        }
+        for contract in contracts:
+
+            country = contract['country']
+            customer_id = contract['customer_id']
+            customer_name = contract['customer_name']
+            date_handover = contract['date_handover']
+            date_return = contract['date_return']
+            contract_start = contract['contract_start']
+            contract_end = contract['contract_end']
+            rate = contract['rate']
+            state = contract['state']
+            id = contract['id']
+
+            if state == 'Awaiting Payment' or state == 'Completed':
+                    if customer_name not in report[state]: report[state][customer_name] = {}
+                    report[state][customer_name][id] = {
+                        'price'      : calculate_base_price(contract_start, contract_end, rate),
+                        'late_fee'   : calculate_late_fee(rate, contract_end, date_return),
+                        'total_price': calculate_total_price(contract),
+                    }
+
+        return report
+
+    
+    def invoice_report_by_customer(self, time_from=None, time_to=None):
+        contracts = [vars(contract) for contract in self.Data.read_all_contracts()]
+        if time_from != None: contracts = select_time_period(contracts, time_from, time_to)
+        
+        report = {
+            
+        }
+        for contract in contracts:
+
+            country = contract['country']
+            customer_id = contract['customer_id']
+            customer_name = contract['customer_name']
+            date_handover = contract['date_handover']
+            date_return = contract['date_return']
+            contract_start = contract['contract_start']
+            contract_end = contract['contract_end']
+            rate = contract['rate']
+            state = contract['state']
+            id = contract['id']
+
+            if state == 'Awaiting Payment' or state == 'Completed':
+                    if customer_name not in report: report[customer_name] = {'Awaiting Payment':{}, 'Completed':{}}
+                    report[customer_name][state][id] = {
+                        'price'      : calculate_base_price(contract_start, contract_end, rate),
+                        'late_fee'   : calculate_late_fee(rate, contract_end, date_return),
+                        'total_price': calculate_total_price(contract),
+                    }
+
+        return report
+            
+
+           
