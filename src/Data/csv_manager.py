@@ -122,7 +122,7 @@ class Csv_Manager:
         new_lines = []
 
         for line in range(len(lines)):
-            if lines[line].id == id:)
+            if lines[line].id == id:
                 new_lines.append(data)
             else:
                 new_lines.append(lines[line])
