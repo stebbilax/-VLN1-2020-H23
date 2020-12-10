@@ -31,7 +31,7 @@ class Input_Verifiers:
             'id': ['(\d)','Must be digits only'],
             'employee_id':['(\d)', 'Must be digits only'],
             'customer_licence': ['(None|Drivers licence)', 'Invalid input! Input examples: None, Drivers licence'],
-            'state': ['(Valid|Invalid|Completed)', 'Please enter valid contract status (Vaild or Invalid or Completed)'], #Contract state
+            'state': ['(Valid|Invalid|Completed)', 'Please enter valid contract status (Valid or Invalid or Completed)'], #Contract state
             'date_handover': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
             'date_return': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)', compare_and_verify_times],
             'total_price': ['(\d)', 'Must be digits only'],

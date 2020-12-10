@@ -1,21 +1,21 @@
 type,manufacturer,yom,color,licence,airport,vehicle_state,vehicle_status,rate,model,vehicle_authentication,id
-Medium water,Cani-Fit,2019,red,Drivers licence,kulusuk,OK,Available,138,Crazy,KD516,1
-Light road,Yedoo,2003,red,None,nuuk,OK,Unavailable,157,Fat Max,EC415,2
-Light water,WildChild,1992,red,Drivers licence,kulusuk,OK,Available,209,Free Fly II,BG600,3
-Light off-road,WildChild,2003,red,Drivers licence,torshavn,OK,Available,264,Crazy,FL626,4
-Medium water,Cani-Fit,2005,green,None,longyearbyen,OK,Available,104,Crazy,AX037,5
-Light road,Cani-Fit,2020,red,None,reykjavik,OK,Available,245,Crazy,AS001,6
-Light road,TAILG,2019,green,None,tingwall,DEFECTIVE,Unavailable,110,Crazy,BG379,7
-Light road,WildChild,1992,green,Drivers licence,nuuk,OK,Available,145,Fat Max,DI357,8
-Medium water,Kayman Kayaks,2012,blue,None,torshavn,OK,Unavailable,134,Free Fly II,QJ972,9
-Light off-road,Yedoo,2008,black,Drivers licence,longyearbyen,OK,Available,173,Free Fly II,AB468,10
-Medium water,TAILG,2007,red,Drivers licence,longyearbyen,OK,Unavailable,172,Free Fly II,NZ637,11
-Light off-road,Kayman Kayaks,2019,blue,Drivers licence,torshavn,DEFECTIVE,Unavailable,246,Free Fly II,DK930,12
-Light off-road,Kayman Kayaks,2003,grey,None,reykjavik,OK,Unavailable,159,Fat Max,PV453,13
-Medium off-road,TAILG,2019,grey,None,reykjavik,DEFECTIVE,Unavailable,174,Crazy,PB889,14
-Medium off-road,WildChild,1999,green,None,tingwall,OK,Unavailable,115,Crazy,SR960,15
-Medium off-road,TAILG,2007,green,Drivers licence,nuuk,OK,Unavailable,167,Free Fly II,RX763,16
-Light road,Yedoo,2015,black,None,reykjavik,DEFECTIVE,Unavailable,193,Crazy,MM686,17
-Medium water,TAILG,2017,black,Drivers licence,torshavn,OK,Available,291,Crazy,HH563,18
-Medium off-road,Yedoo,2001,green,None,kulusuk,DEFECTIVE,Unavailable,131,Free Fly II,EU343,19
-Medium off-road,Kayman Kayaks,1997,blue,Drivers licence,longyearbyen,DEFECTIVE,Unavailable,122,Fat Max,MZ636,20
+Light water,WildChild,2001,black,Drivers licence,tingwall,DEFECTIVE,Unavailable,118,Crazy,BP464,1
+Light road,Yedoo,2002,blue,None,longyearbyen,DEFECTIVE,Unavailable,206,Fat Max,CP208,2
+Medium water,Kayman Kayaks,2015,grey,Drivers licence,reykjavik,OK,Unavailable,204,Fat Max,BS245,3
+Light water,Kayman Kayaks,2000,green,None,kulusuk,DEFECTIVE,Unavailable,277,Crazy,WW606,4
+Light road,Yedoo,2010,black,None,torshavn,DEFECTIVE,Unavailable,234,Crazy,KM850,5
+Light road,Kayman Kayaks,2000,green,Drivers licence,nuuk,DEFECTIVE,Unavailable,157,Crazy,GH533,6
+Medium water,WildChild,2011,grey,None,reykjavik,DEFECTIVE,Unavailable,126,Free Fly II,TV726,7
+Light water,Cani-Fit,1993,grey,None,longyearbyen,OK,Available,191,Crazy,WO942,8
+Light off-road,Cani-Fit,2017,grey,Drivers licence,kulusuk,DEFECTIVE,Unavailable,240,Fat Max,MB825,9
+Medium off-road,Kayman Kayaks,1995,grey,None,kulusuk,OK,Unavailable,239,Fat Max,GX844,10
+Medium off-road,Yedoo,2006,grey,None,torshavn,OK,Unavailable,114,Free Fly II,JC930,11
+Medium water,Kayman Kayaks,2005,red,Drivers licence,reykjavik,OK,Unavailable,202,Fat Max,EL097,12
+Medium off-road,TAILG,2003,grey,Drivers licence,longyearbyen,OK,Available,178,Fat Max,QJ652,13
+Light water,Cani-Fit,2002,red,None,torshavn,DEFECTIVE,Unavailable,177,Free Fly II,JR564,14
+Medium off-road,Cani-Fit,2005,green,Drivers licence,longyearbyen,OK,Available,149,Fat Max,KP391,15
+Light water,Kayman Kayaks,2010,red,Drivers licence,tingwall,DEFECTIVE,Unavailable,191,Free Fly II,WR025,16
+Light road,Yedoo,1999,black,Drivers licence,reykjavik,DEFECTIVE,Unavailable,232,Free Fly II,CG430,17
+Light water,TAILG,2000,grey,None,nuuk,DEFECTIVE,Unavailable,219,Free Fly II,BK126,18
+Light road,WildChild,1992,green,None,tingwall,DEFECTIVE,Unavailable,109,Free Fly II,QO890,19
+Light road,Cani-Fit,2004,green,Drivers licence,torshavn,DEFECTIVE,Unavailable,201,Fat Max,CR319,20
