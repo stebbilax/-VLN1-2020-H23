@@ -73,15 +73,15 @@ class Invoice_Manager:
         if res == []: return False
         contract = vars(res[0])
 
-        # if contract['state'] == 'Completed': 
-        #     print('Invoice already paid')
-        #     return 
-        # if contract['state'] == 'Invalid':
-        #     print('Contract is invalidated')
-        #     return
-        # if contract['state'] != 'Awaiting Payment': 
-        #     print('Must generate invoice before paying it')
-        #     return 
+        if contract['state'] == 'Completed': 
+            print('Invoice already paid')
+            return 
+        if contract['state'] == 'Invalid':
+            print('Contract is invalidated')
+            return
+        if contract['state'] != 'Awaiting Payment': 
+            print('Must generate invoice before paying it')
+            return 
             
 
         res = self.sapi.search_customer().by_id(contract['customer_id'])
