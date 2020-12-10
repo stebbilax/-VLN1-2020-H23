@@ -40,7 +40,7 @@ class UserInterface:
 
 
         #Chuck submenus 
-        report_menu_papa_chuck = Menu("Report Menu For Papa Chuck", None, admin_menu, self.logic, self, 'chuck')
+        report_menu_papa_chuck = Menu("Report Menu For Papa Chuck", None, papa_chuck_menu, self.logic, self, 'chuck')
 
 
         #adding submenus to chucks menu node
@@ -224,10 +224,15 @@ class UserInterface:
         # Office submenus
         contract_menu_office        = Menu("Contract Menu", None, office_menu, self.logic, self, 'office')
         report_menu_office          = Menu("Report Menu", None, office_menu, self.logic, self, 'office')
+        customer_menu_office        = Menu("Customer Menu", None, office_menu, self.logic, self, 'office')
+        destination_menu_office     = Menu("Destination Menu", None, office_menu, self.logic, self, 'office')
+        vehicle_type_menu_office    = Menu("Vehicle Type Menu", None,office_menu, self.logic, self, 'office')
 
         # Add submenus to office menu node
         office_menu.selectable_options += [
-            contract_menu_office, report_menu_office
+            contract_menu_office, report_menu_office,
+            customer_menu_office,destination_menu_office,
+            vehicle_type_menu_office
         ]
 
         #endregion                      -----
@@ -269,10 +274,14 @@ class UserInterface:
         # Airport submenus
         vehicle_menu_airport    = Menu("Vehicle Menu", None, airport_menu, self.logic, self, 'airport')
         report_menu_airport     = Menu("Report Menu", None,airport_menu,self.logic,self,'airport')
+        customer_menu_airport       = Menu("Customer Menu", None, admin_menu, self.logic, self, 'a')
+        destination_menu_airport     = Menu("Destination Menu", None, admin_menu, self.logic, self, 'admin')
+        vehicle_type_menu_airport    = Menu("Vehicle Type Menu", None, admin_menu, self.logic, self, 'admin')
         # Add submenus to airport menu node
         airport_menu.selectable_options += [
-            vehicle_menu_airport,
-            report_menu_airport,
+            vehicle_menu_airport,report_menu_airport,
+            customer_menu_airport,destination_menu_airport,
+            vehicle_type_menu_airport
         ]
 
         #region Airport vehicle menu    -----
