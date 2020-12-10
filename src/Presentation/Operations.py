@@ -347,10 +347,7 @@ class Display:
 
 
 def test(logicAPI, ui):
-    ignore_fields = []
-    o = Operations(logicAPI, ui)
-    o.edit(o.employe, ignore_fields)
-    
+    print(ui.get_user_login())
 
 def get_total_cost(logicAPI, ui):
     o = Operations(logicAPI, ui)
