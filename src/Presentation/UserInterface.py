@@ -3,21 +3,32 @@ from Presentation.Menu import Menu, format_function_name
 from Presentation.Operations import *
 import os, re
 
+# Import all operations
+from Presentation.Operations.Generic import *
+from Presentation.Operations.Contract import *
+from Presentation.Operations.Customer import *
+from Presentation.Operations.Destination import *
+from Presentation.Operations.Employee import *
+from Presentation.Operations.Financial import *
+from Presentation.Operations.Invoice import *
+from Presentation.Operations.Vehicle import *
+from Presentation.Operations.Vehicle_type import *
+
 class UserInterface:
     def __init__(self):
         self.logic = LogicAPI()
         self.operation = Operations(self.logic, self)
 
-        self.access = 0
+        self.access = self.get_user_login()
 
         # Clear window
         os.system('cls')
 
         # Create main categories
-        main_menu       = Menu("Main Menu", None, None, self.logic, self)
-        office_menu     = Menu("Office Menu", None, main_menu, self.logic, self)
-        airport_menu    = Menu("Airport menu", None, main_menu, self.logic, self)
-        papa_chuck_menu = Menu("Papa Chuck menu", None,main_menu,self.logic,self)
+        main_menu       = Menu("Main Menu", None, None, self.logic, self, 0)
+        office_menu     = Menu("Office Menu", None, main_menu, self.logic, self, 'office')
+        airport_menu    = Menu("Airport menu", None, main_menu, self.logic, self, 'airport')
+        papa_chuck_menu = Menu("Papa Chuck menu", None,main_menu,self.logic, self, 'admin')
 
         # Add three menu nodes to the main menu
         main_menu.selectable_options.append(office_menu)
@@ -27,13 +38,13 @@ class UserInterface:
         #region OFFICE MENU SYSTEM      =====
 
         # Office submenus
-        employee_menu_office    = Menu("Employee Menu", None, office_menu, self.logic, self)
-        vehicle_menu_office     = Menu("Vehicle Menu", None, office_menu, self.logic, self)
-        contract_menu_office    = Menu("Contract Menu", None, office_menu, self.logic, self)
-        report_menu_office      = Menu("Report Menu", None, office_menu, self.logic, self)
-        customer_menu_office    = Menu("Customer Menu", None, office_menu, self.logic, self)
-        destination_menu_office    = Menu("Destination Menu", None, office_menu, self.logic, self)
-        vehicle_type_menu_office    = Menu("Vehicle Type Menu", None, office_menu, self.logic, self)
+        employee_menu_office    = Menu("Employee Menu", None, office_menu, self.logic, self, 'office')
+        vehicle_menu_office     = Menu("Vehicle Menu", None, office_menu, self.logic, self, 'office')
+        contract_menu_office    = Menu("Contract Menu", None, office_menu, self.logic, self, 'office')
+        report_menu_office      = Menu("Report Menu", None, office_menu, self.logic, self, 'office')
+        customer_menu_office    = Menu("Customer Menu", None, office_menu, self.logic, self, 'office')
+        destination_menu_office    = Menu("Destination Menu", None, office_menu, self.logic, self, 'office')
+        vehicle_type_menu_office    = Menu("Vehicle Type Menu", None, office_menu, self.logic, self, 'office')
 
 
 
@@ -48,7 +59,7 @@ class UserInterface:
         #region Office Employee menu    -----
 
         # Submenu for specfic employee display options
-        display_employee_menu_office = Menu("Display Employee", None, employee_menu_office, self.logic, self)
+        display_employee_menu_office = Menu("Display Employee", None, employee_menu_office, self.logic, self, 'office')
 
         # Employee functions with employee display menu
         employee_menu_office.selectable_options += [
@@ -68,7 +79,7 @@ class UserInterface:
         #region Office Vehicle menu     -----
 
         # Submenu for specific vehicle display options
-        display_vehicle_menu_office = Menu("Display Vehicle", None, vehicle_menu_office, self.logic, self)
+        display_vehicle_menu_office = Menu("Display Vehicle", None, vehicle_menu_office, self.logic, self, 'office')
 
         # Vehicle functions with vehicle display menu
         vehicle_menu_office.selectable_options += [
@@ -92,7 +103,7 @@ class UserInterface:
         #region Office Contract menu    -----
 
         # Submenu for specific contract display options
-        display_contract_menu_office = Menu ("Display Contract", None, contract_menu_office, self.logic, self)
+        display_contract_menu_office = Menu ("Display Contract", None, contract_menu_office, self.logic, self, 'office')
 
         # Contract functions with contract display menu
         contract_menu_office.selectable_options += [
@@ -124,7 +135,7 @@ class UserInterface:
         #region Customer Contract menu    -----
 
         # Submenu for specific customer display options
-        display_customer_menu_office = Menu ("Display Customer", None, customer_menu_office, self.logic, self)
+        display_customer_menu_office = Menu ("Display Customer", None, customer_menu_office, self.logic, self, 'office')
 
         # Customer functions with customer display menu
         customer_menu_office.selectable_options += [
@@ -143,7 +154,7 @@ class UserInterface:
         #region Vehicle Type Contract menu    -----
 
         # Submenu for specific vehicle type display options
-        display_vehicle_type_menu_office = Menu ("Display Vehicle Type", None, vehicle_type_menu_office, self.logic, self)
+        display_vehicle_type_menu_office = Menu ("Display Vehicle Type", None, vehicle_type_menu_office, self.logic, self, 'office')
 
         # Vehicle type functions with vehicle type display menu
         vehicle_type_menu_office.selectable_options += [
@@ -162,7 +173,7 @@ class UserInterface:
         #region destination Contract menu    -----
 
         # Submenu for specific destination display options
-        display_destination_menu_office = Menu ("Display destination", None, destination_menu_office, self.logic, self)
+        display_destination_menu_office = Menu ("Display destination", None, destination_menu_office, self.logic, self, 'office')
 
         # destination functions with destination display menu
         destination_menu_office.selectable_options += [
@@ -182,9 +193,9 @@ class UserInterface:
         #region AIRPORT MENU SYSTEM     =====
 
         # Airport submenus
-        employee_menu_airport   = Menu("Employee Menu", None, airport_menu, self.logic, self)
-        vehicle_menu_airport    = Menu("Vehicle Menu", None, airport_menu, self.logic, self)
-        contract_menu_airport   = Menu("Contract Menu", None, airport_menu, self.logic, self)
+        employee_menu_airport   = Menu("Employee Menu", None, airport_menu, self.logic, self, 'airport')
+        vehicle_menu_airport    = Menu("Vehicle Menu", None, airport_menu, self.logic, self, 'airport')
+        contract_menu_airport   = Menu("Contract Menu", None, airport_menu, self.logic, self, 'airport')
 
         # Add submenus to airport menu node
         airport_menu.selectable_options += [
@@ -195,7 +206,7 @@ class UserInterface:
         #region Airport employee menu   -----
 
         # Submenu for specific employee display options
-        display_employee_menu    = Menu("Display Employee", None, employee_menu_airport, self.logic, self)
+        display_employee_menu    = Menu("Display Employee", None, employee_menu_airport, self.logic, self, 'airport')
 
         # Employee functions with employee display menu
         employee_menu_airport.selectable_options += [
@@ -214,7 +225,7 @@ class UserInterface:
         #region Airport vehicle menu    -----
 
         # Submenu for specific vehicle display options
-        display_vehicle_menu_airport = Menu("Display Vehicle", None, vehicle_menu_airport, self.logic, self)
+        display_vehicle_menu_airport = Menu("Display Vehicle", None, vehicle_menu_airport, self.logic, self, 'airport')
 
         # Vehicle functions with vehicle display menu
         vehicle_menu_airport.selectable_options += [
@@ -236,7 +247,7 @@ class UserInterface:
         #region Airport contract menu   -----
 
         # Submenu for specific contract display options
-        display_contract_menu_airport = Menu ("Display Contract", None, contract_menu_airport, self.logic, self)
+        display_contract_menu_airport = Menu ("Display Contract", None, contract_menu_airport, self.logic, self, 'airport')
 
         # Contract functions with contract display menu
         contract_menu_airport.selectable_options += [
@@ -255,7 +266,7 @@ class UserInterface:
         
 
         #Menu for Chuck to get over view of his companys income
-        company_overview_menu   = Menu("Overview of business", None, papa_chuck_menu, self.logic, self)
+        company_overview_menu   = Menu("Overview of business", None, papa_chuck_menu, self.logic, self, 'airport')
         papa_chuck_menu.selectable_options += [
             company_overview_menu,
         ]
@@ -266,19 +277,31 @@ class UserInterface:
 
         # DEVELOPER MENU
         
-        developer_menu  = Menu("Developer Menu", [test], main_menu, self.logic, self)
+        developer_menu  = Menu("Developer Menu", [test], main_menu, self.logic, self, 'admin')
         main_menu.selectable_options.append(developer_menu)
         
         # END DEVELOPER MENU
 
-
-
-
-        
-
-
-
         self.current_menu = main_menu
+
+    def get_user_login(self):
+        ''' Get user login credentials and assign access values '''
+
+        # Enumerate registered employees, relevant information to login
+        employees = {employee.ssn:employee.title for employee in self.logic.employee.get_all()}
+        
+        # Custom login credentials for administrative purposes
+        employees['admin'] = 'admin'
+
+        login = False
+
+        while not login:
+            user_ssid = self.get_user_input('Enter SSID: ')
+
+            if user_ssid not in employees:
+                self.display_error('Invalid login, please try again')
+            else:
+                return employees[user_ssid]
 
     def get_user_input(self, message):
         ''' Get a single user input '''
