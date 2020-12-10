@@ -96,12 +96,6 @@ class Search_Contract:
     def by_employee_id(self, string):
         return self.Search_Manager.search(string, 'employee_id', 'contract')
 
-    def by_date_of_handover(self, string):
-        return self.Search_Manager.search(string, 'date_of_handover', 'contract')
-
-    def by_date_of_return(self, string):
-        return self.Search_Manager.search(string, 'date_of_return', 'contract')
-
     def by_contract_start(self, string):
         return self.Search_Manager.search(string, 'contract_start', 'contract')
 
