@@ -46,7 +46,7 @@ class Operations:
         # Get Object
         print("Choose a method to select a %s" % model[0].__class__.__name__)
         search_query = self.ui.get_user_option(logic.get_search_options())
-
+        
         if not search_query:
             return
         else:
@@ -62,6 +62,7 @@ class Operations:
             return
         else:
             id = employee[0].id
+        
 
         if not id:
             return
@@ -92,7 +93,7 @@ class Operations:
             field_num = self.ui.get_user_form({
                 'selection' : ['\d|s|b', 'Please select a valid option.'.format(len(fields), len(fields))]
             })
-        
+
             if not field_num:
                 break
 
@@ -105,9 +106,9 @@ class Operations:
                 submit = True
                 logic.edit(obj, obj['id'])
                 continue
-            
             try:
-                verifiers = self.verify.fields[options[field_num]]  
+                verifiers = self.verify.fields[options[field_num]]
+                
             except:
                 return                            # Get regex and error msg
             new_entry = self.ui.get_user_form({format_function_name(options[field_num]) : verifiers})  # Get input with validation
