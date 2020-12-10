@@ -246,7 +246,14 @@ class Operations:
     def get_invoice_report(self,state):
         data = getattr(self.logicAPI.report, f'invoice_report_by_{state}')
         self.display.display_invoice_report(data(),state)
-
+        
+    def invoice_reciept(self, status):
+        data = getattr(self.logicAPI.invoice, f'{status}_invoice')
+        print('Please enter Id of contract')
+        id = input('ID: ')
+        data = data(id)
+        self.display.display_invoice(data,status)
+        
 def test(logicAPI, ui):
     res = logicAPI.report.vehicle_report()
     for k, v in res.items():

@@ -11,19 +11,27 @@ class Invoice_Manager:
         res = self.sapi.search_contract().by_id(str(id))
         if res == []: return {}
         contract = vars(res[0])
-
+        
+        res = self.sapi.search_customer().by_id(contract['customer_id'])
+        cust = vars(res[0])
+        
+        res = self.sapi.search_vehicle().by_id(contract['vehicle_id'])
+        veh = vars(res[0])
 
         rate = contract['rate']
         contract_end = contract['contract_end']
         date_return = contract['date_return']
         contract_start = contract['contract_start']
         contract_end = contract['contract_end']
-
-        if contract['state'] == 'Completed': return 'Invoice already paid'
-
+ 
         # days, vehicle type
         # Generate invoice
         invoice = {
+            'state'             : contract['state'],
+            'address'           : cust['address'],
+            'VIN'               : veh['vehicle_authentication'],
+            'customer_id'       : contract['customer_id'],
+            'id'                : contract['id'],
             'customer_name'     : contract['customer_name'],
             'phone'             : contract['phone'],
             'email'             : contract['email'],
@@ -34,6 +42,7 @@ class Invoice_Manager:
             'location_handover' : contract['location_handover'],
             'location_return'   : contract['location_return'],
             'country'           : contract['country'],
+            'rate'              : contract['rate'],
             'price'             : calculate_base_price(contract_start, contract_end, rate),
             'late_fee'          : calculate_late_fee(rate, contract_end, date_return),
             'total_price'       : calculate_total_price(contract),
@@ -43,7 +52,6 @@ class Invoice_Manager:
 
         # Edit contract
         contract['state']       = 'Awaiting Payment'
-        contract['rate']        = invoice['price']
         contract['late_fee']    = invoice['late_fee']
         contract['total_price'] = invoice['total_price']
         self.lapi.contract.edit(contract, str(id))
@@ -55,14 +63,24 @@ class Invoice_Manager:
     def pay_invoice(self, id):
         res = self.sapi.search_contract().by_id(str(id))
         if res == []: return False
-
-
         contract = vars(res[0])
+
+        res = self.sapi.search_customer().by_id(contract['customer_id'])
+        cust = vars(res[0])
+
+        res = self.sapi.search_vehicle().by_id(contract['vehicle_id'])
+        veh = vars(res[0])
+
         
         if contract['state'] == 'Completed': return 'Invoice already paid'
         if contract['state'] != 'Awaiting Payment': return 'Must generate invoice before paying it'
 
         receipt = {
+            'state'             : contract['state'],
+            'address'           : cust['address'],
+            'VIN'               : veh['vehicle_authentication'],
+            'customer_id'       : contract['customer_id'],
+            'id'                : contract['id'],
             'customer_name'     : contract['customer_name'],
             'phone'             : contract['phone'],
             'email'             : contract['email'],
@@ -73,7 +91,7 @@ class Invoice_Manager:
             'location_handover' : contract['location_handover'],
             'location_return'   : contract['location_return'],
             'country'           : contract['country'],
-            'price'             : contract['rate'],
+            'rate'              : contract['rate'],
             'late_fee'          : contract['late_fee'],
             'total_price'       : contract['total_price'],
             'date_from'         : contract['date_handover'],
