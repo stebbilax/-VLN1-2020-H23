@@ -1,4 +1,5 @@
 from Data.DataAPI import DataAPI
+from Presentation.input_verifiers import Input_Verifiers
 from Logic.Search_API import Search_API
 from Models.Employee import Employee
 from Models.Contract import Contract
@@ -62,11 +63,13 @@ class ManageEmployees:
         self.searchAPI = sapi
     
     def register(self, form):
-        new_employee = Employee(*form)
+        new_form = employee_filler(form)
+        new_employee = Employee(**new)
         self.dataAPI.append_employee(new_employee)
     
     def edit(self, form, id):
-        new_employee = Employee(**form)
+        new_form =  employee_editor(form)
+        new_employee = Employee(**new_form)
         self.dataAPI.edit_employee(new_employee, id)
     
     def get(self):
@@ -87,7 +90,6 @@ class ManageContracts:
     def __init__(self, dapi, sapi):
         self.dataAPI = dapi
         self.searchAPI = sapi
-    
     def register(self, form):
         new_form = contract_filler(form)
         new_contract = Contract(**new_form)

@@ -79,7 +79,7 @@ class Operations:
 
             for index, (key, val) in enumerate(obj.items()):
                 # Disable id display in editing screen
-                if key in ignore_fields: continue
+                if key in ignore_fields or key == 'id': continue
 
                 index += 1
                 options[str(index)] = key
@@ -104,8 +104,10 @@ class Operations:
                 logic.edit(obj, obj['id'])
                 continue
             
-            
-            verifiers = self.verify.fields[options[field_num]]                              # Get regex and error msg
+            try:
+                verifiers = self.verify.fields[options[field_num]]  
+            except:
+                return                            # Get regex and error msg
             new_entry = self.ui.get_user_form({format_function_name(options[field_num]) : verifiers})  # Get input with validation
             
             if not new_entry:
