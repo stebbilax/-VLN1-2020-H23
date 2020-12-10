@@ -375,7 +375,7 @@ class Display:
 
 
 def test(logicAPI, ui):
-    x = logicAPI.report.financial_report()
+    x = logicAPI.report.invoice_report_by_customer()
     print(x)
     
 
