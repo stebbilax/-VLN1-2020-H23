@@ -28,12 +28,12 @@ class UserInterface:
         main_menu       = Menu("Main Menu", None, None, self.logic, self, 0)
         office_menu     = Menu("Office Menu", None, main_menu, self.logic, self, 'office')
         airport_menu    = Menu("Airport menu", None, main_menu, self.logic, self, 'airport')
-        papa_chuck_menu = Menu("Papa Chuck menu", None, main_menu,self.logic, self, 'admin')
+        admin_menu      = Menu("Adminstration menu", None, main_menu,self.logic, self, 'admin')
 
         # Add three menu nodes to the main menu
         main_menu.selectable_options.append(office_menu)
         main_menu.selectable_options.append(airport_menu)
-        main_menu.selectable_options.append(papa_chuck_menu)
+        main_menu.selectable_options.append(admin_menu)
 
         #region OFFICE MENU SYSTEM      =====
 
@@ -45,8 +45,6 @@ class UserInterface:
         customer_menu_office        = Menu("Customer Menu", None, office_menu, self.logic, self, 'office')
         destination_menu_office     = Menu("Destination Menu", None, office_menu, self.logic, self, 'office')
         vehicle_type_menu_office    = Menu("Vehicle Type Menu", None, office_menu, self.logic, self, 'office')
-
-
 
         # Add submenus to office menu node
         office_menu.selectable_options += [
@@ -266,17 +264,8 @@ class UserInterface:
 
         #endregion                      -----
         #endregion                      =====
+
         
-
-        #Menu for Chuck to get over view of his companys income
-        company_overview_menu   = Menu("Overview of business", None, papa_chuck_menu, self.logic, self, 'airport')
-        papa_chuck_menu.selectable_options += [
-            company_overview_menu,
-        ]
-
-        company_overview_menu.selectable_options += [
-            get_printable_overview_of_business,
-        ]
 
         # DEVELOPER MENU
         
