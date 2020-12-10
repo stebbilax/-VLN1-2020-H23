@@ -127,7 +127,8 @@ class UserInterface:
         report_menu_office.selectable_options += [
             get_financial_report,
             get_vehicle_report,
-            get_invoice_report
+            get_invoice_report_by_state,
+            get_invoice_report_by_customer,
         ]
 
 
