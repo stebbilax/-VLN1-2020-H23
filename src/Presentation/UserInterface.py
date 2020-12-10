@@ -28,7 +28,7 @@ class UserInterface:
         main_menu       = Menu("Main Menu", None, None, self.logic, self, 0)
         office_menu     = Menu("Office Menu", None, main_menu, self.logic, self, 'office')
         airport_menu    = Menu("Airport menu", None, main_menu, self.logic, self, 'airport')
-        papa_chuck_menu = Menu("Papa Chuck menu", None,main_menu,self.logic, self, 'admin')
+        papa_chuck_menu = Menu("Papa Chuck menu", None, main_menu,self.logic, self, 'admin')
 
         # Add three menu nodes to the main menu
         main_menu.selectable_options.append(office_menu)
@@ -85,6 +85,7 @@ class UserInterface:
         vehicle_menu_office.selectable_options += [
             register_vehicle, edit_vehicle,
             display_vehicle_menu_office,
+            handover_vehicle, handin_vehicle
             
         ]
 
@@ -96,6 +97,7 @@ class UserInterface:
             get_all_vehicle_types,
             get_vehicle_after_condition,
             get_vehicle_fit_for_rental,
+            
         ]
 
         #endregion                      -----
@@ -325,7 +327,7 @@ class UserInterface:
             
             # If there is no specific regex validation to the input
             if fields[field] is None:
-                answer = input(field + ': ')
+                answer = input(format_function_name(field) + ': ')
 
                 if answer.lower() == 'b':
                     return False
@@ -340,7 +342,7 @@ class UserInterface:
                     msg = field
 
                 while not match:
-                    answer = input(msg + ': ')
+                    answer = input(format_function_name(msg) + ': ')
 
                     if answer.lower() == 'b':
                         return False
@@ -402,7 +404,7 @@ class UserInterface:
 
     def interface_loop(self):
         while True:
-            self.current_menu.display()
+            options = self.current_menu.display()
 
             choice = self.get_user_input("Enter a choice: ")
 
@@ -424,9 +426,9 @@ class UserInterface:
                 choice = int(choice) - 1
 
                 # Check if the input is invalid, below 1 or above the range of options
-                if choice < 0 or choice > len(self.current_menu.selectable_options) - 1:
-                    print("Invalid input, please input a range between %d and %d." % (1, len(self.current_menu.selectable_options)))
+                if choice < 0 or choice > len(options) - 1:
+                    print("Invalid input, please input a range between %d and %d." % (1, len(options)))
                 else:
-                    self.current_menu = self.current_menu.select_option(choice)
+                    self.current_menu = self.current_menu.select_option(choice, options)
 
             print('\n\n')

@@ -32,14 +32,16 @@ class Menu:
             else:
                 print("{:>3}. {:<25} {:>8}\n".format(index + 1, option.header, '(MENU)'))
 
+        return accessable_menus
 
-    def select_option(self, id):
+
+    def select_option(self, id, options):
         ''' Select option, check if its a function or menu '''
-        if callable(self.selectable_options[id]):
-            self.selectable_options[id](self.logicAPI, self.ui)
+        if callable(options[id]):
+            options[id](self.logicAPI, self.ui)
             return self
         else:
-            return self.selectable_options[id]    
+            return options[id]    
 
 def format_function_name(name):
     ''' Formats PEP8 function names to user friendly strings '''
