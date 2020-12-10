@@ -1,4 +1,6 @@
 from Presentation.Menu import format_function_name
+from datetime import datetime, date
+from math import floor
 import os
 ''' Display methods for various data '''
 
@@ -147,23 +149,54 @@ class Display:
     
     def display_invoice(self,data,status):
         if status == 'pay':
-            header = '\t\t\t|{:_^70}|'.format(f'\033[4mInvoice Reciept\33[0m')
+            d1 = datetime.fromisoformat(data['contract_start'])
+            d2 = datetime.fromisoformat(data['contract_end'])
+            days = (d2-d1).days
+
+            header = '\t\t\t|{:_^43}|'.format(f'\033[4mReciept\33[0m')
+            print('\n\t\t\t {:_>35}'.format(''))
+            print(header)
+            print('\t\t\t|{:^35}|'.format('NaN Air Rentals'))
+            print('\t\t\t|{:^35}|'.format('Menntavegur 1'))
+            print('\t\t\t|{:^35}|'.format('Reykjavík, Iceland'))
+            print('\t\t\t|{:^35}|'.format('S: +354 599 6200'))
+            print('\t\t\t|{:-^35}|'.format(''))
+            print('\t\t\t|{: ^35}|'.format(''))
+            print('\t\t\t|\033[4m{:<25}{:>10}\033[0m|'.format('Description','Amount'))
+            print('\t\t\t| {:<34}|'.format(data['VIN'] + ' ' + data['vehicle_type']))
+            print('\t\t\t|     {:<15}{:>14} |'.format(str(days) + ' days @ {}'.format(data['rate']), int(days)*int(data['rate'])))
+            if data['late_fee'] is not None:
+                lf1 = datetime.fromisoformat(data['contract_end'])            
+                lf2 = datetime.fromisoformat(data['date_return'])
+                lf = (lf2-lf1).days
+                print('\t\t\t| {:<34}|'.format('Late Fee'))
+                print('\t\t\t|     {:<15}{:>14} |'.format(str(lf) + ' days @ {}'.format(floor(int(data['rate'])*int(lf)*1.2)), int(data['rate'])*int(lf)*1.2 ))
+            print('\t\t\t|{:-^35}|'.format(''))
+            print('\t\t\t| {:<24}{:>10}|'.format('TOTAL',data['total_price']))
+            print('\t\t\t|{:^35}|'.format(''))
+            print('\t\t\t| {:<24}{:>10}|'.format('CARD','-'+data['total_price']))
+            print('\t\t\t|   {:<32}|'.format('Mastercard'))
+            print('\t\t\t|   {:<32}|'.format('xxxx xxxx xxxx 2064'))
+            print('\t\t\t|{:^35}|'.format(''))
+            print('\t\t\t|{:^35}|'.format('Thanks for choosing NaN Air!'))
+            print('\t\t\t|{:_^35}|'.format(''))
         else:
             print('Invoice has been generated:')
             header = '\t\t\t|{:_^78}|'.format(f'\033[4mInvoice\33[0m')
 
             print('\n\t\t\t {:_>70}'.format(''))
             print(header)
-            print('\t\t\t|{:>70}|'.format(f'NaN Air Rentals'))
-            print('\t\t\t|{:>70}|'.format(f'Menntavegur 1'))
-            print('\t\t\t|{:>70}|'.format(f'+354 599 6200'))
-            print('\t\t\t|{:>70}|'.format(f'NaN@NaNAir.com'))
-            print('\t\t\t|{:>70}|'.format(f'NaNAir.com'))
+            print('\t\t\t|{:>70}|'.format('NaN Air Rentals'))
+            print('\t\t\t|{:>70}|'.format('Menntavegur 1'))
+            print('\t\t\t|{:^70}|'.format('Reykjavík, Iceland'))
+            print('\t\t\t|{:>70}|'.format('S: +354 599 6200'))
+            print('\t\t\t|{:>70}|'.format('NaN@NaNAir.com'))
+            print('\t\t\t|{:>70}|'.format('NaNAir.com'))
             
             for i in range(3):
                 print('\t\t\t|{: ^70}|'.format(' '))
-            print('\t\t\t|{:<70}|'.format('BILL TO'))
             
+            print('\t\t\t|{:<70}|'.format('BILL TO'))
             print('\t\t\t|{:<35}{:>35}|'.format('Customer id: {}'.format(data['customer_id']),'Contract id: {}'.format(data['id'])))
             print('\t\t\t|{:<70}|'.format(data['customer_name']))
             print('\t\t\t|{:<70}|'.format(data['address']))

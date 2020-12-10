@@ -58,7 +58,7 @@ class Invoice_Manager:
         }
 
         # Edit contract
-        if contract['state'] == 'Invalid': return
+
         contract['state']       = 'Awaiting Payment'
         contract['late_fee']    = invoice['late_fee']
         contract['total_price'] = invoice['total_price']
@@ -73,15 +73,15 @@ class Invoice_Manager:
         if res == []: return False
         contract = vars(res[0])
 
-        if contract['state'] == 'Completed': 
-            print('Invoice already paid')
-            return 
-        if contract['state'] == 'Invalid':
-            print('Contract is invalidated')
-            return
-        if contract['state'] != 'Awaiting Payment': 
-            print('Must generate invoice before paying it')
-            return 
+        # if contract['state'] == 'Completed': 
+        #     print('Invoice already paid')
+        #     return 
+        # if contract['state'] == 'Invalid':
+        #     print('Contract is invalidated')
+        #     return
+        # if contract['state'] != 'Awaiting Payment': 
+        #     print('Must generate invoice before paying it')
+        #     return 
             
 
         res = self.sapi.search_customer().by_id(contract['customer_id'])
@@ -89,10 +89,6 @@ class Invoice_Manager:
 
         res = self.sapi.search_vehicle().by_id(contract['vehicle_id'])
         veh = vars(res[0])
-
-        
-        if contract['state'] == 'Completed': return 'Invoice already paid'
-        if contract['state'] != 'Awaiting Payment': return 'Must generate invoice before paying it'
 
         receipt = {
             'state'             : contract['state'],
@@ -114,7 +110,9 @@ class Invoice_Manager:
             'late_fee'          : contract['late_fee'],
             'total_price'       : contract['total_price'],
             'date_from'         : contract['date_handover'],
-            'date_to'           : contract['date_return']
+            'date_to'           : contract['date_return'],
+            'contract_start'    : contract['contract_start'],
+            'contract_end'      : contract['contract_end']
         }
 
         contract['state'] = 'Completed'
