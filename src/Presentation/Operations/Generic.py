@@ -262,6 +262,8 @@ class Operations:
             ans = int(ans[0])
 
         data = data(ans)
+        print(data)
+        input()
         if not data:
             return
         else:
