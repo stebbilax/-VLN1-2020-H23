@@ -3,6 +3,16 @@ from Presentation.Menu import Menu, format_function_name
 from Presentation.Operations import *
 import os, re
 
+# Import all operations
+from Presentation.Operations.Generic import *
+from Presentation.Operations.Contract import *
+from Presentation.Operations.Customer import *
+from Presentation.Operations.Destination import *
+from Presentation.Operations.Employee import *
+from Presentation.Operations.Financial import *
+from Presentation.Operations.Invoice import *
+from Presentation.Operations.Vehicle import *
+from Presentation.Operations.Vehicle_type import *
 
 class UserInterface:
     def __init__(self):
