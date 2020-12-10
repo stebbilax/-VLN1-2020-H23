@@ -55,6 +55,7 @@ class Operations:
         if len(employee) > 1:
             print("Multiple results, select a %s" % model[0].__class__.__name__)
             employee = self.ui.get_user_option(employee)
+            if not employee: return
             id = employee.id
         elif len(employee) == 0:
             print("Search returned no %s" % model[0].__class__.__name__)
