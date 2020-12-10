@@ -45,7 +45,7 @@ class Input_Verifiers:
             'condition': ['(OK|DEFECTIVE)', 'Please enter valid vehicle status (OK or DEFECTIVE)'],
             'model': ['[a-z]+$', 'Alphabetical letters only'],
             'postal_code': ['(\d)', 'Must be digits only'],
-            'ssn': ['(\d{6})-(\d{4})', 'SSN must be in format (6 digits - 4 digits)'],
+            'ssn': ['^(\d{6})-(\d{4})$', 'SSN must be in format (6 digits - 4 digits)'],
             'mobile_phone': ['(\d{7,15})', 'Mobile phone number must be between 7 and 15 digits'],
             'email': ['(.+@.+\..+)', 'Must be a valid email format ( example: OldGregg@nan.is ).'],
             'title': [self.enum.enum_to_regex(self.enum.title_enum), self.enum.enum_to_instructions(self.enum.title_enum)],

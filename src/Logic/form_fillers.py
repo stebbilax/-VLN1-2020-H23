@@ -102,7 +102,7 @@ def employee_filler(form):
     }
     if employee['title'] == 'office':
         employee['airport'] = 'reykjavik'
-        employee['country'] = 'iceland' 
+        employee['country'] = 'Iceland' 
     
     return employee
 
