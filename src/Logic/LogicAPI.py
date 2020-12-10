@@ -19,17 +19,18 @@ class LogicAPI:
         self.dataAPI = DataAPI()
         self.searchAPI = Search_API()
         self.enums = EnumManager(self.dataAPI)
-        self.vehicle = ManageVehicles(self.dataAPI, self.searchAPI)
-        self.employee = ManageEmployees(self.dataAPI, self.searchAPI)
-        self.contract = ManageContracts(self.dataAPI, self.searchAPI)
-        self.customer = ManageCustomers(self.dataAPI, self.searchAPI)
-        self.vehicle_type = ManageVehicleTypes(self.dataAPI, self.searchAPI)
-        self.destination = ManageDestinations(self.dataAPI, self.searchAPI)
-        self.report = ManageReports(self.dataAPI, self.searchAPI)
-        self.invoice = ManageInvoices(self.dataAPI, self.searchAPI, self.contract)
+        self.vehicle = ManageVehicles(self, self.dataAPI, self.searchAPI)
+        self.employee = ManageEmployees(self, self.dataAPI, self.searchAPI)
+        self.contract = ManageContracts(self, self.dataAPI, self.searchAPI)
+        self.customer = ManageCustomers(self, self.dataAPI, self.searchAPI)
+        self.vehicle_type = ManageVehicleTypes(self, self.dataAPI, self.searchAPI)
+        self.destination = ManageDestinations(self, self.dataAPI, self.searchAPI)
+        self.report = ManageReports(self, self.dataAPI, self.searchAPI)
+        self.invoice = ManageInvoices(self, self.dataAPI, self.searchAPI, self.contract)
 
 class ManageVehicles:
-    def __init__(self, dapi, sapi):
+    def __init__(self, lapi, dapi, sapi):
+        self.logicAPI = lapi
         self.dataAPI = dapi
         self.searchAPI = sapi
 
@@ -58,7 +59,8 @@ class ManageVehicles:
             if callable(getattr(self.searchAPI.search_vehicle(), func)) and not func.startswith('__')]
 
 class ManageEmployees:
-    def __init__(self, dapi, sapi):
+    def __init__(self, lapi, dapi, sapi):
+        self.logicAPI = lapi
         self.dataAPI = dapi
         self.searchAPI = sapi
     
@@ -87,9 +89,11 @@ class ManageEmployees:
             if callable(getattr(self.searchAPI.search_employee(), func)) and not func.startswith('__')]
 
 class ManageContracts:
-    def __init__(self, dapi, sapi):
+    def __init__(self, lapi, dapi, sapi):
+        self.logicAPI = lapi
         self.dataAPI = dapi
         self.searchAPI = sapi
+
     def register(self, form):
         new_form = contract_filler(form)
         new_contract = Contract(**new_form)
@@ -112,7 +116,8 @@ class ManageContracts:
             if callable(getattr(self.searchAPI.search_contract(), func)) and not func.startswith('__')]
 
 class ManageCustomers:
-    def __init__(self, dapi, sapi):
+    def __init__(self, lapi, dapi, sapi):
+        self.logicAPI = lapi
         self.dataAPI = dapi
         self.searchAPI = sapi
     
@@ -137,7 +142,8 @@ class ManageCustomers:
 
 
 class ManageVehicleTypes:
-    def __init__(self, dapi, sapi):
+    def __init__(self, lapi, dapi, sapi):
+        self.logicAPI = lapi
         self.dataAPI = dapi
         self.searchAPI = sapi
     
@@ -162,18 +168,20 @@ class ManageVehicleTypes:
 
 
 class ManageDestinations:
-    def __init__(self, dapi, sapi):
+    def __init__(self, lapi, dapi, sapi):
+        self.logicAPI = lapi
         self.dataAPI = dapi
         self.searchAPI = sapi
     
     def register(self, form):
         new_destination = Destination(*form)
         self.dataAPI.append_destination(new_destination)
-        self.enums = EnumManager(self.dataAPI)
+        self.logicAPI.enums.generate_enums()
     
     def edit(self, form, id):
         new_destination = Destination(**form)
         self.dataAPI.edit_destination(new_destination, id)
+        self.logicAPI.enums.generate_enums()
     
     def get(self):
         return self.searchAPI.search_destination()
@@ -191,7 +199,7 @@ class ManageDestinations:
 
 
 class ManageReports:
-    def __init__(self, dapi, sapi):
+    def __init__(self, lapi, dapi, sapi):
         self.RG = Report_Generator(dapi, sapi)
         
     def financial_report(self):
@@ -209,7 +217,7 @@ class ManageReports:
 
 
 class ManageInvoices:
-    def __init__(self, dapi, sapi, contract):
+    def __init__(self, lapi, dapi, sapi, contract):
         self.IM = Invoice_Manager(dapi, sapi, self)
         self.contract = contract
 

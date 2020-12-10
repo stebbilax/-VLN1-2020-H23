@@ -243,4 +243,5 @@ class Operations:
         self.display.display_report(data(), report_type)
 
 def test(logicAPI, ui):
-    print(ui.get_user_login())
+    for x in ui.operation.verify.fields:
+        print(x, ui.operation.verify.fields[x])

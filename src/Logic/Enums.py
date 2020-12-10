@@ -2,7 +2,11 @@ from enum import Enum
 
 class EnumManager:
     def __init__(self, dapi):
-        destinations_list = dapi.read_all_destinations()
+        self.dataAPI = dapi
+        self.generate_enums()
+
+    def generate_enums(self):
+        destinations_list = self.dataAPI.read_all_destinations()
 
         # Initialize with basic locations and countries
         countries = set(['svalbard', 'shetland', 'farao islands', 'iceland', 'greenland'])
