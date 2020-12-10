@@ -44,6 +44,7 @@ class Report_Generator:
         return report
 
 
+
     def vehicle_report(self,time_from=None,time_to=None):
         contracts = self.Data.read_all_contracts()
         vehicles = self.Data.read_all_vehicles()
@@ -93,6 +94,42 @@ class Report_Generator:
             # Add to total_times_loaned variable for each location and type
             report[airport][v_type]['total_times_loaned'] += 1
 
+
+        def get_vehicle_stats(obj):
+            # Add extra fields to each airport
+            # for airport, _ in obj.items():
+            #     obj[airport]['most_popular_vehicle'] = 0
+            #     obj[airport]['total_vehicles_in_use'] = 0
+            #     obj[airport]['total_vehicles_in_repair'] = 0
+            #     obj[airport]['total_vehicles_available'] = 0
+
+            for airport, fields in obj.items():
+                most_popular_vehicle        = None
+                most_popular_num            = 0
+                total_vehicles_in_use       = 0
+                total_vehicles_in_repair    = 0
+                total_vehicles_available    = 0
+                
+                for field in fields:
+                    current_loan   =    int(obj[airport][field]['currently_on_loan'])
+                    current_avail  =    int(obj[airport][field]['currently_available'])
+                    current_repair =    int(obj[airport][field]['currently_in_repair'])
+                    total          =    int(obj[airport][field]['total_times_loaned'])
+
+                    total_vehicles_in_use       += current_loan
+                    total_vehicles_in_repair    += current_repair
+                    total_vehicles_available    += current_avail
+                    
+                    if total > most_popular_num: most_popular_vehicle = field
+
+                obj[airport]['most_popular_vehicle'] = most_popular_vehicle
+                obj[airport]['total_vehicles_in_use'] = total_vehicles_in_use
+                obj[airport]['total_vehicles_in_repair'] = total_vehicles_in_repair
+                obj[airport]['total_vehicles_available'] = total_vehicles_available
+                
+            return obj
+
+        report = get_vehicle_stats(report)
 
         return report
             

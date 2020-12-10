@@ -49,7 +49,7 @@ def get_vehicle_report(logicAPI, ui):
     o.get_report('vehicle')
 
 
-
+########## MOVE TO LOGIC
 def handover_vehicle(logicAPI, ui):
     id = input('Enter Id of vehicle: ')
     res = logicAPI.vehicle.get().by_id(id)
