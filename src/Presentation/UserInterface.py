@@ -85,6 +85,7 @@ class UserInterface:
         vehicle_menu_office.selectable_options += [
             register_vehicle, edit_vehicle,
             display_vehicle_menu_office,
+            handover_vehicle
             
         ]
 
@@ -96,6 +97,7 @@ class UserInterface:
             get_all_vehicle_types,
             get_vehicle_after_condition,
             get_vehicle_fit_for_rental,
+            
         ]
 
         #endregion                      -----
