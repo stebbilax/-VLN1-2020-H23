@@ -111,6 +111,8 @@ class Report_Generator:
                 total_vehicles_in_use       = 0
                 total_vehicles_in_repair    = 0
                 total_vehicles_available    = 0
+
+                
                 
                 for field in fields:
                     current_loan   =    int(obj[airport][field]['currently_on_loan'])
@@ -124,10 +126,17 @@ class Report_Generator:
                     
                     if total > most_popular_num: most_popular_vehicle = field
 
-                obj[airport]['most_popular_vehicle'] = most_popular_vehicle
-                obj[airport]['total_vehicles_in_use'] = total_vehicles_in_use
-                obj[airport]['total_vehicles_in_repair'] = total_vehicles_in_repair
-                obj[airport]['total_vehicles_available'] = total_vehicles_available
+                obj[airport]['stats'] = {
+                    'most_popular_vehicle':None,
+                    'total_vehicles_in_use':0,
+                    'total_vehicles_in_repair':0,
+                    'total_vehicles_available':0,
+                }
+
+                obj[airport]['stats']['most_popular_vehicle'] = most_popular_vehicle
+                obj[airport]['stats']['total_vehicles_in_use'] = total_vehicles_in_use
+                obj[airport]['stats']['total_vehicles_in_repair'] = total_vehicles_in_repair
+                obj[airport]['stats']['total_vehicles_available'] = total_vehicles_available
                 
             return obj
 

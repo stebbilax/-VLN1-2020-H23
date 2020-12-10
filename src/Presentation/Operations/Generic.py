@@ -248,7 +248,11 @@ class Operations:
 
 def test(logicAPI, ui):
     res = logicAPI.report.vehicle_report()
-    
+    for k, v in res.items():
+        print()
+        print(k)
+        print(v)
+        print()
     # print()
     # print(res)
     # input()
