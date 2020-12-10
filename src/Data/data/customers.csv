@@ -1,6 +1,6 @@
 name,ssn,address,postal_code,phone,email,country,licence,id
 Olivia,111286-7631,SophiaRoad 19,388,6967916,Mia@nan.is,Shetland,None,1
-Elijah,101051-8663,AmeliaRoad 28,511,9667486,Mia@nan.is,Shetland,Drivers licence,2
+BLA,101051-8663,AmeliaRoad 28,511,9667486,Mia@nan.is,Shetland,Drivers licence,2
 Liam,101166-3555,CharlotteSquare 19,694,6792875,James@nan.is,Iceland,None,3
 Mia,101053-4285,CharlotteStreet 1,524,7724310,Charlotte@nan.is,Svalbard,None,4
 Charlotte,121173-1718,JamesTown 11,359,9780499,Olivia@nan.is,Shetland,None,5

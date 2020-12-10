@@ -38,7 +38,7 @@ class Contract:
 
 
     def __str__(self):
-        return f'Contract Nr.{self.id}'
+        return f'Contract Id.{self.id}'
 
     def fields(self):
         return [property for property, value, in vars(self).items()]
