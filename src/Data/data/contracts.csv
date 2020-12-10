@@ -1,8 +1,8 @@
 vehicle_id,vehicle_state,vehicle_status,vehicle_licence,vehicle_type,country,customer_id,customer_name,phone,email,address,customer_licence,employee_id,location_handover,location_return,date_handover,date_return,time_handover,time_return,contract_start,contract_end,state,rate,late_fee,total_price,id
 9,DEFECTIVE,Unavailable,Drivers licence,Light road,Svalbard,1,Ethan,8840890,Noah@nan.is,AvaTown 10,Drivers licence,1,reykjavik,tingwall,N/A,N/A,N/A,N/A,2020-01-05,2020-02-08,Valid,481,60,0,1
-5,OK,Available,Drivers licence,Medium off-road,Farao Islands,1,Evelyn,8748280,Benjamin@nan.is,LucasRoad 6,None,1,tingwall,longyearbyen,N/A,N/A,N/A,N/A,2020-02-05,2020-02-10,Valid,669,133,0,2
+5,OK,Available,Drivers licence,Medium off-road,Farao Islands,1,Evelyn,8748280,Benjamin@nan.is,LucasRoad 6,None,1,tingwall,longyearbyen,N/A,N/A,N/A,N/A,2020-02-05,2020-02-10,Completed,669,244051.2,247396.2,2
 3,DEFECTIVE,Unavailable,None,Light off-road,Iceland,1,Emma,9979743,William@nan.is,BenjaminSquare 8,None,1,nuuk,nuuk,N/A,N/A,N/A,N/A,2020-01-03,2020-02-05,Completed,522,62,0,3
-8,OK,Unavailable,Drivers licence,Medium water,Shetland,1,Isabella,6693444,Lucas@nan.is,HarperTown 5,None,1,tingwall,longyearbyen,N/A,N/A,N/A,N/A,2020-01-04,2020-02-07,Valid,416,69,0,4
+8,OK,Unavailable,Drivers licence,Medium water,Shetland,1,Isabella,6693444,Lucas@nan.is,HarperTown 5,None,1,tingwall,longyearbyen,N/A,N/A,N/A,N/A,2020-01-04,2020-02-07,Awaiting Payment,416,153254.4,167398.4,4
 10,OK,Unavailable,Drivers licence,Light road,Greenland,1,Harper,8955425,Amelia@nan.is,NoahStreet 2,None,1,kulusuk,kulusuk,N/A,N/A,N/A,N/A,2020-01-01,2020-02-06,Invalid,201,149,0,5
 8,DEFECTIVE,Unavailable,None,Medium water,Iceland,1,Ethan,7800669,Noah@nan.is,JamesRoad 11,None,1,tingwall,tingwall,N/A,N/A,N/A,N/A,2020-01-01,2020-02-05,Completed,650,152,0,6
 8,OK,Available,None,Light road,Shetland,1,Charlotte,6628466,Benjamin@nan.is,AmeliaTown 2,Drivers licence,1,reykjavik,kulusuk,N/A,N/A,N/A,N/A,2020-02-02,2020-02-07,Completed,804,112,0,7
