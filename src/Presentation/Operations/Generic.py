@@ -247,6 +247,12 @@ class Operations:
         self.display.display_invoice_report(data(),state)
 
 def test(logicAPI, ui):
-    res = logicAPI.invoice.pay_invoice(21)
+    res = logicAPI.report.vehicle_report()
     for k, v in res.items():
-        print(k, v)
+        print()
+        print(k)
+        print(v)
+        print()
+    # print()
+    # print(res)
+    # input()

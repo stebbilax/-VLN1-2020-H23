@@ -1,9 +1,9 @@
 name,address,postal_code,ssn,phone,mobile_phone,email,title,airport,country,id
 Charlotte,MiaSquare 23,747,111080-3912,8706452,8775412,Liam@nan.is,office,reykjavik,Iceland,1
 Isabella,SophiaRoad 0,468,101156-4911,6622958,6965697,Charlotte@nan.is,office,reykjavik,Iceland,2
-Charlotte,HarperTown 11,738,111050-4241,7741168,8714656,Oliver@nan.is,airport,nuuk,Greenland,3
+Charlotte,HarperTown 11,738,111050-4241,7741168,8714656,Oliver@nan.is,office,reykjavik,Iceland,3
 Isabella,EvelynRoad 15,175,121183-1138,8799317,7810556,Emma@nan.is,office,reykjavik,Iceland,4
-Emma,ElijahSquare 27,942,101086-5481,7767530,6763518,Oliver@nan.is,airport,kulusuk,Greenland,5
+Emma,ElijahSquare 27,942,101086-5481,7767530,6763518,Oliver@nan.is,office,reykjavik,Iceland,5
 Ava,WilliamRoad 1,762,121160-4669,7704870,9817954,Ethan@nan.is,airport,reykjavik,Iceland,6
 Amelia,AmeliaRoad 11,928,111276-7371,9844892,9797759,Mia@nan.is,airport,longyearbyen,Svalbard,7
 Elijah,EvelynStreet 13,881,111260-7858,9913198,8964922,William@nan.is,office,reykjavik,Iceland,8
