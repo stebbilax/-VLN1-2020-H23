@@ -264,9 +264,66 @@ class UserInterface:
             get_invoice_report_by_customer,
         ]
 
-
         #endregion
 
+
+        #region Customer Contract menu    -----
+
+        # Submenu for specific customer display options
+        display_customer_menu_office = Menu ("Display Customer", None, customer_menu_office, self.logic, self, 'office')
+
+        # Customer functions with customer display menu
+        customer_menu_office.selectable_options += [
+            register_customer, edit_customer,
+            display_customer_menu_office
+        ]
+
+        # Customer display functions
+        display_customer_menu_office.selectable_options += [
+            get_customer,
+            get_all_customers,
+        ]
+
+        #endregion                      -----
+
+        #region Vehicle Type Contract menu    -----
+
+        # Submenu for specific vehicle type display options
+        display_vehicle_type_menu_office = Menu ("Display Vehicle Type", None, vehicle_type_menu_office, self.logic, self, 'office')
+
+        # Vehicle type functions with vehicle type display menu
+        vehicle_type_menu_office.selectable_options += [
+            register_vehicle_type, edit_vehicle_type,
+            display_vehicle_type_menu_office
+        ]
+
+        # vehicle_type display functions
+        display_vehicle_type_menu_office.selectable_options += [
+            get_vehicle_type,
+            get_vehicle_type_rates
+        ]
+
+        #endregion                      -----
+
+        #region destination Contract menu    -----
+
+        # Submenu for specific destination display options
+        display_destination_menu_office = Menu ("Display destination", None, destination_menu_office, self.logic, self, 'office')
+
+        # destination functions with destination display menu
+        destination_menu_office.selectable_options += [
+            register_destination, edit_destination,
+            display_destination_menu_office
+        ]
+
+        # destination display functions
+        display_destination_menu_office.selectable_options += [
+            get_destination,
+            get_all_destinations,
+        ]
+
+        #endregion                      -----
+        #endregion                      =====
 
         #region AIRPORT MENU SYSTEM     =====
         """AIRPORT MENU"""
@@ -274,9 +331,9 @@ class UserInterface:
         # Airport submenus
         vehicle_menu_airport    = Menu("Vehicle Menu", None, airport_menu, self.logic, self, 'airport')
         report_menu_airport     = Menu("Report Menu", None,airport_menu,self.logic,self,'airport')
-        customer_menu_airport       = Menu("Customer Menu", None, admin_menu, self.logic, self, 'a')
-        destination_menu_airport     = Menu("Destination Menu", None, admin_menu, self.logic, self, 'admin')
-        vehicle_type_menu_airport    = Menu("Vehicle Type Menu", None, admin_menu, self.logic, self, 'admin')
+        customer_menu_airport       = Menu("Customer Menu", None, airport_menu, self.logic, self, 'airport')
+        destination_menu_airport     = Menu("Destination Menu", None, airport_menu, self.logic, self, 'airport')
+        vehicle_type_menu_airport    = Menu("Vehicle Type Menu", None, airport_menu, self.logic, self, 'airport')
         # Add submenus to airport menu node
         airport_menu.selectable_options += [
             vehicle_menu_airport,report_menu_airport,
@@ -311,6 +368,67 @@ class UserInterface:
             get_invoice,
             pay_invoice
         ]
+
+
+        
+        #region Customer Contract menu    -----
+
+        # Submenu for specific customer display options
+        display_customer_menu_airport = Menu ("Display Customer", None, customer_menu_airport, self.logic, self, 'airport')
+
+        # Customer functions with customer display menu
+        customer_menu_airport.selectable_options += [
+            register_customer, edit_customer,
+            display_customer_menu_airport
+        ]
+
+        # Customer display functions
+        display_customer_menu_airport.selectable_options += [
+            get_customer,
+            get_all_customers,
+        ]
+
+        #endregion                      -----
+
+        #region Vehicle Type Contract menu    -----
+
+        # Submenu for specific vehicle type display options
+        display_vehicle_type_menu_airport = Menu ("Display Vehicle Type", None, vehicle_type_menu_airport, self.logic, self, 'airport')
+
+        # Vehicle type functions with vehicle type display menu
+        vehicle_type_menu_airport.selectable_options += [
+            register_vehicle_type, edit_vehicle_type,
+            display_vehicle_type_menu_airport
+        ]
+
+        # vehicle_type display functions
+        display_vehicle_type_menu_airport.selectable_options += [
+            get_vehicle_type,
+            get_vehicle_type_rates
+        ]
+
+        #endregion                      -----
+
+        #region destination Contract menu    -----
+
+        # Submenu for specific destination display options
+        display_destination_menu_airport = Menu ("Display destination", None, destination_menu_airport, self.logic, self, 'airport')
+
+        # destination functions with destination display menu
+        destination_menu_airport.selectable_options += [
+            register_destination, edit_destination,
+            display_destination_menu_airport
+        ]
+
+        # destination display functions
+        display_destination_menu_airport.selectable_options += [
+            get_destination,
+            get_all_destinations,
+        ]
+
+        #endregion                      -----
+        #endregion                      =====
+
         #endregion                      -----
         #endregion                      =====
 
