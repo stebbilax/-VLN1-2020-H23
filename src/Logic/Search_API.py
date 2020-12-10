@@ -241,6 +241,9 @@ class Search_Vehicle:
     def by_color(self, string):
         return self.Search_Manager.search(string, 'color', 'vehicle')
 
+    def by_rate(self, string):
+        return self.Search_Manager.search(string, 'rate', 'vehicle')
+
     def by_licence(self, string):
         return self.Search_Manager.search(string, 'licence', 'vehicle')
 

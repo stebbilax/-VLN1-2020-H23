@@ -37,6 +37,7 @@ class Input_Verifiers:
             'total_price': ['(\d)', 'Must be digits only'],
             'loan_status': ['(OK|RETURNED|LATE)', 'Please enter a valid loan status (OK or RETURNED or LATE)'],
             'type': ['(.*)','wrong',find_vehicle_type],
+            'vehicle_type': ['(.*)','wrong',find_vehicle_type],
             'manufacturer': ['[a-z]+$', 'Alphabetical letters only'] ,
             'yom': ['^\d{4}$', 'Digits only'], #named yom = year of manufacturer
             'color': ['[a-z]+$', 'Alphabetical letters only'],
