@@ -1,4 +1,5 @@
 from Presentation.input_verifiers import Input_Verifiers
+from Logic.Enums import EnumManager
 
 """PÆLING AÐ BREYTA ÞESSU Í CLASA? þá get ég gert dict en ekki if if if """
 def vehicle_editor(form):
@@ -22,6 +23,8 @@ def employee_editor(form):
         form['country'] = 'Iceland'
 
     if form['title'] == 'airport':
+        for 
+        
         if form['airport'] == 'reykjavik':
             form['country'] ='iceland'
         if form['airport'] == 'tingwall':
