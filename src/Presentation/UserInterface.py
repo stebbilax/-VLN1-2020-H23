@@ -85,7 +85,7 @@ class UserInterface:
         vehicle_menu_office.selectable_options += [
             register_vehicle, edit_vehicle,
             display_vehicle_menu_office,
-            handover_vehicle
+            handover_vehicle, handin_vehicle
             
         ]
 

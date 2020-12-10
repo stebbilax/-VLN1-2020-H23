@@ -90,3 +90,39 @@ def handover_vehicle(logicAPI, ui):
     logicAPI.contract.edit(contract, contract['id'])
 
     return 'Success'
+
+
+def handin_vehicle(logicAPI, ui):
+    id = input('Enter Id of vehicle: ')
+    res = logicAPI.vehicle.get().by_id(id)
+    # Check if vehicle exists
+    if res == []: 
+        print('Vehicle not found')
+        return
+
+    vehicle = vars(res[0])
+    # Check if vehicle has a contract assigned to it
+    con_res = logicAPI.contract.get().by_vehicle_id(vehicle['id'])
+    if con_res == []: 
+        print('Vehicle does not belong to any contract. Please create a contract first')
+        return
+
+    contract = vars(con_res[0])
+
+    #Check if contract has a rate
+    if contract['rate'] == 'N/A':
+        print('Contract does not yet have a rate. Please add a rate before handing in vehicle')
+        return
+
+    # Add handover time and date to contract
+    date, time = datetime.now().replace(microsecond=0, second=0).isoformat().split('T')
+    vehicle['vehicle_status'] = 'Available'
+    contract['vehicle_status'] = 'Available'
+    contract['date_return'] = date
+    contract['time_return'] = time[0:5]
+
+
+    logicAPI.vehicle.edit(vehicle, vehicle['id'])
+    logicAPI.contract.edit(contract, contract['id'])
+
+    return 'Success'
