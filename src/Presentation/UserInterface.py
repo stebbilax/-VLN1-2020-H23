@@ -29,11 +29,33 @@ class UserInterface:
         office_menu     = Menu("Office Menu", None, main_menu, self.logic, self, 'office')
         airport_menu    = Menu("Airport menu", None, main_menu, self.logic, self, 'airport')
         admin_menu      = Menu("Adminstration menu", None, main_menu,self.logic, self, 'admin')
+        papa_chuck_menu = Menu("Chuck Norris menu", None, main_menu,self.logic,self,'chuck')
 
-        # Add three menu nodes to the main menu
+        # Add four menu nodes to the main menu
+        main_menu.selectable_options.append(admin_menu)
         main_menu.selectable_options.append(office_menu)
         main_menu.selectable_options.append(airport_menu)
-        main_menu.selectable_options.append(admin_menu)
+        main_menu.selectable_options.append(papa_chuck_menu)
+        #region ADMIN MENU SYSTEM           =======
+
+
+        #Chuck submenus 
+        report_menu_papa_chuck = Menu("Report Menu For Papa Chuck", None, admin_menu, self.logic, self, 'chuck')
+
+
+        #adding submenus to chucks menu node
+        papa_chuck_menu.selectable_options += [
+            report_menu_papa_chuck
+        ]
+
+        #region Report menu
+        report_menu_papa_chuck.selectable_options += [
+            get_financial_report,
+            get_vehicle_report,
+            get_invoice_report_by_state,
+            get_invoice_report_by_customer,
+        ]
+
 
         #region ADMIN MENU SYSTEM           ====
 
@@ -45,13 +67,15 @@ class UserInterface:
         customer_menu_admin        = Menu("Customer Menu", None, admin_menu, self.logic, self, 'admin')
         destination_menu_admin     = Menu("Destination Menu", None, admin_menu, self.logic, self, 'admin')
         vehicle_type_menu_admin    = Menu("Vehicle Type Menu", None, admin_menu, self.logic, self, 'admin')
+        papa_chuck_menu_admin      = Menu("Papa Chuck Menu", None, admin_menu,self.logic,self,'admin')
+        
 
         #Add submenus to office menu node
         admin_menu.selectable_options += [
             employee_menu_admin, vehicle_menu_admin,
             contract_menu_admin, report_menu_admin,
             customer_menu_admin, destination_menu_admin,
-            vehicle_type_menu_admin
+            vehicle_type_menu_admin,papa_chuck_menu_admin,
         ]
 
         #region Office Employee menu    -----
@@ -228,11 +252,13 @@ class UserInterface:
 
         #endregion                      -----
         #region Report menu
-
         report_menu_office.selectable_options += [
+            get_financial_report,
+            get_vehicle_report,
             get_invoice_report_by_state,
             get_invoice_report_by_customer,
         ]
+
 
         #endregion
 
@@ -242,9 +268,11 @@ class UserInterface:
 
         # Airport submenus
         vehicle_menu_airport    = Menu("Vehicle Menu", None, airport_menu, self.logic, self, 'airport')
+        report_menu_airport     = Menu("Report Menu", None,airport_menu,self.logic,self,'airport')
         # Add submenus to airport menu node
         airport_menu.selectable_options += [
             vehicle_menu_airport,
+            report_menu_airport,
         ]
 
         #region Airport vehicle menu    -----
@@ -268,7 +296,12 @@ class UserInterface:
             get_vehicle_after_condition,
             get_vehicle_fit_for_rental,
         ]
+        
 
+        report_menu_airport.selectable_options += [
+            get_invoice,
+            pay_invoice
+        ]
         #endregion                      -----
         #endregion                      =====
 
@@ -291,6 +324,8 @@ class UserInterface:
         
         # Custom login credentials for administrative purposes
         employees['admin'] = 'admin'
+
+        employees['chuck norris can divide by zero'] = 'chuck'
 
         login = False
 

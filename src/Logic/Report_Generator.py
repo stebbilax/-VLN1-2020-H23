@@ -106,7 +106,7 @@ class Report_Generator:
         def get_vehicle_stats(obj):
             # Add extra fields to each airport
             for airport, fields in obj.items():
-                most_popular_vehicle        = None
+                most_popular_vehicle        = 'None'
                 most_popular_num            = 0
                 total_vehicles_in_use       = 0
                 total_vehicles_in_repair    = 0
