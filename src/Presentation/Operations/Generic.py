@@ -238,16 +238,14 @@ class Operations:
         #         if key == 'late_fee':
         #             money_counter += int(val)
     
-    def get_report(self,report_type):
+    def get_report(self,report_type,time_from=None,time_to=None):
         data = getattr(self.logicAPI.report, f'{report_type}_report')
-        self.display.display_report(data(), report_type)
+        self.display.display_report(data(time_from, time_to), report_type)
+
+    def get_invoice_report(self,state):
+        data = getattr(self.logicAPI.report, f'invoice_report_by_{state}')
+        self.display.display_invoice_report(data(),state)
 
 def test(logicAPI, ui):
-<<<<<<< HEAD
-    res = logicAPI.invoice.pay_invoice(21)
-    for k, v in res.items():
-        print(k, v)
-=======
     for x in ui.operation.verify.fields:
         print(x, ui.operation.verify.fields[x])
->>>>>>> 9c26d8dbee1e5df3d0e78ebd8a3f915859bcedc7
