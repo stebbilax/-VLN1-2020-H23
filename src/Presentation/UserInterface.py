@@ -3,7 +3,6 @@ from Presentation.Menu import Menu, format_function_name
 from Presentation.Operations import *
 import os, re
 
-#TODO: Login, update enums properly
 
 class UserInterface:
     def __init__(self):
