@@ -20,26 +20,6 @@ class Customer:
     def fields(self):
         return [property for property, value, in vars(self).items()]
 
-    def set_name (self,name):
-        self.name = name
-    
-    def set_ssn (self,ssn):
-        self.ssn = ssn
-
-    def set_address(self, address):
-        self.address = address
-    
-    def set_postal_code(self,postal_code):
-        self.postal_code = postal_code
-
-    def set_phone(self,phone):
-        self.phone = phone
-
-    def set_email(self,email):
-        self.email = email
-
-    def set_country(self,country):
-        self.country = country
 
 
             

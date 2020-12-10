@@ -99,7 +99,6 @@ class UserInterface:
         contract_menu_office.selectable_options += [
             register_contract, edit_contract,
             display_contract_menu_office,
-            get_total_cost
         ]
 
         # Contract display functions
@@ -110,6 +109,18 @@ class UserInterface:
         ]
 
         #endregion                      -----
+
+        #region Report menu
+
+        report_menu_office.selectable_options += [
+            get_financial_report,
+            get_vehicle_report,
+            get_invoice_report
+        ]
+
+
+        #endregion
+
 
         #region Customer Contract menu    -----
 
@@ -290,10 +301,9 @@ class UserInterface:
         ''' Collect user inputs in a form to process with regex validation 
             Returns false if the user cancels the operation
             Fields = {Field name : [Regex, Validation instructions]}   '''
-        
+        print("Press b to go back")
         form = []
 
-        
         for field in fields:
             # Disable the ability to change id's
             if field == 'id': continue

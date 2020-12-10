@@ -1,4 +1,5 @@
 from Data.DataAPI import DataAPI
+from Presentation.input_verifiers import Input_Verifiers
 from Logic.Search_API import Search_API
 from Models.Employee import Employee
 from Models.Contract import Contract
@@ -6,8 +7,8 @@ from Models.Vehicle import Vehicle
 from Models.Customer import Customer
 from Models.Vehicle_Type import Vehicle_Type
 from Models.Destination import Destination
-from Logic.form_fillers import contract_filler, vehicle_filler
-from Logic.form_editors import vehicle_editor
+from Logic.form_fillers import *
+from Logic.form_editors import *
 from Logic.Report_Generator import Report_Generator
 from Logic.Invoice_Manager import Invoice_Manager
 from Logic.Enums import EnumManager
@@ -34,7 +35,7 @@ class ManageVehicles:
 
     def register(self,form):
         new_form = vehicle_filler(form)
-        new_vehicle = Vehicle(*new_form)
+        new_vehicle = Vehicle(**new_form)
         self.dataAPI.append_vehicle(new_vehicle)
 
     def edit(self,form,id):
@@ -62,11 +63,13 @@ class ManageEmployees:
         self.searchAPI = sapi
     
     def register(self, form):
-        new_employee = Employee(*form)
+        new_form = employee_filler(form)
+        new_employee = Employee(**new)
         self.dataAPI.append_employee(new_employee)
     
     def edit(self, form, id):
-        new_employee = Employee(**form)
+        new_form =  employee_editor(form)
+        new_employee = Employee(**new_form)
         self.dataAPI.edit_employee(new_employee, id)
     
     def get(self):
@@ -87,13 +90,13 @@ class ManageContracts:
     def __init__(self, dapi, sapi):
         self.dataAPI = dapi
         self.searchAPI = sapi
-    
     def register(self, form):
         new_form = contract_filler(form)
-        new_contract = Contract(*form)
+        new_contract = Contract(**new_form)
         self.dataAPI.append_contract(new_contract)
     
     def edit(self, form, id):
+        new_form = contract_editor(form)
         new_contract = Contract(**form)
         self.dataAPI.edit_contract(new_contract, id)
     
@@ -127,6 +130,11 @@ class ManageCustomers:
     def get_all(self):
         return self.dataAPI.read_all_customers()
 
+    def get_search_options(self):
+        return [getattr(self.searchAPI.search_customer(), func) 
+            for func in dir(self.searchAPI.search_customer())
+            if callable(getattr(self.searchAPI.search_customer(), func)) and not func.startswith('__')]
+
 
 class ManageVehicleTypes:
     def __init__(self, dapi, sapi):
@@ -146,6 +154,11 @@ class ManageVehicleTypes:
 
     def get_all(self):
         return self.dataAPI.read_all_vehicle_types()
+
+    def get_search_options(self):
+        return [getattr(self.searchAPI.search_vehicle_type(), func) 
+            for func in dir(self.searchAPI.search_vehicle_type())
+            if callable(getattr(self.searchAPI.search_vehicle_type(), func)) and not func.startswith('__')]
 
 
 class ManageDestinations:
@@ -171,6 +184,11 @@ class ManageDestinations:
     def get_all_location(self):
         return self.dataAPI.read_all_destinations()
 
+    def get_search_options(self):
+        return [getattr(self.searchAPI.search_destination(), func) 
+            for func in dir(self.searchAPI.search_destination())
+            if callable(getattr(self.searchAPI.search_destination(), func)) and not func.startswith('__')]
+
 
 class ManageReports:
     def __init__(self, dapi, sapi):
@@ -182,6 +200,12 @@ class ManageReports:
     def vehicle_report(self):
         return self.RG.vehicle_report()
 
+    
+    def get_search_options(self):
+        return [getattr(self.searchAPI.search_report(), func) 
+            for func in dir(self.searchAPI.search_report())
+            if callable(getattr(self.searchAPI.search_report(), func)) and not func.startswith('__')]
+
 
 
 class ManageInvoices:
@@ -189,6 +213,14 @@ class ManageInvoices:
         self.IM = Invoice_Manager(dapi, sapi, self)
         self.contract = contract
 
-
     def generate_invoice(self, id):
         return self.IM.generate_invoice(id)
+
+    def pay_invoice(self, id):
+        return self.IM.pay_invoice(id)
+
+
+    def get_search_options(self):
+        return [getattr(self.searchAPI.search_invoice(), func) 
+            for func in dir(self.searchAPI.search_invoice())
+            if callable(getattr(self.searchAPI.search_invoice(), func)) and not func.startswith('__')]

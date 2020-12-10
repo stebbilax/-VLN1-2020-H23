@@ -34,7 +34,7 @@ class Operations:
 
         if not form:
             return
-
+        
         model[1].register(form)
 
 
@@ -79,7 +79,7 @@ class Operations:
 
             for index, (key, val) in enumerate(obj.items()):
                 # Disable id display in editing screen
-                if key in ignore_fields: continue
+                if key in ignore_fields or key == 'id': continue
 
                 index += 1
                 options[str(index)] = key
@@ -104,8 +104,10 @@ class Operations:
                 logic.edit(obj, obj['id'])
                 continue
             
-            
-            verifiers = self.verify.fields[options[field_num]]                              # Get regex and error msg
+            try:
+                verifiers = self.verify.fields[options[field_num]]  
+            except:
+                return                            # Get regex and error msg
             new_entry = self.ui.get_user_form({format_function_name(options[field_num]) : verifiers})  # Get input with validation
             
             if not new_entry:
@@ -156,6 +158,7 @@ class Operations:
         choice_dict = {} # dictionary to numerate and append choices to
         counter = 0  #count number of vehicles
         res = model[1].get_all_after_choice()
+
         fields = model[0].fields()
 
 
@@ -233,7 +236,13 @@ class Operations:
         #             money_counter += int(val) 
         #         if key == 'late_fee':
         #             money_counter += int(val)
+    
+    def get_report(self,report_type):
+        data = getattr(self.logicAPI.report, f'{report_type}_report')
+        self.display.display_report(data(), report_type)
 
+        
+        
 
 
             
@@ -340,20 +349,40 @@ class Display:
                 if len(field) > field_lengths[field]:
                     field_lengths[field] = len(field)
 
-        return field_lengths            
-        
+        return field_lengths
 
+    def display_report(self, data, report_type):
+        header = '\n\t\t\t{:^71}'.format(f'\033[4m{report_type} report\033[0m')
+        print(header)
+
+        for key,val in data.items():
+            location_header = '\n\t\t\t{:_^71}\n'.format(f'\033[4m{format_function_name(key)}\033[0m')
+            print(location_header)
+            for (k,v) in val.items():
+                if type(v) is dict:
+                    var_line = '\n\t\t\t{:^71}\n'.format(f'\033[4m{k}\033[0m')
+                    print(var_line)
+                    for (keys,vals) in v.items():
+                        value_line = '\t\t\t|{:-<30}|{:->30}|'.format(format_function_name(keys),vals)
+                        print(value_line)
+                else:
+                    value_line = '\t\t\t|{:-<30}|{:->30}|'.format(format_function_name(k),v)
+                    print(value_line)
+
+
+
+<<<<<<< HEAD
+def test(logicAPI, ui):
+    print(ui.get_user_login())
+=======
+>>>>>>> 59d783f4fbfecb2d074b2f2827bef7af9451ff3a
 
 
 
 def test(logicAPI, ui):
-    print(ui.get_user_login())
-
-def get_total_cost(logicAPI, ui):
-    o = Operations(logicAPI, ui)
-    o.calculate_total_cost(o.contract)
-
-
+    x = logicAPI.report.financial_report()
+    print(x)
+    
 
 def get_employee_after_location(logicAPI,ui):
     key_type = ui.get_user_form(
@@ -361,6 +390,7 @@ def get_employee_after_location(logicAPI,ui):
             'Pick one: country, airport, title ': ['(?:country|airport|title)$','Enter valid word!']
         }  
     )
+    if key_type == False: return
     o = Operations(logicAPI, ui)
     o.get_all_after_choice(o.employee,key_type[0])
 
@@ -370,7 +400,7 @@ def register_employee(logicAPI, ui):
     o.register(o.employee, ignore_fields)
     
 def edit_employee(logicAPI, ui):
-    ignore_fields = []
+    ignore_fields = ['name','ssn']
     o = Operations(logicAPI, ui)
     o.edit(o.employee, ignore_fields)
 
@@ -384,7 +414,9 @@ def get_all_employees(logicAPI, ui):
 
 
 def register_contract(logicAPI, ui):
-    ignore_fields = ['vehicle_state', 'vehicle_status', 'vehicle_licence', 'vehicle_type', 'rate', 'late_fee', 'total_price']
+    ignore_fields = ['vehicle_state', 'vehicle_status', 'vehicle_licence', 'vehicle_type', 'rate', 'late_fee', 'total_price',
+                    'customer_name', 'phone', 'email', 'address', 'customer_licence', 'date_handover', 'date_return', 'time_handover',
+                    'time_return', 'state']
     o = Operations(logicAPI, ui)
     o.register(o.contract, ignore_fields)
 
@@ -408,7 +440,7 @@ def get_printable_contract(logicAPI,ui):
 
 
 def register_vehicle(logicAPI,ui):
-    ignore_fields = []
+    ignore_fields = ['rate', 'vehicle_status', 'vehicle_state']
     o = Operations(logicAPI, ui)
     o.register(o.vehicle, ignore_fields)
 
@@ -441,6 +473,8 @@ def get_vehicle_after_condition(logicAPI,ui):
             'Pick one: vehicle_state or vehicle_status': ['(?:vehicle_state|vehicle_status)$','Enter valid word!']
         }  
     )
+    if key_type == False: return
+
     o = Operations(logicAPI, ui)
     o.get_all_after_choice(o.vehicle,key_type[0])
 
@@ -516,7 +550,28 @@ def get_printable_overview_of_business(logicAPI,ui):
     o.get_overview(o.contract)
 
 
+def get_invoice(logicAPI, ui):
+    print('Please enter Id of contract')
+    id = input('ID: ')
+    res = logicAPI.invoice.generate_invoice(id)
+    print(res)
 
 
+def pay_invoice(logicAPI, ui):
+    print('Please enter Id of contract')
+    id = input('ID: ')
+    res = logicAPI.invoice.pay_invoice(id)
+    print(res)
 
 
+def get_financial_report(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get_report('financial')
+
+def get_vehicle_report(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get_report('vehicle')
+
+def get_invoice_report(logicAPI, ui):
+    o = Operations(logicAPI, ui)
+    o.get_report('invoice')

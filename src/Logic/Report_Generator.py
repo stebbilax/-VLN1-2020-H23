@@ -44,19 +44,22 @@ class Report_Generator:
             total_price = calculate_total_price(contract)
 
             # Create a entry for each location
-            if location not in report: report[location] = {}
+            if location not in report: report[location] = {
+                'valid': 0,
+                'invalid': 0,
+                'complete': 0,
+            }
 
             # Creates fields for total price of valid, invalid and completed contracts
             field = None
-            if contract['state'].lower() == 'valid': field = f'{location}_valid'
-            if contract['state'].lower() == 'invalid': field = f'{location}_invalid'
-            if contract['state'].lower() == 'completed': field = f'{location}_completed'
+            if contract['state'].lower() == 'valid': field = 'valid'
+            if contract['state'].lower() == 'invalid': field = 'invalid'
+            if contract['state'].lower() == 'completed': field = 'completed'
                 
 
             if field in report[location]:
                 report[location][field] += total_price
-            else:
-                 report[location][field] = total_price
+            
         
         return report
 
@@ -111,16 +114,7 @@ class Report_Generator:
             report[airport][v_type]['total_times_loaned'] += 1
 
 
-            
-
-
-
-
-
-
-        
-        for k, v in report.items():
-            print(k, v)
+        return report
             
 
 
