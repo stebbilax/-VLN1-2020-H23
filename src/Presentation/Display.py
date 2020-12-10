@@ -144,3 +144,36 @@ class Display:
                     for ks,vl in vals.items():
                         value_line = '\t\t\t|{:-<30}|{:->30}|'.format(format_function_name(ks),vl)
                         print(value_line)
+    
+    def display_invoice(self,data,status):
+        if status == 'pay':
+            if data['state'] == 'Completed': return print('Invoice already paid')
+            if data['state'] != 'Awaiting Payment': return print('Must generate invoice before paying it')
+            header = '\t\t\t|{:_^70}|'.format(f'\033[4mInvoice Reciept\33[0m')
+        else:
+            if data['state'] == 'Completed': return print('Invoice already paid')
+            header = '\t\t\t|{:_^78}|'.format(f'\033[4mInvoice\33[0m')
+
+            print('\n\t\t\t {:_>70}'.format(''))
+            print(header)
+            print('\t\t\t|{:>70}|'.format(f'NaN Air Rentals'))
+            print('\t\t\t|{:>70}|'.format(f'Menntavegur 1'))
+            print('\t\t\t|{:>70}|'.format(f'+354 599 6200'))
+            print('\t\t\t|{:>70}|'.format(f'NaN@NaNAir.com'))
+            print('\t\t\t|{:>70}|'.format(f'NaNAir.com'))
+            
+            for i in range(3):
+                print('\t\t\t|{: ^70}|'.format(' '))
+            print('\t\t\t|{:<70}|'.format('BILL TO'))
+            
+            print('\t\t\t|{:<35}{:>35}|'.format('Customer id: {}'.format(data['customer_id']),'Contract id: {}'.format(data['id'])))
+            print('\t\t\t|{:<70}|'.format(data['customer_name']))
+            print('\t\t\t|{:<70}|'.format(data['address']))
+            print('\t\t\t|{: ^70}|'.format(''))
+            print('\t\t\t|{:-^70}|'.format(''))
+            print('\t\t\t|{:^14}|{:^14}|{:^10}|{:^14}|{:^14}|'.format('DATE','PRODUCT','RATE','LATE FEE','AMOUNT'))
+            print('\t\t\t|{:-^70}|'.format(''))
+            print('\t\t\t|{:^14}|{:^14}|{:^10}|{:^14}|{:^14}|'.format(data['date_return'],data['VIN'],data['rate'],data['late_fee'],data['total_price']))
+            print('\t\t\t|{:-^70}|'.format(''))
+            print('\t\t\t|{:>70}|'.format('TOTAL: {}'.format(data['total_price'])))
+            print('\t\t\t|{:_^70}|'.format(''))

@@ -29,7 +29,7 @@ class UserInterface:
         office_menu     = Menu("Office Menu", None, main_menu, self.logic, self, 'office')
         airport_menu    = Menu("Airport menu", None, main_menu, self.logic, self, 'airport')
         admin_menu      = Menu("Adminstration menu", None, main_menu,self.logic, self, 'admin')
-        papa_chuck_menu = Menu("Chuck Norris", None, main_menu,self.logic,self,'chuck norris can divide by zero.')
+        papa_chuck_menu = Menu("Chuck Norris menu", None, main_menu,self.logic,self,'chuck')
 
         # Add four menu nodes to the main menu
         main_menu.selectable_options.append(admin_menu)
@@ -40,7 +40,7 @@ class UserInterface:
 
 
         #Chuck submenus 
-        report_menu_papa_chuck = Menu("Report Menu For Papa Chuck", None, admin_menu, self.logic, self, 'chuck norris can divide by zero.')
+        report_menu_papa_chuck = Menu("Report Menu For Papa Chuck", None, admin_menu, self.logic, self, 'chuck')
 
 
         #adding submenus to chucks menu node
@@ -153,6 +153,8 @@ class UserInterface:
             get_vehicle_report,
             get_invoice_report_by_state,
             get_invoice_report_by_customer,
+            get_invoice,
+            pay_invoice
         ]
         #endregion
 
@@ -266,9 +268,11 @@ class UserInterface:
 
         # Airport submenus
         vehicle_menu_airport    = Menu("Vehicle Menu", None, airport_menu, self.logic, self, 'airport')
+        report_menu_airport     = Menu("Report Menu", None,airport_menu,self.logic,self,'airport')
         # Add submenus to airport menu node
         airport_menu.selectable_options += [
             vehicle_menu_airport,
+            report_menu_airport,
         ]
 
         #region Airport vehicle menu    -----
@@ -292,7 +296,12 @@ class UserInterface:
             get_vehicle_after_condition,
             get_vehicle_fit_for_rental,
         ]
+        
 
+        report_menu_airport.selectable_options += [
+            get_invoice,
+            pay_invoice
+        ]
         #endregion                      -----
         #endregion                      =====
 
@@ -314,9 +323,9 @@ class UserInterface:
         employees = {employee.ssn:employee.title for employee in self.logic.employee.get_all()}
         
         # Custom login credentials for administrative purposes
-        employees['admin'] = 'admin 1'
+        employees['admin'] = 'admin'
 
-        employees['chuck norris can divide by zero.'] = 'chuck norris can divide by zero.'
+        employees['chuck norris can divide by zero'] = 'chuck'
 
         login = False
 
