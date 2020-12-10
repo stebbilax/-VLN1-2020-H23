@@ -47,7 +47,7 @@ class Report_Generator:
                     overall_income += total_price
 
             
-        report['overall_income'] = overall_income
+        report['net_income'] = {'net_income': overall_income}
         
         return report
 
@@ -126,17 +126,17 @@ class Report_Generator:
                     
                     if total > most_popular_num: most_popular_vehicle = field
 
-                obj[airport]['stats'] = {
+                obj[airport]['location_stats'] = {
                     'most_popular_vehicle':None,
                     'total_vehicles_in_use':0,
                     'total_vehicles_in_repair':0,
                     'total_vehicles_available':0,
                 }
 
-                obj[airport]['stats']['most_popular_vehicle'] = most_popular_vehicle
-                obj[airport]['stats']['total_vehicles_in_use'] = total_vehicles_in_use
-                obj[airport]['stats']['total_vehicles_in_repair'] = total_vehicles_in_repair
-                obj[airport]['stats']['total_vehicles_available'] = total_vehicles_available
+                obj[airport]['location_stats']['most_popular_vehicle'] = most_popular_vehicle
+                obj[airport]['location_stats']['total_vehicles_in_use'] = total_vehicles_in_use
+                obj[airport]['location_stats']['total_vehicles_in_repair'] = total_vehicles_in_repair
+                obj[airport]['location_stats']['total_vehicles_available'] = total_vehicles_available
                 
             return obj
 

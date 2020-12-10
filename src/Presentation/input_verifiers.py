@@ -47,7 +47,7 @@ class Input_Verifiers:
             'postal_code': ['(\d)', 'Must be digits only'],
             'ssn': ['(\d{6})-(\d{4})', 'SSN must be in format (6 digits - 4 digits)'],
             'mobile_phone': ['(\d{7,15})', 'Mobile phone number must be between 7 and 15 digits'],
-            'email': ['(.+@.+\..+)', 'Must be a valid email format.'],
+            'email': ['(.+@.+\..+)', 'Must be a valid email format ( example: OldGregg@nan.is ).'],
             'title': [self.enum.enum_to_regex(self.enum.title_enum), self.enum.enum_to_instructions(self.enum.title_enum)],
             'airport': [self.enum.enum_to_regex(self.enum.airport_enum), self.enum.enum_to_instructions(self.enum.airport_enum)],
             'opening_hours': ['^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])-(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$','Invalid clock format, right format: 03:15-04:33'],

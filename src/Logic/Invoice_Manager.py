@@ -19,17 +19,31 @@ class Invoice_Manager:
         contract_start = contract['contract_start']
         contract_end = contract['contract_end']
 
+        if contract['state'] == 'Completed': return 'Invoice already paid'
+
         # days, vehicle type
         # Generate invoice
         invoice = {
-            'price'      : calculate_base_price(contract_start, contract_end, rate),
-            'late_fee'   : calculate_late_fee(rate, contract_end, date_return),
-            'total_price': calculate_total_price(contract),
+            'customer_name'     : contract['customer_name'],
+            'phone'             : contract['phone'],
+            'email'             : contract['email'],
+            'phone'             : contract['phone'],
+            'vehicle_type'      : contract['vehicle_type'],
+            'date_handover'     : contract['date_handover'],
+            'date_return'       : contract['date_return'],
+            'location_handover' : contract['location_handover'],
+            'location_return'   : contract['location_return'],
+            'country'           : contract['country'],
+            'price'             : calculate_base_price(contract_start, contract_end, rate),
+            'late_fee'          : calculate_late_fee(rate, contract_end, date_return),
+            'total_price'       : calculate_total_price(contract),
+            'date_from'         : contract['date_handover'],
+            'date_to'           : contract['date_return'],
         }
 
         # Edit contract
         contract['state']       = 'Awaiting Payment'
-        contract['rate']       = invoice['price']
+        contract['rate']        = invoice['price']
         contract['late_fee']    = invoice['late_fee']
         contract['total_price'] = invoice['total_price']
         self.lapi.contract.edit(contract, str(id))
@@ -49,13 +63,21 @@ class Invoice_Manager:
         if contract['state'] != 'Awaiting Payment': return 'Must generate invoice before paying it'
 
         receipt = {
-            'type': contract['vehicle_type'],
-            'country': contract['country'],
-            'price': contract['rate'],
-            'late_fee': contract['late_fee'],
-            'total_price': contract['total_price'],
-            'date_from' : contract['date_handover'],
-            'date_to' : contract['date_return']
+            'customer_name'     : contract['customer_name'],
+            'phone'             : contract['phone'],
+            'email'             : contract['email'],
+            'phone'             : contract['phone'],
+            'vehicle_type'      : contract['vehicle_type'],
+            'date_handover'     : contract['date_handover'],
+            'date_return'       : contract['date_return'],
+            'location_handover' : contract['location_handover'],
+            'location_return'   : contract['location_return'],
+            'country'           : contract['country'],
+            'price'             : contract['rate'],
+            'late_fee'          : contract['late_fee'],
+            'total_price'       : contract['total_price'],
+            'date_from'         : contract['date_handover'],
+            'date_to'           : contract['date_return']
         }
 
         contract['state'] = 'Completed'

@@ -55,6 +55,7 @@ class Operations:
         if len(employee) > 1:
             print("Multiple results, select a %s" % model[0].__class__.__name__)
             employee = self.ui.get_user_option(employee)
+            if not employee: return
             id = employee.id
         elif len(employee) == 0:
             print("Search returned no %s" % model[0].__class__.__name__)
@@ -153,7 +154,7 @@ class Operations:
         fields = model[0].fields()
         self.display.display_all(res, fields)
 
-    def get_all_after_choice(self, model,key_type):
+    def get_all_after_choice(self, model, key_type):
         #get all vehicle/staff after choice
         choice_list = ["\nDisplay all after {}".format(key_type)] #list to append choices to
         choice_dict = {} # dictionary to numerate and append choices to
@@ -196,7 +197,7 @@ class Operations:
         #calls display function in Display class
         self.display.display(res, fields,choice)
 
-    def get_all_fit_for_rental(self,model):
+    def get_all_fit_for_rental(self, model):
         '''Get all vehicles that are fit for rental'''
         res = model[1].get_all()
         fields = model[0].fields()
@@ -219,7 +220,7 @@ class Operations:
             print("invalid number entered!")
         self.display.display_printable_version(res,fields,choice)
 
-    def get_overview(self,model):
+    def get_overview(self, model):
         """For papa chuck menu"""
         # •Til að hafa yfirlit með rekstrinum vill Chuck geta kallað fram eftirfarandi skýrslur í prentvænusniðmáti (print friendly formatting):
         # –Yfirlit yfir tekjur þar sem ætti að vera hægt að velja tímabilið sem á að skoða. Einnigværi gott að sjá sundurliðun á tekjum útibúa og tegund farartækja.
