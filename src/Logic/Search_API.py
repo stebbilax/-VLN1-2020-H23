@@ -250,7 +250,7 @@ class Search_Vehicle:
     def by_vehicle_status(self, string):
         return self.Search_Manager.search(string, 'vehicle_status', 'vehicle')
 
-    def by_condition(self, string):
+    def by_vehicle_state(self, string):
         return self.Search_Manager.search(string, 'vehicle_state', 'vehicle')
 
     def by_model(self, string):
