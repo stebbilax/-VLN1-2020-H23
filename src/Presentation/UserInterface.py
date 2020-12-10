@@ -19,10 +19,10 @@ class UserInterface:
         self.logic = LogicAPI()
         self.operation = Operations(self.logic, self)
 
-        self.access = self.get_user_login()
-
         # Clear window
         os.system('cls')
+
+        self.access = self.get_user_login()
 
         # Create main categories
         main_menu       = Menu("Main Menu", None, None, self.logic, self, 0)
@@ -294,6 +294,8 @@ class UserInterface:
         employees['admin'] = 'admin'
 
         login = False
+
+        print('{:-^45}\n'.format('Login'))
 
         while not login:
             user_ssid = self.get_user_input('Enter SSID: ')
