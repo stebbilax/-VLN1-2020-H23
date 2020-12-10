@@ -83,7 +83,7 @@ def customer():
 def destination():
     return Destination(
         D.make_country(),
-        D.make_airport(),
+        D.make_airport_after_country(),
         D.make_phone(),
         D.make_opening_hours(),
     )
@@ -98,8 +98,10 @@ def employee():
         D.make_phone(),
         D.make_email(),
         D.make_title(),
-        D.make_airport(),
-        D.make_country(),
+        D.make_airport_after_title(),
+        D.make_country_after_airport(),
+
+
     )
 def vehicle():
     return Vehicle(
