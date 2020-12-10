@@ -73,15 +73,9 @@ class Invoice_Manager:
         if res == []: return False
         contract = vars(res[0])
 
-        # if contract['state'] == 'Completed': 
-        #     print('Invoice already paid')
-        #     return 
-        # if contract['state'] == 'Invalid':
-        #     print('Contract is invalidated')
-        #     return
-        # if contract['state'] != 'Awaiting Payment': 
-        #     print('Must generate invoice before paying it')
-        #     return 
+
+        if contract['state'] != 'Awaiting Payment': 
+            return False
             
 
         res = self.sapi.search_customer().by_id(contract['customer_id'])
@@ -114,6 +108,11 @@ class Invoice_Manager:
             'contract_start'    : contract['contract_start'],
             'contract_end'      : contract['contract_end']
         }
+
+        if receipt['date_from'] == 'N/A': return False
+        if receipt['date_to'] == 'N/A': return False
+        if receipt['date_handover'] == 'N/A': return False
+        if receipt['date_return'] == 'N/A': return False
 
         contract['state'] = 'Completed'
         self.lapi.contract.edit(contract, str(id))

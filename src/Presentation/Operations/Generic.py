@@ -220,25 +220,6 @@ class Operations:
             print("invalid number entered!")
         self.display.display_printable_version(res,fields,choice)
 
-    def get_overview(self, model):
-        """For papa chuck menu"""
-        # •Til að hafa yfirlit með rekstrinum vill Chuck geta kallað fram eftirfarandi skýrslur í prentvænusniðmáti (print friendly formatting):
-        # –Yfirlit yfir tekjur þar sem ætti að vera hægt að velja tímabilið sem á að skoða. Einnigværi gott að sjá sundurliðun á tekjum útibúa og tegund farartækja.
-        # –Yfirlit yfir nýtingu farartækja á hverjum stað, flokkað eftir tegund.
-        # –Yfirlit yfir reikninga á ákveðnu tímabili, þar sem hægt er að flokka eftir viðskiptavinumog hvort þeir séu farnir í inheimtu (rukkaðir).
-        res = model[1].get_all()
-        fields = model[0].fields()
-        money_counter = 0
-        dates_list = []
-        dates_dict = {}
-        # for element in res:
-        #     obj = vars(element)
-        #     for index, (key,val) in enumerate(obj.items()):
-        #         if key == 'total_price':
-        #             money_counter += int(val) 
-        #         if key == 'late_fee':
-        #             money_counter += int(val)
-    
     def get_report(self,report_type,time_from=None,time_to=None):
         data = getattr(self.logicAPI.report, f'{report_type}_report')
         self.display.display_report(data(time_from, time_to), report_type)
@@ -262,8 +243,8 @@ class Operations:
             ans = int(ans[0])
 
         data = data(ans)
-        print(data)
-        input()
+        if data == False:
+            print('Something went wrong. Please make sure invoice has been generated and that all info is in order.')
         if not data:
             return
         else:
