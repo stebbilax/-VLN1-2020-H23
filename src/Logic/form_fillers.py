@@ -100,6 +100,10 @@ def employee_filler(form):
         'id' : None,
 
     }
+    if employee['title'] == 'office':
+        employee['airport'] = 'reykjavik'
+        employee['country'] = 'iceland' 
+    
     return employee
 
 
