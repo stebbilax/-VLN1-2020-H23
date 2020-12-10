@@ -104,11 +104,7 @@ def check_customer_id(form, id):
     vehicle = vars(Search_API().search_vehicle().by_id(form[0])[0])
     customer = vars(res[0])
     # Check permitions for specified vehicle
-    if vehicle['licence'] != customer['licence']: return (False, 'Customer does not carry a licence for this vehicle')
-
-    
-
-        
+    if vehicle['licence'] != customer['licence']: return (False, 'Customer does not carry a licence for this vehicle')        
     return (True, 'Success')
 
 
