@@ -205,6 +205,12 @@ class ManageReports:
     def financial_report(self):
         return self.RG.financial_report(time_from=None, time_to=None)
 
+    def invoice_report_by_state(self):
+        return self.RG.invoice_report_by_state(time_from=None, time_to=None)
+
+    def invoice_report_by_customer(self):
+        return self.RG.invoice_report_by_customer(time_from=None, time_to=None)
+
     def vehicle_report(self):
         return self.RG.vehicle_report()
 

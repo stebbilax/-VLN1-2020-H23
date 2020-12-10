@@ -43,3 +43,25 @@ def calculate_total_price(contract):
     base_price = calculate_base_price(contract_start, contract_end, rate)
     
     return late_fee + base_price
+
+
+
+def select_time_period(contracts, date_from, date_to):
+            '''Recieves contracts and a start and end date.
+            Filters out any contract that does not fit within the 
+            given time frame and returns the filtered list
+            '''
+            date_from = datetime.fromisoformat(date_from)
+            date_to = datetime.fromisoformat(date_to)
+            new_contracts = []
+            for contract in contracts:
+                contract_start = datetime.fromisoformat(contract['contract_start'])
+                contract_end = datetime.fromisoformat(contract['contract_end'])
+
+                # Check if contract fits in the given window
+                if contract_start <= date_from: continue
+                if contract_end >= date_to: continue
+
+                new_contracts.append(contract)
+
+            return new_contracts
