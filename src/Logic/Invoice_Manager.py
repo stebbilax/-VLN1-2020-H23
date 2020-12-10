@@ -44,12 +44,17 @@ class Invoice_Manager:
 
 
         contract = vars(res[0])
+        
+        if contract['state'] == 'Completed': return 'Invoice already paid'
+
         receipt = {
             'type': contract['vehicle_type'],
             'country': contract['country'],
             'price': contract['rate'],
             'late_fee': contract['late_fee'],
             'total_price': contract['total_price'],
+            'date_from' : contract['date_handover'],
+            'date_to' : contract['date_return']
         }
 
         contract['state'] = 'Completed'
