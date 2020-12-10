@@ -1,3 +1,5 @@
+from Presentation.Menu import format_function_name
+import os
 ''' Display methods for various data '''
 
 class Display:

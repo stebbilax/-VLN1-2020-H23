@@ -87,16 +87,16 @@ def vehicle_filler(form):
 def employee_filler(form):
     
     employee = {
-        'name' : form[1],
-        'address' : form[2],
-        'postal_code' : form[3],
-        'ssn' : form[4],
-        'phone' : form[5],
-        'mobile_phone' : form[6],
-        'email' : form[7],
-        'title' : form[8],
-        'airport': form[9],
-        'country' : form[10],
+        'name' : form[0],
+        'address' : form[1],
+        'postal_code' : form[2],
+        'ssn' : form[3],
+        'phone' : form[4],
+        'mobile_phone' : form[5],
+        'email' : form[6],
+        'title' : form[7],
+        'airport': form[8],
+        'country' : form[9],
         'id' : None,
 
     }

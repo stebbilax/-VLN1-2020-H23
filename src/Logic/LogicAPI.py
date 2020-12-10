@@ -64,7 +64,7 @@ class ManageEmployees:
     
     def register(self, form):
         new_form = employee_filler(form)
-        new_employee = Employee(**new)
+        new_employee = Employee(**new_form)
         self.dataAPI.append_employee(new_employee)
     
     def edit(self, form, id):
