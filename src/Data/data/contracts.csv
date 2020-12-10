@@ -1,10 +1,10 @@
 vehicle_id,vehicle_state,vehicle_status,vehicle_licence,vehicle_type,country,customer_id,customer_name,phone,email,address,customer_licence,employee_id,location_handover,location_return,date_handover,date_return,time_handover,time_return,contract_start,contract_end,state,rate,late_fee,total_price,id
-1,OK,Unavailable,None,Light road,Iceland,1,Sophia,9688691,Benjamin@nan.is,ElijahSquare 1,None,1,longyearbyen,longyearbyen,2020-02-01,2020-02-15,N/A,N/A,2020-02-01,2020-02-08,Completed,347,2914.8,5343.8,1
+1,OK,Unavailable,None,Light road,Iceland,1,Sophia,9688691,Benjamin@nan.is,ElijahSquare 1,None,1,longyearbyen,longyearbyen,2020-02-01,2020-02-08,N/A,N/A,2020-02-01,2020-02-08,Completed,347,0,2429,1
 4,DEFECTIVE,Unavailable,Drivers licence,Medium off-road,Greenland,1,Liam,9884633,Evelyn@nan.is,JamesStreet 10,None,1,reykjavik,tingwall,N/A,N/A,N/A,N/A,2020-01-03,2020-02-08,Invalid,444,298,0,2
 1,DEFECTIVE,Unavailable,Drivers licence,Light road,Greenland,1,Emma,9625291,Evelyn@nan.is,WilliamStreet 0,Drivers licence,1,nuuk,reykjavik,N/A,N/A,N/A,N/A,2020-02-03,2020-02-07,Invalid,687,234,0,3
 4,OK,Unavailable,None,Light off-road,Farao Islands,1,Emma,9989828,Noah@nan.is,BenjaminSquare 19,None,1,torshavn,longyearbyen,N/A,N/A,N/A,N/A,2020-01-01,2020-02-10,Valid,975,54,0,4
 4,DEFECTIVE,Unavailable,None,Light off-road,Greenland,1,Ethan,9677441,Emma@nan.is,EvelynSquare 11,Drivers licence,1,kulusuk,longyearbyen,N/A,N/A,N/A,N/A,2020-01-02,2020-02-05,Invalid,407,213,0,5
-1,DEFECTIVE,Unavailable,None,Medium water,Greenland,1,Noah,6685157,Noah@nan.is,JamesSquare 4,Drivers licence,1,kulusuk,nuuk,N/A,N/A,N/A,N/A,2020-01-02,2020-02-07,Valid,712,229,0,6
+1,DEFECTIVE,Unavailable,None,Medium water,Greenland,1,Noah,6685157,Noah@nan.is,JamesSquare 4,Drivers licence,1,kulusuk,nuuk,N/A,N/A,N/A,N/A,2020-01-02,2020-02-07,Completed,712,262300.8,287932.8,6
 5,OK,Available,None,Light road,Shetland,1,James,8671773,Mason@nan.is,LiamTown 15,None,1,nuuk,kulusuk,N/A,N/A,N/A,N/A,2020-02-03,2020-02-07,Completed,526,18,0,7
 6,DEFECTIVE,Unavailable,Drivers licence,Light water,Svalbard,1,Ava,7677153,Mia@nan.is,WilliamSquare 13,None,1,tingwall,kulusuk,N/A,N/A,N/A,N/A,2020-02-02,2020-02-08,Invalid,664,134,0,8
 8,DEFECTIVE,Unavailable,Drivers licence,Medium off-road,Greenland,1,Benjamin,8744331,Isabella@nan.is,ElijahTown 30,None,1,nuuk,reykjavik,N/A,N/A,N/A,N/A,2020-01-01,2020-02-06,Valid,870,210,0,9

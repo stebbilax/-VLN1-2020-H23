@@ -188,7 +188,7 @@ class Display:
             print(header)
             print('\t\t\t|{:>70}|'.format('NaN Air Rentals'))
             print('\t\t\t|{:>70}|'.format('Menntavegur 1'))
-            print('\t\t\t|{:^70}|'.format('Reykjavík, Iceland'))
+            print('\t\t\t|{:>70}|'.format('Reykjavík, Iceland'))
             print('\t\t\t|{:>70}|'.format('S: +354 599 6200'))
             print('\t\t\t|{:>70}|'.format('NaN@NaNAir.com'))
             print('\t\t\t|{:>70}|'.format('NaNAir.com'))
