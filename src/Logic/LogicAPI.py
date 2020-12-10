@@ -202,17 +202,17 @@ class ManageReports:
     def __init__(self, lapi, dapi, sapi):
         self.RG = Report_Generator(dapi, sapi)
         
-    def financial_report(self):
-        return self.RG.financial_report(time_from=None, time_to=None)
+    def financial_report(self, time_from=None, time_to=None):
+        return self.RG.financial_report(time_from, time_to)
 
-    def invoice_report_by_state(self):
-        return self.RG.invoice_report_by_state(time_from=None, time_to=None)
+    def invoice_report_by_state(self, time_from=None, time_to=None):
+        return self.RG.invoice_report_by_state(time_from, time_to)
 
-    def invoice_report_by_customer(self):
-        return self.RG.invoice_report_by_customer(time_from=None, time_to=None)
+    def invoice_report_by_customer(self, time_from=None, time_to=None):
+        return self.RG.invoice_report_by_customer(time_from, time_to)
 
-    def vehicle_report(self):
-        return self.RG.vehicle_report()
+    def vehicle_report(self, time_from=None, time_to=None):
+        return self.RG.vehicle_report(time_from, time_to)
 
     
     def get_search_options(self):

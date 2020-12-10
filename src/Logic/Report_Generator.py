@@ -44,7 +44,7 @@ class Report_Generator:
         return report
 
 
-    def vehicle_report(self):
+    def vehicle_report(self,time_from=None,time_to=None):
         contracts = self.Data.read_all_contracts()
         vehicles = self.Data.read_all_vehicles()
         report = {}
