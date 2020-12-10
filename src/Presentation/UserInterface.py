@@ -129,6 +129,8 @@ class UserInterface:
             get_vehicle_report,
             get_invoice_report_by_state,
             get_invoice_report_by_customer,
+            get_invoice,
+            pay_invoice
         ]
         #endregion
 
