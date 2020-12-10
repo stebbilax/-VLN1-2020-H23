@@ -1,23 +1,21 @@
 name,address,postal_code,ssn,phone,mobile_phone,email,title,airport,country,id
-Isabella,WilliamTown 0,989,121053-4940,7721912,8992331,Emma@nan.is,airport,tingwall,Shetland,1
-Elijah,EmmaStreet 10,547,111053-1584,7748328,7810398,Evelyn@nan.is,office,reykjavik,Iceland,2
-Mia,NoahSquare 3,949,121161-8383,9779442,7752268,Evelyn@nan.is,office,reykjavik,Iceland,3
-Oliver,MiaSquare 2,612,121071-7032,6979242,7999707,Emma@nan.is,airport,torshavn,Farao Islands,4
-Oliver,EvelynSquare 17,575,101269-5914,7707532,6847545,Ethan@nan.is,airport,nuuk,Greenland,5
-Benjamin,CharlotteRoad 25,493,121273-7026,9624870,8808534,Noah@nan.is,office,reykjavik,Iceland,6
-Ethan,EvelynStreet 17,713,121089-6548,7728542,6694973,Charlotte@nan.is,airport,longyearbyen,Svalbard,7
-Mason,MiaTown 0,722,121171-6014,7859539,8683116,Evelyn@nan.is,airport,torshavn,Farao Islands,8
-Elijah,SophiaRoad 5,579,101089-2256,7831790,8998134,Mia@nan.is,airport,torshavn,Farao Islands,9
-Liam,HarperTown 30,455,121174-1879,8799958,6981409,Emma@nan.is,office,reykjavik,Iceland,10
-Ava,WilliamSquare 29,864,111281-7245,9729396,9682774,Mia@nan.is,office,reykjavik,Iceland,11
-Mason,IsabellaRoad 24,273,121260-6655,6642831,6689906,Mason@nan.is,office,reykjavik,Iceland,12
-Evelyn,OliverTown 1,255,121076-3749,8930025,8748257,Benjamin@nan.is,airport,reykjavik,Iceland,13
-James,LucasRoad 21,231,121171-2568,8954744,8871455,Harper@nan.is,office,reykjavik,Iceland,14
-Charlotte,OliverTown 20,656,121088-7972,7901406,6740968,Ava@nan.is,office,reykjavik,Iceland,15
-Lucas,MiaRoad 22,511,121080-7662,8960355,6977690,Charlotte@nan.is,office,reykjavik,Iceland,16
-Benjamin,MiaRoad 8,266,111180-5224,9951313,9707583,Sophia@nan.is,office,reykjavik,Iceland,17
-Ava,JamesStreet 10,292,121077-5029,9692991,9615747,James@nan.is,office,reykjavik,Iceland,18
-Lucas,BenjaminRoad 18,711,101088-7667,6632404,6915726,Mason@nan.is,office,reykjavik,Iceland,19
-Sophia,HarperTown 1,517,111150-5712,6957377,9972660,Harper@nan.is,airport,kulusuk,Greenland,20
-hanni,anan,123,123456-6511,123454444,234546543,g@g.is,office,reykjavik,Iceland,21
-name,da,12,123456-6544,13245543,34343234,g@g.is,office,reykjavik,Iceland,22
+Amelia,CharlotteStreet 14,739,111076-8427,8922833,7676134,James@nan.is,airport,tingwall,Shetland,1
+Charlotte,ElijahRoad 28,725,101255-7732,7975260,6968622,Benjamin@nan.is,office,reykjavik,Iceland,2
+Sophia,EmmaTown 18,946,121180-7266,8810928,8926341,Isabella@nan.is,office,reykjavik,Iceland,3
+Mason,JamesSquare 6,553,121274-5364,7622621,6628159,Benjamin@nan.is,airport,reykjavik,Iceland,4
+Harper,ElijahStreet 13,149,111277-5275,9999768,7903407,Noah@nan.is,airport,longyearbyen,Svalbard,5
+Isabella,CharlotteRoad 13,982,101159-4347,7621138,9681985,Isabella@nan.is,office,reykjavik,Iceland,6
+Evelyn,CharlotteRoad 11,519,111152-2686,9628815,7772003,Noah@nan.is,office,reykjavik,Iceland,7
+Ava,MiaSquare 13,219,121190-7370,7953329,7906279,Isabella@nan.is,airport,nuuk,Greenland,8
+Harper,EmmaTown 11,415,111151-4510,8620752,6977380,William@nan.is,airport,reykjavik,Iceland,9
+Charlotte,MasonRoad 9,175,101285-2029,8902495,9646690,Amelia@nan.is,airport,torshavn,Farao Islands,10
+Amelia,OliverStreet 9,236,101262-5485,9655489,6888640,Charlotte@nan.is,airport,reykjavik,Iceland,11
+Noah,LucasTown 22,673,101270-7551,8619951,6601303,Mia@nan.is,airport,longyearbyen,Svalbard,12
+William,EmmaTown 30,587,111280-3989,8844455,7830081,Benjamin@nan.is,airport,kulusuk,Greenland,13
+William,OliverStreet 11,955,101169-7727,9600389,6989068,Amelia@nan.is,airport,longyearbyen,Svalbard,14
+William,JamesRoad 22,225,121088-1590,6662164,8792794,Evelyn@nan.is,office,reykjavik,Iceland,15
+Olivia,LucasTown 13,898,121284-7449,6840641,8874119,Olivia@nan.is,office,reykjavik,Iceland,16
+James,MiaStreet 27,356,101059-6526,6894437,9655131,Oliver@nan.is,office,reykjavik,Iceland,17
+Oliver,EmmaRoad 11,246,121190-3040,8724703,8737308,Emma@nan.is,airport,tingwall,Shetland,18
+Amelia,CharlotteRoad 26,462,101156-1625,8701073,7760012,Isabella@nan.is,office,reykjavik,Iceland,19
+Benjamin,AvaTown 2,562,121183-7317,9941089,8850151,Ava@nan.is,airport,reykjavik,Iceland,20
