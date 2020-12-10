@@ -327,7 +327,7 @@ class UserInterface:
             
             # If there is no specific regex validation to the input
             if fields[field] is None:
-                answer = input(format_function_name(field) + ': ').lower()
+                answer = input(format_function_name(field) + ': ')
 
                 if answer.lower() == 'b':
                     return False
@@ -342,7 +342,7 @@ class UserInterface:
                     msg = field
 
                 while not match:
-                    answer = input(format_function_name(msg) + ': ').lower()
+                    answer = input(format_function_name(msg) + ': ')
 
                     if answer.lower() == 'b':
                         return False
