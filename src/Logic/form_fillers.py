@@ -103,6 +103,12 @@ def employee_filler(form):
     if employee['title'] == 'office':
         employee['airport'] = 'reykjavik'
         employee['country'] = 'Iceland' 
+    if employee['airport'] == 'reykjavik': employee['country'] = 'Iceland'
+    if employee['airport'] == 'kulusuk' or employee['airport'] == 'nuuk': employee['country'] = 'nuuk'
+    if employee['airport'] == 'tingwall': employee['country'] = 'Shetland'
+    if employee['airport'] == 'longyearbyen': employee['country'] = 'Svalbard'
+    if employee['airport'] == 'thorshavn': employee['country'] = 'Farao Islands'
+
     
     return employee
 

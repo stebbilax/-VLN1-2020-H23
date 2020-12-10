@@ -21,6 +21,13 @@ def employee_editor(form):
     if form['title'] == 'office':
         form['airport'] = 'reykjavik'
         form['country'] = 'Iceland'
+
+    else:
+        if form['airport'] == 'reykjavik': form['country'] = 'Iceland'
+        if form['airport'] == 'kulusuk' or form['airport'] == 'nuuk': form['country'] = 'nuuk'
+        if form['airport'] == 'tingwall': form['country'] = 'Shetland'
+        if form['airport'] == 'longyearbyen': form['country'] = 'Svalbard'
+        if form['airport'] == 'thorshavn': form['country'] = 'Farao Islands'
     return form
 
 
