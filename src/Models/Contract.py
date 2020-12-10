@@ -9,7 +9,7 @@ class Contract:
 
         self.vehicle_id = vehicle_id
         self.vehicle_state = vehicle_state      # OK / DEFECTIVE
-        self.vehicle_status = vehicle_status    # On Loan / Available
+        self.vehicle_status = vehicle_status    # Unavailable / Available
         self.vehicle_licence = vehicle_licence
         self.vehicle_type = vehicle_type
         self.country = country
