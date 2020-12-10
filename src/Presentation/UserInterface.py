@@ -28,47 +28,45 @@ class UserInterface:
         main_menu       = Menu("Main Menu", None, None, self.logic, self, 0)
         office_menu     = Menu("Office Menu", None, main_menu, self.logic, self, 'office')
         airport_menu    = Menu("Airport menu", None, main_menu, self.logic, self, 'airport')
-        papa_chuck_menu = Menu("Papa Chuck menu", None, main_menu,self.logic, self, 'admin')
+        admin_menu      = Menu("Adminstration menu", None, main_menu,self.logic, self, 'admin')
 
         # Add three menu nodes to the main menu
         main_menu.selectable_options.append(office_menu)
         main_menu.selectable_options.append(airport_menu)
-        main_menu.selectable_options.append(papa_chuck_menu)
+        main_menu.selectable_options.append(admin_menu)
 
-        #region OFFICE MENU SYSTEM      =====
+        #region ADMIN MENU SYSTEM           ====
 
-        # Office submenus
-        employee_menu_office        = Menu("Employee Menu", None, office_menu, self.logic, self, 'office')
-        vehicle_menu_office         = Menu("Vehicle Menu", None, office_menu, self.logic, self, 'office')
-        contract_menu_office        = Menu("Contract Menu", None, office_menu, self.logic, self, 'office')
-        report_menu_office          = Menu("Report Menu", None, office_menu, self.logic, self, 'office')
-        customer_menu_office        = Menu("Customer Menu", None, office_menu, self.logic, self, 'office')
-        destination_menu_office     = Menu("Destination Menu", None, office_menu, self.logic, self, 'office')
-        vehicle_type_menu_office    = Menu("Vehicle Type Menu", None, office_menu, self.logic, self, 'office')
+        #admins submenus
+        employee_menu_admin        = Menu("Employee Menu", None, admin_menu, self.logic, self, 'admin')
+        vehicle_menu_admin         = Menu("Vehicle Menu", None, admin_menu, self.logic, self, 'admin')
+        contract_menu_admin        = Menu("Contract Menu", None, admin_menu, self.logic, self, 'admin')
+        report_menu_admin         = Menu("Report Menu", None, admin_menu, self.logic, self, 'admin')
+        customer_menu_admin        = Menu("Customer Menu", None, admin_menu, self.logic, self, 'admin')
+        destination_menu_admin     = Menu("Destination Menu", None, admin_menu, self.logic, self, 'admin')
+        vehicle_type_menu_admin    = Menu("Vehicle Type Menu", None, admin_menu, self.logic, self, 'admin')
 
-
-
-        # Add submenus to office menu node
-        office_menu.selectable_options += [
-            employee_menu_office, vehicle_menu_office,
-            contract_menu_office, report_menu_office,
-            customer_menu_office, destination_menu_office,
-            vehicle_type_menu_office
+        #Add submenus to office menu node
+        admin_menu.selectable_options += [
+            employee_menu_admin, vehicle_menu_admin,
+            contract_menu_admin, report_menu_admin,
+            customer_menu_admin, destination_menu_admin,
+            vehicle_type_menu_admin
         ]
 
         #region Office Employee menu    -----
 
         # Submenu for specfic employee display options
-        display_employee_menu_office = Menu("Display Employee", None, employee_menu_office, self.logic, self, 'office')
+        display_employee_menu_admin = Menu("Display Employee", None, employee_menu_admin, self.logic, self, 'admin')
 
         # Employee functions with employee display menu
-        employee_menu_office.selectable_options += [
+        employee_menu_admin.selectable_options += [
             register_employee, edit_employee,
-            display_employee_menu_office
+            display_employee_menu_admin
         ]
 
         # Employee display functions
-        display_employee_menu_office.selectable_options += [
+        display_employee_menu_admin.selectable_options += [
             get_all_employees,
             get_employee,
             get_employee_after_location,
@@ -76,21 +74,23 @@ class UserInterface:
 
         #endregion                      -----
 
-        #region Office Vehicle menu     -----
+
+
+ #region Admin Vehicle menu     -----
 
         # Submenu for specific vehicle display options
-        display_vehicle_menu_office = Menu("Display Vehicle", None, vehicle_menu_office, self.logic, self, 'office')
+        display_vehicle_menu_admin = Menu("Display Vehicle", None, vehicle_menu_admin, self.logic, self, 'admin')
 
         # Vehicle functions with vehicle display menu
-        vehicle_menu_office.selectable_options += [
+        vehicle_menu_admin.selectable_options += [
             register_vehicle, edit_vehicle,
-            display_vehicle_menu_office,
+            display_vehicle_menu_admin,
             handover_vehicle, handin_vehicle
             
         ]
 
         # Vehicle display functions
-        display_vehicle_menu_office.selectable_options += [
+        display_vehicle_menu_admin.selectable_options += [
             get_all_vehicles,
             get_vehicle,
             get_vehicle_after_location,
@@ -98,6 +98,110 @@ class UserInterface:
             get_vehicle_after_condition,
             get_vehicle_fit_for_rental,
             
+        ]
+
+        #endregion                      -----
+
+        #region Office Contract menu    -----
+
+        # Submenu for specific contract display options
+        display_contract_menu_admin = Menu ("Display Contract", None, contract_menu_admin, self.logic, self, 'admin')
+
+        # Contract functions with contract display menu
+        contract_menu_admin.selectable_options += [
+            register_contract, edit_contract,
+            display_contract_menu_admin,
+        ]
+
+        # Contract display functions
+        display_contract_menu_admin.selectable_options += [
+            get_all_contracts,
+            get_contract,
+            get_printable_contract
+        ]
+
+        #endregion                      -----
+
+        #region Report menu
+
+        report_menu_admin.selectable_options += [
+            get_financial_report,
+            get_vehicle_report,
+            get_invoice_report_by_state,
+            get_invoice_report_by_customer,
+        ]
+        #endregion
+
+
+        #region Customer Contract menu    -----
+
+        # Submenu for specific customer display options
+        display_customer_menu_admin = Menu ("Display Customer", None, customer_menu_admin, self.logic, self, 'admin')
+
+        # Customer functions with customer display menu
+        customer_menu_admin.selectable_options += [
+            register_customer, edit_customer,
+            display_customer_menu_admin
+        ]
+
+        # Customer display functions
+        display_customer_menu_admin.selectable_options += [
+            get_customer,
+            get_all_customers,
+        ]
+
+        #endregion                      -----
+
+        #region Vehicle Type Contract menu    -----
+
+        # Submenu for specific vehicle type display options
+        display_vehicle_type_menu_admin = Menu ("Display Vehicle Type", None, vehicle_type_menu_admin, self.logic, self, 'admin')
+
+        # Vehicle type functions with vehicle type display menu
+        vehicle_type_menu_admin.selectable_options += [
+            register_vehicle_type, edit_vehicle_type,
+            display_vehicle_type_menu_admin
+        ]
+
+        # vehicle_type display functions
+        display_vehicle_type_menu_admin.selectable_options += [
+            get_vehicle_type,
+            get_vehicle_type_rates
+        ]
+
+        #endregion                      -----
+
+        #region destination Contract menu    -----
+
+        # Submenu for specific destination display options
+        display_destination_menu_admin = Menu ("Display destination", None, destination_menu_admin, self.logic, self, 'admin')
+
+        # destination functions with destination display menu
+        destination_menu_admin.selectable_options += [
+            register_destination, edit_destination,
+            display_destination_menu_admin
+        ]
+
+        # destination display functions
+        display_destination_menu_admin.selectable_options += [
+            get_destination,
+            get_all_destinations,
+        ]
+
+        #endregion                      -----
+        #endregion                      =====
+
+
+        #region OFFICE MENU SYSTEM      =====
+        """OFFICE MENU"""
+
+        # Office submenus
+        contract_menu_office        = Menu("Contract Menu", None, office_menu, self.logic, self, 'office')
+        report_menu_office          = Menu("Report Menu", None, office_menu, self.logic, self, 'office')
+
+        # Add submenus to office menu node
+        office_menu.selectable_options += [
+            contract_menu_office, report_menu_office
         ]
 
         #endregion                      -----
@@ -121,109 +225,25 @@ class UserInterface:
         ]
 
         #endregion                      -----
-
         #region Report menu
 
         report_menu_office.selectable_options += [
-            get_financial_report,
-            get_vehicle_report,
             get_invoice_report_by_state,
             get_invoice_report_by_customer,
         ]
 
-
         #endregion
 
 
-        #region Customer Contract menu    -----
-
-        # Submenu for specific customer display options
-        display_customer_menu_office = Menu ("Display Customer", None, customer_menu_office, self.logic, self, 'office')
-
-        # Customer functions with customer display menu
-        customer_menu_office.selectable_options += [
-            register_customer, edit_customer,
-            display_customer_menu_office
-        ]
-
-        # Customer display functions
-        display_customer_menu_office.selectable_options += [
-            get_customer,
-            get_all_customers,
-        ]
-
-        #endregion                      -----
-
-        #region Vehicle Type Contract menu    -----
-
-        # Submenu for specific vehicle type display options
-        display_vehicle_type_menu_office = Menu ("Display Vehicle Type", None, vehicle_type_menu_office, self.logic, self, 'office')
-
-        # Vehicle type functions with vehicle type display menu
-        vehicle_type_menu_office.selectable_options += [
-            register_vehicle_type, edit_vehicle_type,
-            display_vehicle_type_menu_office
-        ]
-
-        # vehicle_type display functions
-        display_vehicle_type_menu_office.selectable_options += [
-            get_vehicle_type,
-            get_vehicle_type_rates
-        ]
-
-        #endregion                      -----
-
-        #region destination Contract menu    -----
-
-        # Submenu for specific destination display options
-        display_destination_menu_office = Menu ("Display destination", None, destination_menu_office, self.logic, self, 'office')
-
-        # destination functions with destination display menu
-        destination_menu_office.selectable_options += [
-            register_destination, edit_destination,
-            display_destination_menu_office
-        ]
-
-        # destination display functions
-        display_destination_menu_office.selectable_options += [
-            get_destination,
-            get_all_destinations,
-        ]
-
-        #endregion                      -----
-        #endregion                      =====
-
         #region AIRPORT MENU SYSTEM     =====
+        """AIRPORT MENU"""
 
         # Airport submenus
-        employee_menu_airport   = Menu("Employee Menu", None, airport_menu, self.logic, self, 'airport')
         vehicle_menu_airport    = Menu("Vehicle Menu", None, airport_menu, self.logic, self, 'airport')
-        contract_menu_airport   = Menu("Contract Menu", None, airport_menu, self.logic, self, 'airport')
-
         # Add submenus to airport menu node
         airport_menu.selectable_options += [
-            employee_menu_airport, vehicle_menu_airport,
-            contract_menu_airport
+            vehicle_menu_airport,
         ]
-
-        #region Airport employee menu   -----
-
-        # Submenu for specific employee display options
-        display_employee_menu    = Menu("Display Employee", None, employee_menu_airport, self.logic, self, 'airport')
-
-        # Employee functions with employee display menu
-        employee_menu_airport.selectable_options += [
-            display_employee_menu
-        ]
-
-        # Employee display functions
-        display_employee_menu.selectable_options += [
-            get_all_employees,
-            get_employee,
-            get_employee_after_location,
-        ]
-
-        #endregion                      -----
 
         #region Airport vehicle menu    -----
 
@@ -233,8 +253,10 @@ class UserInterface:
         # Vehicle functions with vehicle display menu
         vehicle_menu_airport.selectable_options += [
             register_vehicle, edit_vehicle,
-            display_vehicle_menu_airport
+            display_vehicle_menu_airport,
+            handover_vehicle, handin_vehicle   
         ]
+
 
         # Vehicle display functions
         display_vehicle_menu_airport.selectable_options += [
@@ -246,37 +268,9 @@ class UserInterface:
         ]
 
         #endregion                      -----
-
-        #region Airport contract menu   -----
-
-        # Submenu for specific contract display options
-        display_contract_menu_airport = Menu ("Display Contract", None, contract_menu_airport, self.logic, self, 'airport')
-
-        # Contract functions with contract display menu
-        contract_menu_airport.selectable_options += [
-            register_contract, edit_contract,
-            display_contract_menu_airport
-        ]
-
-        # Contract display functions
-        display_contract_menu_airport.selectable_options += [
-            get_all_contracts,
-            get_contract,
-        ]
-
-        #endregion                      -----
         #endregion                      =====
+
         
-
-        #Menu for Chuck to get over view of his companys income
-        company_overview_menu   = Menu("Overview of business", None, papa_chuck_menu, self.logic, self, 'airport')
-        papa_chuck_menu.selectable_options += [
-            company_overview_menu,
-        ]
-
-        company_overview_menu.selectable_options += [
-            get_printable_overview_of_business,
-        ]
 
         # DEVELOPER MENU
         
