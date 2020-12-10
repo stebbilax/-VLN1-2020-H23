@@ -12,6 +12,13 @@ class Invoice_Manager:
         if res == []: return {}
         contract = vars(res[0])
         
+        if contract['state'] == 'Completed': 
+            print('Invoice already paid')
+            return 
+        if contract['state'] == 'Invalid': 
+            print('Contract is invalidated')
+            return 
+
         res = self.sapi.search_customer().by_id(contract['customer_id'])
         cust = vars(res[0])
         
@@ -51,6 +58,7 @@ class Invoice_Manager:
         }
 
         # Edit contract
+        if contract['state'] == 'Invalid': return
         contract['state']       = 'Awaiting Payment'
         contract['late_fee']    = invoice['late_fee']
         contract['total_price'] = invoice['total_price']
@@ -64,6 +72,17 @@ class Invoice_Manager:
         res = self.sapi.search_contract().by_id(str(id))
         if res == []: return False
         contract = vars(res[0])
+
+        if contract['state'] == 'Completed': 
+            print('Invoice already paid')
+            return 
+        if contract['state'] == 'Invalid':
+            print('Contract is invalidated')
+            return
+        if contract['state'] != 'Awaiting Payment': 
+            print('Must generate invoice before paying it')
+            return 
+            
 
         res = self.sapi.search_customer().by_id(contract['customer_id'])
         cust = vars(res[0])

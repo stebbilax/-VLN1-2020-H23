@@ -147,11 +147,9 @@ class Display:
     
     def display_invoice(self,data,status):
         if status == 'pay':
-            if data['state'] == 'Completed': return print('Invoice already paid')
-            if data['state'] != 'Awaiting Payment': return print('Must generate invoice before paying it')
             header = '\t\t\t|{:_^70}|'.format(f'\033[4mInvoice Reciept\33[0m')
         else:
-            if data['state'] == 'Completed': return print('Invoice already paid')
+            print('Invoice has been generated:')
             header = '\t\t\t|{:_^78}|'.format(f'\033[4mInvoice\33[0m')
 
             print('\n\t\t\t {:_>70}'.format(''))
