@@ -7,7 +7,7 @@ class Destination:
         self.id = id
     
     def __str__(self):
-        return "{:10} {:12} {:15} {:10}".format(self.country, self.airport, self.phone, self.opening_hours)
+        return "{:10} {:12} {:15} {:10}".format(self.destination_name, self.destination_airport, self.phone, self.opening_hours)
     
     def fields(self):
         return [property for property, value, in vars(self).items()]
