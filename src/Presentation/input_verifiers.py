@@ -53,6 +53,7 @@ class Input_Verifiers:
             'opening_hours': ['^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])-(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$','Invalid clock format, right format: 03:15-04:33'],
             'time_handover': ['^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$', 'Invalid clock format, right format 00:00'],
             'time_return': ['^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$', 'Invalid clock format, right format 00:00'],
+            'time_return': ['^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$', 'Invalid clock format, right format 00:00'],
         }
 
     def get_verifier(self, key):
