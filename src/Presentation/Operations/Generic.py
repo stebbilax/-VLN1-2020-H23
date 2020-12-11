@@ -184,7 +184,7 @@ class Operations:
         if not search_query:
             return
         else:
-            employee = search_query(self.ui.get_user_input("Enter a search term: "))
+            employee = search_query(self.ui.get_user_input("  Enter a search term: "))
         print()
         if len(employee) > 1:
             print("     Multiple results, select a %s" % model[0].__class__.__name__)
