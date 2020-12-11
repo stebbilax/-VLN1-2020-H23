@@ -38,40 +38,12 @@ class Operations:
         
         model[1].register(form)
 
-
     def edit(self, model, ignore_fields=[]):
         fields = model[0].fields()
         logic = model[1]
 
         # Get Object
-        print("Choose a method to select a %s" % model[0].__class__.__name__)
-        search_query = self.ui.get_user_option(logic.get_search_options())
-        
-        if not search_query:
-            return
-        else:
-            employee = search_query(self.ui.get_user_input("Enter a search term: "))
-        print()
-        if len(employee) > 1:
-            print("Multiple results, select a %s" % model[0].__class__.__name__)
-            employee = self.ui.get_user_option(employee)
-            if not employee: return
-            id = employee.id
-        elif len(employee) == 0:
-            print("Search returned no %s" % model[0].__class__.__name__)
-            return
-        else:
-            id = employee[0].id
-        
-
-        if not id:
-            return
-
-        # Search for match
-        if type(employee) is list:
-            obj = vars(employee[0])
-        else:
-            obj = vars(employee)
+        obj = self.get_model_by_search(model)
 
         submit = False
         options = {}
@@ -199,6 +171,41 @@ class Operations:
         #calls display function in Display class
         self.display.display(res, fields,choice)
 
+    def get_model_by_search(self, model):
+        fields = model[0].fields()
+        logic = model[1]
+
+        print("Choose a method to select a %s" % model[0].__class__.__name__)
+        search_query = self.ui.get_user_option(logic.get_search_options())
+
+        if not search_query:
+            return
+        else:
+            employee = search_query(self.ui.get_user_input("Enter a search term: "))
+        print()
+        if len(employee) > 1:
+            print("Multiple results, select a %s" % model[0].__class__.__name__)
+            employee = self.ui.get_user_option(employee)
+            if not employee: return
+            id = employee.id
+        elif len(employee) == 0:
+            print("Search returned no %s" % model[0].__class__.__name__)
+            return
+        else:
+            id = employee[0].id
+        
+
+        if not id:
+            return
+
+        # Search for match
+        if type(employee) is list:
+            obj = vars(employee[0])
+        else:
+            obj = vars(employee)
+
+        return obj
+
     def get_all_fit_for_rental(self, model):
         '''Get all vehicles that are fit for rental'''
         res = model[1].get_all()
@@ -234,17 +241,10 @@ class Operations:
         data = getattr(self.logicAPI.invoice, f'{status}_invoice')
 
         leng = len(self.contract[1].get_all())
-        ans = -1
-        while not (0 < ans <= leng):
-            ans = (self.ui.get_user_form({
-                'Please enter ID' : ['\d', 'Must be digit between 1-{}'.format(leng)]
-            }))
+        
+        obj = self.ui.operation.get_model_by_search(self.contract)
 
-            if not ans:
-                return
-            ans = int(ans[0])
-
-        data = data(ans)
+        data = data(obj['id'])
         if type(data) is tuple:
             print(data[0])
             return
