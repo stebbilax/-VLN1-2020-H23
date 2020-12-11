@@ -51,7 +51,7 @@ class Operations:
             return
         else:
             employee = search_query(self.ui.get_user_input("Enter a search term: "))
-
+        print()
         if len(employee) > 1:
             print("Multiple results, select a %s" % model[0].__class__.__name__)
             employee = self.ui.get_user_option(employee)
@@ -78,6 +78,7 @@ class Operations:
 
         # Enter editing loop
         while submit == False:
+            print()
             print('Select field to edit: ')                      
 
             for index, (key, val) in enumerate(obj.items()):
