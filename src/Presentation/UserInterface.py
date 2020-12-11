@@ -271,8 +271,6 @@ class UserInterface:
             get_vehicle_fit_for_rental,
         ]
 
-
-
         #region Office Contract menu    -----
 
         # Submenu for specific contract display options
@@ -487,12 +485,7 @@ class UserInterface:
         #endregion                      -----
         #endregion                      =====
 
-        # DEVELOPER MENU
-        
-        developer_menu  = Menu("Developer Menu", [test], main_menu, self.logic, self, 'admin')
-        main_menu.selectable_options.append(developer_menu)
-        
-        # END DEVELOPER MENU
+
 
         self.current_menu = main_menu
 

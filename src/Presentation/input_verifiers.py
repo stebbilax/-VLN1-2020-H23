@@ -13,7 +13,7 @@ class Input_Verifiers:
         #Regex for inputs
         self.fields = {
             'name': None,
-            'phone': ['(\d{7,15})', 'Phone number must be between 7 and 15 digits'],
+            'phone': ['^(\d{7,15})$', 'Phone number must be between 7 and 15 digits'],
             'address': None,
             'email': ['(.+@.+\..+)', 'Must be a valid email format.'],
             'contract_start': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
@@ -57,6 +57,7 @@ class Input_Verifiers:
             'time_handover': ['^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$', 'Invalid clock format, right format 00:00'],
             'time_return': ['^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$', 'Invalid clock format, right format 00:00'],
             'time_return': ['^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$', 'Invalid clock format, right format 00:00'],
+            'pick one: vehicle_state or vehicle_status': ['(?:vehicle_state|vehicle_status)$','Enter valid word: vehicle_state,vehicle_status'],
         }
 
     def get_verifier(self, key):
