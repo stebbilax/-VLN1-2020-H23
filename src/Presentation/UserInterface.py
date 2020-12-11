@@ -271,8 +271,6 @@ class UserInterface:
             get_vehicle_fit_for_rental,
         ]
 
-
-
         #region Office Contract menu    -----
 
         # Submenu for specific contract display options
