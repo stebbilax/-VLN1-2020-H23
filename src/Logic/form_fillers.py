@@ -83,9 +83,8 @@ def vehicle_filler(form):
 
     
     return vehicle
-
+#adds informations airport/country to match location in country 
 def employee_filler(form):
-    
     employee = {
         'name' : form[0],
         'address' : form[1],
@@ -100,16 +99,17 @@ def employee_filler(form):
         'id' : None,
 
     }
+    #this makes it impossible to set office some other place than Reykjavik Iceland
     if employee['title'] == 'office':
         employee['airport'] = 'reykjavik'
         employee['country'] = 'Iceland' 
+    #this matches location to a certain country
     if employee['airport'] == 'reykjavik': employee['country'] = 'Iceland'
     if employee['airport'] == 'kulusuk' or employee['airport'] == 'nuuk': employee['country'] = 'Greenland'
     if employee['airport'] == 'tingwall': employee['country'] = 'Shetland'
     if employee['airport'] == 'longyearbyen': employee['country'] = 'Svalbard'
     if employee['airport'] == 'torshavn': employee['country'] = 'Farao Islands'
 
-    
     return employee
 
 

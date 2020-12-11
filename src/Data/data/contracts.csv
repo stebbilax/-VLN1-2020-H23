@@ -14,8 +14,11 @@ vehicle_id,vehicle_state,vehicle_status,vehicle_licence,vehicle_type,country,cus
 9,DEFECTIVE,Unavailable,None,Medium off-road,Farao Islands,1,Liam,8968901,Ava@nan.is,MiaRoad 12,None,1,longyearbyen,nuuk,N/A,N/A,N/A,N/A,2020-02-02,2020-02-08,Valid,772,91,0,13
 8,DEFECTIVE,Unavailable,None,Light water,Greenland,1,Mia,9640694,James@nan.is,OliverRoad 30,Drivers licence,1,longyearbyen,reykjavik,N/A,N/A,N/A,N/A,2020-02-02,2020-02-05,Valid,592,145,0,14
 9,OK,Available,None,Light water,Farao Islands,1,Charlotte,7870542,Isabella@nan.is,CharlotteRoad 27,None,1,nuuk,longyearbyen,N/A,N/A,N/A,N/A,2020-01-04,2020-02-09,Completed,621,160,0,15
-9,DEFECTIVE,Unavailable,Drivers licence,Light water,Svalbard,1,Amelia,8730312,James@nan.is,SophiaTown 5,Drivers licence,1,kulusuk,torshavn,N/A,N/A,N/A,N/A,2020-02-02,2020-02-10,Completed,572,85,0,16
+9,DEFECTIVE,Unavailable,Drivers licence,Light water,Svalbard,1,Amelia,8730312,James@nan.is,SophiaTown 5,Drivers licence,1,kulusuk,torshavn,2020-12-10,2020-12-19,N/A,N/A,2020-02-02,2020-02-10,Valid,572,85,0,16
 8,DEFECTIVE,Unavailable,Drivers licence,Light off-road,Farao Islands,1,Mia,6805610,Emma@nan.is,MiaSquare 28,Drivers licence,1,torshavn,longyearbyen,N/A,N/A,N/A,N/A,2020-01-03,2020-02-10,Valid,542,110,0,17
 4,OK,Available,Drivers licence,Medium off-road,Shetland,1,Charlotte,7952976,Emma@nan.is,LucasSquare 6,None,1,reykjavik,reykjavik,N/A,N/A,N/A,N/A,2020-02-05,2020-02-09,Invalid,418,239,0,18
 3,OK,Available,None,Light off-road,Greenland,1,Noah,7717003,Elijah@nan.is,IsabellaStreet 11,None,1,torshavn,reykjavik,N/A,N/A,N/A,N/A,2020-02-03,2020-02-09,Completed,128,59,0,19
 1,DEFECTIVE,Unavailable,None,Light off-road,Greenland,1,William,8760028,Ava@nan.is,EthanStreet 23,Drivers licence,1,longyearbyen,reykjavik,N/A,N/A,N/A,N/A,2020-02-05,2020-02-06,Valid,235,28,0,20
+10,OK,Available,Drivers licence,Light road,Iceland,1,Charlotte,7955013,Emma@nan.is,CharlotteRoad 24,Drivers licence,2,kulusuk,reykjavik,N/A,N/A,N/A,N/A,2020-01-20,2020-01-31,Valid,839,N/A,N/A,21
+16,OK,Available,Drivers licence,Light water,Iceland,1,Charlotte,7955013,Emma@nan.is,CharlotteRoad 24,Drivers licence,2,reykjavik,kulusuk,2020-11-01,2020-11-04,N/A,N/A,2020-11-01,2021-03-31,Valid,170,0,N/A,22
+10,OK,Available,Drivers licence,Light road,Iceland,2,Lucas,7946966,Amelia@nan.is,ElijahStreet 20,Drivers licence,5,reykjavik,reykjavik,2020-10-15,2020-11-15,N/A,N/A,2020-10-05,2020-10-30,Valid,839,N/A,N/A,23

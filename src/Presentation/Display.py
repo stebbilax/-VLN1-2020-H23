@@ -45,7 +45,7 @@ class Display:
                     print('\t'+line + '|')
     
     def display_printable_version(self,data,fields,choice):
-        ''' display printable ersion on screen '''
+        ''' display printable version on screen '''
         field_lengths = self.find_header_format(data, fields)
         os.system('cls')# to clear window
         header = '\n\t\t\t\033[4mThis is printable version of contract with ID: {}\033[0m'.format(choice)
@@ -63,6 +63,7 @@ class Display:
 
 
     def display_all_fit_for_rental(self,data,fields):
+        """displays all vehicle fit for rental"""
         field_lengths = self.find_header_format(data, fields)
         header = ''
         for field in fields:
@@ -85,12 +86,6 @@ class Display:
                     line += '| {:^{L}} '.format(obj[field], L=field_lengths[field])
                 print('\t'+line + '|')
     
-
-
-    def display_for_papa_chuck(self,data,fields,choice):
-        '''This is for some papa chuck dinero'''
-        pass
-
 
 
     def find_header_format(self, data, fields):

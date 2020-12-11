@@ -23,7 +23,7 @@ def employee_editor(form):
         form['country'] = 'Iceland'
 
     else:
-    #if employee is edited to a country that does maybe not match airport location this fixes it 
+    #if employee is edited to a country that does not match airport location this fixes it 
         if form['airport'] == 'reykjavik': form['country'] = 'Iceland'
         if form['airport'] == 'kulusuk' or form['airport'] == 'nuuk': form['country'] = 'Greenland'
         if form['airport'] == 'tingwall': form['country'] = 'Shetland'

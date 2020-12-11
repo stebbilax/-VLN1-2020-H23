@@ -16,9 +16,11 @@ def edit_destination(logicAPI,ui):
     o.edit(o.destination, ignore_fields)
     
 def get_destination(logicAPI,ui):
+    #search for destination
     o = Operations(logicAPI, ui)
     o.get(o.destination)
 
 def get_all_destinations(logicAPI,ui):
+    #get/display all destinations 
     o = Operations(logicAPI, ui)
     o.get_all(o.destination)

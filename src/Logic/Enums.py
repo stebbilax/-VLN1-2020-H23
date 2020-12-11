@@ -2,10 +2,11 @@ from enum import Enum
 
 class EnumManager:
     def __init__(self, dapi):
-        self.dataAPI = dapi
+        self.dataAPI = dapi 
         self.generate_enums()
 
     def generate_enums(self):
+        #list containing all destinations
         destinations_list = self.dataAPI.read_all_destinations()
 
         # Initialize with basic locations and countries

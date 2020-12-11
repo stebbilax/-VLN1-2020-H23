@@ -82,6 +82,7 @@ class Csv_Manager:
 
 
     def read_all(self, name):
+        """Reads all from a model in csv document"""
         model = self.get_model(name)
         name, fields = self.get_name_and_fields(name)
         retList = []

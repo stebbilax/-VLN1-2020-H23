@@ -3,7 +3,7 @@ from Data.DataAPI import DataAPI as DB
 # Example: Search_Manager.search('Oliver', 'name', 'employee')
 class Search_Manager:
     def __init__(self):
-        self.DB = DB()
+        self.DB = DB() #DataAPI
         self.current_data = None
         self.search_string = None
         self.search_field = None

@@ -2,12 +2,13 @@ from Logic.form_calculators import *
 
 class Invoice_Manager:
     def __init__(self, dapi, sapi, lapi):
-        self.dapi = dapi
-        self.sapi = sapi
-        self.lapi = lapi
+        self.dapi = dapi #dataAPI
+        self.sapi = sapi #searchAPI
+        self.lapi = lapi #logicAPI
 
 
     def generate_invoice(self, id):
+        
         res = self.sapi.search_contract().by_id(str(id))
         if res == []: return {}
         contract = vars(res[0])

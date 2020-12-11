@@ -429,11 +429,6 @@ class UserInterface:
         #endregion                      -----
         #endregion                      =====
 
-        #endregion                      -----
-        #endregion                      =====
-
-        
-
         # DEVELOPER MENU
         
         developer_menu  = Menu("Developer Menu", [test], main_menu, self.logic, self, 'admin')

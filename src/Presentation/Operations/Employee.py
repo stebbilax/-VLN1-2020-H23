@@ -23,9 +23,11 @@ def edit_employee(logicAPI, ui):
     o.edit(o.employee, ignore_fields)
 
 def get_employee(logicAPI, ui):
+    #search for employee
     o = Operations(logicAPI, ui)
     o.get(o.employee)
 
 def get_all_employees(logicAPI, ui):
+    #get/display all employee
     o = Operations(logicAPI, ui)
     o.get_all(o.employee)

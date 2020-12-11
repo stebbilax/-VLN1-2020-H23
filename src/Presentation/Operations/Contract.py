@@ -15,10 +15,12 @@ def edit_contract(logicAPI, ui):
     o.edit(o.contract, ignore_fields)
       
 def get_contract(logicAPI, ui):
+    #search for customer
     o = Operations(logicAPI, ui)
     o.get(o.contract)
 
-def get_all_contracts(logicAPI, ui):
+def get_all_contracts(logicAPI, ui): 
+    #get/display all contracts 
     ignore_fields = ['vehicle_state','vehicle_status','address','customer_id','employee_id','time_handover','time_return',
                     ' total_price', 'late_fee', 'rate', 'date_handover', 'date_return', 'vehicle_licence', 'customer_licence']
     o = Operations(logicAPI, ui)
@@ -28,7 +30,4 @@ def get_printable_contract(logicAPI,ui):
     o = Operations(logicAPI, ui)
     o.printable_version(o.contract)
 
-'''This is for chuck to be able to get overview of his company'''
-def get_printable_overview_of_business(logicAPI,ui):
-    o = Operations(logicAPI, ui)
-    o.get_overview(o.contract)
+

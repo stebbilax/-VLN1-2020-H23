@@ -10,7 +10,7 @@ class Contract:
         self.vehicle_id = vehicle_id
         self.vehicle_state = vehicle_state      # OK / DEFECTIVE
         self.vehicle_status = vehicle_status    # Unavailable / Available
-        self.vehicle_licence = vehicle_licence
+        self.vehicle_licence = vehicle_licence  # none/drivers licence
         self.vehicle_type = vehicle_type
         self.country = country
 
@@ -19,7 +19,7 @@ class Contract:
         self.phone = phone
         self.email = email
         self.address = address
-        self.customer_licence = customer_licence
+        self.customer_licence = customer_licence #None/drivers licence
 
         self.employee_id = employee_id
         self.location_handover = location_handover

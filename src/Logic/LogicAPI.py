@@ -48,13 +48,13 @@ class ManageVehicles:
     def get(self):
         return self.searchAPI.search_vehicle() # Search
 
-    def get_all(self):
+    def get_all(self): #reads all vehicles from data
         return self.dataAPI.read_all_vehicles()
     
-    def get_all_after_choice(self):
+    def get_all_after_choice(self): #reads all vehicle from data
         return self.dataAPI.read_all_vehicles()
 
-    def get_search_options(self):
+    def get_search_options(self): 
         return [getattr(self.searchAPI.search_vehicle(), func) 
             for func in dir(self.searchAPI.search_vehicle())
             if callable(getattr(self.searchAPI.search_vehicle(), func)) and not func.startswith('__')]
@@ -176,14 +176,14 @@ class ManageContracts:
     
     def edit(self, form, id):
         new_form = contract_editor(form)
-        new_contract = Contract(**form)
+        new_contract = Contract(**new_form)
         self.dataAPI.edit_contract(new_contract, id)
     
     def get(self):
         return self.searchAPI.search_contract() # Search
     
-    def get_all(self):
-        return self.dataAPI.read_all_contracts()
+    def get_all(self): 
+        return self.dataAPI.read_all_contracts() #reads contract from data (csv file)
 
     def get_search_options(self):
         return [getattr(self.searchAPI.search_contract(), func) 

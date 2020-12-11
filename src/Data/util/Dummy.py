@@ -3,6 +3,7 @@ import datetime
 from string import ascii_uppercase as AU
 
 class Dummy:
+    """Makes dummy data for csv documents"""
     def __init__(self):
         self.job = ''
         self.airport = ''
