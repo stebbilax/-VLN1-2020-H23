@@ -28,10 +28,18 @@ def calculate_late_fee(rate, contract_end, date_return):
 
 def calculate_base_price(start, end, rate):
     """Calculates price of vehicle (this does not include late return fee) 
-       tries to calculate base price from contract_start and contract_end """
+       tries to calculate base price from date handout and date return,
+       if date handover has been given but not date return it calculates the total cost until this day
+       if they are not found then returnes rate """
+    try:
         d1 = datetime.fromisoformat(start)
         d2 = datetime.fromisoformat(end)
         return (d2-d1).days * int(rate)
+    except:
+        d1 = datetime.fromisoformat(start)
+        d2 = datetime.today()
+        return (d2-d1).days * int(rate)
+
 
 
 
