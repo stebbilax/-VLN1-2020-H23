@@ -245,9 +245,8 @@ class Operations:
             ans = int(ans[0])
 
         data = data(ans)
-        if data == False:
-            print('Something went wrong. Please make sure required information is in order.')
-        if not data:
+        if type(data) is tuple:
+            print(data[0])
             return
         else:
             self.display.display_invoice(data,status)
