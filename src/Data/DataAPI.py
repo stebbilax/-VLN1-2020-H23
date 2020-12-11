@@ -15,7 +15,7 @@ class DataAPI:
     """
 
     def __init__(self):
-        self.data_dir = os.getcwd() + '\data/'
+        self.data_dir = os.getcwd() + '\Data\\'
         self.manager = Csv_Manager(self.data_dir)
 
 

@@ -7,6 +7,7 @@ from Models.Employee import Employee
 from Models.Vehicle import Vehicle
 from Models.Vehicle_Type import Vehicle_Type
 from Data.id_manager import id_manager
+import os
 
 
 
@@ -17,15 +18,9 @@ class Csv_Manager:
     def __init__(self, directory):
         self.directory = directory
         self.id_manager = id_manager()
-        self.contract_fields = None
-        self.customer_fields = None
-        self.destination_fields = None
-        self.employee_fields = None
-        self.vehicle_fields = None
-        self.vehicle_type_fields = None
-        
-        self.setup_config()
 
+        self.setup_config()
+        
 
     # Get csv fields from config file
     def setup_config(self):
@@ -40,6 +35,24 @@ class Csv_Manager:
         self.employee_fields = config['fields']['employee_fields'].split(',')
         self.vehicle_fields = config['fields']['vehicle_fields'].split(',')
         self.vehicle_type_fields = config['fields']['vehicle_type_fields'].split(',')
+
+        # Check if data subfolder exists
+        if not os.path.exists(self.directory + 'data\\'):
+            os.makedirs(self.directory + 'data\\')
+
+        # Create ids.txt if it does not exist
+        if not os.path.exists(self.directory + 'data\\' + 'ids.txt'):
+            open(self.directory + 'data\\' + 'ids.txt', 'w').close()
+            self.id_manager.clear_all_ids()
+
+        # Make sure all database files exist
+        for name in ['contract', 'customer', 'destination', 'employee', 'vehicle', 'vehicle_type']:
+            file_name, headers = self.get_name_and_fields(name)
+            if not os.path.exists(self.directory + file_name):
+                with open(self.directory + 'data\\' + file_name, 'w', newline='', encoding='utf-8') as f:
+                    writer = csv.DictWriter(f, fieldnames=headers)
+                    writer.writeheader()
+
 
 
     def get_model(self, name):

@@ -500,6 +500,9 @@ class UserInterface:
         while not login:
             user_ssid = self.get_user_input('Enter SSID: ')
 
+            if user_ssid.lower() == 'q' or user_ssid.lower() == 'b':
+                exit()
+
             if user_ssid not in employees:
                 self.display_error('Invalid login, please try again')
             else:
