@@ -31,9 +31,9 @@ def calculate_base_price(start, end, rate):
        tries to calculate base price from date handout and date return,
        if date handover has been given but not date return it calculates the total cost until this day
        if they are not found then returnes rate """
-        d1 = datetime.fromisoformat(start)
-        d2 = datetime.fromisoformat(end)
-        return (d2-d1).days * int(rate)
+    d1 = datetime.fromisoformat(start)
+    d2 = datetime.fromisoformat(end)
+    return (d2-d1).days * int(rate)
 
 
 
