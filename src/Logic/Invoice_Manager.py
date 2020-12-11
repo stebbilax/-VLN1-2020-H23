@@ -1,5 +1,5 @@
 from Logic.form_calculators import *
-
+from Presentation.Menu import format_function_name
 class Invoice_Manager:
     def __init__(self, dapi, sapi, lapi):
         self.dapi = dapi #dataAPI
@@ -18,11 +18,19 @@ class Invoice_Manager:
         contract = vars(res[0])
         if contract['state'] == 'Completed': return ('Contract has already been paid', False)
         if contract['state'] == 'Invalid': return ('Invoice is invalidated',False)
-        if contract['state'] == 'Awaiting Payment': return ('Invoice has already been generated for contract {}'.format(id),False)
 
         # Return an error if fields are not in order
-        if contract['date_handover'] == 'N/A': return ('Contract is missing required information',False)
-        if contract['date_return'] == 'N/A': return ('Contract is missing required information',False)
+        checklist = ['date_handover','date_return', 'time_handover','time_return']
+        s = 'Contract is missing the following information: '
+        goback = False
+        for item in checklist:
+            if contract[item] == 'N/A':
+                s += format_function_name(item) + ', '
+                goback = True
+        
+        s = s[:-2]
+        if goback:
+            return (s, False)
         
         # Find corresponding customer and vehicle
         res = self.sapi.search_customer().by_id(contract['customer_id'])
@@ -37,7 +45,9 @@ class Invoice_Manager:
         contract_end = contract['contract_end']
  
         # Generate invoice
-        invoice = {
+
+        if contract['state'] == 'Awaiting Payment':
+            invoice = {
             'state'             : contract['state'],
             'address'           : cust['address'],
             'VIN'               : veh['vehicle_authentication'],
@@ -54,12 +64,35 @@ class Invoice_Manager:
             'location_return'   : contract['location_return'],
             'country'           : contract['country'],
             'rate'              : contract['rate'],
-            'price'             : calculate_base_price(contract_start, contract_end, rate),
-            'late_fee'          : calculate_late_fee(rate, contract_end, date_return),
-            'total_price'       : calculate_total_price(contract),
+            'late_fee'          : contract['late_fee'],
+            'total_price'       : contract['total_price'],
             'contract_start'    : contract['contract_start'],
             'contract_end'      : contract['contract_end']
         }
+        else:
+            invoice = {
+                'state'             : contract['state'],
+                'address'           : cust['address'],
+                'VIN'               : veh['vehicle_authentication'],
+                'customer_id'       : contract['customer_id'],
+                'id'                : contract['id'],
+                'customer_name'     : contract['customer_name'],
+                'phone'             : contract['phone'],
+                'email'             : contract['email'],
+                'phone'             : contract['phone'],
+                'vehicle_type'      : contract['vehicle_type'],
+                'date_handover'     : contract['date_handover'],
+                'date_return'       : contract['date_return'],
+                'location_handover' : contract['location_handover'],
+                'location_return'   : contract['location_return'],
+                'country'           : contract['country'],
+                'rate'              : contract['rate'],
+                'price'             : calculate_base_price(contract_start, contract_end, rate),
+                'late_fee'          : calculate_late_fee(rate, contract_end, date_return),
+                'total_price'       : calculate_total_price(contract),
+                'contract_start'    : contract['contract_start'],
+                'contract_end'      : contract['contract_end']
+            }
 
 
         # Edit contract to reflect that an invoice has been generated for it
@@ -115,8 +148,18 @@ class Invoice_Manager:
         }
 
         # Return an error if fields are not in order
-        if receipt['date_handover'] == 'N/A': return ('Contract is missing required information',False)
-        if receipt['date_return'] == 'N/A': return ('Contract is missing required information',False)
+        checklist = ['date_handover','date_return', 'time_handover','time_return']
+        s = 'Contract is missing the following information: '
+        goback = False
+        for item in checklist:
+            if contract[item] == 'N/A':
+                s += format_function_name(item) + ', '
+                goback = True
+        
+        s = s[:-2]
+        if goback:
+            return (s, False)
+        
 
         # Mark contract as having been paid
         contract['state'] = 'Completed'
