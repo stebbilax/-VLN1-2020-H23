@@ -74,6 +74,8 @@ class ManageVehicles:
         """Marks a vehicle as being in a customers possession,
         making appropriate edits to the corresponding contract"""
     
+        vehicle = vars(self.get().by_id(vehicle['vehicle_id'])[0])
+
         # Check if vehicle is available
         if vehicle['vehicle_status'] == 'Unavailable': 
             return 'This vehicle is Unavailable'
@@ -108,6 +110,7 @@ class ManageVehicles:
         """Marks a vehicle as having been returned by customer,
         making appropriate edits to the corresponding contract"""    
 
+        vehicle = vars(self.get().by_id(vehicle['vehicle_id'])[0])
 
         # Check if vehicle has a contract assigned to it
         con_res = self.logicAPI.contract.get().by_vehicle_id(vehicle['id'])
