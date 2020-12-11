@@ -69,18 +69,11 @@ class ManageVehicles:
             if callable(getattr(self.searchAPI.search_vehicle(), func)) and not func.startswith('__')]
 
 
-    def handover_vehicle(self, id):
+    def handover_vehicle(self, vehicle):
         """Marks a vehicle as being in a customers possession,
         making appropriate edits to the corresponding contract"""
-
-        res = self.logicAPI.vehicle.get().by_id(id)
-        # Check if vehicle exists
-        if res == []: 
-            return 'Vehicle not found'
-            
-
+    
         # Check if vehicle is available
-        vehicle = vars(res[0])
         if vehicle['vehicle_status'] == 'Unavailable': 
             return 'This vehicle is Unavailable'
             
@@ -110,16 +103,11 @@ class ManageVehicles:
         return 'Success'
 
 
-    def handin_vehicle(self, id):
+    def handin_vehicle(self, vehicle):
         """Marks a vehicle as having been returned by customer,
-        making appropriate edits to the corresponding contract"""
-        res = self.logicAPI.vehicle.get().by_id(id)
-        # Check if vehicle exists
-        if res == []: 
-            return 'Vehicle not found'
-            
+        making appropriate edits to the corresponding contract"""    
 
-        vehicle = vars(res[0])
+
         # Check if vehicle has a contract assigned to it
         con_res = self.logicAPI.contract.get().by_vehicle_id(vehicle['id'])
         if con_res == []: 

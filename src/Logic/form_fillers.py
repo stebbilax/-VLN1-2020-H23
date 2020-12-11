@@ -28,6 +28,8 @@ def contract_filler(form):
     vehicle         = vars(Search.search_vehicle().by_id(contract['vehicle_id'])[0])
     vehicle_type    = Search.search_vehicle_type().by_type_name(vehicle['type'])
     customer        = vars(Search.search_customer().by_id(contract['customer_id'])[0])
+    date, _         = datetime.now().replace(microsecond=0, second=0).isoformat().split('T')
+
 
     contract['vehicle_state']       = vehicle['vehicle_state']
     contract['vehicle_status']      = vehicle['vehicle_status']
@@ -49,6 +51,7 @@ def contract_filler(form):
     contract['late_fee']            = 'N/A'
     contract['total_price']         = 'N/A'
     contract['state']               = 'Valid'
+    contract['date_of_creation']    = date
 
     # If type has not been registered, then the rate is missing
     if vehicle_type == []: 

@@ -1,1 +1,21 @@
 name,address,postal_code,ssn,phone,mobile_phone,email,title,airport,country,id
+William,ElijahStreet 7,945,101260-4928,8815968,6987868,Benjamin@nan.is,office,reykjavik,Iceland,1
+Charlotte,OliviaStreet 15,569,111187-6883,6940388,9724627,Emma@nan.is,office,reykjavik,Iceland,2
+Noah,LiamRoad 9,289,121178-9077,8952765,8945326,Liam@nan.is,office,reykjavik,Iceland,3
+Olivia,JamesStreet 4,481,111157-6413,7966677,6821004,Evelyn@nan.is,office,reykjavik,Iceland,4
+Ethan,EvelynStreet 12,689,101269-7125,6726828,6616508,Elijah@nan.is,airport,nuuk,Greenland,5
+Mia,LucasTown 20,489,111166-1480,8841777,6946690,Mason@nan.is,airport,tingwall,Shetland,6
+Noah,MiaStreet 27,685,121053-4243,9955244,8675288,Charlotte@nan.is,office,reykjavik,Iceland,7
+Sophia,HarperTown 10,866,111187-5421,9852225,6758547,Ethan@nan.is,office,reykjavik,Iceland,8
+Isabella,AvaTown 17,468,121080-3176,6641251,8854534,Mia@nan.is,airport,longyearbyen,Svalbard,9
+Mason,AmeliaSquare 4,251,121088-4390,9791291,8968621,James@nan.is,office,reykjavik,Iceland,10
+Ethan,EthanRoad 22,797,101066-3310,7962337,8795525,Mason@nan.is,airport,kulusuk,Greenland,11
+Noah,EmmaTown 6,341,101064-2526,6828906,8625159,Ethan@nan.is,airport,reykjavik,Iceland,12
+Sophia,AmeliaRoad 1,194,111284-1234,7719589,9752890,Isabella@nan.is,airport,kulusuk,Greenland,13
+Benjamin,EmmaRoad 18,732,101258-7630,7873628,9787789,William@nan.is,office,reykjavik,Iceland,14
+James,EmmaSquare 30,943,111254-5715,7995492,8663998,Sophia@nan.is,airport,nuuk,Greenland,15
+Ethan,OliverRoad 28,951,121083-4582,6620472,7723756,Mia@nan.is,office,reykjavik,Iceland,16
+Mason,LucasStreet 14,225,111187-5828,9677339,7789056,Charlotte@nan.is,office,reykjavik,Iceland,17
+Amelia,LiamSquare 30,526,121266-6678,6673944,8626959,Benjamin@nan.is,office,reykjavik,Iceland,18
+Lucas,LiamSquare 30,454,101267-2181,6914071,8855483,Liam@nan.is,office,reykjavik,Iceland,19
+Oliver,IsabellaSquare 20,852,121281-5014,8663738,6865189,Liam@nan.is,airport,tingwall,Shetland,20

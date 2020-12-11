@@ -4,7 +4,7 @@ class Contract:
         country,customer_id,customer_name,phone,email,address,customer_licence,
         employee_id,location_handover,location_return,date_handover,
         date_return,time_handover,time_return,contract_start,contract_end,
-        state,rate,late_fee,total_price,
+        state,rate,late_fee,total_price,date_of_creation,
         id=None):
 
         self.vehicle_id = vehicle_id
@@ -34,6 +34,7 @@ class Contract:
         self.rate = rate
         self.late_fee = late_fee
         self.total_price = total_price
+        self.date_of_creation = date_of_creation
         self.id = id
 
 
