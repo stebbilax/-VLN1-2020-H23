@@ -25,3 +25,8 @@
 * Enums
 * Vehicle_Type
 * Vehicle
+
+
+### util in data
+*Populate_all: - calls dummy.py and adds dummy data to csv file\
+└ To run this go to command prompt: python Data\util\populate_all.py
