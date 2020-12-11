@@ -309,3 +309,29 @@ End report:
     Completed restructure of operations
     
 Notes:
+
+#----------------------------------------------------------------------------------#
+
+10.12.2020
+
+Objectives:
+    Testing
+    Bugfixing
+    Demonstration video
+    Final dataset
+    Report conclusions
+    Wireframes
+
+Assignment:
+    Elias Guðjohnsen, Stefán Laxdal    : Demonstration video, testing, bugfixing
+    Jason Guðnason, Arnar Már          : Testing, wireframes
+    Bjarki Laxdal, Gunnlaug            : Final dataset, Report conclusions
+    
+End report:
+    Completed demonstration video
+    Satisfiable bugfixing and testing
+    Completed final dataset
+    Completed report conclusions
+    Completed wireframes
+
+Notes:
