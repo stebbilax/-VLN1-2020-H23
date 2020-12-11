@@ -1,6 +1,6 @@
 vehicle_id,vehicle_state,vehicle_status,vehicle_licence,vehicle_type,country,customer_id,customer_name,phone,email,address,customer_licence,employee_id,location_handover,location_return,date_handover,date_return,time_handover,time_return,contract_start,contract_end,state,rate,late_fee,total_price,date_of_creation,id
-6,OK,Available,None,Light road,Farao Islands,8,Elijah,6844103,Sophia@nan.is,CharlotteSquare 25,None,9,torshavn,torshavn,N/A,N/A,N/A,N/A,2020-02-02,2020-02-09,Valid,616,284,0,2020-12-11,1
-1,OK,Available,Drivers licence,Light off-road,Iceland,3,Emma,9834800,Sophia@nan.is,LucasStreet 5,None,10,torshavn,nuuk,N/A,N/A,N/A,N/A,2020-01-01,2020-02-09,Valid,668,155,0,2020-12-11,2
+6,OK,Available,None,Light road,Farao Islands,8,Elijah,6844103,Sophia@nan.is,CharlotteSquare 25,None,9,torshavn,torshavn,2020-12-11,2020-12-11,14:52,14:52,2020-02-02,2020-02-09,Completed,616,37699.200000000004,42011,2020-12-11,1
+1,OK,Available,Drivers licence,Light off-road,Iceland,3,Emma,9834800,Sophia@nan.is,LucasStreet 5,None,10,torshavn,nuuk,N/A,N/A,N/A,N/A,2020-01-01,2020-02-09,Completed,668,155,0,2020-12-11,2
 10,OK,Available,Drivers licence,Medium water,Svalbard,5,Amelia,7836045,Charlotte@nan.is,CharlotteRoad 7,None,3,nuuk,nuuk,N/A,N/A,N/A,N/A,2020-01-05,2020-02-06,Valid,722,283,0,2020-12-11,3
 5,OK,Available,Drivers licence,Light water,Iceland,1,Benjamin,9999479,Lucas@nan.is,MasonSquare 20,None,3,tingwall,kulusuk,N/A,N/A,N/A,N/A,2020-02-03,2020-02-09,Valid,200,101,0,2020-12-11,4
 10,OK,Available,Drivers licence,Light water,Greenland,8,Emma,8677618,Elijah@nan.is,SophiaRoad 20,None,5,longyearbyen,reykjavik,N/A,N/A,N/A,N/A,2020-01-02,2020-02-07,Valid,783,205,0,2020-12-11,5

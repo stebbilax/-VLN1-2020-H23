@@ -24,7 +24,7 @@ def get_contract(logicAPI, ui):
 def get_all_contracts(logicAPI, ui): 
     '''Get/display all contracts. ignore fields do not get displayed on screen''' 
     ignore_fields = ['vehicle_state','vehicle_status','address','customer_id','employee_id','time_handover','time_return',
-                    ' total_price', 'late_fee', 'rate', 'date_handover', 'date_return', 'vehicle_licence', 'customer_licence', 'date_of_creation']
+                    ' total_price', 'late_fee', 'rate', 'date_handover', 'date_return', 'vehicle_licence', 'customer_licence']
     o = Operations(logicAPI, ui)
     o.get_all(o.contract, ignore_fields)
 
