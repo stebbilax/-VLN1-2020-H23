@@ -599,7 +599,11 @@ class UserInterface:
             temp_options = options
 
         for index, option in enumerate(temp_options):
-            print(str(index + 1) + '.', option)
+            print('     ' + str(index + 1) + '.', option)
+
+        # Newline
+        print('')
+
         while invalid:
             opt = self.get_user_input('Select an option: ')
             if opt.isnumeric():
