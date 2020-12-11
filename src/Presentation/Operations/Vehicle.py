@@ -56,7 +56,7 @@ def get_vehicle_report(logicAPI, ui):
 
 
 def handover_vehicle(logicAPI, ui):
-    model = Operations(logicAPI, ui).vehicle
+    model = Operations(logicAPI, ui).contract
     res = ui.operation.get_object_by_search(model)
     # Check if vehicle exists
     if res == [] or res == None: 
@@ -66,7 +66,7 @@ def handover_vehicle(logicAPI, ui):
 
 
 def handin_vehicle(logicAPI, ui):
-    model = Operations(logicAPI, ui).vehicle
+    model = Operations(logicAPI, ui).contract
     res = ui.operation.get_object_by_search(model)
     # Check if vehicle exists
     if res == [] or res == None: 
