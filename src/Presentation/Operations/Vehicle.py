@@ -34,9 +34,10 @@ def get_vehicle_after_location(logicAPI,ui):
     o.get_all_after_choice(o.vehicle,key_type[0])
 
 def get_vehicle_after_condition(logicAPI,ui):
+    print("pick one: vehicle_state or vehicle_status")
     key_type = ui.get_user_form(
         {
-            'Pick one: vehicle_state or vehicle_status': ['(?:vehicle_state|vehicle_status)$','Enter valid word!']
+            '': ['(?:vehicle_state|vehicle_status)$','Enter valid word: vehicle_state,vehicle_status']
         }  
     )
     if key_type == False: return
