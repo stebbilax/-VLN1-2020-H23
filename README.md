@@ -11,8 +11,7 @@
 ### Layer and File Hierarchy
 * Presentation (Presentation Layer) \
 ├ Menu    (Menu System) \
-├ Operations ┐  (TUI to Logic operations) \
-│            └ Model specific operations
+├ Operations (TUI to Logic operations) \
 ├ Display (Display methods for model data) \
 ├ InputVerifiers (Verifiers for input fields) \
 └ UserInterface   (TUI Logic and Menu initialization (UIAPI))
