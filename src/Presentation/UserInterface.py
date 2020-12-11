@@ -67,7 +67,6 @@ class UserInterface:
         customer_menu_admin        = Menu("Customer Menu", None, admin_menu, self.logic, self, 'admin')
         destination_menu_admin     = Menu("Destination Menu", None, admin_menu, self.logic, self, 'admin')
         vehicle_type_menu_admin    = Menu("Vehicle Type Menu", None, admin_menu, self.logic, self, 'admin')
-        papa_chuck_menu_admin      = Menu("Papa Chuck Menu", None, admin_menu,self.logic,self,'admin')
         
 
         #Add submenus to office menu node
@@ -75,7 +74,7 @@ class UserInterface:
             employee_menu_admin, vehicle_menu_admin,
             contract_menu_admin, report_menu_admin,
             customer_menu_admin, destination_menu_admin,
-            vehicle_type_menu_admin,papa_chuck_menu_admin,
+            vehicle_type_menu_admin,
         ]
 
         #region admin Employee menu    -----
@@ -223,6 +222,7 @@ class UserInterface:
 
         # Office submenus
         employee_menu_office        = Menu("Employee Menu", None, office_menu, self.logic, self, 'office')
+        vehicle_menu_office         = Menu("Vehicle Menu", None, office_menu, self.logic, self, 'office')
         contract_menu_office        = Menu("Contract Menu", None, office_menu, self.logic, self, 'office')
         report_menu_office          = Menu("Report Menu", None, office_menu, self.logic, self, 'office')
         customer_menu_office        = Menu("Customer Menu", None, office_menu, self.logic, self, 'office')
@@ -231,10 +231,10 @@ class UserInterface:
 
         # Add submenus to office menu node
         office_menu.selectable_options += [
-            employee_menu_office,
+            employee_menu_office,vehicle_menu_office,
             contract_menu_office, report_menu_office,
             customer_menu_office,destination_menu_office,
-            vehicle_type_menu_office
+            vehicle_type_menu_office,
         ]
 
         #endregion                      -----
@@ -245,7 +245,8 @@ class UserInterface:
 
         # Employee functions with employee display menu
         employee_menu_office.selectable_options += [
-            display_employee_menu_office
+            register_employee, edit_employee,
+            display_employee_menu_office,
         ]
 
         # Employee display functions
@@ -256,6 +257,19 @@ class UserInterface:
         ]
 
         #endregion                      -----
+        display_vehicle_menu_office= Menu("Display Vehicle", None, vehicle_menu_office, self.logic, self, 'office')
+
+        vehicle_menu_office.selectable_options += [
+            display_vehicle_menu_office,
+        ]
+
+        display_vehicle_menu_office.selectable_options += [
+            get_all_vehicles,
+            get_vehicle,
+            get_vehicle_after_location,
+            get_vehicle_after_condition,
+            get_vehicle_fit_for_rental,
+        ]
 
 
 
