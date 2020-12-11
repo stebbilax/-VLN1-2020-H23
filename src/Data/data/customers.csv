@@ -1,21 +1,10 @@
 name,ssn,address,postal_code,phone,email,country,licence,id
-Harper,121190-3011,JamesRoad 29,749,6637988,Sophia@nan.is,Iceland,Drivers licence,1
-Isabella,111266-4065,MiaTown 29,437,8806095,Elijah@nan.is,Farao Islands,Drivers licence,2
-Elijah,111050-3247,LucasTown 7,987,6927181,Ava@nan.is,Farao Islands,None,3
-Mia,111278-7853,LiamStreet 28,768,8736879,Harper@nan.is,Iceland,None,4
-Sophia,121155-2610,NoahSquare 19,818,9682282,Harper@nan.is,Shetland,Drivers licence,5
-Emma,101087-4152,IsabellaRoad 10,811,7780419,Mia@nan.is,Iceland,Drivers licence,6
-Ava,101090-3527,WilliamSquare 24,421,7601434,James@nan.is,Farao Islands,Drivers licence,7
-Sophia,121064-4273,EmmaTown 23,924,7643852,Sophia@nan.is,Farao Islands,None,8
-Elijah,111086-3033,NoahRoad 3,842,6924936,Ethan@nan.is,Greenland,None,9
-Elijah,121159-4376,CharlotteStreet 24,545,7754439,Mia@nan.is,Greenland,None,10
-Oliver,101056-2535,OliviaStreet 19,247,6956795,William@nan.is,Iceland,None,11
-Noah,111286-5528,AmeliaTown 1,755,6796147,Olivia@nan.is,Farao Islands,Drivers licence,12
-Amelia,101161-1354,MasonTown 23,385,8680830,Sophia@nan.is,Shetland,Drivers licence,13
-William,121171-1625,WilliamStreet 30,424,8943947,Oliver@nan.is,Shetland,None,14
-Harper,121260-3988,HarperRoad 9,852,9645201,Evelyn@nan.is,Greenland,Drivers licence,15
-Ethan,101173-8684,LiamStreet 23,837,8881912,Noah@nan.is,Farao Islands,None,16
-Amelia,111271-8426,HarperTown 9,284,9624606,Sophia@nan.is,Farao Islands,None,17
-William,121173-5961,JamesTown 22,827,6907759,Harper@nan.is,Svalbard,Drivers licence,18
-James,121259-1538,MasonSquare 13,235,9949914,Amelia@nan.is,Iceland,None,19
-Ava,111066-1970,EthanStreet 29,186,6909916,Isabella@nan.is,Greenland,Drivers licence,20
+Benny,261267-7392,Wilkinson 4564,339,5714025,Benny@gmail.com,Germany,Drivers Licence,1
+Miguel,530500-3828,Hall street 23,891,5480600,miguel@gmail.com,South Korea,Drivers Licence,2
+Arnold,447505-6868,Late Avenue 4,736,7140099,arnold@gov.com,North Korea,Drivers Licence,3
+June,076484-5564,Oakwook ,100,6460246,June@yahoo.com,Iceland,None,4
+Maggie,069094-5078,Hogwarts,0,3258024,maggie@smith.co.uk,Greenland,Drivers Licence,5
+David,366296-0787,State Sreet 88,482,9626591,David@who.com,Greenland,None,6
+Richard,570211-1998,Timber Rd 8,956,7225316,Richard@dick.com,Farao Islands,None,7
+Debra,528361-4917,Walton st 35,846,3796490,Debra@bing.com,Svalbard,Drivers Licence,8
+Gary,250149-8944,Emiliy Drive 8,297,9852858,Gary@hotmail.com,Shetland,None,9

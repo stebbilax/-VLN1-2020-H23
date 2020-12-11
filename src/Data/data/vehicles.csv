@@ -1,21 +1,16 @@
 type,manufacturer,yom,color,licence,airport,vehicle_state,vehicle_status,rate,model,vehicle_authentication,id
-Light off-road,Cani-Fit,1998,black,None,nuuk,OK,Available,255,Fat Max,OU767,1
-Light off-road,Cani-Fit,2005,red,None,torshavn,OK,Available,149,Fat Max,HH643,2
-Light off-road,Cani-Fit,2019,green,Drivers licence,reykjavik,OK,Available,274,Fat Max,YJ697,3
-Light water,WildChild,2015,black,Drivers licence,tingwall,OK,Available,203,Fat Max,MU762,4
-Medium off-road,Yedoo,2011,grey,None,tingwall,OK,Available,202,Fat Max,ZJ701,5
-Light road,Yedoo,2016,grey,Drivers licence,torshavn,OK,Available,162,Fat Max,DP671,6
-Medium off-road,TAILG,2001,grey,Drivers licence,nuuk,OK,Available,102,Fat Max,UN863,7
-Medium off-road,Cani-Fit,2014,red,None,longyearbyen,OK,Available,198,Fat Max,CU739,8
-Light off-road,WildChild,2020,red,None,reykjavik,OK,Available,230,Crazy,KI163,9
-Light road,Kayman Kayaks,2013,black,Drivers licence,kulusuk,OK,Available,144,Fat Max,TR982,10
-Medium off-road,TAILG,1991,red,None,reykjavik,OK,Available,299,Fat Max,IT967,11
-Medium water,Cani-Fit,1995,red,Drivers licence,tingwall,OK,Available,157,Crazy,MX323,12
-Light water,Kayman Kayaks,2019,grey,None,torshavn,OK,Available,261,Crazy,CH305,13
-Medium off-road,Cani-Fit,1997,grey,Drivers licence,longyearbyen,OK,Available,152,Fat Max,PJ404,14
-Light water,Cani-Fit,2013,green,Drivers licence,nuuk,OK,Available,131,Free Fly II,OM366,15
-Medium off-road,WildChild,2012,red,None,tingwall,OK,Available,228,Crazy,MR970,16
-Light off-road,Cani-Fit,2020,red,None,kulusuk,OK,Available,157,Fat Max,GA694,17
-Light off-road,Kayman Kayaks,2020,red,Drivers licence,tingwall,OK,Available,124,Fat Max,SW696,18
-Light road,Kayman Kayaks,2001,black,None,torshavn,OK,Available,193,Crazy,RO554,19
-Light water,WildChild,1994,black,None,torshavn,OK,Available,297,Free Fly II,YT874,20
+Light road,Lada,1975,red,Drivers Licence,reykjavik,OK,Available,1000,Sport,LADA69,1
+Light water,Yamaha,2008,white,Drivers Licence,reykjavik,OK,Available,1500,SportBoat,SPORTY,2
+Medium off-road,Land Rover,2020,black,Drivers Licence,reykjavik,OK,Available,4500,Range Rover,VY839,3
+Medium road,Lamborghini,2018,yellow,Drivers Licence,cologne,OK,Unavailable,275,Aventador,XYZ999,4
+Light road,Norris,1878,black,None,cologne,OK,Available,200,Chuck,CN1,5
+Light off-road,Maserati,2020,Gray,Drivers Licence,seoul,OK,Available,550,ghibli,MG888,6
+Light water,Kim,2000,black,None,pyongyang,OK,Available,999,Escape,ENK27,7
+Medium road,Kawasaki,2015,green,None,tingwall,OK,Available,799,Teryx,KT2015,8
+Medium off-road,Kawasaki,2010,red,None,longyearbyen,OK,Available,N/A,Mule Pro,KMP50,9
+Light water,Gibbs,1995,white,None,torshavn,OK,Available,420,Humdinga,GIHU95,10
+Light road,Perodua,2017,blue,None,kulusuk,OK,Available,125,Rusa,RUSA1,11
+Medium off-road,Yamaha,2020,navy,None,kulusuk,OK,Available,300,Concierge,GOLF1,12
+Medium Water,Beneteau,1999,white,None,nuuk,OK,Available,250,Oceanis,OCEA511,13
+Light off-road,Jeep,2010,orange,Drivers Licence,nuuk,OK,Available,150,Wrangler,JEEP69,14
+Light road,Buick,2000,Gray,Drivers Licence,nuuk,OK,Available,100,Encore,BUEN876,15
