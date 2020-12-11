@@ -10,6 +10,7 @@ from Data.id_manager import id_manager
 
 
 
+
 class Csv_Manager:
     """Handles reading and writing to the database, assigning unique ids to those entries
     that do not already have them"""
@@ -96,14 +97,18 @@ class Csv_Manager:
         model = self.get_model(name)
         name, fields = self.get_name_and_fields(name)
         retList = []
-
-        with open(f'{self.directory}/data/{name}', newline='', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                line = [row[field] for field in fields]
-                obj = model(*line)
-                retList.append(obj)
-        return retList 
+        try:
+            with open(f'{self.directory}/data/{name}', newline='', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    line = [row[field] for field in fields]
+                    obj = model(*line)
+                    retList.append(obj)
+            return retList
+        except FileNotFoundError:
+            # If file was not found, make one
+            self.write_all([], name.replace('s.csv', ''))
+            return self.read_all(name.replace('s.csv', ''))
 
 
     def append(self, data, name):

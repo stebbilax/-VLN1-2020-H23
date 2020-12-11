@@ -228,8 +228,6 @@ class Operations:
 
     def get_invoice_report(self,state):
         data = getattr(self.logicAPI.report, f'invoice_report_by_{state}')
-        print(data)
-        input()
         self.display.display_invoice_report(data(),state)
         
     def invoice_reciept(self, status):

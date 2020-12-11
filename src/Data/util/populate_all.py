@@ -6,7 +6,7 @@ from configparser import ConfigParser
 
 
 sys.path.append(os.getcwd())
-from Dummy import Dummy
+
 from Data.DataAPI import DataAPI
 from Models.Contract import Contract
 from Models.Customer import Customer
@@ -14,6 +14,7 @@ from Models.Destination import Destination
 from Models.Employee import Employee
 from Models.Vehicle import Vehicle
 from Models.Vehicle_Type import Vehicle_Type
+
 
 """
 Populates database with dummy data.
