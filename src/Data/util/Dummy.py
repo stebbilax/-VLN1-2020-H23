@@ -53,17 +53,17 @@ class Dummy:
             return 'Shetland'
 
     def make_vehicle_state(self):
-        self.state = choice(['OK', 'DEFECTIVE'])
+        self.state = choice(['OK'])
         return self.state
 
     def make_vehicle_status(self):
         if self.state == 'OK':
-            return choice(['Unavailable', 'Available'])
+            return choice(['Available'])
         else:
             return 'Unavailable'
 
     def make_contract_state(self):
-        return choice(['Valid', 'Invalid', 'Completed'])
+        return choice(['Valid'])
 
     def make_employee_id(self):
         return f'{randint(0,9)}{randint(0,9)}{randint(0,9)}{randint(0,9)}'
@@ -72,7 +72,7 @@ class Dummy:
         return randint(200, 4000)
 
     def make_loan_status(self):
-        return choice(['LATE', 'OK', 'RETURNED'])
+        return choice(['OK'])
 
     def make_ssn(self):
         return f'{randint(10, 12)}{randint(10, 12)}{randint(50, 90)}-{randint(10, 90)}{randint(10, 90)}'

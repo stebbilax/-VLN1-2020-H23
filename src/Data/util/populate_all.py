@@ -14,11 +14,11 @@ from Models.Destination import Destination
 from Models.Employee import Employee
 from Models.Vehicle import Vehicle
 from Models.Vehicle_Type import Vehicle_Type
-
+from Data.util.Dummy import Dummy
 
 """
 Populates database with dummy data.
-Does not go through the logic api and is thus
+Does not go through the logic api and is
 missing some input validation.
 
 Must be run from src folder
