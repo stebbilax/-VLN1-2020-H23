@@ -178,7 +178,7 @@ class Operations:
         fields = model[0].fields()
         logic = model[1]
 
-        print("Choose a method to select a %s" % model[0].__class__.__name__)
+        print("\n     Choose a method to select a %s" % model[0].__class__.__name__)
         search_query = self.ui.get_user_option(logic.get_search_options())
 
         if not search_query:
@@ -187,12 +187,12 @@ class Operations:
             employee = search_query(self.ui.get_user_input("Enter a search term: "))
         print()
         if len(employee) > 1:
-            print("Multiple results, select a %s" % model[0].__class__.__name__)
+            print("     Multiple results, select a %s" % model[0].__class__.__name__)
             employee = self.ui.get_user_option(employee)
             if not employee: return
             id = employee.id
         elif len(employee) == 0:
-            print("Search returned no %s" % model[0].__class__.__name__)
+            print("     Search returned no %s" % model[0].__class__.__name__)
             return
         else:
             id = employee[0].id
