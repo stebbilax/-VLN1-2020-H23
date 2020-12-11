@@ -103,6 +103,10 @@ class ManageVehicles:
 
         vehicle = vars(self.get().by_id(contract['vehicle_id'])[0])
 
+        # Check if vehicle has been handed over
+        if contract['date_handover'] == 'N/A':
+            return 'Vehicle has not been handed over for the contract'
+
         #Check if contract has a rate
         if contract['rate'] == 'N/A':
             return'Contract does not yet have a rate. Please add a rate before handing in vehicle'
