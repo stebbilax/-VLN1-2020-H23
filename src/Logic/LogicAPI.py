@@ -70,24 +70,15 @@ class ManageVehicles:
             if callable(getattr(self.searchAPI.search_vehicle(), func)) and not func.startswith('__')]
 
 
-    def handover_vehicle(self, vehicle):
+    def handover_vehicle(self, contract):
         """Marks a vehicle as being in a customers possession,
         making appropriate edits to the corresponding contract"""
     
-        vehicle = vars(self.get().by_id(vehicle['vehicle_id'])[0])
+        vehicle = vars(self.get().by_id(contract['vehicle_id'])[0])
 
         # Check if vehicle is available
         if vehicle['vehicle_status'] == 'Unavailable': 
             return 'This vehicle is Unavailable'
-            
-
-        # Check if vehicle has a contract assigned to it
-        con_res = self.logicAPI.contract.get().by_vehicle_id(vehicle['id'])
-        if con_res == []: 
-            return 'Vehicle does not belong to any contract. Please create a contract first'
-        
-
-        contract = vars(con_res[0])
 
         #Check if contract has a rate
         if contract['rate'] == 'N/A':
@@ -106,19 +97,11 @@ class ManageVehicles:
         return 'Success'
 
 
-    def handin_vehicle(self, vehicle):
+    def handin_vehicle(self, contract):
         """Marks a vehicle as having been returned by customer,
         making appropriate edits to the corresponding contract"""    
 
-        vehicle = vars(self.get().by_id(vehicle['vehicle_id'])[0])
-
-        # Check if vehicle has a contract assigned to it
-        con_res = self.logicAPI.contract.get().by_vehicle_id(vehicle['id'])
-        if con_res == []: 
-            return'Vehicle does not belong to any contract. Please create a contract first'
-            
-
-        contract = vars(con_res[0])
+        vehicle = vars(self.get().by_id(contract['vehicle_id'])[0])
 
         #Check if contract has a rate
         if contract['rate'] == 'N/A':
@@ -131,7 +114,6 @@ class ManageVehicles:
         contract['vehicle_status'] = 'Available'
         contract['date_return'] = date
         contract['time_return'] = time[0:5]
-
 
         self.logicAPI.vehicle.edit(vehicle, vehicle['id'])
         self.logicAPI.contract.edit(contract, contract['id'])
