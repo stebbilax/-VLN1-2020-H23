@@ -82,11 +82,12 @@ class Operations:
                 submit = True
                 logic.edit(obj, obj['id'])
                 continue
+
             try:
-                verifiers = self.verify.fields[options[field_num]]
-                
+                verifiers = self.verify.get_verifier(options[field_num])
             except:
                 return                            # Get regex and error msg
+
             new_entry = self.ui.get_user_form({format_function_name(options[field_num]) : verifiers})  # Get input with validation
             
             if not new_entry:
