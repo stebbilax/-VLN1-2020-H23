@@ -16,7 +16,7 @@ class Invoice_Manager:
         if res == []: return False
         
         contract = vars(res[0])
-        if contract['state'] == 'Completed': return ('Contract has already been paid', False)
+        
         if contract['state'] == 'Invalid': return ('Invoice is invalidated',False)
 
         # Return an error if fields are not in order
@@ -46,7 +46,11 @@ class Invoice_Manager:
  
         # Generate invoice
 
-        if contract['state'] == 'Awaiting Payment':
+        if contract['state'] == 'Awaiting Payment' or contract['state'] == 'Completed':
+            if contract['state'] == 'Awaiting Payment':
+                print('Awaiting payment for invoice: ')
+            elif contract['state'] == 'Completed':
+                print('Contract has been paid')
             invoice = {
             'state'             : contract['state'],
             'address'           : cust['address'],
@@ -69,7 +73,9 @@ class Invoice_Manager:
             'contract_start'    : contract['contract_start'],
             'contract_end'      : contract['contract_end']
         }
+            return invoice
         else:
+            print('Invoice has been generated:')
             invoice = {
                 'state'             : contract['state'],
                 'address'           : cust['address'],
@@ -113,10 +119,6 @@ class Invoice_Manager:
         if res == []: return False
         contract = vars(res[0])
 
-        # Check if contract has a corresponding invoice already generated
-        if contract['state'] == 'Completed': return ('Contract has already been paid'.format(id),False)
-        if contract['state'] != 'Awaiting Payment': return ('Invoice has not been generated for contract {}'.format(id),False)
-            
         # Find customer and vehicle
         res = self.sapi.search_customer().by_id(contract['customer_id'])
         cust = vars(res[0])
@@ -146,8 +148,15 @@ class Invoice_Manager:
             'contract_start'    : contract['contract_start'],
             'contract_end'      : contract['contract_end']
         }
-
+        
+        # Check if contract has a corresponding invoice already generated
+        if contract['state'] == 'Completed': 
+            print('Contract has already been paid')
+            return receipt
+        if contract['state'] != 'Awaiting Payment': return ('Invoice has not been generated for contract {}'.format(id),False)
+        
         # Return an error if fields are not in order
+        
         checklist = ['date_handover','date_return', 'time_handover','time_return']
         s = 'Contract is missing the following information: '
         goback = False
