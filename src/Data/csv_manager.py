@@ -7,6 +7,7 @@ from Models.Employee import Employee
 from Models.Vehicle import Vehicle
 from Models.Vehicle_Type import Vehicle_Type
 from Data.id_manager import id_manager
+from os import path
 
 
 
@@ -40,6 +41,15 @@ class Csv_Manager:
         self.employee_fields = config['fields']['employee_fields'].split(',')
         self.vehicle_fields = config['fields']['vehicle_fields'].split(',')
         self.vehicle_type_fields = config['fields']['vehicle_type_fields'].split(',')
+
+        # Make sure all database files exist
+        for name in ['contract', 'customer', 'destination', 'employee', 'vehicle', 'vehicle_type']:
+            file_name, headers = self.get_name_and_fields(name)
+            if not path.exists(self.directory + file_name):
+                with open(self.directory + '/data/' + file_name, 'w', newline='', encoding='utf-8') as f:
+                    writer = csv.DictWriter(f, fieldnames=headers)
+                    writer.writeheader()
+
 
 
     def get_model(self, name):
