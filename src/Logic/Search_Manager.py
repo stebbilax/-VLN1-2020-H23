@@ -17,7 +17,7 @@ class Search_Manager:
         self.current_data = self.fetch(search_catagory)
         self.search_string = str(search_string.lower())
         self._search()
-
+        
         results = self.result
         self.clear()
 
