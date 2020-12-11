@@ -148,8 +148,15 @@ class Display:
             d1 = datetime.fromisoformat(data['contract_start'])
             d2 = datetime.fromisoformat(data['contract_end'])
             days = (d2-d1).days
+            
+            lf1 = datetime.fromisoformat(data['contract_end'])            
+            lf2 = datetime.fromisoformat(data['date_return'])
+            lf = (lf2-lf1).days
+            if lf < 0:
+                lf = 0
 
             header = '\t\t\t|{:_^43}|'.format(f'\033[4mReciept\33[0m')
+            
             print('\n\t\t\t {:_>35}'.format(''))
             print(header)
             print('\t\t\t|{:^35}|'.format('NaN Air Rentals'))
@@ -161,12 +168,8 @@ class Display:
             print('\t\t\t|\033[4m{:<25}{:>10}\033[0m|'.format('Description','Amount'))
             print('\t\t\t| {:<34}|'.format(data['VIN'] + ' ' + data['vehicle_type']))
             print('\t\t\t|     {:<20}{:>9} |'.format(str(days) + ' days @ {}'.format(data['rate']), int(days)*int(data['rate'])))
-            if data['late_fee'] is not None:
-                lf1 = datetime.fromisoformat(data['contract_end'])            
-                lf2 = datetime.fromisoformat(data['date_return'])
-                lf = (lf2-lf1).days
-                print('\t\t\t| {:<34}|'.format('Late Fee'))
-                print('\t\t\t|     {:<20}{:>9} |'.format(str(lf) + ' days @ {}'.format(floor(int(data['rate'])*1.2)), floor(int(data['rate'])*int(lf)*1.2)))
+            print('\t\t\t| {:<34}|'.format('Late Fee'))
+            print('\t\t\t|     {:<20}{:>9} |'.format(str(lf) + ' days @ {}'.format(floor(int(data['rate'])*1.2)), floor(int(data['rate'])*int(lf)*1.2)))
             print('\t\t\t|{:-^35}|'.format(''))
             print('\t\t\t| {:<23}{:>10} |'.format('TOTAL',str(floor(float(data['total_price'])))))
             print('\t\t\t|{:^35}|'.format(''))
@@ -176,7 +179,19 @@ class Display:
             print('\t\t\t|{:^35}|'.format(''))
             print('\t\t\t|{:^35}|'.format('Thanks for choosing NaN Air!'))
             print('\t\t\t|{:_^35}|'.format(''))
-        else: #if status is not pay 
+        
+        else: #if status is not pay
+
+            d1 = datetime.fromisoformat(data['contract_start'])
+            d2 = datetime.fromisoformat(data['contract_end'])
+            days = (d2-d1).days
+            
+            lf1 = datetime.fromisoformat(data['contract_end'])            
+            lf2 = datetime.fromisoformat(data['date_return'])
+            lf = (lf2-lf1).days
+            if lf < 0:
+                lf = 0
+            
             print('Invoice has been generated:')
             header = '\t\t\t|{:_^78}|'.format(f'\033[4mInvoice\33[0m')
 
@@ -199,9 +214,9 @@ class Display:
             print('\t\t\t| {:<69}|'.format(data['address']))
             print('\t\t\t|{: ^70}|'.format(''))
             print('\t\t\t|{:-^70}|'.format(''))
-            print('\t\t\t|{:^14}|{:^19}|{:^7}|{:^12}|{:^14}|'.format('DATE','PRODUCT','RATE','LATE FEE','AMOUNT'))
+            print('\t\t\t|{:^12}|{:^19}|{:^13}|{:^13}|{:^9}|'.format('DATE','PRODUCT','RATE','LATE FEE','AMOUNT'))
             print('\t\t\t|{:-^70}|'.format(''))
-            print('\t\t\t|{:^14}|{:^19}|{:^7}|{:^12}|{:^14}|'.format(data['date_return'],data['VIN'] + ' ' + data['vehicle_type'],data['rate'],floor(float(data['late_fee'])),floor(float(data['total_price']))))
+            print('\t\t\t|{:^12}|{:^19}|{:^13}|{:^13}|{:^9}|'.format(data['date_return'],data['VIN'] + ' ' + data['vehicle_type'],data['rate']+' x '+ str(days),str(floor(float(data['rate'])*1.2))+' x ' + str(lf),floor(float(data['total_price']))))
             print('\t\t\t|{:-^70}|'.format(''))
             print('\t\t\t|{:>69} |'.format('TOTAL: {}'.format(floor(floor(data['total_price'])))))
             print('\t\t\t|{:_^70}|'.format(''))
