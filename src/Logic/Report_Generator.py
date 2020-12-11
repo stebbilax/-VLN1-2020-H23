@@ -30,7 +30,7 @@ class Report_Generator:
                 'valid'             : 0,
                 'invalid'           : 0,
                 'awaiting payment'  : 0,
-                'complete'          : 0,
+                'completed'         : 0,
                 'total_income'      : 0,
             }
 
@@ -40,6 +40,7 @@ class Report_Generator:
             if contract['state'].lower() == 'invalid': field = 'invalid'
             if contract['state'].lower() == 'awaiting payment': field = 'awaiting payment'
             if contract['state'].lower() == 'completed': field = 'completed'
+
 
             if field in report[location]:
                 report[location][field] += total_price
