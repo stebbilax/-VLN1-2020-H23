@@ -1,0 +1,21 @@
+name,address,postal_code,ssn,phone,mobile_phone,email,title,airport,country,id
+Harper,EvelynTown 15,233,101250-1464,8729027,9649814,Amelia@nan.is,office,reykjavik,Iceland,1
+Harper,MiaRoad 5,862,121277-6059,7960223,6809976,Benjamin@nan.is,office,reykjavik,Iceland,2
+Harper,EmmaStreet 1,555,101090-4661,6653841,9930804,William@nan.is,airport,longyearbyen,Svalbard,3
+Sophia,OliviaSquare 27,647,111251-6476,7794099,6688713,Charlotte@nan.is,office,reykjavik,Iceland,4
+Mason,OliverTown 7,471,121069-1781,7939805,6830071,Mason@nan.is,office,reykjavik,Iceland,5
+Harper,MiaTown 27,343,121064-2879,8872135,9731787,Benjamin@nan.is,office,reykjavik,Iceland,6
+Elijah,MasonRoad 9,823,111154-2932,7649110,8693306,Emma@nan.is,office,reykjavik,Iceland,7
+Harper,EmmaRoad 15,697,121057-4579,8875408,7921078,Isabella@nan.is,office,reykjavik,Iceland,8
+Emma,AmeliaTown 9,485,101287-6753,7931058,9635818,James@nan.is,airport,nuuk,Greenland,9
+William,MiaStreet 14,989,111081-2258,7630290,9791322,Emma@nan.is,airport,longyearbyen,Svalbard,10
+Emma,ElijahRoad 11,299,121164-7576,9917422,8707383,Charlotte@nan.is,airport,tingwall,Shetland,11
+Mia,JamesRoad 14,475,101189-3770,9871090,7840510,Harper@nan.is,office,reykjavik,Iceland,12
+Evelyn,EmmaStreet 13,161,111051-4956,6880927,6725225,William@nan.is,office,reykjavik,Iceland,13
+Ethan,JamesRoad 14,679,111173-5630,7819380,6822622,Mason@nan.is,airport,nuuk,Greenland,14
+Emma,AvaTown 13,588,121289-6669,7668616,6743499,Liam@nan.is,office,reykjavik,Iceland,15
+Liam,LucasSquare 30,773,101165-5033,7821930,8987693,Isabella@nan.is,airport,reykjavik,Iceland,16
+Olivia,SophiaTown 26,137,101188-7314,9782216,8676624,Emma@nan.is,office,reykjavik,Iceland,17
+Elijah,AvaTown 3,551,111056-3158,7814465,8647862,Lucas@nan.is,airport,longyearbyen,Svalbard,18
+Lucas,LiamSquare 25,514,121181-1887,6824634,8625783,Charlotte@nan.is,airport,kulusuk,Greenland,19
+Oliver,NoahStreet 11,257,111183-3066,7700809,9718161,Isabella@nan.is,airport,reykjavik,Iceland,20
