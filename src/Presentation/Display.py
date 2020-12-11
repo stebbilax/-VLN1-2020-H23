@@ -1,6 +1,5 @@
 from Presentation.Menu import format_function_name
 from datetime import datetime, date
-from math import floor
 import os
 ''' Display methods for various data '''
 
@@ -169,11 +168,11 @@ class Display:
             print('\t\t\t| {:<34}|'.format(data['VIN'] + ' ' + data['vehicle_type']))
             print('\t\t\t|     {:<20}{:>9} |'.format(str(days) + ' days @ {}'.format(data['rate']), int(days)*int(data['rate'])))
             print('\t\t\t| {:<34}|'.format('Late Fee'))
-            print('\t\t\t|     {:<20}{:>9} |'.format(str(lf) + ' days @ {}'.format(floor(int(data['rate'])*1.2)), floor(int(data['rate'])*int(lf)*1.2)))
+            print('\t\t\t|     {:<20}{:>9} |'.format(str(lf) + ' days @ {}'.format(int(int(data['rate'])*1.2)), int(int(data['rate'])*int(lf)*1.2)))
             print('\t\t\t|{:-^35}|'.format(''))
-            print('\t\t\t| {:<23}{:>10} |'.format('TOTAL',str(floor(float(data['total_price'])))))
+            print('\t\t\t| {:<23}{:>10} |'.format('TOTAL',data['total_price']))
             print('\t\t\t|{:^35}|'.format(''))
-            print('\t\t\t| {:<23}{:>10} |'.format('CARD','-'+str(floor(float(data['total_price'])))))
+            print('\t\t\t| {:<23}{:>10} |'.format('CARD','-'+(data['total_price'])))
             print('\t\t\t|   {:<32}|'.format('Mastercard'))
             print('\t\t\t|   {:<32}|'.format('xxxx xxxx xxxx 2064'))
             print('\t\t\t|{:^35}|'.format(''))
@@ -192,7 +191,6 @@ class Display:
             if lf < 0:
                 lf = 0
             
-            print('Invoice has been generated:')
             header = '\t\t\t|{:_^78}|'.format(f'\033[4mInvoice\33[0m')
 
             print('\n\t\t\t {:_>70}'.format(''))
@@ -216,7 +214,7 @@ class Display:
             print('\t\t\t|{:-^70}|'.format(''))
             print('\t\t\t|{:^12}|{:^19}|{:^13}|{:^13}|{:^9}|'.format('DATE','PRODUCT','RATE','LATE FEE','AMOUNT'))
             print('\t\t\t|{:-^70}|'.format(''))
-            print('\t\t\t|{:^12}|{:^19}|{:^13}|{:^13}|{:^9}|'.format(data['date_return'],data['VIN'] + ' ' + data['vehicle_type'],data['rate']+' x '+ str(days),str(floor(float(data['rate'])*1.2))+' x ' + str(lf),floor(float(data['total_price']))))
+            print('\t\t\t|{:^12}|{:^19}|{:^13}|{:^13}|{:^9}|'.format(data['date_return'],data['VIN'] + ' ' + data['vehicle_type'],data['rate']+' x '+ str(days),str(int(int(data['rate'])*1.2))+' x ' + str(lf),data['total_price']))
             print('\t\t\t|{:-^70}|'.format(''))
-            print('\t\t\t|{:>69} |'.format('TOTAL: {}'.format(floor(floor(data['total_price'])))))
+            print('\t\t\t|{:>69} |'.format('TOTAL: {}'.format(data['total_price'])))
             print('\t\t\t|{:_^70}|'.format(''))

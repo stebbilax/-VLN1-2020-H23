@@ -6,7 +6,7 @@ def register_contract(logicAPI, ui):
     '''Register new contract. Ignore fields do not get prompted in the registration process'''
     ignore_fields = ['vehicle_state', 'vehicle_status', 'vehicle_licence', 'vehicle_type', 'rate', 'late_fee', 'total_price',
                     'customer_name', 'phone', 'email', 'address', 'customer_licence', 'date_handover', 'date_return', 'time_handover',
-                    'time_return', 'state']
+                    'time_return', 'state', 'date_of_creation']
     o = Operations(logicAPI, ui)
     o.register(o.contract, ignore_fields)
 

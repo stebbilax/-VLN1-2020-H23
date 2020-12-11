@@ -17,8 +17,9 @@ from datetime import datetime
 
 class LogicAPI:
     """Handles all endpoints for the logic API"""
-    def __init__(self):
+    def __init__(self, ui):
         self.dataAPI = DataAPI()
+        self.ui = ui
         self.searchAPI = Search_API()
         self.enums = EnumManager(self.dataAPI)
         self.vehicle = ManageVehicles(self, self.dataAPI, self.searchAPI)
@@ -69,18 +70,11 @@ class ManageVehicles:
             if callable(getattr(self.searchAPI.search_vehicle(), func)) and not func.startswith('__')]
 
 
-    def handover_vehicle(self, id):
+    def handover_vehicle(self, vehicle):
         """Marks a vehicle as being in a customers possession,
         making appropriate edits to the corresponding contract"""
-
-        res = self.logicAPI.vehicle.get().by_id(id)
-        # Check if vehicle exists
-        if res == []: 
-            return 'Vehicle not found'
-            
-
+    
         # Check if vehicle is available
-        vehicle = vars(res[0])
         if vehicle['vehicle_status'] == 'Unavailable': 
             return 'This vehicle is Unavailable'
             
@@ -110,16 +104,11 @@ class ManageVehicles:
         return 'Success'
 
 
-    def handin_vehicle(self, id):
+    def handin_vehicle(self, vehicle):
         """Marks a vehicle as having been returned by customer,
-        making appropriate edits to the corresponding contract"""
-        res = self.logicAPI.vehicle.get().by_id(id)
-        # Check if vehicle exists
-        if res == []: 
-            return 'Vehicle not found'
-            
+        making appropriate edits to the corresponding contract"""    
 
-        vehicle = vars(res[0])
+
         # Check if vehicle has a contract assigned to it
         con_res = self.logicAPI.contract.get().by_vehicle_id(vehicle['id'])
         if con_res == []: 
@@ -194,6 +183,9 @@ class ManageContracts:
         """Passes a new contract through a form filler before passing it
         onto the data API"""
         new_form = contract_filler(form)
+        if new_form == False: 
+            self.logicAPI.ui.display_error('Vehicle is not available during selected time period. Contract was not registered')
+            return
         new_contract = Contract(**new_form)
         self.dataAPI.append_contract(new_contract)
     

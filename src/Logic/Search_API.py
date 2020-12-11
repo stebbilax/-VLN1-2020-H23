@@ -114,6 +114,9 @@ class Search_Contract:
     def by_total_price(self, string):
         return self.Search_Manager.search(string, 'total_price', 'contract')
 
+    def by_date_of_creation(self, string):
+        return self.Search_Manager.search(string, 'date_of_creation', 'contract')
+
     def by_id(self, string):
         return self.Search_Manager.search(string, 'id', 'contract')
 

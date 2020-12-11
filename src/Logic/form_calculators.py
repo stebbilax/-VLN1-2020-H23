@@ -1,4 +1,5 @@
 from datetime import datetime, date
+from math import floor
 
 def calculate_late_fee(rate, contract_end, date_return):
             ''' Calculates late fee
@@ -23,7 +24,7 @@ def calculate_late_fee(rate, contract_end, date_return):
 
                 if days_late < 1 : return 0
 
-                return ((days_late * int(rate)) * 0.2)
+                return floor(((days_late * int(rate)) * 0.2))
 
 
 def calculate_base_price(start, end, rate):
@@ -34,11 +35,11 @@ def calculate_base_price(start, end, rate):
     try:
         d1 = datetime.fromisoformat(start)
         d2 = datetime.fromisoformat(end)
-        return (d2-d1).days * int(rate)
+        return floor((d2-d1).days * int(rate))
     except:
         d1 = datetime.fromisoformat(start)
         d2 = datetime.today()
-        return (d2-d1).days * int(rate)
+        return floor((d2-d1).days * int(rate))
 
 
 
@@ -57,7 +58,7 @@ def calculate_total_price(contract):
     #base fee calculated from day wehicle contract start and until contract end. 
     base_price = calculate_base_price(contract_start, contract_end, rate)
     
-    return late_fee + base_price
+    return floor(late_fee + base_price)
 
 
 

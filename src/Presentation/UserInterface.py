@@ -16,7 +16,7 @@ from Presentation.Operations.Vehicle_type import *
 
 class UserInterface:
     def __init__(self):
-        self.logic = LogicAPI()
+        self.logic = LogicAPI(self)
         self.operation = Operations(self.logic, self)
 
         # Clear window
@@ -616,7 +616,9 @@ class UserInterface:
         return options[opt - 1]
 
     def display_error(self, errorMsg):
-        print(errorMsg)
+        print()
+        print('\t' + errorMsg)
+        print()
 
     def interface_loop(self):
         while True:
