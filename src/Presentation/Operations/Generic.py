@@ -171,7 +171,7 @@ class Operations:
         #calls display function in Display class
         self.display.display(res, fields,choice)
 
-    def get_model_by_search(self, model):
+    def get_object_by_search(self, model):
         fields = model[0].fields()
         logic = model[1]
 
