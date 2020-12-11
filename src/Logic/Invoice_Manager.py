@@ -16,11 +16,14 @@ class Invoice_Manager:
         if res == []: return False
         
         contract = vars(res[0])
-        if contract['state'] == 'Completed': 
-            return False
-        if contract['state'] == 'Invalid': 
-            return False
+        if contract['state'] == 'Completed': return ('Contract has already been paid', False)
+        if contract['state'] == 'Invalid': return ('Invoice is invalidated',False)
+        if contract['state'] == 'Awaiting Payment': return ('Invoice has already been generated for contract {}'.format(id),False)
 
+        # Return an error if fields are not in order
+        if contract['date_handover'] == 'N/A': return ('Contract is missing required information',False)
+        if contract['date_return'] == 'N/A': return ('Contract is missing required information',False)
+        
         # Find corresponding customer and vehicle
         res = self.sapi.search_customer().by_id(contract['customer_id'])
         cust = vars(res[0])
@@ -54,8 +57,6 @@ class Invoice_Manager:
             'price'             : calculate_base_price(contract_start, contract_end, rate),
             'late_fee'          : calculate_late_fee(rate, contract_end, date_return),
             'total_price'       : calculate_total_price(contract),
-            'date_from'         : contract['date_handover'],
-            'date_to'           : contract['date_return'],
             'contract_start'    : contract['contract_start'],
             'contract_end'      : contract['contract_end']
         }
@@ -77,11 +78,11 @@ class Invoice_Manager:
         # If contract does not exist return False
         res = self.sapi.search_contract().by_id(str(id))
         if res == []: return False
+        contract = vars(res[0])
 
         # Check if contract has a corresponding invoice already generated
-        contract = vars(res[0])
-        if contract['state'] != 'Awaiting Payment': 
-            return False
+        if contract['state'] == 'Completed': return ('Contract has already been paid'.format(id),False)
+        if contract['state'] != 'Awaiting Payment': return ('Invoice has not been generated for contract {}'.format(id),False)
             
         # Find customer and vehicle
         res = self.sapi.search_customer().by_id(contract['customer_id'])
@@ -109,17 +110,13 @@ class Invoice_Manager:
             'rate'              : contract['rate'],
             'late_fee'          : contract['late_fee'],
             'total_price'       : contract['total_price'],
-            'date_from'         : contract['date_handover'],
-            'date_to'           : contract['date_return'],
             'contract_start'    : contract['contract_start'],
             'contract_end'      : contract['contract_end']
         }
 
         # Return an error if fields are not in order
-        if receipt['date_from'] == 'N/A': return False
-        if receipt['date_to'] == 'N/A': return False
-        if receipt['date_handover'] == 'N/A': return False
-        if receipt['date_return'] == 'N/A': return False
+        if receipt['date_handover'] == 'N/A': return ('Contract is missing required information',False)
+        if receipt['date_return'] == 'N/A': return ('Contract is missing required information',False)
 
         # Mark contract as having been paid
         contract['state'] = 'Completed'
