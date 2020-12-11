@@ -8,6 +8,7 @@ class Report_Generator:
 
 
     def financial_report(self, time_from=None, time_to=None):
+        '''Generates a financial report with optional paramaters for narrowing time frame'''
         contracts = [vars(contract) for contract in self.Data.read_all_contracts()]
         report = {}
         overall_income = 0
@@ -54,6 +55,7 @@ class Report_Generator:
 
 
     def vehicle_report(self,time_from=None,time_to=None):
+        '''Generates a vehicle report with optional paramaters for narrowing time frame'''
         contracts = self.Data.read_all_contracts()
         vehicles = self.Data.read_all_vehicles()
         report = {}
@@ -104,6 +106,7 @@ class Report_Generator:
 
 
         def get_vehicle_stats(obj):
+            '''Generates extra stats for each location and inserts it into report'''
             # Add extra fields to each airport
             for airport, fields in obj.items():
                 most_popular_vehicle        = 'None'
@@ -147,6 +150,9 @@ class Report_Generator:
 
 
     def invoice_report_by_state(self, time_from=None, time_to=None):
+        '''Generates a invoice report with optional paramaters for narrowing time frame.
+        Sorted by state of invoices'''
+
         contracts = [vars(contract) for contract in self.Data.read_all_contracts()]
         if time_from != None: contracts = select_time_period(contracts, time_from, time_to)
         
@@ -179,6 +185,9 @@ class Report_Generator:
 
     
     def invoice_report_by_customer(self, time_from=None, time_to=None):
+        '''Generates a invoice report with optional paramaters for narrowing time frame.
+        Sorted by state of invoices'''
+
         contracts = [vars(contract) for contract in self.Data.read_all_contracts()]
         if time_from != None: contracts = select_time_period(contracts, time_from, time_to)
         

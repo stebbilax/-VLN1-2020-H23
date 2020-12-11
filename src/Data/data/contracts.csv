@@ -1,6 +1,6 @@
 vehicle_id,vehicle_state,vehicle_status,vehicle_licence,vehicle_type,country,customer_id,customer_name,phone,email,address,customer_licence,employee_id,location_handover,location_return,date_handover,date_return,time_handover,time_return,contract_start,contract_end,state,rate,late_fee,total_price,id
 7,DEFECTIVE,Unavailable,None,Light water,Greenland,1,Mia,8706063,Isabella@nan.is,CharlotteRoad 28,None,1,nuuk,kulusuk,N/A,N/A,N/A,N/A,2020-02-01,2020-02-08,Invalid,600,276,0,1
-7,DEFECTIVE,Unavailable,Drivers licence,Light off-road,Greenland,1,Charlotte,9994000,Noah@nan.is,BenjaminStreet 4,None,1,longyearbyen,torshavn,N/A,N/A,N/A,N/A,2020-01-01,2020-02-10,Valid,381,105,0,2
+7,DEFECTIVE,Unavailable,Drivers licence,Light off-road,Greenland,1,Charlotte,9994000,Noah@nan.is,BenjaminStreet 4,None,1,longyearbyen,torshavn,N/A,N/A,N/A,N/A,2020-01-01,2020-02-10,Awaiting Payment,381,23241.0,23622.0,2
 6,DEFECTIVE,Unavailable,Drivers licence,Light water,Farao Islands,1,Benjamin,7881874,Olivia@nan.is,OliviaTown 20,Drivers licence,1,tingwall,torshavn,N/A,N/A,N/A,N/A,2020-02-02,2020-02-07,Completed,221,166,0,3
 10,DEFECTIVE,Unavailable,None,Light off-road,Svalbard,1,Mason,8654940,Isabella@nan.is,LucasRoad 27,None,1,torshavn,longyearbyen,N/A,N/A,N/A,N/A,2020-02-04,2020-02-05,Valid,868,248,0,4
 6,OK,Unavailable,None,Light road,Svalbard,1,Charlotte,8978888,Amelia@nan.is,MasonStreet 20,Drivers licence,1,reykjavik,longyearbyen,N/A,N/A,N/A,N/A,2020-02-01,2020-02-10,Invalid,729,197,0,5

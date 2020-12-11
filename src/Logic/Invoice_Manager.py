@@ -8,21 +8,22 @@ class Invoice_Manager:
 
 
     def generate_invoice(self, id):
-        
-        res = self.sapi.search_contract().by_id(str(id))
-        if res == []: return {}
-        contract = vars(res[0])
-        
-        if contract['state'] == 'Completed': 
-            print('Invoice already paid')
-            return 
-        if contract['state'] == 'Invalid': 
-            print('Contract is invalidated')
-            return 
+        """Generates an invoice for the customer
+        Only works for a valid contract that has not been paid or invalidated"""
 
+        #If contract does not exist, return False
+        res = self.sapi.search_contract().by_id(str(id))
+        if res == []: return False
+        
+        contract = vars(res[0])
+        if contract['state'] == 'Completed': 
+            return False
+        if contract['state'] == 'Invalid': 
+            return False
+
+        # Find corresponding customer and vehicle
         res = self.sapi.search_customer().by_id(contract['customer_id'])
         cust = vars(res[0])
-        
         res = self.sapi.search_vehicle().by_id(contract['vehicle_id'])
         veh = vars(res[0])
 
@@ -32,7 +33,6 @@ class Invoice_Manager:
         contract_start = contract['contract_start']
         contract_end = contract['contract_end']
  
-        # days, vehicle type
         # Generate invoice
         invoice = {
             'state'             : contract['state'],
@@ -58,8 +58,8 @@ class Invoice_Manager:
             'date_to'           : contract['date_return'],
         }
 
-        # Edit contract
 
+        # Edit contract to reflect that an invoice has been generated for it
         contract['state']       = 'Awaiting Payment'
         contract['late_fee']    = invoice['late_fee']
         contract['total_price'] = invoice['total_price']
@@ -70,21 +70,24 @@ class Invoice_Manager:
 
 
     def pay_invoice(self, id):
+        """Generates an invoice receipt for the customer
+        Only works for a contract who's invoice has already been generated"""
+        # If contract does not exist return False
         res = self.sapi.search_contract().by_id(str(id))
         if res == []: return False
+
+        # Check if contract has a corresponding invoice already generated
         contract = vars(res[0])
-
-
         if contract['state'] != 'Awaiting Payment': 
             return False
             
-
+        # Find customer and vehicle
         res = self.sapi.search_customer().by_id(contract['customer_id'])
         cust = vars(res[0])
-
         res = self.sapi.search_vehicle().by_id(contract['vehicle_id'])
         veh = vars(res[0])
 
+        # Generate receipt
         receipt = {
             'state'             : contract['state'],
             'address'           : cust['address'],
@@ -110,11 +113,13 @@ class Invoice_Manager:
             'contract_end'      : contract['contract_end']
         }
 
+        # Return an error if fields are not in order
         if receipt['date_from'] == 'N/A': return False
         if receipt['date_to'] == 'N/A': return False
         if receipt['date_handover'] == 'N/A': return False
         if receipt['date_return'] == 'N/A': return False
 
+        # Mark contract as having been paid
         contract['state'] = 'Completed'
         self.lapi.contract.edit(contract, str(id))
 

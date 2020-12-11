@@ -3,10 +3,10 @@ import sys
 import csv
 from random import randint
 from configparser import ConfigParser
-from Dummy import Dummy
 
 
 sys.path.append(os.getcwd())
+from Dummy import Dummy
 from Data.DataAPI import DataAPI
 from Models.Contract import Contract
 from Models.Customer import Customer
@@ -15,7 +15,13 @@ from Models.Employee import Employee
 from Models.Vehicle import Vehicle
 from Models.Vehicle_Type import Vehicle_Type
 
-# Must be in src folder to use
+"""
+Populates database with dummy data.
+Does not go through the logic api and is thus
+missing some input validation.
+
+Must be run from src folder
+"""
 
 
 D = Dummy() 
@@ -134,6 +140,7 @@ def vehicle_type():
 
 
 def pop_contract(num_of_lines):
+    '''Writes to db'''
     arr = []
     for _ in range(num_of_lines):
         arr.append(contract())
@@ -142,6 +149,7 @@ def pop_contract(num_of_lines):
 
 
 def pop_customer(num_of_lines):
+    '''Writes to db'''
     arr = []
     for _ in range(num_of_lines):
         arr.append(customer())
@@ -150,6 +158,7 @@ def pop_customer(num_of_lines):
 
 
 def pop_destination(num_of_lines):
+    '''Writes to db'''
     arr = []
     for _ in range(num_of_lines):
         arr.append(destination())
@@ -158,6 +167,7 @@ def pop_destination(num_of_lines):
     
 
 def pop_employee(num_of_lines):
+    '''Writes to db'''
     arr = []
     for _ in range(num_of_lines):
         arr.append(employee())
@@ -166,6 +176,7 @@ def pop_employee(num_of_lines):
 
     
 def pop_vehicle(num_of_lines):
+    '''Writes to db'''
     arr = []
     for _ in range(num_of_lines):
         arr.append(vehicle())
@@ -174,6 +185,7 @@ def pop_vehicle(num_of_lines):
     
 
 def pop_vehicle_type(num_of_lines):
+    '''Writes to db'''
     arr = []
     for _ in range(num_of_lines):
         arr.append(vehicle_type())

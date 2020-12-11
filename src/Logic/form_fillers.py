@@ -1,8 +1,8 @@
 from Logic.Search_API import Search_API
 from datetime import datetime
 
-# Recives two dates and calculates the difference, returning in days
 def calculate_date_difference(d1, d2):
+    '''Recives two dates and calculates the difference, returning in days'''
     d1 = datetime.fromisoformat(d1)
     d2 = datetime.fromisoformat(d2)
 
@@ -10,8 +10,9 @@ def calculate_date_difference(d1, d2):
     return delta.days
 
 
-# Finds vehicle with matching id and inserts relevant information about it
+
 def contract_filler(form):
+    '''Recieves unfinished contract and completes it with relevant information'''
     Search = Search_API()
     
     contract = {
@@ -49,6 +50,7 @@ def contract_filler(form):
     contract['total_price']         = 'N/A'
     contract['state']               = 'Valid'
 
+    # If type has not been registered, then the rate is missing
     if vehicle_type == []: 
         contract['rate'] = 'N/A'
     else: 
@@ -58,6 +60,7 @@ def contract_filler(form):
 
 
 def vehicle_filler(form):
+    '''Recieves vehicle form and makes sure its fields are correctly entered'''
     Search = Search_API()
 
     vehicle = {
@@ -75,6 +78,7 @@ def vehicle_filler(form):
         'id' : None,
     }
 
+    # A rate is only added to vehicle if the type and location matches
     types = Search.search_vehicle_type().by_type_name(vehicle['type'])
     for t in types:
         obj = vars(t)
@@ -83,8 +87,10 @@ def vehicle_filler(form):
 
     
     return vehicle
-#adds informations airport/country to match location in country 
+
+
 def employee_filler(form):
+    '''Recieves employee form and makes sure its fields are correctly entered'''
     employee = {
         'name' : form[0],
         'address' : form[1],

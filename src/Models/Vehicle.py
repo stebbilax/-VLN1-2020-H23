@@ -6,8 +6,8 @@ class Vehicle:
         self.color = color
         self.licence = licence
         self.airport = airport
-        self.vehicle_state = vehicle_state #OK/DEFECTIVE
-        self.vehicle_status = vehicle_status #Available/Unavailable
+        self.vehicle_state = vehicle_state                   #OK/DEFECTIVE
+        self.vehicle_status = vehicle_status                 #Available/Unavailable
         self.rate = rate
         self.model = model
         self.vehicle_authentication = vehicle_authentication #Car number plate

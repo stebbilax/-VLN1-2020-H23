@@ -3,6 +3,7 @@
 from Presentation.Operations.Generic import *
 
 def register_destination(logicAPI,ui):
+    '''Register new destination. Ignore fields do not get prompted in the registration process'''
     ignore_fields = []
     o = Operations(logicAPI, ui)
     o.register(o.destination, ignore_fields)
@@ -11,16 +12,17 @@ def register_destination(logicAPI,ui):
     ui.operation.verify.generate_fields()
 
 def edit_destination(logicAPI,ui):
+    '''Edit destination. Ignore fields do not get prompted in the Editing process'''
     ignore_fields = []
     o = Operations(logicAPI, ui)
     o.edit(o.destination, ignore_fields)
     
 def get_destination(logicAPI,ui):
-    #search for destination
+    '''Search for destination'''
     o = Operations(logicAPI, ui)
     o.get(o.destination)
 
 def get_all_destinations(logicAPI,ui):
-    #get/display all destinations 
+    '''Get/display all destinations''' 
     o = Operations(logicAPI, ui)
     o.get_all(o.destination)

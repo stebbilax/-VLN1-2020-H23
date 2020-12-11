@@ -1,7 +1,10 @@
 import csv
 import os
 
+
 class id_manager:
+    """Keeps track of all existing ids and creates new unique ids
+    for the csv manager"""
     def __init__(self):
         self.contract_ids = [0]
         self.customer_ids = [0]
@@ -25,9 +28,8 @@ class id_manager:
 
     # Need to change os to be modular
     def write(self):
+        'Writes current ids to the ids.txt file in the data folder'
         curDir = os.getcwd()
-        #################
-        
         with open(f'{curDir}/Data/data/ids.txt', 'w', newline='', encoding='utf-8') as f:
             for i in self.contract_ids:
                 f.write(str(i))
@@ -56,9 +58,8 @@ class id_manager:
 
 
     def read(self):
-        import os
+        'Reads all currently stored ids'
         curDir = os.getcwd()
-        #################
         file = None
         f = open(f'{curDir}/Data/data/ids.txt', 'r', newline='', encoding='utf-8')
         file = f.readlines()
@@ -74,9 +75,8 @@ class id_manager:
 
 
     def clear_all_ids(self):
-        import os
+        """Resets all id rows in database"""
         curDir = os.getcwd()
-        #################
         with open(f'{curDir}/Data/data/ids.txt', 'w', newline='', encoding='utf-8') as f:
                 for i in range(6):
                     f.write('0')
@@ -84,6 +84,7 @@ class id_manager:
 
 
     def clear_line(self, type):
+        """Resets specific row in database"""
         if type == 'contract': self.contract_ids = [0]
         if type == 'customer': self.customer_ids = [0]
         if type == 'destination': self.destination_ids = [0]
@@ -95,6 +96,7 @@ class id_manager:
 
 
     def make_new_id(self, type):
+        """Creates a unique id for given catagory"""
         self.read()
 
         id_category = self.get_type(type)

@@ -8,9 +8,9 @@ class Contract:
         id=None):
 
         self.vehicle_id = vehicle_id
-        self.vehicle_state = vehicle_state      # OK / DEFECTIVE
-        self.vehicle_status = vehicle_status    # Unavailable / Available
-        self.vehicle_licence = vehicle_licence  # none/drivers licence
+        self.vehicle_state = vehicle_state          # OK / DEFECTIVE
+        self.vehicle_status = vehicle_status        # Unavailable / Available
+        self.vehicle_licence = vehicle_licence      # none/drivers licence
         self.vehicle_type = vehicle_type
         self.country = country
 
@@ -19,13 +19,13 @@ class Contract:
         self.phone = phone
         self.email = email
         self.address = address
-        self.customer_licence = customer_licence #None/drivers licence
+        self.customer_licence = customer_licence    #None/drivers licence
 
         self.employee_id = employee_id
         self.location_handover = location_handover
         self.location_return = location_return
         self.date_handover = date_handover
-        self.date_return = date_return        # Day of return, registered on return
+        self.date_return = date_return              # Day of return, registered on return
         self.time_handover = time_handover
         self.time_return = time_return
         self.contract_start = contract_start        # Day of contract creation

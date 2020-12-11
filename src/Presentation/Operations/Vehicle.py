@@ -5,21 +5,24 @@ from datetime import datetime
 from Presentation.Operations.Generic import *
 
 def register_vehicle(logicAPI,ui):
+    '''Register new vehicle. Ignore fields do not get prompted in the registration process'''
     ignore_fields = ['rate', 'vehicle_status', 'vehicle_state']
     o = Operations(logicAPI, ui)
     o.register(o.vehicle, ignore_fields)
 
 def edit_vehicle(logicAPI,ui):
+    '''Edit vehicle. Ignore fields do not get prompted in the Editing process'''
     ignore_fields = []
     o = Operations(logicAPI, ui)
     o.edit(o.vehicle, ignore_fields)
     
 def get_vehicle(logicAPI,ui):
+    '''Search for vehicle'''
     o = Operations(logicAPI, ui)
     o.get(o.vehicle)
 
-
 def get_all_vehicles(logicAPI, ui):
+    '''Get/display all vehicles''' 
     o = Operations(logicAPI, ui)
     o.get_all(o.vehicle)
 

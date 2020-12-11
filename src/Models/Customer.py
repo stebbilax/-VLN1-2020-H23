@@ -10,9 +10,9 @@ class Customer:
         self.phone = phone
         self.email = email
         self.country = country
-        self.licence = licence #this is drivers licence 
+        self.licence = licence  
         self.id = id
-        #self.people = [].append([self.name,self.ssn,self.address,self.postal_code,self.phone,self.email,self.country])
+        
 
     def __str__(self):
         return f'{self.name}, {self.ssn}, {self.address}, {self.postal_code}, {self.phone}, {self.email}, {self.country}'  

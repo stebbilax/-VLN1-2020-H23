@@ -1,7 +1,8 @@
 from Data.DataAPI import DataAPI as DB
 
-# Example: Search_Manager.search('Oliver', 'name', 'employee')
+
 class Search_Manager:
+    '''Searches database by term, catagory and file'''
     def __init__(self):
         self.DB = DB() #DataAPI
         self.current_data = None
@@ -11,6 +12,7 @@ class Search_Manager:
 
 
     def search(self, search_string, search_field, search_catagory):
+        '''Recieves search specifications and delegates search, returning result after search'''
         self.search_field = search_field.lower()
         self.current_data = self.fetch(search_catagory)
         self.search_string = str(search_string.lower())
@@ -23,6 +25,7 @@ class Search_Manager:
 
 
     def fetch(self, cat):
+        '''returns database entries by catagory '''
         if cat == 'contract': return self.DB.read_all_contracts()
         if cat == 'customer': return self.DB.read_all_customers()
         if cat == 'destination': return self.DB.read_all_destinations()
@@ -32,6 +35,7 @@ class Search_Manager:
 
 
     def _search(self):
+        '''Searches loaded document for a match to loaded search string'''
         for el in self.current_data:
             obj = vars(el)
             if obj[self.search_field].lower() == self.search_string:
@@ -39,6 +43,7 @@ class Search_Manager:
             
 
     def clear(self):
+        '''Clears result'''
         self.result = []
 
 

@@ -228,6 +228,8 @@ class Operations:
 
     def get_invoice_report(self,state):
         data = getattr(self.logicAPI.report, f'invoice_report_by_{state}')
+        print(data)
+        input()
         self.display.display_invoice_report(data(),state)
         
     def invoice_reciept(self, status):
@@ -246,7 +248,7 @@ class Operations:
 
         data = data(ans)
         if data == False:
-            print('Something went wrong. Please make sure invoice has been generated and that all info is in order.')
+            print('Something went wrong. Please make sure required information is in order.')
         if not data:
             return
         else:

@@ -6,6 +6,9 @@ class EnumManager:
         self.generate_enums()
 
     def generate_enums(self):
+        '''Keeps track of all registered countries and airports, providing
+        enums with dynamically updated values'''
+        
         #list containing all destinations
         destinations_list = self.dataAPI.read_all_destinations()
 

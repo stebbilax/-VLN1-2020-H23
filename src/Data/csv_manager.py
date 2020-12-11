@@ -11,6 +11,8 @@ from Data.id_manager import id_manager
 
 
 class Csv_Manager:
+    """Handles reading and writing to the database, assigning unique ids to those entries
+    that do not already have them"""
     def __init__(self, directory):
         self.directory = directory
         self.id_manager = id_manager()
@@ -26,6 +28,7 @@ class Csv_Manager:
 
     # Get csv fields from config file
     def setup_config(self):
+        """Fetches the current model field names from the config.ini file"""
         file = 'Data/config.ini'
         config = ConfigParser()
         config.read(file)
@@ -39,6 +42,7 @@ class Csv_Manager:
 
 
     def get_model(self, name):
+        """Return corresponding model"""
         if name == 'contract': return Contract
         if name == 'customer': return Customer
         if name == 'destination': return Destination
@@ -47,8 +51,9 @@ class Csv_Manager:
         if name == 'vehicle_type': return Vehicle_Type
 
 
-    # Return filename and appropriate fields based on a name
+    
     def get_name_and_fields(self, name):
+        """Return filename and appropriate fields based on a name"""
         if name == 'contract': return ('contracts.csv', self.contract_fields)
         if name == 'customer': return ('customers.csv', self.customer_fields)
         if name == 'destination': return ('destinations.csv', self.destination_fields)
@@ -56,16 +61,21 @@ class Csv_Manager:
         if name == 'vehicle': return ('vehicles.csv', self.vehicle_fields)
         if name == 'vehicle_type': return ('vehicle_types.csv', self.vehicle_type_fields)
 
+
     def get_new_id(self, type):
+        """Fetches a new unique id"""
         return self.id_manager.make_new_id(type)
 
 
     def clear_id_line(self, type):
+        """Resets a line representing a catagory in the id database """
         self.id_manager.clear_line(type)
 
 
     # Possible names are in get_name_and_fields function
     def write_all(self, data, name, clear_fields=True):
+        """Writes all data within a given catagory.
+        If item does not have an id already, uses the id manager to make one"""
         category_name = name
         name, fields = self.get_name_and_fields(name)
         
@@ -112,7 +122,6 @@ class Csv_Manager:
             writer.writerow(obj)
 
     def edit_single(self, data, name, id):
-        # print('from csv_manager : ', data)
         ''' Edits a single model by rewriting the file with the modified value
             Expects a ID to find the modified model and replace it           '''
 

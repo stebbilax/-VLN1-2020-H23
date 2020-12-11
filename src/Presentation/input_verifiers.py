@@ -65,9 +65,10 @@ class Input_Verifiers:
         else:
             return None
 
-# Compares a previous date to the newly entered date
-# Returns false if newly entered date is earlier in time line
+
 def compare_and_verify_times(form, last_time):
+    '''Compares a previous date to the newly entered date
+    Returns false if newly entered date is earlier in time line'''
     if form == []: return (True, 'Success')
     first_time = form[-1]
     
@@ -78,8 +79,9 @@ def compare_and_verify_times(form, last_time):
     return (False, 'Invalid date interval')
 
 
-# Checks if vehicle exists
+
 def find_vehicle(form, vehicle_id):
+    '''Checks if vehicle exists'''
     res = Search_API().search_vehicle().by_vehicle_id(vehicle_id)
     if res == []: return (True, 'Success')
 
@@ -88,7 +90,7 @@ def find_vehicle(form, vehicle_id):
 
 
 def find_vehicle_type(form, type):
-    #chekc if vehicle type exists
+    '''Check if vehicle type exists'''
     res = Search_API().search_vehicle_type().by_type_name(type)
     if res == []: return (False, 'Vehicle Type does not exist, vehicle type examples: Light road, Medium water')
 
@@ -98,7 +100,8 @@ def find_vehicle_type(form, type):
 
 
 def check_customer_id(form, id):
-    # Check if customer exists
+    '''Check if customer exists and if customer carries a matching licence
+    to the vehicle he/she is about to rent'''
     res = Search_API().search_customer().by_id(id)
     if res == []: return (False, 'Customer does not exist. Please register customer')
 
@@ -110,7 +113,7 @@ def check_customer_id(form, id):
 
 
 def check_vehicle_id(form, id):
-    #looks for Vehicle id
+    '''Check if vehicle exists and if so check if the vehicle can be rented'''
     res = Search_API().search_vehicle().by_id(id)
     if res == []: return (False, 'Vehicle does not exist. Please register Vehicle')
 

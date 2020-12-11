@@ -16,6 +16,7 @@ from datetime import datetime
 
 
 class LogicAPI:
+    """Handles all endpoints for the logic API"""
     def __init__(self):
         self.dataAPI = DataAPI()
         self.searchAPI = Search_API()
@@ -36,32 +37,42 @@ class ManageVehicles:
         self.searchAPI = sapi
 
     def register(self,form):
+        """Passes a new vehicle through a form filler before passing it
+        onto the data API"""
         new_form = vehicle_filler(form)
         new_vehicle = Vehicle(**new_form)
         self.dataAPI.append_vehicle(new_vehicle)
 
     def edit(self,form,id):
+        """Passes an edited vehicle through a form editor before passing it
+        onto the data API"""
         new_form =  vehicle_editor(form)
         new_vehicle = Vehicle(**new_form)
         self.dataAPI.edit_vehicle(new_vehicle, id)
 
     def get(self):
-        return self.searchAPI.search_vehicle() # Search
+        """Returns a reference to the search vehicle endpoint
+        from the search API"""
+        return self.searchAPI.search_vehicle() 
 
-    def get_all(self): #reads all vehicles from data
+    def get_all(self): 
+        """Returns all vehicle entries in the database"""
         return self.dataAPI.read_all_vehicles()
     
-    def get_all_after_choice(self): #reads all vehicle from data
+    def get_all_after_choice(self): 
         return self.dataAPI.read_all_vehicles()
 
     def get_search_options(self): 
+        """Returns all search endpoints for a vehicle from the Search API"""
         return [getattr(self.searchAPI.search_vehicle(), func) 
             for func in dir(self.searchAPI.search_vehicle())
             if callable(getattr(self.searchAPI.search_vehicle(), func)) and not func.startswith('__')]
 
 
     def handover_vehicle(self, id):
-        
+        """Marks a vehicle as being in a customers possession,
+        making appropriate edits to the corresponding contract"""
+
         res = self.logicAPI.vehicle.get().by_id(id)
         # Check if vehicle exists
         if res == []: 
@@ -100,6 +111,8 @@ class ManageVehicles:
 
 
     def handin_vehicle(self, id):
+        """Marks a vehicle as having been returned by customer,
+        making appropriate edits to the corresponding contract"""
         res = self.logicAPI.vehicle.get().by_id(id)
         # Check if vehicle exists
         if res == []: 
@@ -140,25 +153,33 @@ class ManageEmployees:
         self.searchAPI = sapi
     
     def register(self, form):
+        """Passes a new employee through a form filler before passing it
+        onto the data API"""
         new_form = employee_filler(form)
         new_employee = Employee(**new_form)
         self.dataAPI.append_employee(new_employee)
     
     def edit(self, form, id):
+        """Passes an edited employee through a form editor before passing it
+        onto the data API"""
         new_form =  employee_editor(form)
         new_employee = Employee(**new_form)
         self.dataAPI.edit_employee(new_employee, id)
     
     def get(self):
-        return self.searchAPI.search_employee() # Search
+        """Returns a reference to the search employee endpoint
+        from the search API"""
+        return self.searchAPI.search_employee() 
     
     def get_all(self):
+        """Returns all employee entries in the database"""
         return self.dataAPI.read_all_employees()
 
     def get_all_after_choice(self):
         return self.dataAPI.read_all_employees()
 
     def get_search_options(self):
+        """Returns all search endpoints for an employee from the Search API"""
         return [getattr(self.searchAPI.search_employee(), func) 
             for func in dir(self.searchAPI.search_employee())
             if callable(getattr(self.searchAPI.search_employee(), func)) and not func.startswith('__')]
@@ -170,22 +191,30 @@ class ManageContracts:
         self.searchAPI = sapi
 
     def register(self, form):
+        """Passes a new contract through a form filler before passing it
+        onto the data API"""
         new_form = contract_filler(form)
         new_contract = Contract(**new_form)
         self.dataAPI.append_contract(new_contract)
     
     def edit(self, form, id):
+        """Passes an edited contract through a form editor before passing it
+        onto the data API"""
         new_form = contract_editor(form)
         new_contract = Contract(**new_form)
         self.dataAPI.edit_contract(new_contract, id)
     
     def get(self):
-        return self.searchAPI.search_contract() # Search
+        """Returns a reference to the search contract endpoint
+        from the search API"""
+        return self.searchAPI.search_contract() 
     
     def get_all(self): 
-        return self.dataAPI.read_all_contracts() #reads contract from data (csv file)
+        """Returns all contract entries in the database"""
+        return self.dataAPI.read_all_contracts() 
 
     def get_search_options(self):
+        """Returns all search endpoints for a contract from the Search API"""
         return [getattr(self.searchAPI.search_contract(), func) 
             for func in dir(self.searchAPI.search_contract())
             if callable(getattr(self.searchAPI.search_contract(), func)) and not func.startswith('__')]
@@ -197,20 +226,26 @@ class ManageCustomers:
         self.searchAPI = sapi
     
     def register(self, form):
+        """Passes a registered customer directly to the data API"""
         new_customer = Customer(*form)
         self.dataAPI.append_customer(new_customer)
     
     def edit(self, form, id):
+        """Passes an edited customer directly to the data API"""
         new_customer = Customer(**form)
         self.dataAPI.edit_customer(new_customer, id)
     
     def get(self):
+        """Returns a reference to the search customer endpoint
+        from the search API"""
         return self.searchAPI.search_customer()
 
     def get_all(self):
+        """Returns all customer entries in the database"""
         return self.dataAPI.read_all_customers()
 
     def get_search_options(self):
+        """Returns all search endpoints for a customer from the Search API"""
         return [getattr(self.searchAPI.search_customer(), func) 
             for func in dir(self.searchAPI.search_customer())
             if callable(getattr(self.searchAPI.search_customer(), func)) and not func.startswith('__')]
@@ -223,20 +258,26 @@ class ManageVehicleTypes:
         self.searchAPI = sapi
     
     def register(self, form):
+        """Passes a registered vehicle type directly to the data API"""
         new_vehicle_type = Vehicle_Type(*form)
         self.dataAPI.append_vehicle_type(new_vehicle_type)
     
     def edit(self, form, id):
+        """Passes an edited vehicle type directly to the data API"""
         new_vehicle_type = Vehicle_Type(**form)
         self.dataAPI.edit_vehicle_type(new_vehicle_type, id)
     
     def get(self):
+        """Returns a reference to the search vehicle type endpoint
+        from the search API"""
         return self.searchAPI.search_vehicle_type()
 
     def get_all(self):
+        """Returns all vehicle type entries in the database"""
         return self.dataAPI.read_all_vehicle_types()
 
     def get_search_options(self):
+        """Returns all search endpoints for a vehicle types from the Search API"""
         return [getattr(self.searchAPI.search_vehicle_type(), func) 
             for func in dir(self.searchAPI.search_vehicle_type())
             if callable(getattr(self.searchAPI.search_vehicle_type(), func)) and not func.startswith('__')]
@@ -249,25 +290,33 @@ class ManageDestinations:
         self.searchAPI = sapi
     
     def register(self, form):
+        """Passes a new destination through a form filler before passing it
+        onto the data API"""
         new_destination = Destination(*form)
         self.dataAPI.append_destination(new_destination)
         self.logicAPI.enums.generate_enums()
     
     def edit(self, form, id):
+        """Passes an edited destination through a form editor before passing it
+        onto the data API"""
         new_destination = Destination(**form)
         self.dataAPI.edit_destination(new_destination, id)
         self.logicAPI.enums.generate_enums()
     
     def get(self):
+        """Returns a reference to the search destination endpoint
+        from the search API"""
         return self.searchAPI.search_destination()
 
     def get_all(self):
+        """Returns all destination entries in the database"""
         return self.dataAPI.read_all_destinations()
     
     def get_all_location(self):
         return self.dataAPI.read_all_destinations()
 
     def get_search_options(self):
+        """Returns all search endpoints for a destination from the Search API"""
         return [getattr(self.searchAPI.search_destination(), func) 
             for func in dir(self.searchAPI.search_destination())
             if callable(getattr(self.searchAPI.search_destination(), func)) and not func.startswith('__')]
@@ -278,19 +327,23 @@ class ManageReports:
         self.RG = Report_Generator(dapi, sapi)
         
     def financial_report(self, time_from=None, time_to=None):
+        '''returns a financial report'''
         return self.RG.financial_report(time_from, time_to)
 
     def invoice_report_by_state(self, time_from=None, time_to=None):
+        '''returns a invoice report sorted by state'''
         return self.RG.invoice_report_by_state(time_from, time_to)
 
     def invoice_report_by_customer(self, time_from=None, time_to=None):
+        '''returns a invoice report sorted by customers'''
         return self.RG.invoice_report_by_customer(time_from, time_to)
 
     def vehicle_report(self, time_from=None, time_to=None):
+        '''returns a vehicle report'''
         return self.RG.vehicle_report(time_from, time_to)
 
-    
     def get_search_options(self):
+        """Returns all search endpoints for a report from the Search API"""
         return [getattr(self.searchAPI.search_report(), func) 
             for func in dir(self.searchAPI.search_report())
             if callable(getattr(self.searchAPI.search_report(), func)) and not func.startswith('__')]
@@ -308,8 +361,8 @@ class ManageInvoices:
     def pay_invoice(self, id):
         return self.IM.pay_invoice(id)
 
-
     def get_search_options(self):
+        """Returns all search endpoints for a invoice from the Search API"""
         return [getattr(self.searchAPI.search_invoice(), func) 
             for func in dir(self.searchAPI.search_invoice())
             if callable(getattr(self.searchAPI.search_invoice(), func)) and not func.startswith('__')]
