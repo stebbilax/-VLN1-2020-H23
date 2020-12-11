@@ -485,12 +485,7 @@ class UserInterface:
         #endregion                      -----
         #endregion                      =====
 
-        # DEVELOPER MENU
-        
-        developer_menu  = Menu("Developer Menu", [test], main_menu, self.logic, self, 'admin')
-        main_menu.selectable_options.append(developer_menu)
-        
-        # END DEVELOPER MENU
+
 
         self.current_menu = main_menu
 
