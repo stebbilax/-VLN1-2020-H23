@@ -43,7 +43,10 @@ class Operations:
         logic = model[1]
 
         # Get Object
-        obj = self.get_model_by_search(model)
+        obj = self.get_object_by_search(model)
+
+        if not obj:
+            return
 
         submit = False
         options = {}
@@ -242,7 +245,10 @@ class Operations:
 
         leng = len(self.contract[1].get_all())
         
-        obj = self.ui.operation.get_model_by_search(self.contract)
+        obj = self.ui.operation.get_object_by_search(self.contract)
+
+        if not obj:
+            return
 
         data = data(obj['id'])
         if type(data) is tuple:
