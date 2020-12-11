@@ -13,7 +13,7 @@ class Input_Verifiers:
         #Regex for inputs
         self.fields = {
             'name': None,
-            'phone': ['(\d{7,15})', 'Phone number must be between 7 and 15 digits'],
+            'phone': ['^(\d{7,15})$', 'Phone number must be between 7 and 15 digits'],
             'address': None,
             'email': ['(.+@.+\..+)', 'Must be a valid email format.'],
             'contract_start': ['\d{4}-(([1][0-2])|([0][1-9]))-(([0-2][\d])|([3][01]))', 'Must be a valid date (2020-01-01)'],
