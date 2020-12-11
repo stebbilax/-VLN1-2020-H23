@@ -78,7 +78,7 @@ class UserInterface:
             vehicle_type_menu_admin,papa_chuck_menu_admin,
         ]
 
-        #region Office Employee menu    -----
+        #region admin Employee menu    -----
 
         # Submenu for specfic employee display options
         display_employee_menu_admin = Menu("Display Employee", None, employee_menu_admin, self.logic, self, 'admin')
@@ -222,6 +222,7 @@ class UserInterface:
         """OFFICE MENU"""
 
         # Office submenus
+        employee_menu_office        = Menu("Employee Menu", None, office_menu, self.logic, self, 'office')
         contract_menu_office        = Menu("Contract Menu", None, office_menu, self.logic, self, 'office')
         report_menu_office          = Menu("Report Menu", None, office_menu, self.logic, self, 'office')
         customer_menu_office        = Menu("Customer Menu", None, office_menu, self.logic, self, 'office')
@@ -230,12 +231,33 @@ class UserInterface:
 
         # Add submenus to office menu node
         office_menu.selectable_options += [
+            employee_menu_office,
             contract_menu_office, report_menu_office,
             customer_menu_office,destination_menu_office,
             vehicle_type_menu_office
         ]
 
         #endregion                      -----
+            #region Office Employee menu    -----
+
+        # Submenu for specfic employee display options
+        display_employee_menu_office= Menu("Display Employee", None, employee_menu_office, self.logic, self, 'office')
+
+        # Employee functions with employee display menu
+        employee_menu_office.selectable_options += [
+            display_employee_menu_office
+        ]
+
+        # Employee display functions
+        display_employee_menu_office.selectable_options += [
+            get_all_employees,
+            get_employee,
+            get_employee_after_location,
+        ]
+
+        #endregion                      -----
+
+
 
         #region Office Contract menu    -----
 
@@ -329,6 +351,7 @@ class UserInterface:
         """AIRPORT MENU"""
 
         # Airport submenus
+        employee_menu_airport        = Menu("Employee Menu", None, airport_menu, self.logic, self, 'airport')
         vehicle_menu_airport    = Menu("Vehicle Menu", None, airport_menu, self.logic, self, 'airport')
         report_menu_airport     = Menu("Report Menu", None,airport_menu,self.logic,self,'airport')
         customer_menu_airport       = Menu("Customer Menu", None, airport_menu, self.logic, self, 'airport')
@@ -336,10 +359,31 @@ class UserInterface:
         vehicle_type_menu_airport    = Menu("Vehicle Type Menu", None, airport_menu, self.logic, self, 'airport')
         # Add submenus to airport menu node
         airport_menu.selectable_options += [
+            employee_menu_airport,
             vehicle_menu_airport,report_menu_airport,
             customer_menu_airport,destination_menu_airport,
             vehicle_type_menu_airport
         ]
+
+        #region airport Employee menu    -----
+
+        # Submenu for specfic employee display options
+        display_employee_menu_airport = Menu("Display Employee", None, employee_menu_airport, self.logic, self, 'airport')
+
+        # Employee functions with employee display menu
+        employee_menu_airport.selectable_options += [
+            display_employee_menu_airport
+        ]
+
+        # Employee display functions
+        display_employee_menu_airport.selectable_options += [
+            get_all_employees,
+            get_employee,
+            get_employee_after_location,
+        ]
+
+        #endregion                      -----
+
 
         #region Airport vehicle menu    -----
 

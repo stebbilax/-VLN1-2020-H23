@@ -143,6 +143,7 @@ class Display:
                         print(value_line)
     
     def display_invoice(self,data,status):
+        """This function is to display invoice on screen"""
         if status == 'pay':
             d1 = datetime.fromisoformat(data['contract_start'])
             d2 = datetime.fromisoformat(data['contract_end'])
@@ -175,7 +176,7 @@ class Display:
             print('\t\t\t|{:^35}|'.format(''))
             print('\t\t\t|{:^35}|'.format('Thanks for choosing NaN Air!'))
             print('\t\t\t|{:_^35}|'.format(''))
-        else:
+        else: #if status is not pay 
             print('Invoice has been generated:')
             header = '\t\t\t|{:_^78}|'.format(f'\033[4mInvoice\33[0m')
 
