@@ -48,7 +48,7 @@ class Csv_Manager:
         # Make sure all database files exist
         for name in ['contract', 'customer', 'destination', 'employee', 'vehicle', 'vehicle_type']:
             file_name, headers = self.get_name_and_fields(name)
-            if not os.path.exists(self.directory + file_name):
+            if not os.path.exists(self.directory + 'data\\' + file_name):
                 with open(self.directory + 'data\\' + file_name, 'w', newline='', encoding='utf-8') as f:
                     writer = csv.DictWriter(f, fieldnames=headers)
                     writer.writeheader()
