@@ -1,6 +1,6 @@
 from Presentation.input_verifiers import Input_Verifiers
 from Logic.Enums import EnumManager
-
+from random import choice
 def vehicle_editor(form):
     # make sure no vehicle is defective and available
     if form['vehicle_state'] == 'DEFECTIVE': form['vehicle_status'] = 'Unavailable'
@@ -23,12 +23,12 @@ def employee_editor(form):
         form['country'] = 'Iceland'
 
     else:
+    #if employee is edited to a country that does maybe not match airport location this fixes it 
         if form['airport'] == 'reykjavik': form['country'] = 'Iceland'
-        if form['airport'] == 'kulusuk' or form['airport'] == 'nuuk': form['country'] = 'nuuk'
+        if form['airport'] == 'kulusuk' or form['airport'] == 'nuuk': form['country'] = 'Greenland'
         if form['airport'] == 'tingwall': form['country'] = 'Shetland'
         if form['airport'] == 'longyearbyen': form['country'] = 'Svalbard'
-        if form['airport'] == 'thorshavn': form['country'] = 'Farao Islands'
+        if form['airport'] == 'torshavn': form['country'] = 'Farao Islands'
     return form
-
 
         

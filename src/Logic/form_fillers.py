@@ -104,10 +104,10 @@ def employee_filler(form):
         employee['airport'] = 'reykjavik'
         employee['country'] = 'Iceland' 
     if employee['airport'] == 'reykjavik': employee['country'] = 'Iceland'
-    if employee['airport'] == 'kulusuk' or employee['airport'] == 'nuuk': employee['country'] = 'nuuk'
+    if employee['airport'] == 'kulusuk' or employee['airport'] == 'nuuk': employee['country'] = 'Greenland'
     if employee['airport'] == 'tingwall': employee['country'] = 'Shetland'
     if employee['airport'] == 'longyearbyen': employee['country'] = 'Svalbard'
-    if employee['airport'] == 'thorshavn': employee['country'] = 'Farao Islands'
+    if employee['airport'] == 'torshavn': employee['country'] = 'Farao Islands'
 
     
     return employee
