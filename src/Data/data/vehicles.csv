@@ -1,1 +1,21 @@
 type,manufacturer,yom,color,licence,airport,vehicle_state,vehicle_status,rate,model,vehicle_authentication,id
+Light road,Kayman Kayaks,2016,green,None,kulusuk,OK,Available,115,Fat Max,BT274,1
+Medium off-road,Yedoo,2009,grey,Drivers licence,tingwall,OK,Available,220,Fat Max,IL815,2
+Medium off-road,Kayman Kayaks,1992,blue,Drivers licence,tingwall,OK,Available,197,Crazy,HD645,3
+Medium off-road,Yedoo,2015,black,None,nuuk,OK,Available,244,Crazy,IK764,4
+Light road,Kayman Kayaks,2019,grey,None,kulusuk,OK,Available,225,Fat Max,OH956,5
+Medium water,WildChild,2009,green,Drivers licence,reykjavik,OK,Available,184,Free Fly II,JL091,6
+Light off-road,Kayman Kayaks,1997,green,Drivers licence,longyearbyen,OK,Available,138,Free Fly II,FW854,7
+Light off-road,Kayman Kayaks,1995,blue,Drivers licence,torshavn,OK,Available,285,Fat Max,IS169,8
+Light water,Yedoo,2015,blue,None,kulusuk,OK,Available,189,Fat Max,IO374,9
+Light off-road,TAILG,1991,black,Drivers licence,torshavn,OK,Available,277,Crazy,AJ720,10
+Light water,Kayman Kayaks,2019,red,Drivers licence,reykjavik,OK,Available,216,Fat Max,CB071,11
+Light road,Cani-Fit,2005,blue,Drivers licence,kulusuk,OK,Available,255,Free Fly II,OR736,12
+Light off-road,Cani-Fit,1998,red,Drivers licence,torshavn,OK,Available,189,Crazy,RO956,13
+Medium off-road,Cani-Fit,1992,black,None,torshavn,OK,Available,286,Free Fly II,YE650,14
+Light road,TAILG,2011,black,None,kulusuk,OK,Available,174,Fat Max,PG904,15
+Medium water,TAILG,2017,black,None,longyearbyen,OK,Available,208,Fat Max,BH738,16
+Light road,WildChild,2006,green,None,kulusuk,OK,Available,147,Free Fly II,TI740,17
+Light road,Kayman Kayaks,1995,blue,Drivers licence,tingwall,OK,Available,118,Free Fly II,ZX967,18
+Light off-road,Cani-Fit,2011,red,Drivers licence,torshavn,OK,Available,187,Fat Max,YU915,19
+Medium water,Cani-Fit,2006,grey,None,torshavn,OK,Available,287,Crazy,LT985,20
