@@ -3,6 +3,7 @@ import sys
 import csv
 from random import randint
 from configparser import ConfigParser
+from datetime import datetime
 
 
 sys.path.append(os.getcwd())
@@ -45,6 +46,7 @@ DB = DataAPI()
 
 def contract():
     """Returns contract with random data in it from Dummy()"""
+    date, _ = datetime.now().replace(microsecond=0, second=0).isoformat().split('T')
     return Contract(
         randint(1, 10),
         D.make_vehicle_state(),
@@ -73,6 +75,7 @@ def contract():
         randint(100, 1000),
         randint(0, 300),
         0,
+        date
         
         
 
