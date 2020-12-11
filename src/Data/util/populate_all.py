@@ -53,14 +53,14 @@ def contract():
         D.make_type(),
         D.make_country(),
 
-        '1',
+        randint(1, 10),
         D.make_name(),
         D.make_phone(),
         D.make_email(),
         D.make_address(),
         D.make_licence(),
         
-        '1',
+        randint(1, 10),
         D.make_airport(),
         D.make_airport(),
         'N/A',

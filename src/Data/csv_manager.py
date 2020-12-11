@@ -97,6 +97,7 @@ class Csv_Manager:
         model = self.get_model(name)
         name, fields = self.get_name_and_fields(name)
         retList = []
+
         try:
             with open(f'{self.directory}/data/{name}', newline='', encoding='utf-8') as f:
                 reader = csv.DictReader(f)
