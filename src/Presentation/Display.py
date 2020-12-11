@@ -191,7 +191,6 @@ class Display:
             if lf < 0:
                 lf = 0
             
-            print('Invoice has been generated:')
             header = '\t\t\t|{:_^78}|'.format(f'\033[4mInvoice\33[0m')
 
             print('\n\t\t\t {:_>70}'.format(''))
