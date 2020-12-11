@@ -1,1 +1,21 @@
 type_name,airport,rate,id
+Medium water,nuuk,882,1
+Medium off-road,kulusuk,529,2
+Medium water,tingwall,334,3
+Medium off-road,kulusuk,578,4
+Medium off-road,torshavn,575,5
+Medium water,tingwall,539,6
+Light off-road,torshavn,755,7
+Light off-road,kulusuk,781,8
+Light off-road,nuuk,160,9
+Light water,longyearbyen,996,10
+Medium off-road,tingwall,775,11
+Medium water,nuuk,372,12
+Medium water,kulusuk,801,13
+Light off-road,reykjavik,950,14
+Light road,nuuk,446,15
+Medium water,nuuk,986,16
+Medium water,tingwall,691,17
+Light off-road,nuuk,649,18
+Light off-road,tingwall,198,19
+Medium water,reykjavik,127,20

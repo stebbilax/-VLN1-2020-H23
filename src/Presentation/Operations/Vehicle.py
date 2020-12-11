@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 ''' Operations calling the vehicle logic API '''
 
 from Presentation.Operations.Generic import *
@@ -54,10 +55,20 @@ def get_vehicle_report(logicAPI, ui):
 
 
 def handover_vehicle(logicAPI, ui):
-    id = input('Enter Id of vehicle: ')
-    print(logicAPI.vehicle.handover_vehicle(id))
+    model = Operations(logicAPI, ui).vehicle
+    res = ui.operation.get_object_by_search(model)
+    # Check if vehicle exists
+    if res == [] or res == None: 
+        return 'Vehicle not found'
+
+    print(logicAPI.vehicle.handover_vehicle(res))
 
 
 def handin_vehicle(logicAPI, ui):
-    id = input('Enter Id of vehicle: ')
-    print(logicAPI.vehicle.handin_vehicle(id))
+    model = Operations(logicAPI, ui).vehicle
+    res = ui.operation.get_object_by_search(model)
+    # Check if vehicle exists
+    if res == [] or res == None: 
+        return 'Vehicle not found'
+
+    print(logicAPI.vehicle.handin_vehicle(res))

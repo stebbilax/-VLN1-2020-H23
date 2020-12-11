@@ -1,1 +1,21 @@
 type,manufacturer,yom,color,licence,airport,vehicle_state,vehicle_status,rate,model,vehicle_authentication,id
+Light water,Cani-Fit,1998,red,None,torshavn,OK,Available,162,Fat Max,ZX441,1
+Medium off-road,WildChild,2020,green,Drivers licence,kulusuk,OK,Available,242,Fat Max,DG495,2
+Medium water,TAILG,2016,blue,None,torshavn,OK,Available,228,Free Fly II,GP855,3
+Light road,TAILG,2015,blue,None,kulusuk,OK,Available,275,Free Fly II,CZ109,4
+Light water,WildChild,2009,black,None,torshavn,OK,Available,170,Fat Max,UK542,5
+Light road,Yedoo,1995,green,Drivers licence,torshavn,OK,Available,297,Free Fly II,HL805,6
+Medium off-road,Kayman Kayaks,2009,green,None,nuuk,OK,Available,170,Free Fly II,YG880,7
+Light off-road,Kayman Kayaks,2008,green,None,longyearbyen,OK,Available,114,Crazy,VD245,8
+Medium water,WildChild,2017,black,None,tingwall,OK,Available,225,Crazy,EW780,9
+Light road,Yedoo,2012,red,None,longyearbyen,OK,Available,216,Fat Max,BW051,10
+Medium off-road,WildChild,2012,black,Drivers licence,tingwall,OK,Available,132,Crazy,ZW844,11
+Light off-road,WildChild,2007,red,Drivers licence,reykjavik,OK,Available,237,Free Fly II,HD186,12
+Medium off-road,TAILG,2019,green,Drivers licence,longyearbyen,OK,Available,250,Crazy,KW320,13
+Light water,TAILG,2002,grey,Drivers licence,longyearbyen,OK,Available,120,Free Fly II,PP333,14
+Light water,Kayman Kayaks,1995,green,None,longyearbyen,OK,Available,161,Free Fly II,VU000,15
+Medium off-road,Cani-Fit,1999,black,None,kulusuk,OK,Available,225,Fat Max,IS894,16
+Light off-road,TAILG,2018,blue,None,reykjavik,OK,Available,115,Fat Max,ZD529,17
+Medium off-road,WildChild,2010,green,Drivers licence,nuuk,OK,Available,177,Crazy,SV191,18
+Light off-road,Cani-Fit,2016,blue,None,longyearbyen,OK,Available,242,Fat Max,YF210,19
+Medium off-road,Cani-Fit,2003,green,Drivers licence,torshavn,OK,Available,144,Crazy,HK338,20
