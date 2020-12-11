@@ -56,6 +56,8 @@ class Invoice_Manager:
             'total_price'       : calculate_total_price(contract),
             'date_from'         : contract['date_handover'],
             'date_to'           : contract['date_return'],
+            'contract_start'    : contract['contract_start'],
+            'contract_end'      : contract['contract_end']
         }
 
 

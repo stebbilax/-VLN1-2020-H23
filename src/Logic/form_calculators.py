@@ -31,18 +31,10 @@ def calculate_base_price(start, end, rate):
        tries to calculate base price from date handout and date return,
        if date handover has been given but not date return it calculates the total cost until this day
        if they are not found then returnes rate """
-    try:
-        d1 = datetime.fromisoformat(start)
-        d2 = datetime.fromisoformat(end)
-        return (d2-d1).days * int(rate)
-    except ValueError:
-        #base price wont be calculated until date_handout and date_return on contract has been made
-        if start == 'N/A' and end == 'N/A':
-            return int(rate)
-        else: 
-            d1 = datetime.fromisoformat(start)
-            d2 = datetime.today()
-            return (d2-d1).days * int(rate)
+    d1 = datetime.fromisoformat(start)
+    d2 = datetime.fromisoformat(end)
+    return (d2-d1).days * int(rate)
+
 
 
 
@@ -52,13 +44,12 @@ def calculate_total_price(contract):
     contract_start = contract['contract_start']
     contract_end = contract['contract_end']
     date_return = contract['date_return']
-    date_handover = contract['date_handover']
     rate = contract['rate']
 
     #late fee calculated as the day the contract ended versus the return date of the vehicle
     late_fee = calculate_late_fee(rate, contract_end, date_return)  
-    #base fee calculated from day wehicle was handed over vs day it was returned 
-    base_price = calculate_base_price(date_handover, date_return, rate)
+    #base fee calculated from day wehicle contract start and until contract end. 
+    base_price = calculate_base_price(contract_start, contract_end, rate)
     
     return late_fee + base_price
 
