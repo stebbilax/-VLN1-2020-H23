@@ -17,8 +17,9 @@ from datetime import datetime
 
 class LogicAPI:
     """Handles all endpoints for the logic API"""
-    def __init__(self):
+    def __init__(self, ui):
         self.dataAPI = DataAPI()
+        self.ui = ui
         self.searchAPI = Search_API()
         self.enums = EnumManager(self.dataAPI)
         self.vehicle = ManageVehicles(self, self.dataAPI, self.searchAPI)
@@ -182,6 +183,9 @@ class ManageContracts:
         """Passes a new contract through a form filler before passing it
         onto the data API"""
         new_form = contract_filler(form)
+        if new_form == False: 
+            self.logicAPI.ui.display_error('Vehicle is not available during selected time period. Contract was not registered')
+            return
         new_contract = Contract(**new_form)
         self.dataAPI.append_contract(new_contract)
     

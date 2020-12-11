@@ -20,3 +20,9 @@ vehicle_id,vehicle_state,vehicle_status,vehicle_licence,vehicle_type,country,cus
 7,OK,Available,None,Light road,Iceland,5,Emma,8762860,Isabella@nan.is,SophiaTown 30,None,9,longyearbyen,torshavn,N/A,N/A,N/A,N/A,2020-02-02,2020-02-09,Valid,364,59,0,2020-12-11,19
 2,OK,Available,None,Light off-road,Shetland,10,Elijah,7636625,Ethan@nan.is,LiamStreet 13,None,9,nuuk,nuuk,N/A,N/A,N/A,N/A,2020-01-01,2020-02-08,Valid,980,171,0,2020-12-11,20
 1,OK,Available,None,Light off-road,Iceland,3,Elijah,6927181,Ava@nan.is,LucasTown 7,None,3,nuuk,nuuk,N/A,N/A,N/A,N/A,2020-01-01,2020-02-02,Valid,972,N/A,N/A,2020-12-11,21
+1,OK,Available,None,Light off-road,Iceland,3,Elijah,6927181,Ava@nan.is,LucasTown 7,None,4,nuuk,nuuk,N/A,N/A,N/A,N/A,2020-01-01,2020-02-02,Valid,972,N/A,N/A,2020-12-11,22
+3,OK,Available,Drivers licence,Light off-road,Iceland,2,Isabella,8806095,Elijah@nan.is,MiaTown 29,Drivers licence,2,nuuk,nuuk,N/A,N/A,N/A,N/A,2020-01-01,2020-02-02,Valid,972,N/A,N/A,2020-12-11,23
+2,OK,Available,None,Light off-road,Iceland,3,Elijah,6927181,Ava@nan.is,LucasTown 7,None,3,nuuk,nuuk,N/A,N/A,N/A,N/A,2020-01-01,2020-02-02,Valid,972,N/A,N/A,2020-12-11,24
+2,OK,Available,None,Light off-road,Iceland,3,Elijah,6927181,Ava@nan.is,LucasTown 7,None,3,nuuk,reykjavik,N/A,N/A,N/A,N/A,2020-01-01,2020-02-02,Valid,972,N/A,N/A,2020-12-11,25
+2,OK,Available,None,Light off-road,Iceland,3,Elijah,6927181,Ava@nan.is,LucasTown 7,None,3,reykjavikl,reykjavik,N/A,N/A,N/A,N/A,2020-01-01,2020-02-02,Valid,972,N/A,N/A,2020-12-11,26
+5,OK,Available,None,Medium off-road,Iceland,3,Elijah,6927181,Ava@nan.is,LucasTown 7,None,3,nuuk,nuuk,N/A,N/A,N/A,N/A,2020-01-01,2020-02-02,Valid,940,N/A,N/A,2020-12-11,27
